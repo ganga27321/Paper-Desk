@@ -50,7 +50,7 @@
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 262.72524892472575
+    "last": 260.9862342327833
    },
    {
     "id": "o4",
@@ -67,12 +67,12 @@
     "why": "[Earnings gap-and-hold] MGNI reported 2026-11-04 (beat by 17%), gapped +13.0% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$36.11, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market.",
     "source": "autopilot",
     "meta": {},
-    "high": 39.19265273330939,
+    "high": 39.44497017108233,
     "low": 39.0349800241238,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 39.27245364788473
+    "last": 38.55650757850799
    },
    {
     "id": "o3",
@@ -94,7 +94,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 71.41470767585906
+    "last": 71.64374422321362
    },
    {
     "id": "o2",
@@ -111,20 +111,20 @@
     "why": "[Earnings gap-and-hold] XERS reported 2026-11-05 (beat by 125%), gapped +19.6% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$17.28, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market.",
     "source": "autopilot",
     "meta": {},
-    "high": 19.81499688106919,
+    "high": 20.152614804353334,
     "low": 19.81499688106919,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 19.650317102387817
+    "last": 19.74363946914673
    }
   ],
   "pending": [],
   "last_bar": {
-   "ABNB": "2026-11-06T15:10:00",
-   "MGNI": "2026-11-06T15:10:00",
-   "U": "2026-11-06T15:10:00",
-   "XERS": "2026-11-06T15:10:00"
+   "ABNB": "2026-11-06T15:25:00",
+   "MGNI": "2026-11-06T15:25:00",
+   "U": "2026-11-06T15:25:00",
+   "XERS": "2026-11-06T15:25:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -139,7 +139,7 @@
   "seq": 4,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2945.0404196318045,
+  "equity_last": 2934.0978159602055,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -227,7 +227,7 @@
    }
   ],
   "last_bar": {
-   "GC=F": "2026-11-06T15:05:00"
+   "GC=F": "2026-11-06T15:20:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -311,7 +311,7 @@
   ],
   "pending": [],
   "last_bar": {
-   "CASH.TO": "2026-11-06T15:10:00"
+   "CASH.TO": "2026-11-06T15:25:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -359,7 +359,7 @@
     },
     "high": 107239.42414370924,
     "low": 106393.44348295778,
-    "last": 106423.96907095984,
+    "last": 106220.36167308316,
     "init_stop": 79795.08261222
    },
    {
@@ -382,7 +382,7 @@
     },
     "high": 3162.2901176810265,
     "low": 3134.2220601756126,
-    "last": 3134.200931602274,
+    "last": 3122.2167414475116,
     "init_stop": 2350.66654513
    },
    {
@@ -405,7 +405,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.398973025426244,
+    "last": 15.329525626438908,
     "init_stop": 10.65203463
    },
    {
@@ -428,7 +428,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 127.79400107490801,
+    "last": 127.29006719015342,
     "init_stop": 88.10529987
    },
    {
@@ -451,17 +451,17 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.6713690745887106,
+    "last": 1.6673503130905658,
     "init_stop": 1.1843018
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-06T15:10:00",
-   "ETH-USD": "2026-11-06T15:10:00",
-   "LINK-USD": "2026-11-06T15:10:00",
-   "SOL-USD": "2026-11-06T15:10:00",
-   "XRP-USD": "2026-11-06T15:10:00"
+   "BTC-USD": "2026-11-06T15:25:00",
+   "ETH-USD": "2026-11-06T15:25:00",
+   "LINK-USD": "2026-11-06T15:25:00",
+   "SOL-USD": "2026-11-06T15:25:00",
+   "XRP-USD": "2026-11-06T15:25:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -476,7 +476,7 @@
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2992.2841917099922,
+  "equity_last": 2986.3272019511287,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": []

@@ -117,3 +117,22 @@ def test_scales_change_rules_and_history():
     assert settings.sector_mult("swing", "Energy") == 1.0
     settings.apply("swing", {"sectors": {"Energy": 0}}, "test", "you")
     assert settings.sector_mult("swing", "Energy") == 0.0
+
+
+def test_guards_halt_trader_and_council_levels():
+    from papertrade import run
+    plan = {"levels": {"XYZ": {"stop": 9.0, "no_buy_above": 12}, "ABC.TO": {"stop": 20}},
+            "limits": {"swing": {"max_day_loss_pct": 2}}}
+    lv = run._levels(plan, 1.4)
+    assert lv["XYZ"]["stop"] == pytest.approx(12.6) and lv["ABC.TO"]["stop"] == 20   # US levels converted to C$
+    assert run._limits("swing", plan)["max_day_loss_pct"] == 2
+    assert run._limits("options_safe", None)["max_day_loss_pct"] == 3
+
+
+def test_plan_without_stop_is_rejected(tmp_path):
+    import json
+    from papertrade import meeting
+    p = tmp_path / "plan.json"
+    p.write_text(json.dumps({"date": "2026-11-09", "market_view": "x", "tabled": [], "levels": {"NVDA": {"target": 1}},
+                             "traders": {"swing": {"orders": [{"symbol": "AMD", "why": "x"}]}}}))
+    assert not meeting.validate(p)

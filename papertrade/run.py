@@ -1,4 +1,5 @@
 """One Paper Desk cycle: fills and exits on new bars, new decisions, marking, summary for the dashboard."""
+import csv
 import datetime as dt
 import json
 
@@ -63,6 +64,22 @@ def _syms(a):
     return {x["meta"].get("yahoo", x["symbol"]) for x in a["positions"] + a["pending"] if x["kind"] != "option"}
 
 
+def _levels(plan, fx):
+    """Council levels from the morning plan, in C$: {symbol: {"stop", "target", "no_buy_above"}}."""
+    out = {}
+    for sym, lv in (plan or {}).get("levels", {}).items():
+        k = 1 if sym.endswith(CA) else fx
+        out[sym] = {f: float(lv[f]) * k for f in ("stop", "target", "no_buy_above") if lv.get(f) not in (None, "")}
+    return out
+
+
+def _limits(tid, plan):
+    lim = dict(core.CFG.get("guards", {}).get("default", {}))
+    lim.update(core.CFG.get("guards", {}).get(tid, {}))
+    lim.update(((plan or {}).get("limits") or {}).get(tid, {}))
+    return lim
+
+
 def cycle(only=None):
     now = core.utcnow()
     tny = core.ny(now)
@@ -80,7 +97,7 @@ def cycle(only=None):
     for tid in tids:
         a = acc[tid]
         if a["day"]["date"] != date:
-            a["day"] = {"date": date, "trades": 0}
+            a["day"] = {"date": date, "trades": 0, "start_eq": a.get("equity_last") or core.CFG["traders"][tid]["capital"]}
         if a["week"]["key"] != week:
             a["week"] = {"key": week, "trades": 0}
     allsyms = set().union(*[_syms(acc[t]) for t in tids])
@@ -90,6 +107,9 @@ def cycle(only=None):
                 "prices": prices, "tnx_5d": _tnx_5d(), "report_rows": _report_rows(fx),
                 "tabled_rows": list(pre.get("tabled", {}).values()), "fx": fx}
     equity_rows = []
+    levels = _levels(plan, fx)
+    n_trades0 = len(core.read_trades())
+    alerts = []
     for tid in tids:
         a = acc[tid]
         _, eq = engine.mark(a, prices)
@@ -109,11 +129,28 @@ def cycle(only=None):
                 engine.close_position(tid, a, p, prices.get(p["meta"]["yahoo"], p["entry"]), "margin call: liquidated", eq)
             pv, eq = engine.mark(a, prices)
         ctx = {**ctx_base, "equity": eq}
+        lim = _limits(tid, plan)
+        for p in a["positions"]:  # the council's stop is a floor for every long on that symbol
+            lv = levels.get(p["meta"].get("yahoo", p["symbol"])) or levels.get(p["symbol"])
+            if lv and lv.get("stop") and p.get("side", "long") == "long" and p["kind"] != "option" and lv["stop"] > (p.get("stop") or 0):
+                p["stop"] = lv["stop"]
+        start_eq = a["day"].get("start_eq") or eq
+        max_loss = lim.get("max_day_loss_pct")
+        if max_loss and not a["day"].get("halted") and eq < start_eq * (1 - max_loss / 100):
+            a["day"]["halted"] = f"day loss {eq / start_eq - 1:.1%} hit the {max_loss}% limit"
+            a["pending"] = [o for o in a["pending"] if o["kind"] == "option" and o.get("action") != "BUY_TO_OPEN"]
+            core.log("halt", trader=tid, reason=a["day"]["halted"])
+            alerts.append(f"⛔ {core.CFG['traders'][tid]['name']}: stopped for the day ({a['day']['halted']})")
         proposals = []
-        try:
-            proposals = plan_orders(tid, a, ctx) + RULEBOOK[tid](tid, a, ctx)
-        except Exception as e:  # one trader's bad day never stops the others
-            core.log("error", trader=tid, error=repr(e)[:300])
+        if a["day"].get("halted"):
+            pass
+        elif lim.get("max_trades_day") and a["day"]["trades"] >= lim["max_trades_day"]:
+            pass
+        else:
+            try:
+                proposals = plan_orders(tid, a, ctx) + RULEBOOK[tid](tid, a, ctx)
+            except Exception as e:  # one trader's bad day never stops the others
+                core.log("error", trader=tid, error=repr(e)[:300])
         for o in proposals:
             if "close" in o:
                 for p in a["positions"]:
@@ -123,6 +160,14 @@ def cycle(only=None):
             why_not = core.tfsa_check(tid, o)
             ysym = o["meta"].get("yahoo", o["symbol"])
             est = o.get("price") or prices.get(ysym) or ((data.last_price(ysym) or 0) * (1 if ysym.endswith(CA) else fx))
+            lv = levels.get(ysym) or levels.get(o["symbol"])
+            if lv and o["kind"] != "option" and o.get("side", "long") == "long":
+                if lv.get("no_buy_above") and est and est > lv["no_buy_above"]:
+                    why_not = why_not or "above the council's no-buy level"
+                if lv.get("stop") and lv["stop"] > (o.get("stop") or 0):
+                    o["stop"] = lv["stop"]
+            if not why_not and o["kind"] in ("stock", "future", "crypto") and not o.get("stop"):
+                why_not = "no stop loss"
             if not why_not and o["kind"] in ("stock", "crypto") and o.get("side", "long") == "long":
                 bp = engine.buying_power(a)
                 if o["qty"] * est > bp:
@@ -142,7 +187,48 @@ def cycle(only=None):
         equity_rows.append((tid, a["cash"], pv, eq))
     core.append_equity(now.isoformat() + "Z", equity_rows)
     core.save_accounts(acc)
+    live_update(core.read_trades()[n_trades0:], alerts, tny)
     return equity_rows
+
+
+def live_update(new, alerts, tny):
+    """One phone note per run with every fill, stop, target and halt (nothing sent when nothing happened)."""
+    if not new and not alerts:
+        return
+    T = core.CFG["traders"]
+    lines = list(alerts)
+    for t in new:
+        pnl = f" · P/L C${float(t['pnl']):+,.0f}" if t.get("pnl") not in ("", None) else ""
+        lines.append(f"{T.get(t['trader'], {}).get('name', t['trader'])}: {t['action'].lower()} {float(t['qty']):g} {t['symbol']} "
+                     f"@ {float(t['price']):,.4g}{pnl} - {t.get('why', '')[:90]}")
+    from . import notify
+    notify.send(f"Paper Desk {tny:%H:%M} · {len(new)} trade{'s' * (len(new) != 1)}", "\n".join(lines)[:3500],
+                buttons=(("Dashboard", ""),), url=core.CFG.get("site_url", ""), tags=("robot",))
+
+
+def scoreboard():
+    """Closing note: each trader's day and week in C$."""
+    acc = core.load_accounts()
+    tny = core.ny()
+    eq = {}
+    p = core.STATE / "equity.csv"
+    rows = list(csv.DictReader(p.open())) if p.exists() else []
+    today = tny.date().isoformat()
+    lines = []
+    for tid, t in core.CFG["traders"].items():
+        mine = [r for r in rows if r["trader"] == tid]
+        if not mine:
+            continue
+        last = float(mine[-1]["equity"])
+        start = acc[tid]["day"].get("start_eq") or last
+        n = sum(1 for r in core.read_trades() if r["trader"] == tid and r["ts"][:10] == today)
+        halted = " ⛔" if acc[tid]["day"].get("halted") else ""
+        eq[tid] = last
+        lines.append(f"{t['name']:<5} C${last:,.0f}  day {last - start:+,.0f}  trades {n}{halted}")
+    lines.sort(key=lambda s: -float(s.split("day ")[1].split()[0].replace(",", "")))
+    from . import notify
+    notify.send(f"Paper Desk close {today}", "\n".join(lines) + "\n\nPaper money only.", buttons=(("Dashboard", ""),),
+                url=core.CFG.get("site_url", ""), tags=("checkered_flag",))
 
 
 def scan(kind):

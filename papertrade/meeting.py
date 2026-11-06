@@ -57,7 +57,7 @@ def context():
     out = {"now_ny": core.ny().isoformat(timespec="minutes"), "market": snap, "traders": traders,
            "feed_updated": feed.get("updated"),
            "council_latest": feed.get("council", {}),
-           "council_focus": feed.get("focus", []),
+           "council_desk_list": feed.get("desk_list", []),
            "reports_market": feed.get("market", []),
            "reports_insights": feed.get("insights", []),
            "scanner_lists_previous": {k: [x["symbol"] for x in v[:15]] for k, v in pre.get("lists", {}).items()},
@@ -100,9 +100,17 @@ def validate(path):
                 errs.append(f"{tid} order {i}: needs symbol and why")
             fake = {"kind": o.get("kind", "stock"), "side": o.get("side", "long"), "action": o.get("action"),
                     "right": o.get("right"), "qty": o.get("qty", 1), "covered": o.get("covered"), "cash_secured": o.get("cash_secured")}
+            if fake["kind"] in ("stock", "future", "crypto") and o.get("stop") in (None, ""):
+                errs.append(f"{tid} order {i} ({o.get('symbol')}): needs a stop loss")
             r = core.tfsa_check(tid, fake)
             if r:
                 errs.append(f"{tid} order {i} ({o.get('symbol')}): {r}")
+    for sym, lv in (p.get("levels") or {}).items():
+        if not isinstance(lv, dict) or not lv.get("stop"):
+            errs.append(f"levels {sym}: needs at least a stop")
+    for tid, lim in (p.get("limits") or {}).items():
+        if tid not in T or not isinstance(lim, dict):
+            errs.append(f"limits: bad entry {tid}")
     for e in errs:
         print("PLAN:", e)
     return not errs

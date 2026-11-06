@@ -87,6 +87,9 @@ jobs:
       - name: Cycle
         run: |
           if [ "${{ steps.mode.outputs.mode }}" = crypto ]; then python -m papertrade cycle --only futures,crypto; else python -m papertrade cycle; fi
+      - name: Closing scoreboard (4:05 PM ET)
+        if: github.event.schedule == '5 21 * * 1-5'
+        run: python -m papertrade scoreboard
       - name: Weekly PDF
         if: steps.mode.outputs.mode == 'weekly'
         run: |

@@ -243,8 +243,10 @@ def long(tid, a, ctx):
         if qty < 1:
             continue
         why = (f"{name}: revenue {g:+.0%}, operating margin {m:.0%}, dividend {y:.1%}; bought on a pullback to its rising "
-               f"50-day average ({last / s50 - 1:+.1%}). Held for the long term; reviewed each quarter after earnings.")
-        out.append(order(a, "stock", s, qty, why, meta={"yahoo": s, "fx": s.endswith(".TO")}, valid_hours=8))
+               f"50-day average ({last / s50 - 1:+.1%}). Held for the long term; reviewed each quarter after earnings. "
+               f"Safety stop {r.get('stop_pct', 18):g}% below.")
+        out.append(order(a, "stock", s, qty, why, stop=round(px * (1 - r.get("stop_pct", 18) / 100), 2),
+                         meta={"yahoo": s, "fx": s.endswith(".TO")}, valid_hours=8))
     return out
 
 
@@ -419,6 +421,7 @@ def crypto(tid, a, ctx):
         if c not in px or usd < 10:
             return
         q = round(min(usd, buying_power(a)) / px[c], 8)
+        stop = stop if stop else -abs(r.get(f"{bucket}_stop_pct", 30))  # every coin gets a stop; long-term buckets get a wide one
         if q <= 0:
             return
         out.append(order(a, "crypto", c, q, why, stop=round(px[c] * (1 + stop / 100), 8) if stop else None,

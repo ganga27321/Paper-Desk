@@ -21,6 +21,14 @@ fallback_universe: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, AVGO, TSM, AMD, N
                     XOM, CVX, COST, WMT, HD, NKE, DIS, BA, CAT, DE, GE, PLTR, SOFI, COIN, MSTR, SHOP, UBER, ABNB,
                     RY.TO, TD.TO, BNS.TO, ENB.TO, CNQ.TO, SU.TO, SHOP.TO, CNR.TO, CP.TO, BCE.TO, ATD.TO, CSU.TO]
 base_currency: CAD
+# Guards the engine enforces on every run (the morning plan can tighten them per trader with "limits").
+# max_day_loss_pct: when equity falls this far below the day's start, that trader stops opening trades for the day.
+guards:
+  default: {max_day_loss_pct: 10}
+  day: {max_day_loss_pct: 12}
+  options_aggr: {max_day_loss_pct: 25}
+  options_safe: {max_day_loss_pct: 3}
+  crypto: {max_day_loss_pct: 12}
 weekly_bonus: 200          # C$ added to the biggest earner of the week, after Friday's close
 fees:
   stock: 0.0            # Questrade: $0 commission on stocks/ETFs
@@ -63,10 +71,10 @@ traders:
     tfsa: true
     account: Wealthsimple
     capital: 3000
-    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02,
+    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02, stop_pct: 18,
             review: quarterly, us_dividend_withholding: 0.15}
     scales: {aggression: 7, frequency: 3, holding: 10, deployment: 10, stop_width: 8, target: 9}
-    scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max]}
+    scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max], stop_width: [stop_pct]}
   futures:
     name: Fox
     title: Futures & metals
@@ -119,6 +127,7 @@ traders:
       news: {pct: 20, coins: [SOL-USD, XRP-USD, LINK-USD, AVAX-USD, ADA-USD, DOGE-USD]}
       meme: {pct: 15, coins: [DOGE-USD, SHIB-USD, PEPE24478-USD, BONK-USD]}
       growth: {pct: 25, coins: [XRP-USD, SOL-USD, LINK-USD, ADA-USD, AVAX-USD, SUI20947-USD]}
-    rules: {meme_stop_pct: -20, meme_take_pct: 40, news_stop_pct: -10, news_take_pct: 20, rebalance_drift: 0.25}
+    rules: {meme_stop_pct: -20, meme_take_pct: 40, news_stop_pct: -10, news_take_pct: 20, rebalance_drift: 0.25,
+            core_stop_pct: -25, growth_stop_pct: -30}
     scales: {aggression: 8, frequency: 6, holding: 6, deployment: 10, stop_width: 5, target: 6}
-    scale_map: {stop_width: [meme_stop_pct, news_stop_pct], target: [meme_take_pct, news_take_pct]}
+    scale_map: {stop_width: [meme_stop_pct, news_stop_pct, core_stop_pct, growth_stop_pct], target: [meme_take_pct, news_take_pct]}

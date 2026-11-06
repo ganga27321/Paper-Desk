@@ -31,6 +31,9 @@ def main(argv):
     elif cmd == "site":
         from .site import build
         print(build())
+    elif cmd == "scoreboard":
+        from .run import scoreboard
+        scoreboard()
     elif cmd == "review":  # Saturday council: apply review + bonus + PDF
         from .weekly import review
         print(review(argv[1] if len(argv) > 1 else None))

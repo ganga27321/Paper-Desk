@@ -16,13 +16,25 @@ dashboard. The scanner runs right after, focused on the tickers the meeting tabl
    `reports_insights`), yesterday's scanner lists and yesterday's plan.
 4. Quick news check (WebSearch, 2-3 searches): pre-market movers, macro events today (jobs, CPI, Fed, earnings),
    crypto and gold headlines.
-5. Hold the meeting: each trader speaks in character (see `traders.yaml`: style, rules, tfsa). They can cite the
+5. Set the day's guardrails (the bots trade alone all day inside them, no Claude needed):
+   - `levels`: for every ticker on `council_desk_list` (the morning council's list) and any ticker the traders table,
+     a `stop` (required), optional `target` and `no_buy_above`, in the instrument's own currency. The engine never
+     lets a long on that symbol sit below the council stop and refuses entries above `no_buy_above`.
+   - `limits`: per trader, tighten when the market is rough: `max_day_loss_pct` (the trader stops opening trades for
+     the day once down that much), `max_trades_day`. Defaults are in `traders.yaml` `guards`.
+   - Every stock, future and crypto order needs a `stop`. Validation fails without one.
+6. Hold the meeting: each trader speaks in character (see `traders.yaml`: style, rules, tfsa). They can cite the
    council or another trader ("Sam: Lena's NVDA thesis + Vega's call idea..."). Keep it decisive.
-6. Write `papertrade/state/plans/<YYYY-MM-DD>.json` (schema below), validate with
+7. Write `papertrade/state/plans/<YYYY-MM-DD>.json` (schema below), validate with
    `python -m papertrade.meeting validate papertrade/state/plans/<date>.json`, fix anything it reports.
-7. Commit the plan and the feed on `paper-data` and push (`git -C papertrade/state add plans feed.json && git -C
+8. Commit the plan and the feed on `paper-data` and push (`git -C papertrade/state add plans feed.json && git -C
    papertrade/state commit -m "Plan <date>" && git -C papertrade/state push origin HEAD:paper-data`). That push
    shares the plan on ntfy and starts the scanner and the first engine cycle (paper-desk.yml).
+
+## During the day (no Claude)
+GitHub runs the desk every 15 minutes in market hours (crypto and futures every 2 hours): fills on new bars, stops and
+targets, time stops, the day-loss halt, new autopilot entries inside the morning's levels and limits. Every run that
+trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the closing scoreboard.
 
 ## The week's rhythm
 - **Weekdays:** this 7 AM meeting (plan only; no scale changes here).
@@ -49,6 +61,8 @@ dashboard. The scanner runs right after, focused on the tickers the meeting tabl
  "date": "2026-11-09",
  "market_view": "2-3 sentences: what matters today",
  "tabled": ["NVDA", "SOUN", "GC=F"],
+ "levels": {"NVDA": {"stop": 168, "target": 205, "no_buy_above": 190}, "GC=F": {"stop": 3950}},
+ "limits": {"day": {"max_day_loss_pct": 8, "max_trades_day": 4}, "options_aggr": {"max_day_loss_pct": 20}},
  "shared_notes": ["Council says...", "Sam and Vega agree on..."],
  "traders": {
   "day":   {"view": "...", "watch": ["SOUN", "RGTI"],

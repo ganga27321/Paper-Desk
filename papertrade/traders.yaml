@@ -75,6 +75,10 @@ traders:
             review: quarterly, us_dividend_withholding: 0.15}
     scales: {aggression: 7, frequency: 3, holding: 10, deployment: 10, stop_width: 8, target: 9}
     scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max], stop_width: [stop_pct]}
+    # growth companies that pay or grow dividends (US + TSX); the scanner's uptrend pullbacks are added each Monday
+    universe: [MSFT, AAPL, AVGO, TSM, ASML, LLY, NVO, COST, V, MA, JPM, HD, LOW, UNH, ABBV, MRK, TXN, QCOM, ADP, INTU,
+               CAT, DE, ETN, PH, GWW, ORCL, SBUX, NKE, MCD, KO, PEP, PG, BLK, SPGI, MSCI, CME, ICE, AMAT, LRCX, KLAC,
+               CSU.TO, ATD.TO, CNR.TO, CP.TO, WCN.TO, TRI.TO, RY.TO, TD.TO, BAM.TO, BN.TO, DOL.TO, L.TO, FNV.TO, WSP.TO]
   futures:
     name: Fox
     title: Futures & metals
@@ -111,7 +115,8 @@ traders:
     account: Questrade
     capital: 3000
     rules: {dte_min: 25, dte_max: 50, put_otm_pct: 0.07, call_otm_pct: 0.05, take_profit_pct: 50,
-            max_strike: 20, universe: [PFE, KO, F, T, INTC, KMI, VZ, BAC, HPQ, NU, KHC, WBD, AAL, CCL, SOFI]}
+            max_strike: 20, cash_etf: CASH.TO, min_dollar_vol: 50000000,
+            universe: [PFE, F, T, KMI, HPQ, NU, KHC, WBD, AAL, CCL, SOFI, GOLD, KGC, VALE, ITUB, BBD, RIG, SNAP, PLUG, LUMN, AGNC, RKT, HBAN, KEY, CNH]}
     scales: {aggression: 3, frequency: 3, holding: 6, deployment: 8, stop_width: 6, target: 4}
     scale_map: {aggression: [put_otm_pct], holding: [dte_min, dte_max], target: [take_profit_pct]}
   crypto:

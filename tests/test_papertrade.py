@@ -136,3 +136,19 @@ def test_plan_without_stop_is_rejected(tmp_path):
     p.write_text(json.dumps({"date": "2026-11-09", "market_view": "x", "tabled": [], "levels": {"NVDA": {"target": 1}},
                              "traders": {"swing": {"orders": [{"symbol": "AMD", "why": "x"}]}}}))
     assert not meeting.validate(p)
+
+
+def test_one_minute_bars_fill_without_waiting_five_minutes():
+    a = core.load_accounts()["day"]
+    a["pending"] = [order(created="2026-11-09T14:59:00")]
+    t0 = pd.Timestamp("2026-11-09 15:00")
+    b = pd.DataFrame([[9.9, 10.05, 9.9, 10.02, 1], [10.02, 10.1, 10.0, 10.08, 1]], columns=["open", "high", "low", "close", "volume"],
+                     index=[t0, t0 + pd.Timedelta(minutes=1)])
+    engine.replay("day", a, {"XYZ": b}, 3000, dt.datetime(2026, 11, 9, 15, 2))   # 2 minutes in: both 1-min bars are complete
+    assert a["positions"] and a["positions"][0]["entry"] == 10.0
+
+
+def test_dax_every_run_others_every_15_minutes():
+    from papertrade import run
+    assert run.due() is None            # first run of the day: everyone
+    assert run.due() == ["day"]         # 5 minutes later: Dax only

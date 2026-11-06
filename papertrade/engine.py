@@ -6,13 +6,24 @@ Stop and target in the same bar: the stop is assumed to hit first (the cautious 
 """
 import datetime as dt
 
+import pandas as pd
+
 from . import core, data, settings
 
 MULT_OPTION = 100
 
 
-def _bar_end(ts):
-    return ts + dt.timedelta(minutes=5)
+def _bar_end(ts, width=dt.timedelta(minutes=5)):
+    return ts + width
+
+
+def _width(df):
+    """Bar width from the data itself (1-minute bars for Dax, 5-minute for the others)."""
+    if len(df) > 1:
+        w = (df.index[1:] - df.index[:-1]).min()
+        if pd.notna(w) and w > dt.timedelta(0):
+            return min(w.to_pytimedelta(), dt.timedelta(minutes=5))
+    return dt.timedelta(minutes=5)
 
 
 def _in_session(trader_id, bar_start_utc):
@@ -166,9 +177,10 @@ def replay(tid, a, bars_by_sym, equity, now):
             continue
         last = a["last_bar"].get(sym)
         last = dt.datetime.fromisoformat(last) if last else None
+        width = _width(df)
         for ts, b in df.iterrows():
             ts = ts.to_pydatetime()
-            if (last and ts <= last) or _bar_end(ts) > now:
+            if (last and ts <= last) or _bar_end(ts, width) > now:
                 continue  # already seen, or still forming
             a["last_bar"][sym] = ts.isoformat()
             if not _in_session(tid, ts):

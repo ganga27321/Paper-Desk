@@ -9,6 +9,9 @@ def main(argv):
     only = None
     if "--only" in argv:
         only = argv[argv.index("--only") + 1].split(",")
+    if cmd == "cycle" and "--auto" in argv:  # every 5 min: Dax always, everyone else when ~15 min have passed
+        from .run import due
+        only = due()
     if cmd == "cycle":
         from .run import cycle
         for tid, cash, pv, eq in cycle(only):

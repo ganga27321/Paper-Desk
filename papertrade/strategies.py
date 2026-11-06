@@ -160,7 +160,8 @@ def swing(tid, a, ctx):
     if not core.market_open_at(t) or t.time() < dt.time(9, 45):
         return []
     slots = r["max_positions"] - len(a["positions"]) - len(a["pending"])
-    if slots <= 0 or not _once(a, "swing_pick", ctx["date"]):
+    window = "am" if t.time() < dt.time(13, 0) else "pm"
+    if slots <= 0 or not _once(a, f"swing_pick_{window}", ctx["date"]):
         return []
     tnx = ctx.get("tnx_5d")
     rate_note = "" if tnx is None else (f" 10-yr yield {tnx:+.2f} pts in 5 days" +
@@ -212,9 +213,8 @@ def long(tid, a, ctx):
     slots = r["max_positions"] - len(a["positions"]) - len(a["pending"])
     if slots <= 0:
         return out
-    cfg = __import__("papertrade.scanner", fromlist=["x"]).yaml_cfg()
-    pool = list(dict.fromkeys([x["symbol"] for x in ctx.get("tabled_rows", [])] + cfg["universe"]["growth"] +
-                              cfg["universe"]["stocks"] + cfg["growth_screen"]["tsx"]))
+    pool = list(dict.fromkeys([x["symbol"] for x in ctx.get("tabled_rows", [])] + T[tid].get("universe", []) +
+                              [x["symbol"] for x in _scan(ctx, "pullback_uptrend")[:20]]))
     d = data.daily(pool, "1y")
     scored = []
     for s in pool:
@@ -231,7 +231,7 @@ def long(tid, a, ctx):
     for s, last, s50 in scored[:40]:
         i = data.info(s)
         g, m, y = i.get("revenueGrowth") or 0, i.get("operatingMargins") or 0, (i.get("dividendYield") or 0) / 100
-        if g >= r["min_revenue_growth"] and m >= r["min_operating_margin"]:
+        if r["min_revenue_growth"] <= g <= 1.5 and m >= r["min_operating_margin"] and (i.get("marketCap") or 0) >= 3e9:
             sm = settings.sector_mult(tid, i.get("sector"))
             if sm > 0:
                 best.append(((g + m / 2 + y * 3 + (0.05 if y > 0 else 0)) * sm, s, last, s50, g, m, y, i.get("shortName", s)))
@@ -368,7 +368,7 @@ def options_safe(tid, a, ctx):
     calls = {p["meta"]["underlying"] for p in a["positions"] if p["kind"] == "option" and p["meta"]["right"] == "C"}
     out = []
     for s in stocks:  # wheel step 2: covered call on assigned shares
-        if s["symbol"] in calls or s["qty"] < 100:
+        if s["symbol"] in calls or s["qty"] < 100 or s["symbol"] == r.get("cash_etf"):
             continue
         why = (f"Wheel step 2: own {s['qty']:g} {s['symbol']} (cost ${s['entry']:.2f}); sell the {{exp}} ${{strike:g}} covered call "
                f"for ${{prem:.2f}} a share. Keep the premium; shares are sold at the strike if it closes above.")
@@ -376,12 +376,21 @@ def options_safe(tid, a, ctx):
                          contracts=int(s["qty"] // 100))
         if o:
             out.append(o)
+    park = r.get("cash_etf", "CASH.TO")
+    parked = [p for p in stocks if p["symbol"] == park]
+    stocks = [p for p in stocks if p["symbol"] != park]
     if any(p["kind"] == "option" and p["meta"]["right"] == "P" for p in a["positions"]) or stocks:
         return out
-    pool = [x["symbol"] for x in ctx.get("tabled_rows", []) if x["price"] <= r["max_strike"] * 1.1] + r["universe"]
+    fx = ctx["fx"]
+    cheap = [x["symbol"] for x in _scan(ctx, "pullback_uptrend") + _scan(ctx, "breakout_20d")
+             if not x["symbol"].endswith(CA) and x["price"] / fx <= r["max_strike"] / (1 - r["put_otm_pct"])
+             and x.get("dollar_vol", 0) >= r.get("min_dollar_vol", 5e7)]
+    pool = list(dict.fromkeys([x["symbol"] for x in ctx.get("tabled_rows", []) if x["price"] / fx <= r["max_strike"] * 1.1]
+                              + r["universe"] + cheap))
     d = data.daily(pool, "1y")
     best = None
-    for s in pool[:10]:
+    cash_avail = buying_power(a) + sum(p["qty"] * ctx["prices"].get(park, p["entry"]) for p in parked)
+    for s in [s for s in pool if s in d][:25]:
         df = d.get(s)
         if df is None or len(df) < 200:
             continue
@@ -390,11 +399,23 @@ def options_safe(tid, a, ctx):
             continue
         exp = data.pick_expiry(s, r["dte_min"], r["dte_max"], t.date())
         c = data.pick_contract(s, exp, "P", last * (1 - r["put_otm_pct"])) if exp else None
-        if not c or c["bid"] <= 0 or c["strike"] * 100 * ctx["fx"] > buying_power(a):
+        if not c or c["bid"] <= 0 or c["strike"] * 100 * ctx["fx"] > cash_avail:
             continue
         yld = c["bid"] / c["strike"]
         if not best or yld > best[0]:
-            best = (yld, s)
+            best = (yld, s, c["strike"] * 100 * ctx["fx"])
+    if best and parked and best[2] > buying_power(a):  # free the parked cash first; the put goes on next run
+        for p in parked:
+            out.append({"close": p["id"], "why": f"Selling the {park} cash parking to secure a put on {best[1]}"})
+        return out
+    if not best and not parked and _once(a, "os_park", ctx["date"]):
+        px = ctx["prices"].get(park) or data.last_price(park)
+        q = core.whole(buying_power(a) * 0.98 / px) if px else 0
+        if q >= 1:
+            out.append(order(a, "stock", park, q, f"No cash-secured put qualifies today (needs a stock under US${r['max_strike']} "
+                             f"above its 200-day). Idle cash parked in {park}, a high-interest savings ETF, until one does.",
+                             stop=round(px * 0.97, 2), meta={"yahoo": park}, valid_hours=8))
+        return out
     if best:
         why = ("Wheel step 1: {underlying} is above its 200-day; sell the {exp} ${strike:g} cash-secured put for ${prem:.2f} "
                "(stock ${px:.2f}). ${strike:g} x 100 held in cash. If it closes below the strike we buy 100 shares there.")
@@ -413,9 +434,14 @@ def crypto(tid, a, ctx):
     d = data.daily(coins, "3mo")
     mom = {c: float(df["close"].iloc[-1] / df["close"].iloc[-4] - 1) for c, df in d.items() if len(df) > 30}
     m30 = {c: float(df["close"].iloc[-1] / df["close"].iloc[-31] - 1) for c, df in d.items() if len(df) > 31}
+    up20 = {c for c, df in d.items() if len(df) > 20 and df["close"].iloc[-1] > df["close"].rolling(20).mean().iloc[-1]}
     px = {c: float(df["close"].iloc[-1]) * ctx["fx"] for c, df in d.items()}
     out = []
     bucket_of = lambda p: p.get("meta", {}).get("bucket")
+    for p in a["positions"]:  # coins bought before stops were required get their bucket's stop
+        if p["kind"] == "crypto" and not p.get("stop"):
+            p["stop"] = round(p["entry"] * (1 - abs(r.get(f"{bucket_of(p)}_stop_pct", 30)) / 100), 8)
+            core.log("stop_set", trader=tid, symbol=p["symbol"], stop=p["stop"], reason="every position carries a stop")
 
     def buy(c, usd, why, bucket, stop=None, take=None):
         if c not in px or usd < 10:
@@ -436,7 +462,9 @@ def crypto(tid, a, ctx):
                 buy(c, want - have, f"Core bucket ({b['core']['pct']}%): hold {c.split('-')[0]} long term; top up to {w:.0%} of the core.", "core")
         growth_held = [p for p in a["positions"] if bucket_of(p) == "growth"]
         if not growth_held:
-            top = sorted([c for c in b["growth"]["coins"] if c in m30], key=lambda c: -m30[c])[:3]
+            top = sorted([c for c in b["growth"]["coins"] if c in m30 and c in up20], key=lambda c: -m30[c])[:3]
+            if not top:
+                core.log("skip", trader=tid, symbol="growth bucket", reason="no growth coin above its 20-day average; cash waits")
             for c in top:
                 buy(c, eq * b["growth"]["pct"] / 100 / 3, f"Growth bucket: {c.split('-')[0]} has the best 30-day trend "
                     f"({m30[c]:+.0%}) of the growth coins; held, rotated monthly.", "growth")

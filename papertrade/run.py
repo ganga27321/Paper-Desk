@@ -52,8 +52,8 @@ def _tnx_5d():
     return float(d["close"].iloc[-1] - d["close"].iloc[-6]) if d is not None and len(d) > 6 else None
 
 
-def _bars_cad(syms, fx):
-    b = data.bars(syms, "5m", "5d")
+def _bars_cad(syms, fx, interval="5m", period="5d"):
+    b = data.bars(syms, interval, period)
     for s in list(b):
         if not s.endswith(CA):
             b[s] = b[s].assign(**{c: b[s][c] * fx for c in ("open", "high", "low", "close")})
@@ -80,6 +80,21 @@ def _limits(tid, plan):
     return lim
 
 
+def due(every_min=14):
+    """Dax (day trader) runs every 5 minutes; the other six only when their last full run is ~15 minutes old."""
+    p = core.STATE / "last_full_cycle.txt"
+    now = core.utcnow()
+    try:
+        last = dt.datetime.fromisoformat(p.read_text().strip())
+    except Exception:
+        last = None
+    if last is None or (now - last).total_seconds() >= every_min * 60:
+        core.STATE.mkdir(parents=True, exist_ok=True)
+        p.write_text(now.isoformat())
+        return None
+    return ["day"]
+
+
 def cycle(only=None):
     now = core.utcnow()
     tny = core.ny(now)
@@ -100,9 +115,10 @@ def cycle(only=None):
             a["day"] = {"date": date, "trades": 0, "start_eq": a.get("equity_last") or core.CFG["traders"][tid]["capital"]}
         if a["week"]["key"] != week:
             a["week"] = {"key": week, "trades": 0}
-    allsyms = set().union(*[_syms(acc[t]) for t in tids])
+    allsyms = set().union(*[_syms(acc[t]) for t in tids if t != "day"])
     bars = _bars_cad(sorted(allsyms), fx)
-    prices = {s: float(df["close"].iloc[-1]) for s, df in bars.items()}
+    day_bars = _bars_cad(sorted(_syms(acc["day"])), fx, "1m", "2d") if "day" in tids else {}  # Dax: 1-minute bars
+    prices = {s: float(df["close"].iloc[-1]) for s, df in {**bars, **day_bars}.items()}
     ctx_base = {"date": date, "now_utc": now, "now_ny": tny, "plan": plan, "premarket": pre, "intraday": intr,
                 "prices": prices, "tnx_5d": _tnx_5d(), "report_rows": _report_rows(fx),
                 "tabled_rows": list(pre.get("tabled", {}).values()), "fx": fx}
@@ -114,7 +130,7 @@ def cycle(only=None):
         a = acc[tid]
         _, eq = engine.mark(a, prices)
         a["deploy_frac"], a["equity_last"] = settings.rules(tid)["deploy_frac"], eq
-        engine.replay(tid, a, bars, eq, now)
+        engine.replay(tid, a, day_bars if tid == "day" else bars, eq, now)
         if any(p["kind"] == "option" for p in a["positions"] + a["pending"]):
             engine.manage_options(tid, a, eq, tny.date())
         # expire stale orders, time stops

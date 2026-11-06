@@ -1,7 +1,7 @@
 # The Paper Desk: seven paper traders (papertrade/). Paper money only - nothing here can reach a broker.
 # State (accounts, trades, plans, scans, PDFs) lives on the paper-data branch, so main stays clean.
 #  - push to paper-data with a new plan (the 7 AM meeting) -> share the plan, full-market premarket scan, first cycle
-#  - every 15 min in market hours (+ 4:05 PM ET, which closes any day trade) -> intraday scan + cycle (fills are replayed bar by bar, so a late start still fills right)
+#  - every 5 min in market hours (Dax on 1-minute bars every run; the other six every ~15 min) (+ 4:05 PM ET, which closes any day trade) -> intraday scan + cycle (fills are replayed bar by bar, so a late start still fills right)
 #  - every 2 hours, any day -> futures + crypto cycle (they trade outside stock hours)
 #  - 7:50 AM ET weekdays -> premarket scan even if the meeting didn't happen (autopilot)
 #  - Saturday council session pushes reviews/<week>.json -> apply scale changes, pay the C$200 weekly bonus, weekly PDF
@@ -13,7 +13,7 @@ on:
   push:
     branches: [paper-data]
   schedule:
-    - cron: "*/15 14-20 * * 1-5"
+    - cron: "*/5 14-20 * * 1-5"
     - cron: "5 21 * * 1-5"
     - cron: "50 12 * * 1-5"
     - cron: "17 */2 * * *"
@@ -65,6 +65,7 @@ jobs:
                     W="papertrade/state/reviews/$(date -u +%G-W%V).json"
                     if [ -f "$W" ] && ! grep -qs "$W" papertrade/state/reviews_applied.json; then M=weekly; fi ;;
             schedule:"50 12 * * 1-5") M=premarket ;;
+            schedule:"5 21 * * 1-5") M=close ;;
             schedule:"17 */2 * * *") M=crypto ;;
             schedule:"40 15 * * 0") M=weekly ;;
             schedule:*) M=market ;;
@@ -86,7 +87,11 @@ jobs:
         run: python -m papertrade intraday
       - name: Cycle
         run: |
-          if [ "${{ steps.mode.outputs.mode }}" = crypto ]; then python -m papertrade cycle --only futures,crypto; else python -m papertrade cycle; fi
+          case "${{ steps.mode.outputs.mode }}" in
+            crypto) python -m papertrade cycle --only futures,crypto ;;
+            market) python -m papertrade cycle --auto ;;
+            *) python -m papertrade cycle ;;
+          esac
       - name: Closing scoreboard (4:05 PM ET)
         if: github.event.schedule == '5 21 * * 1-5'
         run: python -m papertrade scoreboard

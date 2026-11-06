@@ -46,6 +46,17 @@ def _stats(tid, trades, eq, start):
             "max_drawdown": mdd, "fees": sum(float(t["fee"] or 0) for t in trades)}
 
 
+def _clean(x):
+    """Browsers can't parse NaN/Infinity in JSON (e.g. a 200-day average for a stock with less history): send null."""
+    if isinstance(x, float) and (x != x or x in (float("inf"), float("-inf"))):
+        return None
+    if isinstance(x, dict):
+        return {k: _clean(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [_clean(v) for v in x]
+    return x
+
+
 def build():
     OUT.mkdir(exist_ok=True)
     for f in WEB.iterdir():
@@ -103,5 +114,5 @@ def build():
            "reviews": [json.loads(open(r).read()) for r in sorted(glob.glob(str(core.STATE / "reviews" / "*.json")))[-8:]][::-1],
            "plans": [json.loads(open(p).read()) for p in plans[-10:]][::-1], "scans": scans,
            "weekly": [Path(p).name for p in pdfs][::-1], "log": log}
-    (OUT / "data.json").write_text(json.dumps(doc, default=str))
+    (OUT / "data.json").write_text(json.dumps(_clean(doc), default=str, allow_nan=False))
     return str(OUT)

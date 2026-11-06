@@ -27,54 +27,119 @@
   }
  },
  "swing": {
-  "cash": 3000.0,
-  "positions": [],
-  "pending": [
+  "cash": 1648.6329373624087,
+  "positions": [
    {
     "id": "o1",
     "kind": "stock",
     "symbol": "ABNB",
-    "qty": 5,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 5,
+    "entry": 270.13834335584033,
+    "entry_ts": "2026-11-06T14:30:00",
     "stop": 248.35536766052246,
     "target": 303.3886593580246,
+    "flat_by": null,
+    "time_stop": null,
     "why": "Meeting: [Earnings gap-and-hold] Buy ABNB after it beat estimates and raised its outlook (about +11% pre-market); the stop sits just above Thursday's 170 close so a full gap fill costs a small, planned amount, and the size is small because the VIX is 27. Sized x0.9 for a neutral market.",
     "source": "meeting",
     "meta": {
      "small_cap": false
     },
-    "created": "2026-11-06T14:07:57",
-    "valid_until": "2026-11-06T22:07:57",
-    "flat_by": null,
-    "no_entry_after": null,
+    "high": 270.13834335584033,
+    "low": 270.13834335584033,
     "scale_out_r": 1,
-    "reserve": 1194.5751901212134
+    "init_stop": 248.35536766052246,
+    "last": 265.29304940927614
+   }
+  ],
+  "pending": [
+   {
+    "id": "o2",
+    "kind": "stock",
+    "symbol": "XERS",
+    "qty": 33,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 17.28,
+    "target": 24.41,
+    "why": "[Earnings gap-and-hold] XERS reported 2026-11-05 (beat by 125%), gapped +19.6% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$17.28, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market.",
+    "source": "autopilot",
+    "meta": {},
+    "created": "2026-11-06T14:46:53",
+    "valid_until": "2026-11-06T22:46:53",
+    "time_stop": "2026-11-13",
+    "play": "Earnings gap-and-hold",
+    "scale_out_r": 1,
+    "reserve": 649.3469153171471
+   },
+   {
+    "id": "o3",
+    "kind": "stock",
+    "symbol": "U",
+    "qty": 8,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 62.86,
+    "target": 89.69,
+    "why": "[Earnings gap-and-hold] U reported 2026-11-05 (beat by 28%), gapped +13.2% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$62.86, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market.",
+    "source": "autopilot",
+    "meta": {},
+    "created": "2026-11-06T14:46:55",
+    "valid_until": "2026-11-06T22:46:55",
+    "time_stop": "2026-11-13",
+    "play": "Earnings gap-and-hold",
+    "scale_out_r": 1,
+    "reserve": 574.9795990527382
+   },
+   {
+    "id": "o4",
+    "kind": "stock",
+    "symbol": "MGNI",
+    "qty": 10,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 36.11,
+    "target": 43.9,
+    "why": "[Earnings gap-and-hold] MGNI reported 2026-11-04 (beat by 17%), gapped +13.0% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$36.11, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market.",
+    "source": "autopilot",
+    "meta": {},
+    "created": "2026-11-06T14:46:56",
+    "valid_until": "2026-11-06T22:46:56",
+    "time_stop": "2026-11-13",
+    "play": "Earnings gap-and-hold",
+    "scale_out_r": 1,
+    "reserve": 387.9054301889346
    }
   ],
   "last_bar": {
-   "ABNB": "2026-11-05T20:55:00"
+   "ABNB": "2026-11-06T14:40:00"
   },
   "day": {
    "date": "2026-11-06",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 3000.0
   },
   "week": {
    "key": "2026-W45",
-   "trades": 0
+   "trades": 1
   },
   "realized": 0.0,
-  "seq": 1,
+  "seq": 4,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3000.0,
+  "equity_last": 2975.098184408789,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
     0
    ]
+  },
+  "done": {
+   "swing_pick_am": "2026-11-06"
   }
  },
  "long": {
@@ -129,7 +194,7 @@
    }
   ],
   "last_bar": {
-   "GC=F": "2026-11-06T14:20:00"
+   "GC=F": "2026-11-06T14:35:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -228,7 +293,7 @@
     },
     "high": 107239.42414370924,
     "low": 106393.44348295778,
-    "last": 106603.8031887468,
+    "last": 106865.42468657345,
     "init_stop": 79795.08261222
    },
    {
@@ -251,7 +316,7 @@
     },
     "high": 3159.5545840022096,
     "low": 3134.2220601756126,
-    "last": 3145.160528574721,
+    "last": 3154.9594696507556,
     "init_stop": 2350.66654513
    },
    {
@@ -272,9 +337,9 @@
      "bucket": "growth",
      "yahoo": "LINK-USD"
     },
-    "high": 15.420079151995651,
+    "high": 15.497892767410463,
     "low": 15.217192329986574,
-    "last": 15.314012481272584,
+    "last": 15.502121753215874,
     "init_stop": 10.65203463
    },
    {
@@ -295,9 +360,9 @@
      "bucket": "growth",
      "yahoo": "SOL-USD"
     },
-    "high": 127.6498416219465,
+    "high": 128.60643180621173,
     "low": 125.8647140985413,
-    "last": 127.22150638167113,
+    "last": 128.3386265080244,
     "init_stop": 88.10529987
    },
    {
@@ -320,17 +385,17 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.6648059433931905,
+    "last": 1.6763659069327588,
     "init_stop": 1.1843018
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-06T14:25:00",
-   "ETH-USD": "2026-11-06T14:25:00",
-   "LINK-USD": "2026-11-06T14:25:00",
-   "SOL-USD": "2026-11-06T14:25:00",
-   "XRP-USD": "2026-11-06T14:25:00"
+   "BTC-USD": "2026-11-06T14:40:00",
+   "ETH-USD": "2026-11-06T14:40:00",
+   "LINK-USD": "2026-11-06T14:40:00",
+   "SOL-USD": "2026-11-06T14:40:00",
+   "XRP-USD": "2026-11-06T14:40:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -345,7 +410,7 @@
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2991.6737258313424,
+  "equity_last": 3001.9778055433517,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": []

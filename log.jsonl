@@ -53,3 +53,4 @@
 {"ts": "2026-11-06T15:16:59Z", "event": "open", "trader": "options_safe", "symbol": "CASH.TO", "kind": "stock", "qty": 49, "price": 50.029998779296875, "at": "2026-11-06T15:05:00"}
 {"ts": "2026-11-06T18:04:05Z", "event": "skip", "trader": "swing", "symbol": "UTZ", "reason": "earnings too close: Sam trades the reaction, not the coin flip"}
 {"ts": "2026-11-06T18:04:14Z", "event": "rejected", "trader": "swing", "symbol": "VIR", "reason": "market mood sized it to zero", "why": "[Pullback in an uptrend] Pullback in an uptrend: VIR at C$15.56, -6.2% in 5 days, RSI 50, volume 1.7x. (news feed unavailable: chart-only entry) Stop 1.5 ATR, half off at 1R, target 3.0 ATR, out in 10 days if neither. 10-yr yield -0.09 pts in 5 days Sized x0.9 for a neutral market."}
+{"ts": "2026-11-06T19:04:15Z", "event": "open", "trader": "futures", "symbol": "MGC", "kind": "future", "qty": 1, "price": 5765.018833875656, "at": "2026-11-06T18:40:00"}

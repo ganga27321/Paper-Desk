@@ -1,0 +1,6 @@
+ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tfsa_legal
+2026-11-06T04:34:06Z,crypto,BUY,crypto,BTC-USD,0.00677267,106393.443483,4.32,720.57,,24.0,Core bucket (40%): hold BTC long term; top up to 60% of the core.,autopilot,no (sandbox)
+2026-11-06T04:34:06Z,crypto,BUY,crypto,ETH-USD,0.15333272,3134.22206,2.88,480.58,,16.0,Core bucket (40%): hold ETH long term; top up to 40% of the core.,autopilot,no (sandbox)
+2026-11-06T04:34:06Z,crypto,BUY,crypto,LINK-USD,16.45576414,15.217192,1.5,250.41,,8.3,"Growth bucket: LINK has the best 30-day trend (-22%) of the growth coins; held, rotated monthly.",autopilot,no (sandbox)
+2026-11-06T04:34:06Z,crypto,BUY,crypto,SOL-USD,1.98950783,125.864714,1.5,250.41,,8.3,"Growth bucket: SOL has the best 30-day trend (-26%) of the growth coins; held, rotated monthly.",autopilot,no (sandbox)
+2026-11-06T04:34:06Z,crypto,BUY,crypto,XRP-USD,148.07177359,1.69186,1.5,250.52,,8.4,"Growth bucket: XRP has the best 30-day trend (-20%) of the growth coins; held, rotated monthly.",autopilot,no (sandbox)

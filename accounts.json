@@ -93,7 +93,9 @@
     "valid_until": "2026-11-07T03:59:24"
    }
   ],
-  "last_bar": {},
+  "last_bar": {
+   "GC=F": "2026-11-06T04:20:00"
+  },
   "day": {
    "date": "2026-11-05",
    "trades": 0
@@ -159,124 +161,140 @@
   }
  },
  "crypto": {
-  "cash": 3000.0,
-  "positions": [],
-  "pending": [
+  "cash": 1035.8025981650426,
+  "positions": [
    {
     "id": "o1",
     "kind": "crypto",
     "symbol": "BTC-USD",
-    "qty": 0.00677267,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.00677267,
+    "entry": 106393.44348295778,
+    "entry_ts": "2026-11-06T04:00:00",
     "stop": null,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "Core bucket (40%): hold BTC long term; top up to 60% of the core.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "BTC-USD"
     },
-    "created": "2026-11-06T03:59:26",
-    "valid_until": "2026-11-07T03:59:26",
-    "reserve": 719.9998581129938
+    "high": 106393.44348295778,
+    "low": 106393.44348295778,
+    "last": 106134.28884036094
    },
    {
     "id": "o2",
     "kind": "crypto",
     "symbol": "ETH-USD",
-    "qty": 0.15333272,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.15333272,
+    "entry": 3134.2220601756126,
+    "entry_ts": "2026-11-06T04:00:00",
     "stop": null,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "Core bucket (40%): hold ETH long term; top up to 40% of the core.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "ETH-USD"
     },
-    "created": "2026-11-06T03:59:26",
-    "valid_until": "2026-11-07T03:59:26",
-    "reserve": 480.02370637549063
-   },
-   {
-    "id": "o3",
-    "kind": "crypto",
-    "symbol": "XRP-USD",
-    "qty": 148.07177359,
-    "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": null,
-    "target": null,
-    "why": "Growth bucket: XRP has the best 30-day trend (-20%) of the growth coins; held, rotated monthly.",
-    "source": "autopilot",
-    "meta": {
-     "bucket": "growth",
-     "yahoo": "XRP-USD"
-    },
-    "created": "2026-11-06T03:59:26",
-    "valid_until": "2026-11-07T03:59:26",
-    "reserve": 250.00000000268648
+    "high": 3134.2220601756126,
+    "low": 3134.2220601756126,
+    "last": 3127.0066789195407
    },
    {
     "id": "o4",
     "kind": "crypto",
     "symbol": "LINK-USD",
-    "qty": 16.45576414,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 16.45576414,
+    "entry": 15.217192329986574,
+    "entry_ts": "2026-11-06T04:00:00",
     "stop": null,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "Growth bucket: LINK has the best 30-day trend (-22%) of the growth coins; held, rotated monthly.",
     "source": "autopilot",
     "meta": {
      "bucket": "growth",
      "yahoo": "LINK-USD"
     },
-    "created": "2026-11-06T03:59:26",
-    "valid_until": "2026-11-07T03:59:26",
-    "reserve": 250.0000000122138
+    "high": 15.217192329986574,
+    "low": 15.217192329986574,
+    "last": 15.166655176167296
    },
    {
     "id": "o5",
     "kind": "crypto",
     "symbol": "SOL-USD",
-    "qty": 1.98950783,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 1.98950783,
+    "entry": 125.8647140985413,
+    "entry_ts": "2026-11-06T04:00:00",
     "stop": null,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "Growth bucket: SOL has the best 30-day trend (-26%) of the growth coins; held, rotated monthly.",
     "source": "autopilot",
     "meta": {
      "bucket": "growth",
      "yahoo": "SOL-USD"
     },
-    "created": "2026-11-06T03:59:26",
-    "valid_until": "2026-11-07T03:59:26",
-    "reserve": 249.9999996318384
+    "high": 125.8647140985413,
+    "low": 125.8647140985413,
+    "last": 125.45761081022647
+   },
+   {
+    "id": "o3",
+    "kind": "crypto",
+    "symbol": "XRP-USD",
+    "side": "long",
+    "qty": 148.07177359,
+    "entry": 1.6918597123606105,
+    "entry_ts": "2026-11-06T04:00:00",
+    "stop": null,
+    "target": null,
+    "flat_by": null,
+    "time_stop": null,
+    "why": "Growth bucket: XRP has the best 30-day trend (-20%) of the growth coins; held, rotated monthly.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "growth",
+     "yahoo": "XRP-USD"
+    },
+    "high": 1.6918597123606105,
+    "low": 1.6918597123606105,
+    "last": 1.6904560140962985
    }
   ],
-  "last_bar": {},
+  "pending": [],
+  "last_bar": {
+   "BTC-USD": "2026-11-06T04:25:00",
+   "ETH-USD": "2026-11-06T04:25:00",
+   "LINK-USD": "2026-11-06T04:25:00",
+   "SOL-USD": "2026-11-06T04:25:00",
+   "XRP-USD": "2026-11-06T04:25:00"
+  },
   "day": {
    "date": "2026-11-05",
-   "trades": 0
+   "trades": 5
   },
   "week": {
    "key": "2026-W45",
-   "trades": 0
+   "trades": 5
   },
   "realized": 0.0,
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3000.0,
+  "equity_last": 2983.574171297268,
   "plan_used": {
    "2026-11-05": []
   },

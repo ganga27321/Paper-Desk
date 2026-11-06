@@ -12,7 +12,7 @@ Seven paper traders, C$3,000 each, all books in Canadian dollars. **Paper money 
 | Theo | Options, safe (the only safe one) |
 | Kai | Crypto: BTC/ETH core, news, memes, growth coins (sandbox) |
 
-Dashboard: https://ganga27321.github.io/paper-desk/
+Dashboard: https://ganga27321.github.io/Paper-Desk/
 
 - A 7 AM (Toronto) meeting writes the day's plan; a fast whole-market US + Canada scan follows.
 - The engine replays 5-minute bars, so fills are honest even when GitHub's schedule runs late. TFSA traders follow

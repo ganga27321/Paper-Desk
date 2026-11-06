@@ -14,7 +14,7 @@
 #   target      - how far a winner runs before profits are taken
 #   sectors     - industry focus 0-10 (0 = avoid, 5 = neutral, 10 = strongly preferred); ranks candidates
 start_date: "2026-11-06"
-site_url: "https://ganga27321.github.io/paper-desk/"
+site_url: "https://ganga27321.github.io/Paper-Desk/"
 repo: ganga27321/paper-desk
 # used only if the Nasdaq Trader and TSX directories are both down
 fallback_universe: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, AVGO, TSM, AMD, NFLX, JPM, V, MA, LLY, UNH, JNJ, PFE,

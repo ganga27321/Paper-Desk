@@ -1,35 +1,40 @@
-# Paper Desk: the 7 AM meeting (playbook for the morning Claude session)
+# Paper Desk: the morning meeting (playbook for the morning Claude session)
 
-Seven paper traders, C$3,000 each (all books in Canadian dollars), paper money only. The meeting runs once each weekday at about 7:00 AM Toronto
-time. All seven may take advice from the Portfolio Council and from each other; the plan is shared on ntfy and the
-dashboard. The scanner runs right after, focused on the tickers the meeting tabled.
+Seven paper traders, C$3,000 each (all books in Canadian dollars), paper money only. The desk is **independent**: it
+reads nothing from the owner's private repo or plans. Any listed security is fair game (US and Canadian stocks and
+ETFs, options, futures, crypto) within each trader's own rules. The meeting runs each weekday morning; the plan is
+shared on ntfy and the dashboard, and the scanner then focuses on the tickers the meeting tabled.
 
 ## Steps
 1. Clone the desk's state: `git clone --quiet --branch paper-data --single-branch "$(git remote get-url origin)" papertrade/state`
    (or `git -C papertrade/state pull`). Accounts, trades, plans, scans.
-2. Refresh the market feed from the private repo (ganga27321/the-market-guy; attach it with add_repo if needed, read
-   access is enough): `python <market-guy>/.github/scripts/desk_feed.py papertrade/state/feed.json`. It keeps market
-   facts only (headlines, macro events, council market points, rule-based play tickers). **Never copy anything else
-   from the private repo into this public one**: no holdings, cash, amounts, trades, watchlist or account names.
-3. `pip install -r requirements.txt` if needed, then `python -m papertrade context > /tmp/ctx.json` and read it:
-   market snapshot, each trader's cash/positions/recent trades, the feed (`council_latest`, `reports_market`,
-   `reports_insights`), yesterday's scanner lists and yesterday's plan.
-4. Quick news check (WebSearch, 2-3 searches): pre-market movers, macro events today (jobs, CPI, Fed, earnings),
-   crypto and gold headlines.
-5. Set the day's guardrails (the bots trade alone all day inside them, no Claude needed):
-   - `levels`: for every ticker on `council_desk_list` (the morning council's list) and any ticker the traders table,
-     a `stop` (required), optional `target` and `no_buy_above`, in the instrument's own currency. The engine never
-     lets a long on that symbol sit below the council stop and refuses entries above `no_buy_above`.
-   - `limits`: per trader, tighten when the market is rough: `max_day_loss_pct` (the trader stops opening trades for
-     the day once down that much), `max_trades_day`. Defaults are in `traders.yaml` `guards`.
+2. **Clock first.** `pip install -r requirements.txt` if needed, then `python -m papertrade context > /tmp/ctx.json` and
+   read `clock` before anything else: the time in New York, whether the market is pre-market, open or closed, and how
+   long to the open or close. Everything below is written for that moment, not for a generic 7 AM.
+3. **Today's calendar, with results.** Search for today's economic calendar and earnings (US and Canada). For every
+   event whose time has already passed (jobs report, CPI, Fed speakers, earnings before the open...): search for the
+   **actual result**: the number, the forecast it beat or missed, and how futures/stocks reacted since. Only events still
+   ahead are described as "could go either way". Write them all into `events` (schema below); validation refuses a plan
+   that calls a released number "upcoming".
+4. **Market check (2-3 searches):** pre-market (or intraday, if open) movers and why, rates and the dollar, gold/oil,
+   crypto. If the market is already open, use where prices are now, not where they were before the open.
+5. Read the rest of the context: each trader's cash/positions/recent trades, scales, yesterday's scanner lists and plan.
+6. Set the day's guardrails (the bots trade alone all day inside them, no Claude needed):
+   - `levels`: for every ticker the traders table, a `stop` (required), optional `target` and `no_buy_above`, in the
+     instrument's own currency. The engine never lets a long on that symbol sit below the stop and refuses entries
+     above `no_buy_above`.
+   - `limits`: per trader, tighten when the market is rough: `max_day_loss_pct`, `max_trades_day`. Defaults are in
+     `traders.yaml` `guards`.
+   - `news_tickers`: up to 8 tickers moving on real news today (Sam reads them).
    - Every stock, future and crypto order needs a `stop`. Validation fails without one.
-6. Hold the meeting: each trader speaks in character (see `traders.yaml`: style, rules, tfsa). They can cite the
-   council or another trader ("Sam: Lena's NVDA thesis + Vega's call idea..."). Keep it decisive.
-7. Write `papertrade/state/plans/<YYYY-MM-DD>.json` (schema below), validate with
+7. Hold the meeting: each trader speaks in character (see `traders.yaml`: style, rules, tfsa), reacting to the actual
+   numbers. They can cite each other ("Sam: Lena's NVDA thesis + Vega's call idea..."). Keep it decisive.
+8. Write `papertrade/state/plans/<YYYY-MM-DD>.json` (schema below), validate with
    `python -m papertrade.meeting validate papertrade/state/plans/<date>.json`, fix anything it reports.
-8. Commit the plan and the feed on `paper-data` and push (`git -C papertrade/state add plans feed.json && git -C
-   papertrade/state commit -m "Plan <date>" && git -C papertrade/state push origin HEAD:paper-data`). That push
-   shares the plan on ntfy and starts the scanner and the first engine cycle (paper-desk.yml).
+9. Commit the plan on `paper-data` and push (`git -C papertrade/state add plans && git -C papertrade/state commit -m
+   "Plan <date>" && git -C papertrade/state push origin HEAD:paper-data`).
+10. If something big lands after the plan is written (a number released while you work), update `events` and the
+    affected orders, validate again and push again.
 
 ## During the day (no Claude)
 GitHub runs the desk every 15 minutes in market hours (crypto and futures every 2 hours): fills on new bars, stops and
@@ -61,6 +66,10 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
  "date": "2026-11-09",
  "market_view": "2-3 sentences: what matters today",
  "tabled": ["NVDA", "SOUN", "GC=F"],
+ "events": [{"time_et": "08:30", "name": "US jobs report (October)", "status": "released",
+             "actual": "+142k vs +110k expected, unemployment 4.1%", "reaction": "Nasdaq futures +0.8% after the print"},
+            {"time_et": "14:00", "name": "Fed speaker", "status": "upcoming"}],
+ "news_tickers": ["NVDA", "SOUN"],
  "levels": {"NVDA": {"stop": 168, "target": 205, "no_buy_above": 190}, "GC=F": {"stop": 3950}},
  "limits": {"day": {"max_day_loss_pct": 8, "max_trades_day": 4}, "options_aggr": {"max_day_loss_pct": 20}},
  "shared_notes": ["Council says...", "Sam and Vega agree on..."],
@@ -86,7 +95,7 @@ scanned first and every trader sees them.
 
 ## Weekly review (Saturday, after the council sitting)
 Keep it to one pass; it is the last session of the user's usage week.
-1. Clone/pull `papertrade/state` as in step 1, refresh the feed (step 2), then `python -m papertrade context > /tmp/desk.json`
+1. Clone/pull `papertrade/state` as in step 1, then `python -m papertrade context > /tmp/desk.json`
    and read each trader's `week` block, scales, positions and trades.
    Score the plays too: every trade's `why` starts with its play tag (e.g. `[Earnings gap-and-hold]`); say which plays
    made and lost money for each trader and tune the scales toward the ones that work.
@@ -97,6 +106,6 @@ Keep it to one pass; it is the last session of the user's usage week.
    Knobs: aggression, frequency, holding, deployment, stop_width, target. At most 3 scales per trader, usually 1-2
    steps. Theo (options_safe) stays the safe player: aggression 4 or below. The other six stay aggressive. Don't undo a
    change the user made this week (history entries `by: you`) without saying why.
-3. `python -m papertrade.meeting validate <file>`, then commit that file (and feed.json) on paper-data and push. The
+3. `python -m papertrade.meeting validate <file>`, then commit that file on paper-data and push. The
    push makes GitHub apply the adjustments, pay the C$200 bonus to the week's biggest earner, build the weekly PDF
    and send it to the user's phone.

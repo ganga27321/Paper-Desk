@@ -50,16 +50,11 @@ def context():
                         "recent_trades": [r for r in trades if r["trader"] == tid][-8:],
                         "rules_now": settings.rules(tid), "scales": settings.current(tid),
                         "week": _week(tid, a, trades)}
-    feed = json.loads(core.FEED.read_text()) if core.FEED.exists() else {}
     pm = scanner.SCANS / "premarket.json"
     pre = json.loads(pm.read_text()) if pm.exists() else {}
     yday = sorted(glob.glob(str(core.STATE / "plans" / "*.json")))
     out = {"now_ny": core.ny().isoformat(timespec="minutes"), "market": snap, "traders": traders,
-           "feed_updated": feed.get("updated"),
-           "council_latest": feed.get("council", {}),
-           "council_desk_list": feed.get("desk_list", []),
-           "reports_market": feed.get("market", []),
-           "reports_insights": feed.get("insights", []),
+           "clock": clock(),
            "scanner_lists_previous": {k: [x["symbol"] for x in v[:15]] for k, v in pre.get("lists", {}).items()},
            "previous_plan": json.loads(open(yday[-1], encoding="utf-8").read()) if yday else None,
            "recent_log": _tail(core.STATE / "log.jsonl", 40),
@@ -67,6 +62,29 @@ def context():
            "bonuses": json.loads((core.STATE / "bonuses.json").read_text()) if (core.STATE / "bonuses.json").exists() else {},
            "scale_changes_recent": settings.history()[-30:]}
     return json.dumps(out, indent=1, default=str)
+
+
+def clock(now_utc=None):
+    """What time it is for the market, so the meeting never treats a released number as still to come."""
+    now_utc = now_utc or core.utcnow()
+    t = core.ny(now_utc)
+    s = core.session(t.date())
+    if not s:
+        status, note = "closed", "No stock session today (weekend or holiday): only crypto and futures trade."
+    else:
+        o = t.replace(hour=s[0].hour, minute=s[0].minute, second=0)
+        c = t.replace(hour=s[1].hour, minute=s[1].minute, second=0)
+        if t < o:
+            status, note = "premarket", f"Market opens in {int((o - t).total_seconds() // 60)} min (9:30 ET)."
+        elif t < c:
+            status, note = "open", f"Market is OPEN; closes in {int((c - t).total_seconds() // 60)} min."
+        else:
+            status, note = "after_close", "Today's session is over; plan for after-hours crypto/futures and tomorrow."
+    return {"now_et": t.strftime("%a %Y-%m-%d %H:%M ET"), "now_toronto": t.strftime("%H:%M (Toronto = ET)"), "status": status,
+            "note": note,
+            "rule": "Any scheduled event whose time is before now_et HAS HAPPENED: search for its actual result "
+                    "(the number, the surprise vs forecast, the market's reaction so far) and plan on that. Only events "
+                    "after now_et may be described as still to come."}
 
 
 def validate(path):
@@ -88,9 +106,14 @@ def validate(path):
         for e in errs:
             print("REVIEW:", e)
         return not errs
-    for k in ("date", "market_view", "tabled", "traders"):
+    for k in ("date", "market_view", "tabled", "traders", "events"):
         if k not in p:
-            errs.append(f"missing {k}")
+            errs.append(f"missing {k}" + (" (list today's events with time_et, status released/upcoming and the actual result if released)" if k == "events" else ""))
+    now_et = core.ny().strftime("%H:%M")
+    for e in p.get("events") or []:
+        if e.get("time_et") and e["time_et"] <= now_et and p.get("date") == core.ny().date().isoformat():
+            if e.get("status") != "released" or not e.get("actual"):
+                errs.append(f"event '{e.get('name')}' at {e['time_et']} ET is already out (now {now_et} ET): add status released and the actual result")
     for tid, tp in (p.get("traders") or {}).items():
         if tid not in T:
             errs.append(f"unknown trader {tid}")

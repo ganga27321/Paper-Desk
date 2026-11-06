@@ -181,3 +181,17 @@ def test_cooldown_after_stop_and_regime_sizing(monkeypatch):
     assert not edge.cooling("swing", "XYZ", dt.date(2026, 11, 20))
     assert edge.size_mult("swing", {"mode": "risk_off"}) == 0.6
     assert edge.size_mult("day", {"mode": "neutral"}) == 1.0
+
+
+def test_clock_and_released_events_must_have_results(tmp_path):
+    import json
+    from papertrade import meeting
+    c = meeting.clock(dt.datetime(2026, 11, 9, 13, 40))   # 8:40 ET on a Monday
+    assert c["status"] == "premarket" and "50 min" in c["note"]
+    today = core.ny().date().isoformat()
+    p = tmp_path / "plan.json"
+    base = {"date": today, "market_view": "x", "tabled": [], "traders": {}}
+    p.write_text(json.dumps({**base, "events": [{"time_et": "00:00", "name": "jobs", "status": "upcoming"}]}))
+    assert not meeting.validate(p)            # already out, still called upcoming
+    p.write_text(json.dumps({**base, "events": [{"time_et": "00:00", "name": "jobs", "status": "released", "actual": "+142k"}]}))
+    assert meeting.validate(p)

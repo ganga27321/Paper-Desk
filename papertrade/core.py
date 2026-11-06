@@ -15,7 +15,6 @@ CFG = yaml.safe_load((ROOT / "traders.yaml").read_text(encoding="utf-8"))
 TRADE_FIELDS = ["ts", "trader", "action", "kind", "symbol", "qty", "price", "fee", "value", "pnl",
                 "pct_of_equity", "why", "source", "tfsa_legal"]
 
-FEED = STATE / "feed.json"      # market-only summary of the council and the 4-a-day reports (no personal data)
 
 # NYSE calendar and the US universe builder (papertrade/nyse.py)
 _spec = importlib.util.spec_from_file_location("skill_scan", ROOT / "nyse.py")

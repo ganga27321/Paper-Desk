@@ -34,9 +34,10 @@ def _load_scan(name, fx):
 
 
 def _report_rows(fx):
-    try:
-        ticks = json.loads(core.FEED.read_text()).get("plays", [])[:8]
-    except Exception:
+    """The desk is independent of the owner's private reports: tickers the morning meeting flagged as news-driven."""
+    plan = core.plan_for(core.ny().date().isoformat()) or {}
+    ticks = [t for t in plan.get("news_tickers", []) if isinstance(t, str)][:8]
+    if not ticks:
         return []
     d = data.daily(ticks, "1y")
     rows = []

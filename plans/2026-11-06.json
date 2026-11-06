@@ -1,0 +1,155 @@
+{
+ "date": "2026-11-06",
+ "market_view": "Thursday's AI-led rout (S&P 500 -4.4%, QQQ -6.5%, VIX 27) is bouncing in pre-market, with chip names reported up 4-8% and Nasdaq futures up about 1.4-1.8%. The October jobs report at 8:30 ET (soft hiring, 4.2% unemployment expected) can flip the tape either way, so size is trimmed and every order carries a stop. Gold and crude held up during the selloff.",
+ "tabled": [
+  "VEEV",
+  "LLY",
+  "CRM",
+  "GC=F",
+  "CL=F",
+  "BTC-USD",
+  "NVDA"
+ ],
+ "levels": {
+  "VEEV": {
+   "stop": 273.18,
+   "target": 345,
+   "no_buy_above": 316
+  },
+  "LLY": {
+   "stop": 1245.72,
+   "target": 1480,
+   "no_buy_above": 1385
+  },
+  "CRM": {
+   "stop": 199.17,
+   "target": 245,
+   "no_buy_above": 226
+  },
+  "GC=F": {
+   "stop": 4000,
+   "target": 4160,
+   "no_buy_above": 4095
+  },
+  "CL=F": {
+   "stop": 88.4,
+   "target": 94.5,
+   "no_buy_above": 92
+  },
+  "BTC-USD": {
+   "stop": 72500,
+   "target": 80500,
+   "no_buy_above": 77000
+  },
+  "NVDA": {
+   "stop": 172,
+   "target": 196,
+   "no_buy_above": 188
+  }
+ },
+ "limits": {
+  "day": {
+   "max_day_loss_pct": 6,
+   "max_trades_day": 3
+  },
+  "swing": {
+   "max_day_loss_pct": 6
+  },
+  "options_aggr": {
+   "max_day_loss_pct": 20
+  },
+  "futures": {
+   "max_day_loss_pct": 6
+  }
+ },
+ "shared_notes": [
+  "Council: staging entries over weeks is sensible after a 5-day, 19% chip slide; NVDA earnings Nov 17 is the big event.",
+  "Sam and Fox both wait for the 8:30 jobs print before committing; Vega only plays the chip bounce if it holds after the open.",
+  "Fox's gold and Kai's crypto are sandbox ideas: not possible in your TFSA."
+ ],
+ "traders": {
+  "day": {
+   "view": "Gap-up small caps after a violent tape: only clean opening-range breaks, two losses and I'm done.",
+   "watch": [
+    "small-cap gappers on volume"
+   ],
+   "orders": []
+  },
+  "swing": {
+   "view": "Software that barely fell on Thursday and VEEV's rule-based level; I set the stop now and keep size small.",
+   "watch": [
+    "CRM",
+    "VEEV"
+   ],
+   "orders": [
+    {
+     "symbol": "VEEV",
+     "kind": "stock",
+     "entry_type": "market",
+     "stop": 273.18,
+     "target": 345,
+     "risk_pct": 2,
+     "why": "[Swing dip on quality] Buy VEEV, a life-sciences software leader that held up while the Nasdaq fell 5.5%; the stop is 12% below, the target about 11% above, and the size stays small because the VIX is 27."
+    }
+   ]
+  },
+  "long": {
+   "view": "Quarters, not days: LLY is flat through the rout; I only add quality when my revenue and margin rules pass.",
+   "watch": [
+    "LLY",
+    "VEEV"
+   ],
+   "orders": [
+    {
+     "symbol": "LLY",
+     "kind": "stock",
+     "entry_type": "market",
+     "stop": 1245.72,
+     "target": 1480,
+     "why": "[Long-term quality] Buy one LLY share: a growth pharma name that did not fall with the AI selloff, with a stop under the recent post-earnings base."
+    }
+   ]
+  },
+  "futures": {
+   "view": "Gold holds near 4,070 while stocks fall; I only buy a break above the recent range. Sandbox only: not possible in your TFSA.",
+   "orders": [
+    {
+     "symbol": "MGC",
+     "kind": "future",
+     "side": "long",
+     "entry_type": "stop",
+     "price": 4090,
+     "stop": 4010,
+     "target": 4160,
+     "qty": 1,
+     "why": "Buy one micro gold contract only if gold breaks above 4,090; stop 80 points below. Sandbox: leverage not possible in your TFSA."
+    }
+   ]
+  },
+  "options_aggr": {
+   "view": "Chip bounce is tempting but the tape is violent; one short-dated call on NVDA, risk capped by the premium.",
+   "orders": [
+    {
+     "symbol": "NVDA",
+     "kind": "option",
+     "right": "C",
+     "action": "BUY_TO_OPEN",
+     "dte": [
+      10,
+      21
+     ],
+     "otm_pct": 0.03,
+     "why": "Buy a short-dated NVDA call (a bet it rises) after the rebound in chip stocks; the most I can lose is the premium, and NVDA reports Nov 17, so I plan to exit before then."
+    }
+   ]
+  },
+  "options_safe": {
+   "view": "VIX at 27 makes premiums rich, but I stay far out of the money and keep half in cash in a risk-off tape; no new puts before the jobs print.",
+   "orders": []
+  },
+  "crypto": {
+   "view": "BTC trades around 75.7k, below the 79.8k stop on the core position, so the engine exits it by its stop; I rebuild only on a hold above 72.5k. Sandbox: real coins not possible in your TFSA.",
+   "orders": []
+  }
+ }
+}

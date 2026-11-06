@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T04:30+00:00",
+ "updated": "2026-11-06T13:39+00:00",
  "market": [
   "Market CHOPPY: SPY -4.4% today, VIX 28",
   "A wipeout for AI stocks sends Wall Street reeling, and the S&P 500 tumbles more than 3% - BNN Bloomberg",
@@ -34,6 +34,36 @@
    }
   ]
  },
+ "desk_list": [
+  {
+   "ticker": "VEEV",
+   "stop": 273.18,
+   "target": 345,
+   "no_buy_above": 316,
+   "why": "Resilient non-AI software leader during the selloff."
+  },
+  {
+   "ticker": "GC=F",
+   "stop": 4000,
+   "target": 4160,
+   "no_buy_above": 4095,
+   "why": "Gold up 0.4% during the equity rout; jobs report can move it."
+  },
+  {
+   "ticker": "CL=F",
+   "stop": 88.4,
+   "target": 94.5,
+   "no_buy_above": 92,
+   "why": "Crude near 91 after a small dip; jobs data and risk tone are the catalysts."
+  },
+  {
+   "ticker": "BTC-USD",
+   "stop": 72500,
+   "target": 80500,
+   "no_buy_above": 77000,
+   "why": "Held near 75.7k through the equity selloff; trades 24h."
+  }
+ ],
  "insights": [
   {
    "section": "macro",

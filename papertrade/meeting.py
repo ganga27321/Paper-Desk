@@ -112,6 +112,9 @@ def share(path):
     """Send the plan to ntfy (the morning note)."""
     from . import notify
     p = json.loads(open(path, encoding="utf-8").read())
+    if notify.sent_today("Paper Desk 7 AM plan", str(p.get("date"))):
+        print("plan already shared today")
+        return
     lines = [p.get("market_view", ""), "", "Tabled: " + ", ".join(p.get("tabled", [])[:20])]
     for tid, tp in p.get("traders", {}).items():
         lines.append("")

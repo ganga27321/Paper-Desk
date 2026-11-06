@@ -70,8 +70,8 @@ jobs:
             schedule:*) M=market ;;
           esac
           echo "mode=${M:-market}" >> "$GITHUB_OUTPUT"; echo "mode: ${M:-market}"
-      - name: Share the morning plan
-        if: github.event_name == 'push'
+      - name: Share the morning plan (once a day; the 7:50 AM run covers a missed push trigger)
+        if: github.event_name == 'push' || steps.mode.outputs.mode == 'premarket'
         run: |
           P="papertrade/state/plans/$(TZ=America/Toronto date +%F).json"
           [ -f "$P" ] && python -m papertrade.meeting validate "$P" && python -m papertrade.meeting share "$P" || echo "no plan for today"

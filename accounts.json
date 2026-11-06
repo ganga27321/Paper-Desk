@@ -71,49 +71,30 @@
  "futures": {
   "cash": 3000.0,
   "positions": [],
-  "pending": [
-   {
-    "id": "o1",
-    "kind": "future",
-    "symbol": "MGC",
-    "qty": 1,
-    "side": "short",
-    "entry_type": "stop",
-    "price": 5445.373455602588,
-    "stop": 5674.2968,
-    "target": 4987.5267,
-    "why": "Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2.0 ATR, target 4.0 ATR. Notional C$54,454 on C$3,000 equity.",
-    "source": "autopilot",
-    "meta": {
-     "name": "Micro gold",
-     "yahoo": "GC=F",
-     "multiplier": 10
-    },
-    "created": "2026-11-06T03:59:24",
-    "valid_until": "2026-11-07T03:59:24"
-   }
-  ],
+  "pending": [],
   "last_bar": {
-   "GC=F": "2026-11-06T04:45:00"
+   "GC=F": "2026-11-06T05:05:00"
   },
   "day": {
-   "date": "2026-11-05",
-   "trades": 0
+   "date": "2026-11-06",
+   "trades": 0,
+   "start_eq": 3000.0
   },
   "week": {
    "key": "2026-W45",
    "trades": 0
   },
   "realized": 0.0,
-  "seq": 1,
+  "seq": 2,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3000.0,
   "plan_used": {
-   "2026-11-05": []
+   "2026-11-05": [],
+   "2026-11-06": []
   },
   "done": {
-   "fut_daily": "2026-11-05"
+   "fut_daily": "2026-11-06"
   }
  },
  "options_aggr": {
@@ -171,7 +152,7 @@
     "qty": 0.00677267,
     "entry": 106393.44348295778,
     "entry_ts": "2026-11-06T04:00:00",
-    "stop": null,
+    "stop": 79795.08261222,
     "target": null,
     "flat_by": null,
     "time_stop": null,
@@ -183,7 +164,7 @@
     },
     "high": 106393.44348295778,
     "low": 106393.44348295778,
-    "last": 106211.85514256544
+    "last": 106207.29657493904
    },
    {
     "id": "o2",
@@ -193,7 +174,7 @@
     "qty": 0.15333272,
     "entry": 3134.2220601756126,
     "entry_ts": "2026-11-06T04:00:00",
-    "stop": null,
+    "stop": 2350.66654513,
     "target": null,
     "flat_by": null,
     "time_stop": null,
@@ -205,7 +186,7 @@
     },
     "high": 3134.2220601756126,
     "low": 3134.2220601756126,
-    "last": 3129.2296011760773
+    "last": 3125.9508540204843
    },
    {
     "id": "o4",
@@ -215,7 +196,7 @@
     "qty": 16.45576414,
     "entry": 15.217192329986574,
     "entry_ts": "2026-11-06T04:00:00",
-    "stop": null,
+    "stop": 10.65203463,
     "target": null,
     "flat_by": null,
     "time_stop": null,
@@ -227,7 +208,7 @@
     },
     "high": 15.217192329986574,
     "low": 15.217192329986574,
-    "last": 15.08481778319549
+    "last": 15.067379168575826
    },
    {
     "id": "o5",
@@ -237,7 +218,7 @@
     "qty": 1.98950783,
     "entry": 125.8647140985413,
     "entry_ts": "2026-11-06T04:00:00",
-    "stop": null,
+    "stop": 88.10529987,
     "target": null,
     "flat_by": null,
     "time_stop": null,
@@ -249,7 +230,7 @@
     },
     "high": 125.8647140985413,
     "low": 125.8647140985413,
-    "last": 125.45886064816477
+    "last": 125.35318159176495
    },
    {
     "id": "o3",
@@ -259,7 +240,7 @@
     "qty": 148.07177359,
     "entry": 1.6918597123606105,
     "entry_ts": "2026-11-06T04:00:00",
-    "stop": null,
+    "stop": 1.1843018,
     "target": null,
     "flat_by": null,
     "time_stop": null,
@@ -271,20 +252,21 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.6891122484507548
+    "last": 1.6835467897726346
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-06T04:50:00",
-   "ETH-USD": "2026-11-06T04:50:00",
-   "LINK-USD": "2026-11-06T04:50:00",
-   "SOL-USD": "2026-11-06T04:50:00",
-   "XRP-USD": "2026-11-06T04:50:00"
+   "BTC-USD": "2026-11-06T05:10:00",
+   "ETH-USD": "2026-11-06T05:10:00",
+   "LINK-USD": "2026-11-06T05:10:00",
+   "SOL-USD": "2026-11-06T05:10:00",
+   "XRP-USD": "2026-11-06T05:10:00"
   },
   "day": {
-   "date": "2026-11-05",
-   "trades": 5
+   "date": "2026-11-06",
+   "trades": 0,
+   "start_eq": 2982.8971649445257
   },
   "week": {
    "key": "2026-W45",
@@ -294,14 +276,15 @@
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2982.8971649445257,
+  "equity_last": 2981.042249674165,
   "plan_used": {
-   "2026-11-05": []
+   "2026-11-05": [],
+   "2026-11-06": []
   },
   "done": {
-   "crypto_core": "2026-11-05",
-   "crypto_news": "2026-11-05",
-   "crypto_meme": "2026-11-05"
+   "crypto_core": "2026-11-06",
+   "crypto_news": "2026-11-06",
+   "crypto_meme": "2026-11-06"
   }
  }
 }

@@ -11,3 +11,11 @@
 {"ts": "2026-11-06T04:34:06Z", "event": "open", "trader": "crypto", "symbol": "LINK-USD", "kind": "crypto", "qty": 16.45576414, "price": 15.217192329986574, "at": "2026-11-06T04:00:00"}
 {"ts": "2026-11-06T04:34:06Z", "event": "open", "trader": "crypto", "symbol": "SOL-USD", "kind": "crypto", "qty": 1.98950783, "price": 125.8647140985413, "at": "2026-11-06T04:00:00"}
 {"ts": "2026-11-06T04:34:06Z", "event": "open", "trader": "crypto", "symbol": "XRP-USD", "kind": "crypto", "qty": 148.07177359, "price": 1.6918597123606105, "at": "2026-11-06T04:00:00"}
+{"ts": "2026-11-06T05:18:27Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $3,068 per contract is more than free equity"}
+{"ts": "2026-11-06T05:18:27Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,490 per contract is more than free equity"}
+{"ts": "2026-11-06T05:18:27Z", "event": "rejected", "trader": "futures", "symbol": "MGC", "reason": "market mood sized it to zero", "why": "[Metal trend + dollar] Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2.0 ATR, then a 3 ATR chandelier trail (no fixed target: let the trend run). US dollar falling (-0.06% on its 20-day trend) agrees. Notional C$54,479 on C$3,000 equity. Sized x0.8 for a risk-off market."}
+{"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "BTC-USD", "stop": 79795.08261222, "reason": "every position carries a stop"}
+{"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "ETH-USD", "stop": 2350.66654513, "reason": "every position carries a stop"}
+{"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "LINK-USD", "stop": 10.65203463, "reason": "every position carries a stop"}
+{"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "SOL-USD", "stop": 88.10529987, "reason": "every position carries a stop"}
+{"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "XRP-USD", "stop": 1.1843018, "reason": "every position carries a stop"}

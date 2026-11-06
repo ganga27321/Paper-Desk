@@ -195,3 +195,14 @@ def test_clock_and_released_events_must_have_results(tmp_path):
     assert not meeting.validate(p)            # already out, still called upcoming
     p.write_text(json.dumps({**base, "events": [{"time_et": "00:00", "name": "jobs", "status": "released", "actual": "+142k"}]}))
     assert meeting.validate(p)
+
+
+def test_long_trader_stop_is_always_a_positive_percent_below_entry():
+    """Regression: Lena's stop width once produced a negative stop_pct, putting her stop above the buy price."""
+    from papertrade import settings
+    for scale in range(0, 11):
+        settings.apply("long", {"scales": {"stop_width": scale}}, "test", "you")
+        r = settings.rules("long")
+        assert "stop_pct" not in r
+        assert 0 < r["long_stop_pct"] <= 40
+        assert round(100 * (1 - r["long_stop_pct"] / 100), 2) < 100  # stop below entry for every scale

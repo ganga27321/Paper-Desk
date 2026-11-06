@@ -75,12 +75,12 @@ traders:
     tfsa: true
     account: Wealthsimple
     capital: 3000
-    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02, stop_pct: 18,
+    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02, long_stop_pct: 18,
             tranche_max_drop: 0.03, max_forward_pe: 45, max_peg: 3, pre_earnings_wait_days: 7, cooldown_days: 30,
             regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.75},
             review: quarterly, us_dividend_withholding: 0.15}
     scales: {aggression: 7, frequency: 3, holding: 10, deployment: 10, stop_width: 8, target: 9}
-    scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max], stop_width: [stop_pct]}
+    scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max], stop_width: [long_stop_pct]}
     # growth companies that pay or grow dividends (US + TSX); the scanner's uptrend pullbacks are added each Monday
     universe: [MSFT, AAPL, AVGO, TSM, ASML, LLY, NVO, COST, V, MA, JPM, HD, LOW, UNH, ABBV, MRK, TXN, QCOM, ADP, INTU,
                CAT, DE, ETN, PH, GWW, ORCL, SBUX, NKE, MCD, KO, PEP, PG, BLK, SPGI, MSCI, CME, ICE, AMAT, LRCX, KLAC,

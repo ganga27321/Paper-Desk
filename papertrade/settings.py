@@ -16,7 +16,7 @@ KNOBS = [("aggression", "Aggression", "risk per trade and position size"),
 CAPS = {"risk_pct": (0.25, 60), "max_position_pct": (5, 100), "max_trades_day": (1, 12), "target_r": (0.5, 6),
         "max_positions": (1, 12), "new_per_day": (1, 6), "trades_week_goal": (1, 40), "time_stop_days": (1, 60),
         "stop_atr": (0.5, 6), "target_atr": (0.5, 12), "buy_vs_50d_max": (0, 0.15), "max_contracts": (1, 8),
-        "dte_min": (1, 120), "dte_max": (3, 180), "stop_pct": (-95, -5), "take_profit_pct": (5, 500),
+        "dte_min": (1, 120), "dte_max": (3, 180), "stop_pct": (-95, -5), "long_stop_pct": (3, 40), "take_profit_pct": (5, 500),
         "put_otm_pct": (0.01, 0.25), "meme_stop_pct": (-80, -3), "news_stop_pct": (-60, -2), "meme_take_pct": (5, 400),
         "news_take_pct": (3, 200)}
 INTS = {"max_trades_day", "max_positions", "new_per_day", "trades_week_goal", "time_stop_days", "max_contracts", "dte_min", "dte_max"}

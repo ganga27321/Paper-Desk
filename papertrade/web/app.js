@@ -202,7 +202,7 @@
         <div class="hero-num"><span class="big" data-count="${total}">${usd(total)}</span>
         <span class="chip ${total >= start ? "ok" : ""}"><span class="${cls(total - start)}">${arrow(total - start)} ${signed(total - start)} (${pct(total / start - 1)})</span></span></div>
         <p class="lede">Combined paper equity on ${usd(start, 0)} put in (C$3,000 each plus weekly bonuses). Updated ${when(D.updated)} Toronto time</p></section>
-      ${wk ? `<section class="card in winner"><span class="trophy">🏆</span><div><p class="eyebrow">Winner of ${esc(wk[0])}</p><h3>${esc(wk[1].name)} earned ${signed(wk[1].week_pnl)} and gets C$${wk[1].bonus} added</h3><p class="muted" style="margin:2px 0 0">Every Friday after the close, the week's biggest earner gets C$${D.weekly_bonus}.</p></div></section>` : `<section class="card in winner"><span class="trophy">🏆</span><div><h3>C$${D.weekly_bonus} to this week's biggest earner</h3><p class="muted" style="margin:2px 0 0">Paid every Friday after the close. Leader right now: ${esc(ranked[0].name)}.</p></div></section>`}
+      ${wk ? `<section class="card in winner"><span class="trophy">🏆</span><div><p class="eyebrow">Winner of ${esc(wk[0])}</p><h3>${esc(wk[1].name)} earned ${signed(wk[1].week_pnl)} and gets C$${wk[1].bonus} added</h3><p class="muted" style="margin:2px 0 0">Every Saturday, in the council session, the week's biggest earner gets C$${D.weekly_bonus}.</p></div></section>` : `<section class="card in winner"><span class="trophy">🏆</span><div><h3>C$${D.weekly_bonus} to this week's biggest earner</h3><p class="muted" style="margin:2px 0 0">Paid Saturday in the council session. Leader right now: ${esc(ranked[0].name)}.</p></div></section>`}
       <h2>Leaderboard</h2>
       <section class="grid">${ranked.map((t, i) => `
         <article class="card click in" data-go="t/${t.id}" tabindex="0" role="link" aria-label="${esc(t.name)}">
@@ -310,8 +310,8 @@
   }
 
   function reports() {
-    app.innerHTML = `<section class="hero in"><p class="eyebrow">Weekly summary</p><h1>Reports</h1><p class="lede">A PDF of every account is generated each Friday after the close.</p></section>
-      <section class="grid">${D.weekly.length ? D.weekly.map(f => `<a class="card click in" href="weekly/${encodeURIComponent(f)}" target="_blank" rel="noopener"><h3>📄 ${esc(f.replace(".pdf", ""))}</h3><div class="sub">Weekly summary PDF</div></a>`).join("") : `<div class="card"><div class="empty">The first weekly PDF arrives on Friday.</div></div>`}</section>
+    app.innerHTML = `<section class="hero in"><p class="eyebrow">Weekly summary</p><h1>Reports</h1><p class="lede">A PDF of every account is made each Saturday, with the weekly review.</p></section>
+      <section class="grid">${D.weekly.length ? D.weekly.map(f => `<a class="card click in" href="weekly/${encodeURIComponent(f)}" target="_blank" rel="noopener"><h3>📄 ${esc(f.replace(".pdf", ""))}</h3><div class="sub">Weekly summary PDF</div></a>`).join("") : `<div class="card"><div class="empty">The first weekly PDF arrives on Saturday.</div></div>`}</section>
       <h2>Desk activity</h2><div class="tw"><table><thead><tr><th>When</th><th>Trader</th><th>Event</th><th>Detail</th></tr></thead><tbody>${D.log.slice(0, 80).map(l => `<tr><td class="num">${when(l.ts)}</td><td>${esc((D.traders.find(t => t.id === l.trader) || {}).name || "")}</td><td><span class="pill">${esc(l.event)}</span></td><td class="why">${esc(l.symbol || "")} ${esc(l.reason || l.why || l.error || "")}</td></tr>`).join("")}</tbody></table></div>`;
   }
 

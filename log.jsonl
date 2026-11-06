@@ -19,3 +19,4 @@
 {"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "LINK-USD", "stop": 10.65203463, "reason": "every position carries a stop"}
 {"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "SOL-USD", "stop": 88.10529987, "reason": "every position carries a stop"}
 {"ts": "2026-11-06T05:18:28Z", "event": "stop_set", "trader": "crypto", "symbol": "XRP-USD", "stop": 1.1843018, "reason": "every position carries a stop"}
+{"ts": "2026-11-06T13:45:34Z", "event": "order", "trader": "futures", "symbol": "MGC", "kind": "future", "qty": 1, "type": "stop", "price": 5765.018833875656, "why": "Meeting: Buy one micro gold contract only if gold breaks above 4,090; stop 80 points below. Sandbox: leverage not possible in your TFSA.", "source": "meeting"}

@@ -59,9 +59,12 @@ def _clean(x):
 
 def build():
     OUT.mkdir(exist_ok=True)
+    stamp = core.utcnow().strftime("%Y%m%d%H%M")
     for f in WEB.iterdir():
         if f.is_file():
             shutil.copy2(f, OUT / f.name)
+    idx = OUT / "index.html"   # new script and styles load on the next visit, never a stale cached copy
+    idx.write_text(idx.read_text().replace('href="style.css"', f'href="style.css?v={stamp}"').replace('src="app.js"', f'src="app.js?v={stamp}"'))
     acc = core.load_accounts()
     trades = core.read_trades()
     eq = _equity()

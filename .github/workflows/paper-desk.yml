@@ -20,7 +20,7 @@ on:
     - cron: "40 15 * * 0"
   workflow_dispatch:
     inputs:
-      mode: {description: "premarket | market | crypto | weekly", default: market}
+      mode: {description: "premarket | market | close | crypto | weekly", default: market}
 
 permissions:
   contents: write
@@ -93,7 +93,7 @@ jobs:
             *) python -m papertrade cycle ;;
           esac
       - name: Closing scoreboard (4:05 PM ET)
-        if: github.event.schedule == '5 21 * * 1-5'
+        if: github.event.schedule == '5 21 * * 1-5' || steps.mode.outputs.mode == 'close'
         run: python -m papertrade scoreboard
       - name: Weekly PDF
         if: steps.mode.outputs.mode == 'weekly'

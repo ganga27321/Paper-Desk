@@ -173,3 +173,10 @@ body.quiet .draw { animation: none !important; stroke-dashoffset: 0; }
   .in { animation-duration: .35s; }
   .trophy, .pulse { animation: none; }
 }
+
+/* sliders: a big touch target that drags smoothly on phones (no page scroll while dragging) */
+input[type=range] { touch-action: none; height: 28px; background: transparent; }
+input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 4px; background: rgba(118,118,128,.24); }
+input[type=range]::-webkit-slider-thumb { margin-top: -9px; }
+input[type=range]::-moz-range-track { height: 4px; border-radius: 4px; background: rgba(118,118,128,.24); }
+@media (max-width: 700px) { input[type=range]::-webkit-slider-thumb { width: 28px; height: 28px; margin-top: -12px; } }

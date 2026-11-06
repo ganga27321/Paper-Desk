@@ -163,16 +163,20 @@
         <section class="card in"><h3>This week vs last</h3><p class="muted" style="margin:2px 0 0">Solid: now${changed ? " (your draft)" : ""}. Dashed: start of this week. Hover a dot for values.</p>
           <div class="radar-wrap">${radar(draft.scales, t.scales_prev.scales, col(t.id))}</div></section>
         <section class="card in"><h3>Tinker</h3><p class="muted" style="margin:2px 0 10px">Move a slider to preview the rules it drives. Nothing changes until you send it to the desk.</p>
-          ${m.knobs.map(k => `<label class="sl"><span><b>${esc(k.label)}</b><i>${esc(k.help)}</i></span><input type="range" min="0" max="10" step="1" value="${draft.scales[k.id]}" data-k="${k.id}" aria-label="${esc(k.label)}"><output>${draft.scales[k.id]}</output></label>`).join("")}
-          ${S.uses_sectors ? `<h3 style="margin-top:16px">Industry focus</h3><p class="muted" style="margin:2px 0 8px">0 avoids an industry, 5 is neutral, 10 strongly prefers it.</p><div class="secs">${m.sector_list.map(sec => `<label class="sl sm"><span><b>${esc(sec)}</b></span><input type="range" min="0" max="10" step="1" value="${draft.sectors[sec]}" data-s="${esc(sec)}" aria-label="${esc(sec)}"><output>${draft.sectors[sec]}</output></label>`).join("")}</div>` : ""}
+          ${m.knobs.map(k => `<label class="sl"><span><b>${esc(k.label)}</b><i>${esc(k.help)}</i></span><input type="range" min="0" max="10" step="0.1" value="${draft.scales[k.id]}" data-k="${k.id}" aria-label="${esc(k.label)}"><output>${draft.scales[k.id]}</output></label>`).join("")}
+          ${S.uses_sectors ? `<h3 style="margin-top:16px">Industry focus</h3><p class="muted" style="margin:2px 0 8px">0 avoids an industry, 5 is neutral, 10 strongly prefers it.</p><div class="secs">${m.sector_list.map(sec => `<label class="sl sm"><span><b>${esc(sec)}</b></span><input type="range" min="0" max="10" step="0.1" value="${draft.sectors[sec]}" data-s="${esc(sec)}" aria-label="${esc(sec)}"><output>${draft.sectors[sec]}</output></label>`).join("")}</div>` : ""}
           <h3 style="margin-top:16px">Rules this produces</h3>
           <div class="rules">${Object.keys(eff).filter(k => RULE_LABEL[k]).map(k => { const d = eff[k] !== base[k]; const v = k === "deploy_frac" ? Math.round(eff[k] * 100) + "%" : eff[k]; return `<div class="${d ? "chg" : ""}"><span>${RULE_LABEL[k]}</span><b>${v}${d ? ` <small>(now ${k === "deploy_frac" ? Math.round(base[k] * 100) + "%" : base[k]})</small>` : ""}</b></div>`; }).join("")}</div>
           <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap"><button class="btn" id="send" ${changed ? "" : "disabled"}>Send ${changed || ""} change${changed === 1 ? "" : "s"} to the desk</button><button class="btn ghost" id="reset">Reset</button></div>
           <p class="muted" style="font-size:12px;margin-top:8px">Opens a pre-filled GitHub issue; submit it and the desk applies it within minutes (logged as "by you").</p></section></div>`;
       bindDots(host);
-      host.querySelectorAll("input[type=range]").forEach(r => r.oninput = () => {
-        if (r.dataset.k) draft.scales[r.dataset.k] = +r.value; else draft.sectors[r.dataset.s] = +r.value;
-        render(); const again = host.querySelector(r.dataset.k ? `[data-k="${r.dataset.k}"]` : `[data-s="${r.dataset.s}"]`); if (again) again.focus();
+      host.querySelectorAll("input[type=range]").forEach(r => {
+        const set = () => { const v = Math.round(+r.value * 10) / 10; if (r.dataset.k) draft.scales[r.dataset.k] = v; else draft.sectors[r.dataset.s] = v; return v; };
+        // while dragging: only the number moves (rebuilding the panel would drop the slider out from under the finger)
+        r.oninput = () => { const v = set(); const o = r.parentElement.querySelector("output"); if (o) o.textContent = v.toFixed(1).replace(/\.0$/, ""); };
+        // on release: redraw the radar, the rule preview and the send button
+        r.onchange = () => { set(); const y = scrollY; render(); scrollTo({ top: y });
+          const again = host.querySelector(r.dataset.k ? `[data-k="${r.dataset.k}"]` : `[data-s="${r.dataset.s}"]`); if (again) again.focus({ preventScroll: true }); };
       });
       $("#reset").onclick = () => { draft.scales = { ...S.scales }; draft.sectors = { ...S.sectors }; render(); };
       $("#send").onclick = () => {
@@ -337,8 +341,8 @@
   document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset?.go) location.hash = e.target.dataset.go; });
   addEventListener("hashchange", () => { document.body.classList.remove("quiet"); route(); });
   // phones fire "resize" when the address bar hides on the first scroll: only a real width change re-lays the charts
-  let rz, lastW = innerWidth;
-  addEventListener("resize", () => { if (Math.abs(innerWidth - lastW) < 40) return; lastW = innerWidth; clearTimeout(rz); rz = setTimeout(() => { quiet = true; document.body.classList.add("quiet"); route(); quiet = false; }, 250); });
+  let rz, lastW = document.documentElement.clientWidth;
+  addEventListener("resize", () => { const w = document.documentElement.clientWidth; if (Math.abs(w - lastW) < 40) return; lastW = w; clearTimeout(rz); rz = setTimeout(() => { quiet = true; document.body.classList.add("quiet"); route(); quiet = false; }, 250); });
   setInterval(() => { if (!document.hidden) load(true).catch(() => {}); }, 3 * 60 * 1000);   // new data every few minutes
   document.addEventListener("visibilitychange", () => { if (!document.hidden) load(true).catch(() => {}); });
   load(false).catch(() => { app.innerHTML = `<div class="empty">Could not load data.json.</div>`; });

@@ -1,0 +1,51 @@
+# Backup clock for the Paper Desk. GitHub's own schedule can take hours to start on a new repository and later
+# runs late or skips. This job starts paper-desk.yml on time itself (Dax every 5 min in market hours, everyone every
+# ~15 min via --auto, 7:50 premarket, 4:05 close, crypto/futures every 2 hours), then hands over to a fresh copy of
+# itself before GitHub's 6-hour job limit. It retires on its own once GitHub's schedule is firing reliably.
+name: Heartbeat
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 */3 * * *"   # restarts the chain if it ever stops
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: heartbeat
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Keep the desk on time
+        run: |
+          start=$(date +%s)
+          last_crypto=0
+          while [ $(( $(date +%s) - start )) -lt 20400 ]; do       # 5 h 40 min, then hand over
+            # GitHub's own schedule works again (2+ scheduled desk runs in the last 40 min): retire
+            n=$(gh run list -R "$REPO" -w paper-desk.yml -e schedule -L 5 --json createdAt \
+                 -q "[.[] | select((now - (.createdAt | fromdateiso8601)) < 2400)] | length" 2>/dev/null || echo 0)
+            if [ "${n:-0}" -ge 2 ]; then echo "GitHub schedule is firing ($n recent runs): heartbeat retires"; exit 0; fi
+            busy=$(gh run list -R "$REPO" -w paper-desk.yml -L 3 --json status -q '[.[] | select(.status != "completed")] | length' 2>/dev/null || echo 0)
+            dow=$(TZ=America/New_York date +%u); hm=$((10#$(TZ=America/New_York date +%H%M)))
+            mode=""
+            if [ "$dow" -le 5 ] && [ "$hm" -ge 750 ] && [ "$hm" -lt 755 ]; then mode=premarket
+            elif [ "$dow" -le 5 ] && [ "$hm" -ge 930 ] && [ "$hm" -lt 1600 ]; then mode=market
+            elif [ "$dow" -le 5 ] && [ "$hm" -ge 1605 ] && [ "$hm" -lt 1610 ]; then mode=close
+            elif [ $(( $(date +%s) - last_crypto )) -ge 7200 ]; then mode=crypto; last_crypto=$(date +%s)
+            fi
+            if [ -n "$mode" ] && [ "${busy:-0}" -eq 0 ]; then
+              echo "$(TZ=America/Toronto date '+%a %H:%M') -> $mode"
+              gh workflow run paper-desk.yml -R "$REPO" -f mode=$mode || true
+            fi
+            sleep 300
+          done
+          gh workflow run heartbeat.yml -R "$REPO"   # hand over to a fresh copy

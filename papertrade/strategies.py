@@ -348,8 +348,8 @@ def long(tid, a, ctx):
             a["tranches"][s] = {"left": 2, "per": max(1, (full - qty) // 2)}
         why = (f"{name}: revenue {g:+.0%}, operating margin {m:.0%}, dividend {y:.1%}; bought on a pullback to its rising "
                f"50-day average ({last / s50 - 1:+.1%}). Held for the long term; reviewed each quarter after earnings. "
-               f"Safety stop {r.get('stop_pct', 18):g}% below. First third now; the rest over the next two Mondays if it holds.")
-        out.append(order(a, "stock", s, qty, why, stop=round(px * (1 - r.get("stop_pct", 18) / 100), 2),
+               f"Safety stop {abs(r.get('stop_pct', 18)):g}% below. First third now; the rest over the next two Mondays if it holds.")
+        out.append(order(a, "stock", s, qty, why, stop=round(px * (1 - abs(r.get("stop_pct", 18)) / 100), 2),
                          meta={"yahoo": s, "fx": s.endswith(".TO")}, valid_hours=8,
                          play="Dividend grower" if "raised its dividend" in name else "Quality pullback"))
     return out

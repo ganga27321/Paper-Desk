@@ -201,7 +201,7 @@
       <section class="hero in"><p class="eyebrow"><span class="pulse"></span> Seven paper traders · started ${esc(D.start_date)}</p>
         <div class="hero-num"><span class="big" data-count="${total}">${usd(total)}</span>
         <span class="chip ${total >= start ? "ok" : ""}"><span class="${cls(total - start)}">${arrow(total - start)} ${signed(total - start)} (${pct(total / start - 1)})</span></span></div>
-        <p class="lede">Combined paper equity on ${usd(start, 0)} put in (C$3,000 each plus weekly bonuses). Updated ${when(D.updated)} Toronto time</p></section>
+        <p class="lede">Combined paper equity on ${usd(start, 0)} put in (C$3,000 each plus weekly bonuses). Updated ${when(D.updated)} Toronto time. The page checks for new data every 3 minutes: the desk updates every 5-15 minutes in market hours, every 2 hours overnight and on weekends (crypto and futures).</p></section>
       ${wk ? `<section class="card in winner"><span class="trophy">🏆</span><div><p class="eyebrow">Winner of ${esc(wk[0])}</p><h3>${esc(wk[1].name)} earned ${signed(wk[1].week_pnl)} and gets C$${wk[1].bonus} added</h3><p class="muted" style="margin:2px 0 0">Every Saturday, in the council session, the week's biggest earner gets C$${D.weekly_bonus}.</p></div></section>` : `<section class="card in winner"><span class="trophy">🏆</span><div><h3>C$${D.weekly_bonus} to this week's biggest earner</h3><p class="muted" style="margin:2px 0 0">Paid Saturday in the council session. Leader right now: ${esc(ranked[0].name)}.</p></div></section>`}
       <h2>Leaderboard</h2>
       <section class="grid">${ranked.map((t, i) => `
@@ -322,12 +322,24 @@
     const h = (location.hash || "#overview").slice(1);
     tabs.innerHTML = TABS().map(([k, label, id]) => `<button role="tab" aria-selected="${h === k}" data-go="${k}">${id ? `<span class="dot" style="background:${col(id)}"></span>` : ""}${esc(label)}</button>`).join("");
     const sel = tabs.querySelector('[aria-selected="true"]'); if (sel) sel.scrollIntoView({ block: "nearest", inline: "center" });
-    const render = () => { hideTip(); if (h.startsWith("t/")) trader(h.slice(2)); else ({ meeting, scanner, reports }[h] || overview)(); scrollTo({ top: 0 }); };
+    const render = () => { hideTip(); if (h.startsWith("t/")) trader(h.slice(2)); else ({ meeting, scanner, reports }[h] || overview)(); if (!quiet) scrollTo({ top: 0 }); };
+    if (quiet) { const y = scrollY; render(); scrollTo({ top: y }); return; }   // data refresh: no animations, keep the scroll position
     document.startViewTransition ? document.startViewTransition(render) : render();
+  }
+  let quiet = false;
+  function load(silent) {
+    return fetch("data.json?" + Date.now(), { cache: "no-store" }).then(r => r.json()).then(d => {
+      if (silent && D && d.updated === D.updated) return;
+      D = d; quiet = !!silent; document.body.classList.toggle("quiet", quiet); route(); quiet = false;
+    });
   }
   document.addEventListener("click", e => { const g = e.target.closest("[data-go]"); if (g) location.hash = g.dataset.go; });
   document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset?.go) location.hash = e.target.dataset.go; });
-  addEventListener("hashchange", route);
-  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(route, 200); });
-  fetch("data.json?" + Date.now()).then(r => r.json()).then(d => { D = d; route(); }).catch(() => { app.innerHTML = `<div class="empty">Could not load data.json.</div>`; });
+  addEventListener("hashchange", () => { document.body.classList.remove("quiet"); route(); });
+  // phones fire "resize" when the address bar hides on the first scroll: only a real width change re-lays the charts
+  let rz, lastW = innerWidth;
+  addEventListener("resize", () => { if (Math.abs(innerWidth - lastW) < 40) return; lastW = innerWidth; clearTimeout(rz); rz = setTimeout(() => { quiet = true; document.body.classList.add("quiet"); route(); quiet = false; }, 250); });
+  setInterval(() => { if (!document.hidden) load(true).catch(() => {}); }, 3 * 60 * 1000);   // new data every few minutes
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) load(true).catch(() => {}); });
+  load(false).catch(() => { app.innerHTML = `<div class="empty">Could not load data.json.</div>`; });
 })();

@@ -1,0 +1,76 @@
+{
+ "updated": "2026-11-06T04:30+00:00",
+ "market": [
+  "Market CHOPPY: SPY -4.4% today, VIX 28",
+  "A wipeout for AI stocks sends Wall Street reeling, and the S&P 500 tumbles more than 3% - BNN Bloomberg",
+  "Nasdaq posts biggest daily drop in 19 months on fears of AI regulations - Reuters",
+  "S&P 500 Tumbles Most Since April 2025 on AI Fears: Markets Wrap - Bloomberg.com",
+  "Top Stock Gains: US stocks posting the highest gains today - Yahoo! Finance Canada",
+  "8:30am ET: US jobs report (October)"
+ ],
+ "council": {
+  "date": "2026-11-05",
+  "points": [
+   "Staging over four weeks is sensible after a 5-day, 19% chip slide: nobody knows if day five is the bottom.",
+   "NVDA, TSM and AVGO have the strongest fundamentals in the sell-off (revenue +51% to +106%, 15x forward or less) and their 200-day averages are still rising or flat.",
+   "MU's 3x forward P/E is a cycle-peak signal, not a bargain signal; ALAB and CRDO are fast growers with broken charts.",
+   "NVIDIA's Nov 17 earnings are the biggest single event inside the month."
+  ],
+  "debates": [
+   {
+    "topic": "How much AI hardware",
+    "bull": "Policy fear, not earnings, caused the drop; the leaders are at multi-year-low valuations.",
+    "bear": ""
+   },
+   {
+    "topic": "Single names or SMH",
+    "bull": "NVDA/TSM/AVGO are the best of the group; the ETF carries weaker names.",
+    "bear": "TSM and AVGO are one bet on hyperscaler budgets; SMH spreads it and avoids single-earnings shocks."
+   },
+   {
+    "topic": "Quality defensives vs the dip",
+    "bull": "MSFT, ISRG, GE barely fell, so they're not on sale.",
+    "bear": "They fell less because their earnings don't depend on AI capex, which is exactly the protection."
+   }
+  ]
+ },
+ "insights": [
+  {
+   "section": "macro",
+   "title": "Fri Nov 06, 8:30am ET: US jobs report (October)",
+   "detail": "A surprise either way moves rate expectations and the whole market."
+  },
+  {
+   "section": "plays",
+   "ticker": "VEEV",
+   "title": "Long-term position"
+  },
+  {
+   "section": "plays",
+   "ticker": "LLY",
+   "title": "Post-earnings drift"
+  },
+  {
+   "section": "plays",
+   "ticker": "CRM",
+   "title": "Swing trade"
+  },
+  {
+   "section": "plays",
+   "ticker": "CELH",
+   "title": "Underdog rising"
+  },
+  {
+   "section": "plays",
+   "ticker": "CVX",
+   "title": "Swing trade"
+  }
+ ],
+ "plays": [
+  "VEEV",
+  "LLY",
+  "CRM",
+  "CELH",
+  "CVX"
+ ]
+}

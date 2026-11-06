@@ -1,0 +1,289 @@
+{
+ "_meta": {
+  "currency": "CAD"
+ },
+ "day": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 0,
+  "deposits": [],
+  "deploy_frac": 1.0,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  }
+ },
+ "swing": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 0,
+  "deposits": [],
+  "deploy_frac": 1.0,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  }
+ },
+ "long": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 0,
+  "deposits": [],
+  "deploy_frac": 1.0,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  }
+ },
+ "futures": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [
+   {
+    "id": "o1",
+    "kind": "future",
+    "symbol": "MGC",
+    "qty": 1,
+    "side": "short",
+    "entry_type": "stop",
+    "price": 5445.373455602588,
+    "stop": 5674.2968,
+    "target": 4987.5267,
+    "why": "Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2.0 ATR, target 4.0 ATR. Notional C$54,454 on C$3,000 equity.",
+    "source": "autopilot",
+    "meta": {
+     "name": "Micro gold",
+     "yahoo": "GC=F",
+     "multiplier": 10
+    },
+    "created": "2026-11-06T03:59:24",
+    "valid_until": "2026-11-07T03:59:24"
+   }
+  ],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 1,
+  "deposits": [],
+  "deploy_frac": 1.0,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  },
+  "done": {
+   "fut_daily": "2026-11-05"
+  }
+ },
+ "options_aggr": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 0,
+  "deposits": [],
+  "deploy_frac": 1.0,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  }
+ },
+ "options_safe": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 0,
+  "deposits": [],
+  "deploy_frac": 0.8400000000000001,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  }
+ },
+ "crypto": {
+  "cash": 3000.0,
+  "positions": [],
+  "pending": [
+   {
+    "id": "o1",
+    "kind": "crypto",
+    "symbol": "BTC-USD",
+    "qty": 0.00677267,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": null,
+    "target": null,
+    "why": "Core bucket (40%): hold BTC long term; top up to 60% of the core.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "core",
+     "yahoo": "BTC-USD"
+    },
+    "created": "2026-11-06T03:59:26",
+    "valid_until": "2026-11-07T03:59:26",
+    "reserve": 719.9998581129938
+   },
+   {
+    "id": "o2",
+    "kind": "crypto",
+    "symbol": "ETH-USD",
+    "qty": 0.15333272,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": null,
+    "target": null,
+    "why": "Core bucket (40%): hold ETH long term; top up to 40% of the core.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "core",
+     "yahoo": "ETH-USD"
+    },
+    "created": "2026-11-06T03:59:26",
+    "valid_until": "2026-11-07T03:59:26",
+    "reserve": 480.02370637549063
+   },
+   {
+    "id": "o3",
+    "kind": "crypto",
+    "symbol": "XRP-USD",
+    "qty": 148.07177359,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": null,
+    "target": null,
+    "why": "Growth bucket: XRP has the best 30-day trend (-20%) of the growth coins; held, rotated monthly.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "growth",
+     "yahoo": "XRP-USD"
+    },
+    "created": "2026-11-06T03:59:26",
+    "valid_until": "2026-11-07T03:59:26",
+    "reserve": 250.00000000268648
+   },
+   {
+    "id": "o4",
+    "kind": "crypto",
+    "symbol": "LINK-USD",
+    "qty": 16.45576414,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": null,
+    "target": null,
+    "why": "Growth bucket: LINK has the best 30-day trend (-22%) of the growth coins; held, rotated monthly.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "growth",
+     "yahoo": "LINK-USD"
+    },
+    "created": "2026-11-06T03:59:26",
+    "valid_until": "2026-11-07T03:59:26",
+    "reserve": 250.0000000122138
+   },
+   {
+    "id": "o5",
+    "kind": "crypto",
+    "symbol": "SOL-USD",
+    "qty": 1.98950783,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": null,
+    "target": null,
+    "why": "Growth bucket: SOL has the best 30-day trend (-26%) of the growth coins; held, rotated monthly.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "growth",
+     "yahoo": "SOL-USD"
+    },
+    "created": "2026-11-06T03:59:26",
+    "valid_until": "2026-11-07T03:59:26",
+    "reserve": 249.9999996318384
+   }
+  ],
+  "last_bar": {},
+  "day": {
+   "date": "2026-11-05",
+   "trades": 0
+  },
+  "week": {
+   "key": "2026-W45",
+   "trades": 0
+  },
+  "realized": 0.0,
+  "seq": 5,
+  "deposits": [],
+  "deploy_frac": 1.0,
+  "equity_last": 3000.0,
+  "plan_used": {
+   "2026-11-05": []
+  },
+  "done": {
+   "crypto_core": "2026-11-05",
+   "crypto_news": "2026-11-05",
+   "crypto_meme": "2026-11-05"
+  }
+ }
+}

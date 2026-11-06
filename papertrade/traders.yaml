@@ -49,6 +49,8 @@ traders:
     account: Questrade
     capital: 3000
     rules: {price_min: 1, price_max: 20, gap_min_pct: 8, rel_vol_min: 3, or_minutes: 15, risk_pct: 5.0,
+            max_losses_day: 2, lunch: ['11:30', '13:30'], low_float_m: 50, high_short: 0.15, scale_out_r: 1,
+            cooldown_days: 2, regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.75},
             max_position_pct: 100, max_trades_day: 5, flat_by: "15:50", no_entry_after: "15:15", target_r: 2.0}
     scales: {aggression: 9, frequency: 8, holding: 0, deployment: 10, stop_width: 4, target: 6}
     scale_map: {aggression: [risk_pct, max_position_pct], frequency: [max_trades_day], target: [target_r]}
@@ -60,6 +62,8 @@ traders:
     account: Questrade
     capital: 3000
     rules: {risk_pct: 3.0, max_position_pct: 50, max_positions: 6, stop_atr: 1.5, target_atr: 3.0,
+            earn_gap_min: 4, earn_max_sessions: 3, earn_time_stop: 5, earnings_checks: 18, rate_move: 0.15, news_hours: 48,
+            scale_out_r: 1, cooldown_days: 5, regime_size: {risk_on: 1.0, neutral: 0.9, risk_off: 0.6},
             time_stop_days: 10, trades_week_goal: 10, avoid_earnings_within_days: 2, new_per_day: 3}
     scales: {aggression: 8, frequency: 8, holding: 4, deployment: 10, stop_width: 5, target: 5}
     scale_map: {aggression: [risk_pct, max_position_pct], frequency: [max_positions, new_per_day, trades_week_goal],
@@ -72,6 +76,8 @@ traders:
     account: Wealthsimple
     capital: 3000
     rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02, stop_pct: 18,
+            tranche_max_drop: 0.03, max_forward_pe: 45, max_peg: 3, pre_earnings_wait_days: 7, cooldown_days: 30,
+            regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.75},
             review: quarterly, us_dividend_withholding: 0.15}
     scales: {aggression: 7, frequency: 3, holding: 10, deployment: 10, stop_width: 8, target: 9}
     scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max], stop_width: [stop_pct]}
@@ -87,7 +93,9 @@ traders:
     tfsa_mirror: "GLD / SLV / USO ETFs or gold miners"
     account: Sandbox (futures account)
     capital: 3000
-    rules: {max_contracts: 3, stop_atr: 2.0, target_atr: 4.0, margin_pct: 0.045, maint_pct: 0.9}
+    rules: {max_contracts: 3, stop_atr: 2.0, target_atr: 4.0, margin_pct: 0.045, maint_pct: 0.9,
+            chandelier_atr: 3, pyramid_atr: 1.5, max_adds: 1, dollar_sensitive: [MGC, SIL], dxy_tolerance: 0.002,
+            cooldown_days: 3, regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.8}}
     scales: {aggression: 9, frequency: 6, holding: 5, deployment: 10, stop_width: 5, target: 6}
     scale_map: {aggression: [max_contracts], stop_width: [stop_atr], target: [target_atr]}
     contracts:
@@ -103,7 +111,9 @@ traders:
     account: Questrade
     capital: 3000
     rules: {risk_pct: 35, dte_min: 7, dte_max: 21, otm_pct: 0.03, take_profit_pct: 100, stop_pct: -50,
-            exit_days_before_expiry: 2, max_positions: 3}
+            exit_days_before_expiry: 2, max_positions: 3, max_iv: 1.2, partial_take: true, runner_take_pct: 300,
+            earn_gap_min: 5, earn_max_sessions: 3, earnings_checks: 10, cooldown_days: 3,
+            regime_size: {risk_on: 1.0, neutral: 0.9, risk_off: 0.7}}
     scales: {aggression: 10, frequency: 6, holding: 2, deployment: 10, stop_width: 5, target: 7}
     scale_map: {aggression: [risk_pct], frequency: [max_positions], holding: [dte_min, dte_max],
                 stop_width: [stop_pct], target: [take_profit_pct]}
@@ -115,7 +125,8 @@ traders:
     account: Questrade
     capital: 3000
     rules: {dte_min: 25, dte_max: 50, put_otm_pct: 0.07, call_otm_pct: 0.05, take_profit_pct: 50,
-            max_strike: 20, cash_etf: CASH.TO, min_dollar_vol: 50000000,
+            max_strike: 20, cash_etf: CASH.TO, min_dollar_vol: 50000000, sd_out: 0.85, min_yield: 0.006,
+            risk_off_cash: 0.5, risk_off_otm_mult: 1.5, cooldown_days: 10,
             universe: [PFE, F, T, KMI, HPQ, NU, KHC, WBD, AAL, CCL, SOFI, GOLD, KGC, VALE, ITUB, BBD, RIG, SNAP, PLUG, LUMN, AGNC, RKT, HBAN, KEY, CNH]}
     scales: {aggression: 3, frequency: 3, holding: 6, deployment: 8, stop_width: 6, target: 4}
     scale_map: {aggression: [put_otm_pct], holding: [dte_min, dte_max], target: [take_profit_pct]}
@@ -133,6 +144,7 @@ traders:
       meme: {pct: 15, coins: [DOGE-USD, SHIB-USD, PEPE24478-USD, BONK-USD]}
       growth: {pct: 25, coins: [XRP-USD, SOL-USD, LINK-USD, ADA-USD, AVAX-USD, SUI20947-USD]}
     rules: {meme_stop_pct: -20, meme_take_pct: 40, news_stop_pct: -10, news_take_pct: 20, rebalance_drift: 0.25,
-            core_stop_pct: -25, growth_stop_pct: -30}
+            core_stop_pct: -25, growth_stop_pct: -30, news_trail_pct: 12, meme_trail_pct: 18, fear_level: 25,
+            greed_level: 75, greed_trail_pct: 8, fear_buy_pct: 5, cooldown_days: 3}
     scales: {aggression: 8, frequency: 6, holding: 6, deployment: 10, stop_width: 5, target: 6}
     scale_map: {stop_width: [meme_stop_pct, news_stop_pct, core_stop_pct, growth_stop_pct], target: [meme_take_pct, news_take_pct]}

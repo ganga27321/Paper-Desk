@@ -2,15 +2,23 @@
 
 Seven paper traders, C$3,000 each, all books in Canadian dollars. **Paper money only: nothing here can reach a broker.**
 
-| Trader | Role | How the bot trades | Guardrails |
-|---|---|---|---|
-| Dax | Day trader, small caps, super aggressive | Gappers $1-20 up 8%+ on 3x volume; buys a break of the 15-min high on **1-minute bars, checked every 5 min** | Stop under the range low, 2R target, no entries after 3:15, flat by 3:50, 12% day-loss halt |
-| Sam | Swing: news, earnings, rates, 10+ trades/week | Two pick windows a day (morning, 1 PM): council list, report plays, 20-day breakouts, uptrend pullbacks; reads the 10-yr yield | 1.5 ATR stop, 3 ATR target, 10-day time stop, skips earnings within 2 days |
-| Lena | Long-term growth + dividends | Monday review of quality names (revenue +8%+, margin 15%+, US$3B+) on a pullback to a rising 50-day | 18% safety stop, sells if revenue shrinks |
-| Fox | Futures & metals (sandbox) | Gold/silver/crude/Nasdaq micros: 20/50-day trend, enters on a 20-day breakout, long or short | 2 ATR stop, 4 ATR target, margin call liquidation |
-| Vega | Options, super aggressive | One momentum call or put a day, 7-21 days out, steps further out of the money to fit | +100% take profit, -50% cut, 25% day-loss halt |
-| Theo | Options, the safe one | Wheel: cash-secured puts on stocks under ~US$21 above their 200-day, then covered calls; idle cash parked in CASH.TO | 3% day-loss halt, TFSA-legal only |
-| Kai | Crypto (sandbox) | Buckets: BTC/ETH core, news, meme, growth coins (XRP...) only while above their 20-day | Every coin has a stop: core -25%, growth -30%, news -10%, meme -20% |
+## Shared tools (every trader reads them, each reacts its own way)
+- **Market mood** (SPY vs its 50/200-day + VIX): risk-on / neutral / risk-off; each trader has its own size cut (`regime_size`).
+- **Earnings reader**: last report's gap, beat or miss, whether the gap held; next report date.
+- **Cooldown**: after a stop-out, no re-entry in that symbol for the trader's cooldown days.
+- **Half off at a profit**: sell half at the trader's `scale_out_r`, the rest rides with a breakeven stop.
+- **Play tags**: every trade starts with its play, e.g. `[ORB+VWAP]`, so the Saturday review can score plays, not just traders.
+
+## The seven and their unique plays
+| Trader | Role | Unique plays and tools |
+|---|---|---|
+| Dax | Day trader, small caps, super aggressive | 1) only above VWAP 2) low-float / high-short-interest squeeze ranking 3) done after 2 losers; no entries 11:30-1:30. Plus: 1-minute bars every 5 min, opening-range breakout, flat by 3:50 |
+| Sam | Swing: news, earnings, rates | 1) earnings gap-and-hold (post-earnings drift) 2) rate rotation: rising yields -> banks/energy, falling -> tech 3) breakouts need a fresh headline. Two pick windows a day |
+| Lena | Long-term growth + dividends | 1) buys in thirds over three Mondays 2) dividend-raiser bonus 3) valuation guard (forward P/E, PEG) and never buys the week before a report |
+| Fox | Futures & metals (sandbox) | 1) US-dollar filter for gold/silver 2) pyramids one contract into a winner 3) 3-ATR chandelier trail, no fixed target |
+| Vega | Options, super aggressive | 1) skips options with implied volatility over 120% 2) calls on earnings gap-and-hold 3) half off at +100%, runner to +300% or breakeven |
+| Theo | Options, the safe one | 1) no put across an earnings date 2) strike from the stock's own volatility (~20% assignment odds) 3) risk-off: half the cash, strikes 1.5x further. Idle cash in CASH.TO |
+| Kai | Crypto (sandbox) | 1) Fear & Greed: buys BTC/ETH on extreme fear, no new memes on extreme greed 2) alt coins only while ETH beats BTC 3) trailing stops on news (12%) and meme (18%) coins |
 
 Dashboard: https://ganga27321.github.io/Paper-Desk/
 

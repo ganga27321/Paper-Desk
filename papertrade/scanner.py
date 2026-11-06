@@ -261,9 +261,11 @@ def intraday(tabled=()):
         vol_today = float(f["volume"].sum())
         avg = float(d["volume"].iloc[-21:-1].mean() or 1)
         mins = max(5, 5 * len(f))
+        tp = (f["high"] + f["low"] + f["close"]) / 3
+        vwap = float((tp * f["volume"]).sum() / max(float(f["volume"].sum()), 1.0))
         rows.append({"symbol": s, "price": float(f["close"].iloc[-1]), "prev_close": prev,
                      "gap_pct": 100 * (float(first["open"]) / prev - 1), "chg_pct": 100 * (float(f["close"].iloc[-1]) / prev - 1),
-                     "rel_vol": vol_today / (avg * mins / 390), "or_high": float(orb["high"].max()), "or_low": float(orb["low"].min()),
+                     "rel_vol": vol_today / (avg * mins / 390), "or_high": float(orb["high"].max()), "or_low": float(orb["low"].min()), "vwap": vwap,
                      "bars": len(f), "tabled": s in tabled})
     rows.sort(key=lambda r: (-r["tabled"], -r["rel_vol"] * abs(r["gap_pct"])))
     return _write("intraday.json", {"asof": core.utcnow().isoformat() + "Z", "candidates": len(cands), "rows": rows[:80]})

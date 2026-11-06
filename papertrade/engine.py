@@ -59,6 +59,9 @@ def open_position(tid, a, o, price, when, equity):
            "entry": price, "entry_ts": when.isoformat(), "stop": o.get("stop"), "target": o.get("target"),
            "flat_by": o.get("flat_by"), "time_stop": o.get("time_stop"), "why": o.get("why", ""),
            "source": o.get("source", "autopilot"), "meta": o.get("meta", {}), "high": price, "low": price}
+    for k in ("scale_out_r", "trail_pct", "play"):
+        if o.get(k) is not None:
+            pos[k] = o[k]
     if kind in ("stock", "crypto"):
         a["cash"] -= qty * price + f
         action = "BUY"
@@ -116,6 +119,44 @@ def close_position(tid, a, pos, price, why, equity):
     return pnl
 
 
+def partial_close(tid, a, pos, qty, price, why, equity):
+    """Close part of a position (scale-outs). The rest keeps its id, entry and rules."""
+    qty = min(qty, pos["qty"])
+    if qty <= 0:
+        return 0
+    if qty >= pos["qty"]:
+        return close_position(tid, a, pos, price, why, equity)
+    part = {**pos, "id": pos["id"] + "p", "qty": qty}
+    for k in ("margin", "reserved"):
+        if pos.get(k):
+            part[k] = pos[k] * qty / pos["qty"]
+            pos[k] = pos[k] - part[k]
+    pos["qty"] = pos["qty"] - qty
+    a["positions"].append(part)
+    return close_position(tid, a, part, price, why, equity)
+
+
+def _scale_out(tid, a, p, b, equity):
+    """Sell half at `scale_out_r` x the initial risk, then the rest rides with its stop at breakeven."""
+    k = p.get("scale_out_r")
+    if not k or p.get("scaled") or p.get("stop") is None:
+        return
+    long = p.get("side", "long") == "long"
+    init = p.get("init_stop", p["stop"])
+    r = (p["entry"] - init) if long else (init - p["entry"])
+    if r <= 0:
+        return
+    lvl = p["entry"] + k * r if long else p["entry"] - k * r
+    if (long and b["high"] >= lvl) or (not long and b["low"] <= lvl):
+        half = core.whole(p["qty"] / 2) if p["kind"] in ("stock", "future") else round(p["qty"] / 2, 8)
+        p["scaled"] = True
+        p.setdefault("init_stop", init)
+        if half > 0:
+            partial_close(tid, a, p, half, float(max(b["open"], lvl) if long else min(b["open"], lvl)),
+                          f"took half at {k:g}R; rest rides with the stop at breakeven", equity)
+            p["stop"] = max(p["stop"], p["entry"]) if long else min(p["stop"], p["entry"])
+
+
 # ------------------------------------------------------------------ bar replay
 def _entry_fill(o, b):
     t = o.get("entry_type", "market")
@@ -162,6 +203,8 @@ def _trail(p, b):
     p["high"] = max(p.get("high", p["entry"]), b["high"])
     r = p["entry"] - p.get("init_stop", p["stop"])
     p.setdefault("init_stop", p["stop"])
+    if p.get("trail_pct"):  # percentage trail (Kai's news and meme coins)
+        p["stop"] = max(p["stop"], round(p["high"] * (1 - p["trail_pct"] / 100), 8))
     if r > 0 and p["high"] >= p["entry"] + r:
         p["stop"] = max(p["stop"], round(p["entry"], 4))           # breakeven after 1R
     if r > 0 and p["high"] >= p["entry"] + 2 * r and p.get("target") is None:
@@ -193,6 +236,7 @@ def replay(tid, a, bars_by_sym, equity, now):
                 if hit:
                     close_position(tid, a, p, float(hit[0]), hit[1], equity)
                 else:
+                    _scale_out(tid, a, p, b, equity)
                     _trail(p, b)
             for o in [o for o in a["pending"] if o["meta"].get("yahoo", o["symbol"]) == sym and o["kind"] != "option"]:
                 if dt.datetime.fromisoformat(o["created"]) > ts:
@@ -236,7 +280,14 @@ def manage_options(tid, a, equity, today):
         p["mark"] = mid
         if p["side"] == "long":
             chg = 100 * (mid / p["entry"] - 1) if p["entry"] else 0
-            if chg >= rules.get("take_profit_pct", 1e9):
+            if p.get("runner") and chg <= 0:
+                close_position(tid, a, p, q["bid"] or mid, "runner back to breakeven: closed", equity)
+            elif p.get("runner") and chg >= rules.get("runner_take_pct", 300):
+                close_position(tid, a, p, q["bid"] or mid, f"runner take profit (+{chg:.0f}%)", equity)
+            elif chg >= rules.get("take_profit_pct", 1e9) and not p.get("runner") and rules.get("partial_take") and p["qty"] >= 2:
+                partial_close(tid, a, p, p["qty"] // 2, q["bid"] or mid, f"took half at +{chg:.0f}%; rest is a runner", equity)
+                p["runner"] = True
+            elif chg >= rules.get("take_profit_pct", 1e9) and not p.get("runner"):
                 close_position(tid, a, p, q["bid"] or mid, f"take profit (+{chg:.0f}%)", equity)
             elif chg <= rules.get("stop_pct", -1e9):
                 close_position(tid, a, p, q["bid"] or mid, f"option stop ({chg:.0f}%)", equity)

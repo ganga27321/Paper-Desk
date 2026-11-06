@@ -88,6 +88,8 @@ scanned first and every trader sees them.
 Keep it to one pass; it is the last session of the user's usage week.
 1. Clone/pull `papertrade/state` as in step 1, refresh the feed (step 2), then `python -m papertrade context > /tmp/desk.json`
    and read each trader's `week` block, scales, positions and trades.
+   Score the plays too: every trade's `why` starts with its play tag (e.g. `[Earnings gap-and-hold]`); say which plays
+   made and lost money for each trader and tune the scales toward the ones that work.
 2. Write `papertrade/state/reviews/<YYYY-Www>.json` (ISO week of today, e.g. 2026-W45):
    `{"week": "2026-W45", "summary": "2-3 sentences on the desk's week",
      "weekly_review": {"<trader id>": ["2-3 insights: what worked, what didn't, what to change"], ...all 7},

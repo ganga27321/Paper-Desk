@@ -152,3 +152,32 @@ def test_dax_every_run_others_every_15_minutes():
     from papertrade import run
     assert run.due() is None            # first run of the day: everyone
     assert run.due() == ["day"]         # 5 minutes later: Dax only
+
+
+def test_scale_out_half_at_1r_then_breakeven():
+    a = core.load_accounts()["swing"]
+    a["pending"] = [order(entry_type="market", qty=10, stop=9.0, target=13.0, scale_out_r=1)]
+    b = bars([[10, 10.1, 9.95, 10, 1], [10, 11.2, 10.0, 11.1, 1], [11.1, 11.2, 9.9, 10.0, 1]])
+    engine.replay("swing", a, {"XYZ": b}, 3000, dt.datetime(2026, 11, 9, 16, 0))
+    t = core.read_trades()
+    assert [x["action"] for x in t] == ["BUY", "SELL", "SELL"]
+    assert float(t[1]["qty"]) == 5 and float(t[1]["price"]) == 11.0          # half at 1R
+    assert float(t[2]["price"]) == 10.0 and "stop" in t[2]["why"]           # rest stopped at breakeven, not at 9
+
+
+def test_percent_trailing_stop():
+    from papertrade.engine import _trail
+    p = {"entry": 100.0, "stop": 80.0, "side": "long", "trail_pct": 10}
+    _trail(p, {"high": 130.0})
+    assert p["stop"] == 117.0
+
+
+def test_cooldown_after_stop_and_regime_sizing(monkeypatch):
+    from papertrade import edge
+    core.append_trade({"ts": "2026-11-09T15:00:00Z", "trader": "swing", "action": "SELL", "kind": "stock", "symbol": "XYZ",
+                       "qty": 1, "price": 9, "fee": 0, "value": 9, "pnl": -1, "pct_of_equity": 0, "why": "stop hit",
+                       "source": "autopilot", "tfsa_legal": "yes"})
+    assert edge.cooling("swing", "XYZ", dt.date(2026, 11, 11))
+    assert not edge.cooling("swing", "XYZ", dt.date(2026, 11, 20))
+    assert edge.size_mult("swing", {"mode": "risk_off"}) == 0.6
+    assert edge.size_mult("day", {"mode": "neutral"}) == 1.0

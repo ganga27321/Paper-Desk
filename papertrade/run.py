@@ -3,11 +3,11 @@ import csv
 import datetime as dt
 import json
 
-from . import core, data, engine, scanner, settings
+from . import core, data, edge, engine, scanner, settings
 from .strategies import RULEBOOK, plan_orders
 
 CA = (".TO", ".V")
-PRICE_KEYS = ("price", "atr", "hi20", "lo20", "sma20", "sma50", "sma200", "prev_close", "or_high", "or_low")
+PRICE_KEYS = ("price", "atr", "hi20", "lo20", "sma20", "sma50", "sma200", "prev_close", "or_high", "or_low", "vwap")
 
 
 def _cad_rows(rows, fx):
@@ -121,7 +121,7 @@ def cycle(only=None):
     prices = {s: float(df["close"].iloc[-1]) for s, df in {**bars, **day_bars}.items()}
     ctx_base = {"date": date, "now_utc": now, "now_ny": tny, "plan": plan, "premarket": pre, "intraday": intr,
                 "prices": prices, "tnx_5d": _tnx_5d(), "report_rows": _report_rows(fx),
-                "tabled_rows": list(pre.get("tabled", {}).values()), "fx": fx}
+                "tabled_rows": list(pre.get("tabled", {}).values()), "fx": fx, "regime": edge.regime()}
     equity_rows = []
     levels = _levels(plan, fx)
     n_trades0 = len(core.read_trades())
@@ -174,6 +174,19 @@ def cycle(only=None):
                         p["exit_next"] = o["why"]
                 continue
             why_not = core.tfsa_check(tid, o)
+            rules = settings.rules(tid)
+            if o.get("play") and not o.get("why", "").startswith("["):
+                o["why"] = f"[{o['play']}] " + o.get("why", "")
+            if o["kind"] != "option" and edge.cooling(tid, o["symbol"], tny.date()):
+                why_not = why_not or f"cooldown: stopped out of {o['symbol']} within {rules.get('cooldown_days')} days"
+            if o["kind"] in ("stock", "crypto", "future") and rules.get("scale_out_r") and o.get("scale_out_r") is None:
+                o["scale_out_r"] = rules["scale_out_r"]
+            mult = edge.size_mult(tid, ctx_base["regime"])
+            if mult < 1 and o.get("action") != "SELL_TO_OPEN":  # Theo's sold puts handle the mood in his own rules
+                o["qty"] = core.whole(o["qty"] * mult) if o["kind"] in ("stock", "future", "option") else round(o["qty"] * mult, 8)
+                o["why"] = o.get("why", "") + f" Sized x{mult:g} for a {ctx_base['regime']['mode'].replace('_', '-')} market."
+                if o["qty"] <= 0:
+                    why_not = why_not or "market mood sized it to zero"
             ysym = o["meta"].get("yahoo", o["symbol"])
             est = o.get("price") or prices.get(ysym) or ((data.last_price(ysym) or 0) * (1 if ysym.endswith(CA) else fx))
             lv = levels.get(ysym) or levels.get(o["symbol"])

@@ -1,0 +1,5 @@
+papertrade/state/
+papertrade/_site/
+__pycache__/
+*.pyc
+.env

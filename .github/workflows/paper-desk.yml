@@ -1,0 +1,124 @@
+# The Paper Desk: seven paper traders (papertrade/). Paper money only - nothing here can reach a broker.
+# State (accounts, trades, plans, scans, PDFs) lives on the paper-data branch, so main stays clean.
+#  - push to paper-data with a new plan (the 7 AM meeting) -> share the plan, full-market premarket scan, first cycle
+#  - every 15 min in market hours (+ 4:05 PM ET, which closes any day trade) -> intraday scan + cycle (fills are replayed bar by bar, so a late start still fills right)
+#  - every 2 hours, any day -> futures + crypto cycle (they trade outside stock hours)
+#  - 7:50 AM ET weekdays -> premarket scan even if the meeting didn't happen (autopilot)
+#  - Saturday council session pushes reviews/<week>.json -> apply scale changes, pay the C$200 weekly bonus, weekly PDF
+#  - Sunday fallback -> bonus + PDF if the Saturday session was skipped
+# Every run rebuilds the dashboard and deploys it to GitHub Pages.
+name: Paper desk
+
+on:
+  push:
+    branches: [paper-data]
+  schedule:
+    - cron: "*/15 14-20 * * 1-5"
+    - cron: "5 21 * * 1-5"
+    - cron: "50 12 * * 1-5"
+    - cron: "17 */2 * * *"
+    - cron: "40 15 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode: {description: "premarket | market | crypto | weekly", default: market}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: paper-desk
+  cancel-in-progress: false
+
+env:
+  NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+  PYTHONWARNINGS: ignore
+
+jobs:
+  desk:
+    if: "!contains(github.event.head_commit.message, '[desk]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - name: Check out the desk's state (paper-data branch)
+        run: |
+          git config --global user.name "paper-desk[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code origin paper-data >/dev/null; then
+            git clone --quiet --branch paper-data --single-branch "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" papertrade/state
+          else
+            mkdir -p papertrade/state && cd papertrade/state && git init -q -b paper-data && \
+            git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          fi
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Pick the mode
+        id: mode
+        run: |
+          M="${{ github.event.inputs.mode }}"
+          case "${{ github.event_name }}:${{ github.event.schedule }}" in
+            push:*) M=premarket
+                    W="papertrade/state/reviews/$(date -u +%G-W%V).json"
+                    if [ -f "$W" ] && ! grep -qs "$W" papertrade/state/reviews_applied.json; then M=weekly; fi ;;
+            schedule:"50 12 * * 1-5") M=premarket ;;
+            schedule:"17 */2 * * *") M=crypto ;;
+            schedule:"40 15 * * 0") M=weekly ;;
+            schedule:*) M=market ;;
+          esac
+          echo "mode=${M:-market}" >> "$GITHUB_OUTPUT"; echo "mode: ${M:-market}"
+      - name: Share the morning plan
+        if: github.event_name == 'push'
+        run: |
+          P="papertrade/state/plans/$(TZ=America/Toronto date +%F).json"
+          [ -f "$P" ] && python -m papertrade.meeting validate "$P" && python -m papertrade.meeting share "$P" || echo "no plan for today"
+      - name: Premarket scan (fast whole-market screen, tabled tickers first)
+        if: steps.mode.outputs.mode == 'premarket'
+        run: |
+          D="$(TZ=America/Toronto date +%F)"
+          if [ "${{ github.event_name }}" = schedule ] && [ -f papertrade/state/scans/premarket.json ] && grep -q "\"asof\": \"$(date -u +%F)" papertrade/state/scans/premarket.json; then
+            echo "already scanned today"; else python -m papertrade premarket; fi
+      - name: Intraday scan
+        if: steps.mode.outputs.mode == 'market'
+        run: python -m papertrade intraday
+      - name: Cycle
+        run: |
+          if [ "${{ steps.mode.outputs.mode }}" = crypto ]; then python -m papertrade cycle --only futures,crypto; else python -m papertrade cycle; fi
+      - name: Weekly PDF
+        if: steps.mode.outputs.mode == 'weekly'
+        run: |
+          F=$(python -m papertrade review | tail -1); echo "$F"
+          python - "$F" <<'PY'
+          import os, sys, requests
+          t, f = os.environ.get("NTFY_TOPIC"), sys.argv[1]
+          if t:
+              requests.put(f"https://ntfy.sh/{t}", data=open(f, "rb").read(), timeout=60,
+                           headers={"Filename": os.path.basename(f), "Title": "Paper Desk weekly summary"})
+          PY
+      - name: Save the desk's state
+        run: |
+          cd papertrade/state
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -qm "Desk ${{ steps.mode.outputs.mode }} $(date -u +%FT%TZ) [desk]"
+          for i in 1 2 3 4; do
+            git push -q origin HEAD:paper-data && exit 0
+            git pull -q --rebase origin paper-data || true; sleep $((i * 3))
+          done
+          exit 1
+      - name: Build the dashboard
+        run: python -m papertrade site
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: papertrade/_site}
+
+  deploy:
+    needs: desk
+    runs-on: ubuntu-latest
+    continue-on-error: true   # until Pages is switched on (Settings > Pages > Source: GitHub Actions)
+    environment: {name: github-pages, url: "${{ steps.d.outputs.page_url }}"}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,52 @@
+# Applies style-scale changes sent from the Paper Desk dashboard ("Send to the desk" opens a pre-filled issue).
+# Only issues opened by the repository owner are applied. The change is saved on the paper-data branch, logged in the
+# scale history (by: you), and the dashboard is rebuilt. Paper money only.
+name: Desk settings
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  apply:
+    if: startsWith(github.event.issue.title, 'Desk settings') && github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    concurrency: {group: paper-desk, cancel-in-progress: false}
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: pip install -r requirements.txt
+      - name: Read the settings from the issue
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          python - <<'PY'
+          import json, os, re
+          m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", os.environ["BODY"], re.S) or re.search(r"(\{.*\})", os.environ["BODY"], re.S)
+          doc = json.loads(m.group(1))
+          json.dump(doc, open("/tmp/settings.json", "w"))
+          print(json.dumps(doc, indent=1))
+          PY
+      - name: Apply on the paper-data branch
+        id: apply
+        run: |
+          git config --global user.name "paper-desk[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone --quiet --branch paper-data --single-branch "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" papertrade/state
+          OUT=$(python -m papertrade settings /tmp/settings.json you)
+          echo "$OUT"; echo "out=$OUT" >> "$GITHUB_OUTPUT"
+          cd papertrade/state && git add -A && (git diff --cached --quiet || git commit -qm "Scales changed from the dashboard (#${{ github.event.issue.number }}) [desk]")
+          for i in 1 2 3; do git push -q origin HEAD:paper-data && break; git pull -q --rebase origin paper-data; sleep 3; done
+      - name: Rebuild the dashboard and close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run paper-desk.yml -R "${{ github.repository }}" -f mode=crypto || true
+          gh issue close ${{ github.event.issue.number }} -R "${{ github.repository }}" -c "Applied to the Paper Desk: ${{ steps.apply.outputs.out }}. The dashboard refreshes in a few minutes."

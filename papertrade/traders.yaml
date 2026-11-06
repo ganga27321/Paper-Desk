@@ -1,0 +1,124 @@
+# The Paper Desk: seven paper traders, C$3,000 each. Nothing here touches a real account.
+# All money is in Canadian dollars: US stocks, options, futures and crypto are converted at the live USD/CAD rate.
+# tfsa: true  -> follows TFSA rules exactly (long only, no margin, regular hours 9:30-16:00 ET, whole shares,
+#                options limited to long calls/puts, covered calls and cash-secured puts)
+# tfsa: false -> sandbox with real instruments, labelled "not possible in your TFSA"; tfsa_mirror is the legal stand-in.
+#
+# Style scales (0-10, shown and adjustable on the dashboard). `rules` are the values AT the default `scales`.
+# Moving a scale multiplies the rules it drives (scale_map) by 2^((new - default) / 2.5): +2.5 steps = double.
+#   aggression  - risk per trade, position size, contracts, option budget
+#   frequency   - how many trades / positions at once
+#   holding     - how long trades are given
+#   deployment  - how much of the account may be in the market (10 = all of it)
+#   stop_width  - how much room before a loser is cut
+#   target      - how far a winner runs before profits are taken
+#   sectors     - industry focus 0-10 (0 = avoid, 5 = neutral, 10 = strongly preferred); ranks candidates
+start_date: "2026-11-06"
+site_url: "https://ganga27321.github.io/paper-desk/"
+repo: ganga27321/paper-desk
+# used only if the Nasdaq Trader and TSX directories are both down
+fallback_universe: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, AVGO, TSM, AMD, NFLX, JPM, V, MA, LLY, UNH, JNJ, PFE,
+                    XOM, CVX, COST, WMT, HD, NKE, DIS, BA, CAT, DE, GE, PLTR, SOFI, COIN, MSTR, SHOP, UBER, ABNB,
+                    RY.TO, TD.TO, BNS.TO, ENB.TO, CNQ.TO, SU.TO, SHOP.TO, CNR.TO, CP.TO, BCE.TO, ATD.TO, CSU.TO]
+base_currency: CAD
+weekly_bonus: 200          # C$ added to the biggest earner of the week, after Friday's close
+fees:
+  stock: 0.0            # Questrade: $0 commission on stocks/ETFs
+  option_contract: 0.99 # Questrade per contract
+  future_contract: 2.50 # typical micro-futures round side
+  crypto_pct: 0.006     # typical exchange taker fee
+  slippage_small_cap_pct: 0.002
+  slippage_pct: 0.0005
+sector_list: [Technology, Communication Services, Consumer Cyclical, Consumer Defensive, Healthcare, Financial Services,
+              Industrials, Energy, Basic Materials, Real Estate, Utilities]
+
+traders:
+  day:
+    name: Dax
+    title: Day trader
+    style: Small caps, big intraday swings. Super aggressive. Flat every night.
+    tfsa: true
+    account: Questrade
+    capital: 3000
+    rules: {price_min: 1, price_max: 20, gap_min_pct: 8, rel_vol_min: 3, or_minutes: 15, risk_pct: 5.0,
+            max_position_pct: 100, max_trades_day: 5, flat_by: "15:50", no_entry_after: "15:15", target_r: 2.0}
+    scales: {aggression: 9, frequency: 8, holding: 0, deployment: 10, stop_width: 4, target: 6}
+    scale_map: {aggression: [risk_pct, max_position_pct], frequency: [max_trades_day], target: [target_r]}
+  swing:
+    name: Sam
+    title: Swing trader
+    style: News, earnings, rates and yields. Reads the four daily reports. Aims for 10+ trades a week.
+    tfsa: true
+    account: Questrade
+    capital: 3000
+    rules: {risk_pct: 3.0, max_position_pct: 50, max_positions: 6, stop_atr: 1.5, target_atr: 3.0,
+            time_stop_days: 10, trades_week_goal: 10, avoid_earnings_within_days: 2, new_per_day: 3}
+    scales: {aggression: 8, frequency: 8, holding: 4, deployment: 10, stop_width: 5, target: 5}
+    scale_map: {aggression: [risk_pct, max_position_pct], frequency: [max_positions, new_per_day, trades_week_goal],
+                holding: [time_stop_days], stop_width: [stop_atr], target: [target_atr]}
+  long:
+    name: Lena
+    title: Long-term investor
+    style: Quarters and earnings only. Growth companies that pay or grow dividends. Aggressive on growth.
+    tfsa: true
+    account: Wealthsimple
+    capital: 3000
+    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02,
+            review: quarterly, us_dividend_withholding: 0.15}
+    scales: {aggression: 7, frequency: 3, holding: 10, deployment: 10, stop_width: 8, target: 9}
+    scale_map: {frequency: [max_positions], aggression: [buy_vs_50d_max]}
+  futures:
+    name: Fox
+    title: Futures & metals
+    style: Gold, silver, crude and index micros. Trend and breakout. Aggressive leverage.
+    tfsa: false
+    tfsa_mirror: "GLD / SLV / USO ETFs or gold miners"
+    account: Sandbox (futures account)
+    capital: 3000
+    rules: {max_contracts: 3, stop_atr: 2.0, target_atr: 4.0, margin_pct: 0.045, maint_pct: 0.9}
+    scales: {aggression: 9, frequency: 6, holding: 5, deployment: 10, stop_width: 5, target: 6}
+    scale_map: {aggression: [max_contracts], stop_width: [stop_atr], target: [target_atr]}
+    contracts:
+      MGC: {name: Micro gold, yahoo: "GC=F", multiplier: 10}
+      SIL: {name: Micro silver, yahoo: "SI=F", multiplier: 1000}
+      MCL: {name: Micro crude, yahoo: "CL=F", multiplier: 100}
+      MNQ: {name: Micro Nasdaq-100, yahoo: "NQ=F", multiplier: 2}
+  options_aggr:
+    name: Vega
+    title: Options (aggressive)
+    style: Short-dated calls and puts on the hottest movers. Super aggressive.
+    tfsa: true
+    account: Questrade
+    capital: 3000
+    rules: {risk_pct: 35, dte_min: 7, dte_max: 21, otm_pct: 0.03, take_profit_pct: 100, stop_pct: -50,
+            exit_days_before_expiry: 2, max_positions: 3}
+    scales: {aggression: 10, frequency: 6, holding: 2, deployment: 10, stop_width: 5, target: 7}
+    scale_map: {aggression: [risk_pct], frequency: [max_positions], holding: [dte_min, dte_max],
+                stop_width: [stop_pct], target: [take_profit_pct]}
+  options_safe:
+    name: Theo
+    title: Options (safe)
+    style: The wheel - cash-secured puts, then covered calls. Collect premium, avoid blow-ups. The desk's one safe player.
+    tfsa: true
+    account: Questrade
+    capital: 3000
+    rules: {dte_min: 25, dte_max: 50, put_otm_pct: 0.07, call_otm_pct: 0.05, take_profit_pct: 50,
+            max_strike: 20, universe: [PFE, KO, F, T, INTC, KMI, VZ, BAC, HPQ, NU, KHC, WBD, AAL, CCL, SOFI]}
+    scales: {aggression: 3, frequency: 3, holding: 6, deployment: 8, stop_width: 6, target: 4}
+    scale_map: {aggression: [put_otm_pct], holding: [dte_min, dte_max], target: [take_profit_pct]}
+  crypto:
+    name: Kai
+    title: Crypto
+    style: Core BTC/ETH, a news bucket, a meme bucket and growth coins. Trades 24/7.
+    tfsa: false
+    tfsa_mirror: "Spot crypto ETFs (BTCX.B, ETHX.B, IBIT, ETHA); no meme coins"
+    account: Sandbox (crypto exchange)
+    capital: 3000
+    buckets:
+      core: {pct: 40, coins: [BTC-USD, ETH-USD], split: [0.6, 0.4]}
+      news: {pct: 20, coins: [SOL-USD, XRP-USD, LINK-USD, AVAX-USD, ADA-USD, DOGE-USD]}
+      meme: {pct: 15, coins: [DOGE-USD, SHIB-USD, PEPE24478-USD, BONK-USD]}
+      growth: {pct: 25, coins: [XRP-USD, SOL-USD, LINK-USD, ADA-USD, AVAX-USD, SUI20947-USD]}
+    rules: {meme_stop_pct: -20, meme_take_pct: 40, news_stop_pct: -10, news_take_pct: 20, rebalance_drift: 0.25}
+    scales: {aggression: 8, frequency: 6, holding: 6, deployment: 10, stop_width: 5, target: 6}
+    scale_map: {stop_width: [meme_stop_pct, news_stop_pct], target: [meme_take_pct, news_take_pct]}

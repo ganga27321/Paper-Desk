@@ -236,9 +236,9 @@
    "GC=F": "2026-11-06T21:55:00"
   },
   "day": {
-   "date": "2026-11-06",
-   "trades": 1,
-   "start_eq": 3000.0
+   "date": "2026-11-07",
+   "trades": 0,
+   "start_eq": 2982.485801577568
   },
   "week": {
    "key": "2026-W45",
@@ -253,10 +253,11 @@
    "2026-11-05": [],
    "2026-11-06": [
     0
-   ]
+   ],
+   "2026-11-07": []
   },
   "done": {
-   "fut_daily": "2026-11-06"
+   "fut_daily": "2026-11-07"
   }
  },
  "options_aggr": {
@@ -365,7 +366,7 @@
     },
     "high": 107469.81615736149,
     "low": 106393.44348295778,
-    "last": 107219.37529044226,
+    "last": 107127.19009341672,
     "init_stop": 79795.08261222
    },
    {
@@ -388,7 +389,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 3169.616697728634,
+    "last": 3168.839588769333,
     "init_stop": 2350.66654513
    },
    {
@@ -411,7 +412,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.207378623085788,
+    "last": 15.24976224445993,
     "init_stop": 10.65203463
    },
    {
@@ -434,7 +435,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 127.16612691490354,
+    "last": 126.96833578359019,
     "init_stop": 88.10529987
    },
    {
@@ -457,7 +458,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.636163639872379,
+    "last": 1.6315014684682438,
     "init_stop": 1.1843018
    },
    {
@@ -482,7 +483,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 107219.37529044226
+    "last": 107127.19009341672
    },
    {
     "id": "o7",
@@ -506,40 +507,86 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 3169.616697728634
+    "last": 3168.839588769333
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o8",
+    "kind": "crypto",
+    "symbol": "BTC-USD",
+    "qty": 0.00139588,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 80345.39257006,
+    "target": null,
+    "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "core",
+     "yahoo": "BTC-USD"
+    },
+    "created": "2026-11-07T05:13:15",
+    "valid_until": "2026-11-08T05:13:15",
+    "trail_pct": null,
+    "play": "Extreme-fear buy",
+    "reserve": 149.53670210759853
+   },
+   {
+    "id": "o9",
+    "kind": "crypto",
+    "symbol": "ETH-USD",
+    "qty": 0.04718964,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 2376.62969158,
+    "target": null,
+    "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "core",
+     "yahoo": "ETH-USD"
+    },
+    "created": "2026-11-07T05:13:15",
+    "valid_until": "2026-11-08T05:13:15",
+    "trail_pct": null,
+    "play": "Extreme-fear buy",
+    "reserve": 149.53639941177286
+   }
+  ],
   "last_bar": {
-   "BTC-USD": "2026-11-07T03:25:00",
-   "ETH-USD": "2026-11-07T03:25:00",
-   "LINK-USD": "2026-11-07T03:25:00",
-   "SOL-USD": "2026-11-07T03:25:00",
-   "XRP-USD": "2026-11-07T03:25:00"
+   "BTC-USD": "2026-11-07T05:05:00",
+   "ETH-USD": "2026-11-07T05:05:00",
+   "LINK-USD": "2026-11-07T05:05:00",
+   "SOL-USD": "2026-11-07T05:05:00",
+   "XRP-USD": "2026-11-07T05:05:00"
   },
   "day": {
-   "date": "2026-11-06",
-   "trades": 2,
-   "start_eq": 2982.8971649445257
+   "date": "2026-11-07",
+   "trades": 0,
+   "start_eq": 2992.023784855164
   },
   "week": {
    "key": "2026-W45",
    "trades": 7
   },
   "realized": 0.0,
-  "seq": 7,
+  "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2992.023784855164,
+  "equity_last": 2990.728075758523,
   "plan_used": {
    "2026-11-05": [],
-   "2026-11-06": []
+   "2026-11-06": [],
+   "2026-11-07": []
   },
   "done": {
-   "crypto_core": "2026-11-06",
-   "crypto_news": "2026-11-06",
-   "crypto_meme": "2026-11-06",
-   "kai_fear": "2026-11-06"
+   "crypto_core": "2026-11-07",
+   "crypto_news": "2026-11-07",
+   "crypto_meme": "2026-11-07",
+   "kai_fear": "2026-11-07"
   }
  }
 }

@@ -66,12 +66,46 @@ def _size(equity, bp, entry, risk_per_unit, risk_pct, cap_pct, unit=1.0, whole=T
 
 
 # ------------------------------------------------------------------ meeting plan orders
+
+def when_met(w, tid, a, ctx):
+    """Machine-checkable trigger for a Plan B / Plan C block. Unknown or empty triggers never fire."""
+    typ, now = w.get("type"), ctx["now_ny"]
+    if typ == "time_after":
+        return now.time() >= core.hhmm(w["time_et"])
+    if typ in ("price_below", "price_above"):
+        px = data.last_price(w["symbol"])
+        return bool(px) and (px < float(w["level"]) if typ == "price_below" else px > float(w["level"]))
+    if typ in ("vix_above", "vix_below"):
+        px = data.last_price("^VIX")
+        return bool(px) and (px > float(w["level"]) if typ == "vix_above" else px < float(w["level"]))
+    today = [x for x in core.read_trades() if x["trader"] == tid and x["ts"][:10] == ctx["date"]]
+    if typ == "unfilled_by":   # Plan A on this symbol has not been bought by that time
+        return now.time() >= core.hhmm(w["time_et"]) and not any(x["symbol"] == w["symbol"] and x["action"] in ("BUY", "LONG", "SHORT") for x in today) \
+            and not held(a, w["symbol"])
+    if typ == "stopped_out":
+        return any(x["symbol"] == w["symbol"] and "stop" in (x.get("why") or "") for x in today if x["action"] in ("SELL", "COVER", "CLOSE"))
+    if typ == "day_loss_over":   # the trader is already down this much today (percent)
+        start = a["day"].get("start_eq") or 0
+        return bool(start) and (a.get("equity_last") or start) < start * (1 - float(w["pct"]) / 100)
+    return False
+
 def plan_orders(tid, a, ctx):
     plan = ctx.get("plan") or {}
     mine = (plan.get("traders") or {}).get(tid) or {}
     out, date = [], ctx["date"]
     used = a.setdefault("plan_used", {}).setdefault(date, [])
-    for i, p in enumerate(mine.get("orders", [])):
+    specs = [(i, p) for i, p in enumerate(mine.get("orders", []))]
+    # Plan B / Plan C: contingent orders that only go live once their `when` condition is met (checked every cycle)
+    for name in ("plan_b", "plan_c"):
+        for j, blk in enumerate(mine.get(name) or []):
+            if f"{name}{j}" in used:
+                continue
+            if when_met(blk.get("when") or {}, tid, a, ctx):
+                core.log("plan_activated", trader=tid, plan=name, index=j, when=blk.get("when"), note=blk.get("note", ""))
+                used.append(f"{name}{j}")
+                specs += [(f"{name}{j}.{k}", {**o, "why": f"[{name.replace('_', ' ').title()}: {blk.get('note', 'condition met')}] "
+                                                         + o.get("why", "")}) for k, o in enumerate(blk.get("orders", []))]
+    for i, p in specs:
         if i in used:
             continue
         used.append(i)

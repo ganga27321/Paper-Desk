@@ -1,3 +1,4 @@
+import json
 import datetime as dt
 
 import pandas as pd
@@ -221,3 +222,61 @@ def test_forfeited_week_pays_nothing_and_does_not_carry_over(monkeypatch):
     core.append_equity("2026-11-13T21:00:00Z", [("day", 3000, 0, 3100), ("swing", 3000, 0, 3500)])
     w = weekly.award(dt.date(2026, 11, 13))                         # next week pays only its own C$200
     assert w["bonus"] == 200
+
+
+def _detailed_plan(**over):
+    blk = {"when": {"type": "time_after", "time_et": "11:00"}, "note": "if plan A has not filled", "orders": []}
+    tr = {"view": "v", "failsafe": "stand aside if the day-loss limit hits", "orders": [],
+          "playbook": [{"if": "CPI hot", "then": "no new longs"}] * 3, "plan_b": [blk], "plan_c": [blk]}
+    p = {"date": "2026-11-09", "market_view": "x", "tabled": [], "events": [],
+         "scenarios": [{"if": "yields jump", "then": "tighten stops"}] * 3, "traders": {"swing": tr}}
+    p.update(over)
+    return p
+
+
+def test_detailed_plan_needs_scenarios_playbook_plan_b_c_and_failsafe(tmp_path, capsys):
+    from papertrade import meeting
+    f = tmp_path / "p.json"
+    f.write_text(json.dumps(_detailed_plan()))
+    assert meeting.validate(str(f))
+    bad = _detailed_plan()
+    del bad["traders"]["swing"]["plan_c"], bad["traders"]["swing"]["failsafe"]
+    bad["scenarios"] = []
+    f.write_text(json.dumps(bad))
+    assert not meeting.validate(str(f))
+    out = capsys.readouterr().out
+    assert "plan_c is required" in out and "missing failsafe" in out and "scenarios" in out
+    bad = _detailed_plan()
+    bad["traders"]["swing"]["plan_b"][0]["when"] = {"type": "gut_feeling"}
+    f.write_text(json.dumps(bad))
+    assert not meeting.validate(str(f))
+
+
+def test_when_met_triggers(monkeypatch):
+    from papertrade import strategies, data
+    ny = core.ny(dt.datetime(2026, 11, 9, 16, 0))   # 11:00 ET
+    ctx = {"now_ny": ny, "date": "2026-11-09"}
+    a = {"positions": [], "pending": [], "day": {"start_eq": 3000}, "equity_last": 2700}
+    monkeypatch.setattr(data, "last_price", lambda s: {"^VIX": 31.0, "SPY": 700.0}.get(s))
+    wm = strategies.when_met
+    assert wm({"type": "time_after", "time_et": "10:30"}, "swing", a, ctx)
+    assert not wm({"type": "time_after", "time_et": "12:00"}, "swing", a, ctx)
+    assert wm({"type": "vix_above", "level": 30}, "swing", a, ctx)
+    assert wm({"type": "price_below", "symbol": "SPY", "level": 710}, "swing", a, ctx)
+    assert wm({"type": "day_loss_over", "pct": 5}, "swing", a, ctx)
+    assert not wm({"type": "nonsense"}, "swing", a, ctx)
+
+
+def test_plan_b_orders_go_live_only_when_their_condition_is_met():
+    from papertrade import strategies
+    blk = {"when": {"type": "time_after", "time_et": "11:00"}, "note": "plan A did not fill",
+           "orders": [{"symbol": "XYZ", "kind": "stock", "entry_type": "limit", "price": 10.0, "stop": 9.5, "qty": 5, "why": "fallback"}]}
+    plan = {"traders": {"swing": {"orders": [], "plan_b": [blk]}}}
+    a = core.load_accounts()["swing"]
+    base = {"plan": plan, "date": "2026-11-09", "fx": 1.0, "prices": {"XYZ": 10.0}, "equity": 3000}
+    early = strategies.plan_orders("swing", a, {**base, "now_ny": core.ny(dt.datetime(2026, 11, 9, 14, 0))})   # 09:00 ET
+    assert early == []
+    late = strategies.plan_orders("swing", a, {**base, "now_ny": core.ny(dt.datetime(2026, 11, 9, 16, 30))})   # 11:30 ET
+    assert len(late) == 1 and "Plan B" in late[0]["why"]
+    again = strategies.plan_orders("swing", a, {**base, "now_ny": core.ny(dt.datetime(2026, 11, 9, 17, 0))})
+    assert again == []   # each block fires once

@@ -87,6 +87,25 @@ def clock(now_utc=None):
                     "after now_et may be described as still to come."}
 
 
+DETAILED_FROM = "2026-11-09"   # plans from this date on need scenarios, a playbook, Plan B/C and a failsafe per trader
+WHEN_TYPES = {"time_after": ["time_et"], "price_below": ["symbol", "level"], "price_above": ["symbol", "level"],
+              "vix_above": ["level"], "vix_below": ["level"], "unfilled_by": ["symbol", "time_et"],
+              "stopped_out": ["symbol"], "day_loss_over": ["pct"]}
+
+
+def _check_orders(errs, tid, orders, label):
+    for i, o in enumerate(orders or []):
+        if "symbol" not in o or "why" not in o:
+            errs.append(f"{tid} {label} {i}: needs symbol and why")
+        fake = {"kind": o.get("kind", "stock"), "side": o.get("side", "long"), "action": o.get("action"),
+                "right": o.get("right"), "qty": o.get("qty", 1), "covered": o.get("covered"), "cash_secured": o.get("cash_secured")}
+        if fake["kind"] in ("stock", "future", "crypto") and o.get("stop") in (None, ""):
+            errs.append(f"{tid} {label} {i} ({o.get('symbol')}): needs a stop loss")
+        r = core.tfsa_check(tid, fake)
+        if r:
+            errs.append(f"{tid} {label} {i} ({o.get('symbol')}): {r}")
+
+
 def validate(path):
     """Check a plan file; prints problems and returns True if usable."""
     p = json.loads(open(path, encoding="utf-8").read())
@@ -114,20 +133,38 @@ def validate(path):
         if e.get("time_et") and e["time_et"] <= now_et and p.get("date") == core.ny().date().isoformat():
             if e.get("status") != "released" or not e.get("actual"):
                 errs.append(f"event '{e.get('name')}' at {e['time_et']} ET is already out (now {now_et} ET): add status released and the actual result")
+    detailed = p.get("date", "") >= DETAILED_FROM
+    if detailed:
+        sc = p.get("scenarios") or []
+        if len([x for x in sc if isinstance(x, dict) and x.get("if") and x.get("then")]) < 3:
+            errs.append("scenarios: need at least 3 market if/then situations ({'if': news/level, 'then': what each trader does})")
     for tid, tp in (p.get("traders") or {}).items():
         if tid not in T:
             errs.append(f"unknown trader {tid}")
             continue
-        for i, o in enumerate(tp.get("orders", [])):
-            if "symbol" not in o or "why" not in o:
-                errs.append(f"{tid} order {i}: needs symbol and why")
-            fake = {"kind": o.get("kind", "stock"), "side": o.get("side", "long"), "action": o.get("action"),
-                    "right": o.get("right"), "qty": o.get("qty", 1), "covered": o.get("covered"), "cash_secured": o.get("cash_secured")}
-            if fake["kind"] in ("stock", "future", "crypto") and o.get("stop") in (None, ""):
-                errs.append(f"{tid} order {i} ({o.get('symbol')}): needs a stop loss")
-            r = core.tfsa_check(tid, fake)
-            if r:
-                errs.append(f"{tid} order {i} ({o.get('symbol')}): {r}")
+        _check_orders(errs, tid, tp.get("orders", []), "order")
+        if not detailed:
+            continue
+        for k in ("view", "failsafe"):
+            if not str(tp.get(k) or "").strip():
+                errs.append(f"{tid}: missing {k}")
+        pb = [x for x in tp.get("playbook") or [] if isinstance(x, dict) and x.get("if") and x.get("then")]
+        if len(pb) < 3:
+            errs.append(f"{tid}: playbook needs at least 3 if/then situations from today's news and levels")
+        for name in ("plan_b", "plan_c"):
+            blocks = tp.get(name)
+            if not blocks:
+                errs.append(f"{tid}: {name} is required (a block with when, note and orders; orders may be empty for 'stand aside')")
+                continue
+            for j, blk in enumerate(blocks):
+                w = blk.get("when") or {}
+                if w.get("type") not in WHEN_TYPES:
+                    errs.append(f"{tid} {name}[{j}]: when.type must be one of {sorted(WHEN_TYPES)}")
+                elif any(k not in w for k in WHEN_TYPES[w["type"]]):
+                    errs.append(f"{tid} {name}[{j}]: when {w['type']} needs {WHEN_TYPES[w['type']]}")
+                if not blk.get("note"):
+                    errs.append(f"{tid} {name}[{j}]: needs a note saying why this plan exists")
+                _check_orders(errs, tid, blk.get("orders", []), f"{name}[{j}] order")
     for sym, lv in (p.get("levels") or {}).items():
         if not isinstance(lv, dict) or not lv.get("stop"):
             errs.append(f"levels {sym}: needs at least a stop")

@@ -27,8 +27,15 @@ shared on ntfy and the dashboard, and the scanner then focuses on the tickers th
      `traders.yaml` `guards`.
    - `news_tickers`: up to 8 tickers moving on real news today (Sam reads them).
    - Every stock, future and crypto order needs a `stop`. Validation fails without one.
-7. Hold the meeting: each trader speaks in character (see `traders.yaml`: style, rules, tfsa), reacting to the actual
-   numbers. They can cite each other ("Sam: Lena's NVDA thesis + Vega's call idea..."). Keep it decisive.
+7. Hold the meeting. **It is a full working session, not a summary** (plans dated 2026-11-09 or later are validated for this):
+   - `scenarios`: at least 3 market if/then situations built from today's actual news and levels (e.g. "if 10-year
+     yield > 5%: ...", "if SPY loses 720 by 11:00: ...", "if the earnings gappers fade by 10:15: ..."), each with what the
+     desk does about it.
+   - Per trader, speaking in character (see `traders.yaml`: style, rules, tfsa): `view` (3-6 sentences reacting to the
+     actual numbers and other traders), `playbook` (at least 3 if/then situations specific to that trader's style),
+     `orders` (**Plan A**), `plan_b` and `plan_c` (contingent blocks, see below) and a `failsafe` (when this trader stands
+     down or cuts risk, in plain words: day-loss limit, a VIX level, a headline that changes the picture).
+   - They cite each other ("Sam: Lena's NVDA thesis + Vega's call idea..."). Keep it decisive, with numbers.
 8. Write `papertrade/state/plans/<YYYY-MM-DD>.json` (schema below), validate with
    `python -m papertrade.meeting validate papertrade/state/plans/<date>.json`, fix anything it reports.
 9. Commit the plan on `paper-data` and push (`git -C papertrade/state add plans && git -C papertrade/state commit -m
@@ -69,6 +76,9 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
  "events": [{"time_et": "08:30", "name": "US jobs report (October)", "status": "released",
              "actual": "+142k vs +110k expected, unemployment 4.1%", "reaction": "Nasdaq futures +0.8% after the print"},
             {"time_et": "14:00", "name": "Fed speaker", "status": "upcoming"}],
+ "scenarios": [{"if": "10-year yield above 5.0%", "then": "Sam and Lena stand aside, Theo keeps half in cash, Fox looks at gold weakness"},
+               {"if": "SPY loses 720 before 11:00", "then": "Dax stops after one loss, Vega moves from calls to cash"},
+               {"if": "chip gap fades in the first 30 minutes", "then": "Plan B for Sam and Vega goes live"}],
  "news_tickers": ["NVDA", "SOUN"],
  "levels": {"NVDA": {"stop": 168, "target": 205, "no_buy_above": 190}, "GC=F": {"stop": 3950}},
  "limits": {"day": {"max_day_loss_pct": 8, "max_trades_day": 4}, "options_aggr": {"max_day_loss_pct": 20}},
@@ -77,7 +87,12 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
   "day":   {"view": "...", "watch": ["SOUN", "RGTI"],
             "orders": [{"symbol": "SOUN", "kind": "stock", "entry_type": "stop", "price": 12.40, "stop": 11.80,
                         "target": 13.60, "risk_pct": 3, "why": "..."}]},
-  "swing": {"view": "...", "orders": [{"symbol": "AMD", "kind": "stock", "entry_type": "market", "stop": 380, "target": 450, "why": "..."}]},
+  "swing": {"view": "...", "playbook": [{"if": "CPI hot", "then": "no new longs, tighten stops to 1 ATR"}, {"if": "...", "then": "..."}, {"if": "...", "then": "..."}],
+            "orders": [{"symbol": "AMD", "kind": "stock", "entry_type": "market", "stop": 380, "target": 450, "why": "..."}],
+            "plan_b": [{"when": {"type": "unfilled_by", "symbol": "AMD", "time_et": "11:00"}, "note": "AMD never pulled back; take NVDA instead",
+                        "orders": [{"symbol": "NVDA", "kind": "stock", "entry_type": "limit", "price": 180, "stop": 172, "why": "..."}]}],
+            "plan_c": [{"when": {"type": "vix_above", "level": 30}, "note": "panic tape: no new risk", "orders": []}],
+            "failsafe": "Done for the day after one stopped-out trade or a 6% day loss; cash is a position."},
   "long":  {"view": "...", "orders": []},
   "futures": {"view": "...", "orders": [{"symbol": "MGC", "kind": "future", "side": "long", "entry_type": "stop",
               "price": 4010, "stop": 3950, "target": 4130, "qty": 1, "why": "..."}]},
@@ -90,6 +105,16 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
  }
 }
 ```
+**Plan B / Plan C** are lists of contingent blocks `{"when": {...}, "note": "...", "orders": [...]}`. The engine checks every
+`when` each cycle and puts the block's orders live the first time it is true (once per day; orders get the same stop,
+level and TFSA checks as Plan A, and are tagged "Plan B"/"Plan C" in their `why`). `when.type` is one of:
+`time_after {time_et}`, `price_below|price_above {symbol, level}` (any Yahoo symbol, native currency), `vix_above|vix_below
+{level}`, `unfilled_by {symbol, time_et}` (Plan A on that symbol has not bought by then), `stopped_out {symbol}`,
+`day_loss_over {pct}`. A block with `"orders": []` is a "stand aside" plan: it documents the decision and shows on the
+dashboard. Plan B answers "Plan A did not happen"; Plan C answers "the day is going wrong" (use `vix_above`,
+`day_loss_over` or `stopped_out`). `failsafe` and `playbook` are written for the owner to read; the engine's
+`limits` enforce the hard stops.
+
 Orders are optional: with none, a trader runs on its own rules (autopilot) using the scanner. `tabled` tickers are
 scanned first and every trader sees them.
 

@@ -180,3 +180,8 @@ input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 4
 input[type=range]::-webkit-slider-thumb { margin-top: -9px; }
 input[type=range]::-moz-range-track { height: 4px; border-radius: 4px; background: rgba(118,118,128,.24); }
 @media (max-width: 700px) { input[type=range]::-webkit-slider-thumb { width: 28px; height: 28px; margin-top: -12px; } }
+
+.planb { border-left: 3px solid var(--accent, #0a84ff); }
+.failsafe { border-left: 3px solid #ff453a; }
+.ifthen { margin: 8px 0 0 18px; padding: 0; color: var(--ink-2); font-size: 14px; }
+.ifthen li { margin: 4px 0; }

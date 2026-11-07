@@ -1,0 +1,48 @@
+{
+ "day": [
+  {
+   "week": "2026-W45",
+   "lesson": "On a gap-down rout day (S&P futures -2%+, VIX 25+) clean 15-minute range breaks with volume are rare: zero trades is the filter working, not a failure."
+  }
+ ],
+ "swing": [
+  {
+   "week": "2026-W45",
+   "lesson": "Earnings gap-and-hold names with a huge beat held best on a down day; small beats drifted with the market, so size the biggest beats first."
+  },
+  {
+   "week": "2026-W45",
+   "lesson": "When fully invested, a new setup needs a planned sale: name which holding goes first."
+  }
+ ],
+ "long": [
+  {
+   "week": "2026-W45",
+   "lesson": "A long-term buy needs its stop well below the price (about 18%); check every stop is under the buy before trusting a fill."
+  }
+ ],
+ "futures": [
+  {
+   "week": "2026-W45",
+   "lesson": "Breakouts above a round number fade in a risk-off tape: buy on a 5-minute close above the level, not a touch."
+  }
+ ],
+ "options_aggr": [
+  {
+   "week": "2026-W45",
+   "lesson": "One contract times a risk-off mood cut (0.7) rounds to zero: plan two contracts on a cheaper strike, or expect no fill on a risk-off day."
+  }
+ ],
+ "options_safe": [
+  {
+   "week": "2026-W45",
+   "lesson": "With C$3,000 a cash-secured put needs a stock under about US$20 above its 200-day: table cheap quality names, or the cash stays parked."
+  }
+ ],
+ "crypto": [
+  {
+   "week": "2026-W45",
+   "lesson": "One extreme-fear add per fear episode keeps cash for a deeper flush; two adds in a day left only 14% cash."
+  }
+ ]
+}

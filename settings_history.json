@@ -1,0 +1,92 @@
+[
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "day",
+  "knob": "frequency",
+  "old": 8,
+  "new": 9.0,
+  "why": "Zero trades on a rout day: one more attempt allowed and a nearer target to bank wins before VIX-25 reversals.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "day",
+  "knob": "target",
+  "old": 6,
+  "new": 5.0,
+  "why": "Zero trades on a rout day: one more attempt allowed and a nearer target to bank wins before VIX-25 reversals.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "swing",
+  "knob": "holding",
+  "old": 4,
+  "new": 5.0,
+  "why": "Gap-and-hold names need a few more days to drift, and a VIX-25 market needs a little more room before a stop.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "swing",
+  "knob": "stop_width",
+  "old": 5,
+  "new": 6.0,
+  "why": "Gap-and-hold names need a few more days to drift, and a VIX-25 market needs a little more room before a stop.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "long",
+  "knob": "frequency",
+  "old": 3,
+  "new": 4.0,
+  "why": "The stop bug, not her picks, emptied her book: one more position slot to rebuild from all cash.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "futures",
+  "knob": "target",
+  "old": 6,
+  "new": 5.0,
+  "why": "Breakouts are fading in this tape: take profit sooner.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "options_aggr",
+  "knob": "holding",
+  "old": 2,
+  "new": 3.0,
+  "why": "Slightly longer-dated options so daily VIX-25 swings don't decide the trade.",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "options_safe",
+  "knob": "aggression",
+  "old": 3,
+  "new": 4.0,
+  "why": "Rich premiums: strikes one step closer for more premium, still the safe player (4 is his ceiling).",
+  "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-07T18:56:27Z",
+  "week": "2026-W45",
+  "trader": "crypto",
+  "knob": "stop_width",
+  "old": 5,
+  "new": 6.0,
+  "why": "Crypto swings widened with the equity sell-off: a little more room before stops on news and meme coins.",
+  "by": "Saturday review 2026-W45"
+ }
+]

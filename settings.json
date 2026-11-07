@@ -1,0 +1,39 @@
+{
+ "day": {
+  "scales": {
+   "frequency": 9.0,
+   "target": 5.0
+  }
+ },
+ "swing": {
+  "scales": {
+   "holding": 5.0,
+   "stop_width": 6.0
+  }
+ },
+ "long": {
+  "scales": {
+   "frequency": 4.0
+  }
+ },
+ "futures": {
+  "scales": {
+   "target": 5.0
+  }
+ },
+ "options_aggr": {
+  "scales": {
+   "holding": 3.0
+  }
+ },
+ "options_safe": {
+  "scales": {
+   "aggression": 4.0
+  }
+ },
+ "crypto": {
+  "scales": {
+   "stop_width": 6.0
+  }
+ }
+}

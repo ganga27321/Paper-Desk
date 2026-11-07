@@ -55,8 +55,23 @@ def last_price(sym):
 
 
 def usdcad():
+    """USD->CAD. When Yahoo fails, the last rate the desk saw (state/fx.json), never a made-up constant that would
+    move every US position's C$ value."""
+    from . import core
+    import json
+    f = core.STATE / "fx.json"
     p = last_price("CAD=X")
-    return p or 1.40
+    if p and 1.0 < p < 2.0:
+        try:
+            core.STATE.mkdir(parents=True, exist_ok=True)
+            f.write_text(json.dumps({"usdcad": p, "at": core.utcnow().isoformat() + "Z"}))
+        except OSError:
+            pass
+        return p
+    try:
+        return float(json.loads(f.read_text())["usdcad"])
+    except (OSError, ValueError, KeyError):
+        return 1.40   # first run ever with no data at all
 
 
 def info(sym):

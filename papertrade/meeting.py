@@ -3,6 +3,7 @@ ntfy note that shares the plan."""
 import datetime as dt
 import glob
 import json
+import re
 import sys
 
 from . import core, data, scanner, settings
@@ -112,19 +113,35 @@ def _check_orders(errs, tid, orders, label):
             errs.append(f"{tid} {label} {i} ({o.get('symbol')}): {r}")
 
 
-def validate(path):
-    """Check a plan file; prints problems and returns True if usable."""
+def _hm(text):
+    """'08:30', '8:30' or '8:30am' -> time; None if unreadable."""
+    m = re.match(r"\s*(\d{1,2}):(\d{2})\s*([ap]m)?", str(text or ""), re.I)
+    if not m:
+        return None
+    h, mi = int(m.group(1)), int(m.group(2))
+    if m.group(3) and m.group(3).lower() == "pm" and h < 12:
+        h += 12
+    return dt.time(h, mi) if h < 24 and mi < 60 else None
+
+
+def validate(path, check_clock=True):
+    """Check a plan file; prints problems and returns True if usable. check_clock=False skips the 'released events
+    need results' test, for re-checks later in the day (the plan was right when it was written)."""
     p = json.loads(open(path, encoding="utf-8").read())
     errs = []
+    review_file = "week" in p and "traders" not in p   # a Saturday review file
+    if p.get("adjustments") and not review_file:
+        errs.append("adjustments: scale changes happen only in the Saturday review (reviews/<week>.json), not in a daily plan")
     for tid, ch in (p.get("adjustments") or {}).items():
         if tid not in T:
             errs.append(f"adjustments: unknown trader {tid}")
+            continue
         for k, v in (ch.get("scales") or {}).items():
             if k not in [x[0] for x in settings.KNOBS] or not 0 <= float(v) <= 10:
                 errs.append(f"adjustments {tid}: bad scale {k}={v}")
         if tid == "options_safe" and float((ch.get("scales") or {}).get("aggression", 0)) > 4:
             errs.append("adjustments options_safe: Theo is the safe player (aggression 4 or below)")
-    if "week" in p and "traders" not in p:   # a Saturday review file
+    if review_file:
         for k in ("week", "weekly_review", "lessons"):
             if k not in p:
                 errs.append(f"review: missing {k}")
@@ -134,11 +151,14 @@ def validate(path):
     for k in ("date", "market_view", "tabled", "traders", "events"):
         if k not in p:
             errs.append(f"missing {k}" + (" (list today's events with time_et, status released/upcoming and the actual result if released)" if k == "events" else ""))
-    now_et = core.ny().strftime("%H:%M")
+    now = core.ny()
     for e in p.get("events") or []:
-        if e.get("time_et") and e["time_et"] <= now_et and p.get("date") == core.ny().date().isoformat():
+        at = _hm(e.get("time_et"))
+        if e.get("time_et") and at is None:
+            errs.append(f"event '{e.get('name')}': time_et {e.get('time_et')!r} must look like 08:30")
+        if check_clock and at and at <= now.time() and p.get("date") == now.date().isoformat():
             if e.get("status") != "released" or not e.get("actual"):
-                errs.append(f"event '{e.get('name')}' at {e['time_et']} ET is already out (now {now_et} ET): add status released and the actual result")
+                errs.append(f"event '{e.get('name')}' at {e['time_et']} ET is already out (now {now:%H:%M} ET): add status released and the actual result")
     detailed = p.get("date", "") >= DETAILED_FROM
     if detailed:
         sc = p.get("scenarios") or []
@@ -188,23 +208,28 @@ def share(path):
     """Send the plan to ntfy (the morning note)."""
     from . import notify
     p = json.loads(open(path, encoding="utf-8").read())
-    if notify.sent_today("Paper Desk 7 AM plan", str(p.get("date"))):
+    marker = core.STATE / "plans_shared.json"
+    shared = json.loads(marker.read_text()) if marker.exists() else []
+    if p.get("date") in shared or notify.sent_today("Paper Desk 7 AM plan", str(p.get("date"))):
         print("plan already shared today")
         return
     lines = [p.get("market_view", ""), "", "Tabled: " + ", ".join(p.get("tabled", [])[:20])]
     for tid, tp in p.get("traders", {}).items():
         lines.append("")
+        if tid not in T:
+            continue
         lines.append(f"{T[tid]['name']} ({T[tid]['title']}): {tp.get('view', '')}")
         for o in tp.get("orders", [])[:3]:
             lines.append(f"  - {o.get('symbol')}: {o.get('why', '')[:140]}")
     url = core.CFG.get("site_url", "")
-    notify.send(f"Paper Desk 7 AM plan {p.get('date')}", notify.fit(lines[:1], [("PLAN", lines[1:])], footer="Paper money only."),
-                buttons=(("Dashboard", ""),), url=url)
+    if notify.send(f"Paper Desk 7 AM plan {p.get('date')}", notify.fit(lines[:1], [("PLAN", lines[1:])], footer="Paper money only."),
+                   buttons=(("Dashboard", ""),), url=url):
+        marker.write_text(json.dumps((shared + [p.get("date")])[-30:]))
 
 
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "validate":
-        sys.exit(0 if validate(sys.argv[2]) else 1)
+        sys.exit(0 if validate(sys.argv[2], check_clock="--no-clock" not in sys.argv) else 1)
     if cmd == "share":
         share(sys.argv[2])

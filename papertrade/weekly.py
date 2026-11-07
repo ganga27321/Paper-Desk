@@ -202,19 +202,22 @@ def add_lessons(doc, tag):
 
 
 def review(path=None):
-    """Saturday council session: apply the week's review (insights + scale adjustments), pay the weekly bonus,
+    """Saturday review: apply the week's review (insights + scale adjustments), pay the weekly bonus,
     build the PDF. Idempotent: a review is applied once, the bonus is paid once per week."""
     import json
     from . import settings
     ny = core.ny()
     tag = f"{ny.isocalendar()[0]}-W{ny.isocalendar()[1]:02d}"
-    path = path or core.STATE / "reviews" / f"{tag}.json"
+    path = __import__("pathlib").Path(path or core.STATE / "reviews" / f"{tag}.json")
     applied_p = core.STATE / "reviews_applied.json"
     applied = json.loads(applied_p.read_text()) if applied_p.exists() else []
-    if path and __import__("pathlib").Path(path).exists() and str(path) not in applied:
-        doc = json.loads(open(path, encoding="utf-8").read())
-        settings.apply_doc(doc.get("adjustments", {}), by=f"Saturday council {doc.get('week', tag)}")
+    # recorded by file name (e.g. "2026-W45.json"): older entries were full paths, which differ between a Claude
+    # session and GitHub, so the same review could be applied twice
+    done = {str(x).replace("\\", "/").rsplit("/", 1)[-1] for x in applied}
+    if path.exists() and path.name not in done:
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        settings.apply_doc(doc.get("adjustments", {}), by=f"Saturday review {doc.get('week', tag)}")
         add_lessons(doc, tag)
-        applied_p.write_text(json.dumps(applied + [str(path)]))
+        applied_p.write_text(json.dumps(applied + [path.name]))
         core.log("review", week=doc.get("week", tag), traders=list((doc.get("weekly_review") or {}).keys()))
     return build(ny.date())

@@ -41,12 +41,15 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git clone --quiet --branch paper-data --single-branch "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" papertrade/state
           OUT=$(python -m papertrade settings /tmp/settings.json you)
-          echo "$OUT"; echo "out=$OUT" >> "$GITHUB_OUTPUT"
+          echo "$OUT"
+          printf 'out<<__OUT__\n%s\n__OUT__\n' "$OUT" >> "$GITHUB_OUTPUT"   # multi-line safe
           cd papertrade/state && git add -A && (git diff --cached --quiet || git commit -qm "Scales changed from the dashboard (#${{ github.event.issue.number }}) [desk]")
           for i in 1 2 3; do git push -q origin HEAD:paper-data && break; git pull -q --rebase origin paper-data; sleep 3; done
       - name: Rebuild the dashboard and close the issue
         env:
           GH_TOKEN: ${{ github.token }}
+          OUT: ${{ steps.apply.outputs.out }}       # passed as data, never pasted into the script
+          ISSUE: ${{ github.event.issue.number }}
         run: |
-          gh workflow run paper-desk.yml -R "${{ github.repository }}" -f mode=crypto || true
-          gh issue close ${{ github.event.issue.number }} -R "${{ github.repository }}" -c "Applied to the Paper Desk: ${{ steps.apply.outputs.out }}. The dashboard refreshes in a few minutes."
+          gh workflow run paper-desk.yml -R "$GITHUB_REPOSITORY" -f mode=crypto || true
+          gh issue close "$ISSUE" -R "$GITHUB_REPOSITORY" -c "Applied to the Paper Desk: $OUT. The dashboard refreshes in a few minutes."

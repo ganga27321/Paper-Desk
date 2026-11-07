@@ -37,7 +37,7 @@ def main(argv):
     elif cmd == "scoreboard":
         from .run import scoreboard
         scoreboard()
-    elif cmd == "review":  # Saturday council: apply review + bonus + PDF
+    elif cmd == "review":  # Saturday review: apply review + bonus + PDF
         from .weekly import review
         print(review(argv[1] if len(argv) > 1 else None))
     elif cmd == "weekly":

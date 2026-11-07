@@ -66,7 +66,7 @@ def _syms(a):
 
 
 def _levels(plan, fx):
-    """Council levels from the morning plan, in C$: {symbol: {"stop", "target", "no_buy_above"}}."""
+    """The morning meeting's levels, in C$: {symbol: {"stop", "target", "no_buy_above"}}."""
     out = {}
     for sym, lv in (plan or {}).get("levels", {}).items():
         k = 1 if sym.endswith(CA) else fx
@@ -103,11 +103,7 @@ def cycle(only=None):
     week = f"{tny.isocalendar()[0]}-W{tny.isocalendar()[1]:02d}"
     acc = core.load_accounts()
     fx = data.usdcad()
-    plan = core.plan_for(date)
-    applied = settings._load("plans_applied.json", [])
-    if plan and plan.get("adjustments") and date not in applied:  # Thursday's weekly review moves the scales
-        settings.apply_doc(plan["adjustments"], by=f"meeting {date}")
-        settings._save("plans_applied.json", applied + [date])
+    plan = core.plan_for(date)   # scale changes come only from the Saturday review (weekly.review), never a daily plan
     pre, intr = _load_scan("premarket.json", fx), _load_scan("intraday.json", fx)
     tids = [t for t in core.CFG["traders"] if not only or t in only]
     for tid in tids:
@@ -147,7 +143,7 @@ def cycle(only=None):
             pv, eq = engine.mark(a, prices)
         ctx = {**ctx_base, "equity": eq}
         lim = _limits(tid, plan)
-        for p in a["positions"]:  # the council's stop is a floor for every long on that symbol
+        for p in a["positions"]:  # the meeting's stop is a floor for every long on that symbol
             lv = levels.get(p["meta"].get("yahoo", p["symbol"])) or levels.get(p["symbol"])
             if lv and lv.get("stop") and p.get("side", "long") == "long" and p["kind"] != "option" and lv["stop"] > (p.get("stop") or 0):
                 p["stop"] = lv["stop"]
@@ -193,7 +189,7 @@ def cycle(only=None):
             lv = levels.get(ysym) or levels.get(o["symbol"])
             if lv and o["kind"] != "option" and o.get("side", "long") == "long":
                 if lv.get("no_buy_above") and est and est > lv["no_buy_above"]:
-                    why_not = why_not or "above the council's no-buy level"
+                    why_not = why_not or "above the meeting's no-buy level"
                 if lv.get("stop") and lv["stop"] > (o.get("stop") or 0):
                     o["stop"] = lv["stop"]
             if not why_not and o["kind"] in ("stock", "future", "crypto") and not o.get("stop"):

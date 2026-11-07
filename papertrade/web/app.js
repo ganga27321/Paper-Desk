@@ -206,7 +206,7 @@
         <div class="hero-num"><span class="big" data-count="${total}">${usd(total)}</span>
         <span class="chip ${total >= start ? "ok" : ""}"><span class="${cls(total - start)}">${arrow(total - start)} ${signed(total - start)} (${pct(total / start - 1)})</span></span></div>
         <p class="lede">Combined paper equity on ${usd(start, 0)} put in (C$3,000 each plus weekly bonuses). Updated ${when(D.updated)} Toronto time. The page checks for new data every 3 minutes: the desk updates every 5-15 minutes in market hours, every 2 hours overnight and on weekends (crypto and futures).</p></section>
-      ${wk ? `<section class="card in winner"><span class="trophy">🏆</span><div><p class="eyebrow">Winner of ${esc(wk[0])}</p><h3>${esc(wk[1].name)} earned ${signed(wk[1].week_pnl)} and gets C$${wk[1].bonus} added</h3><p class="muted" style="margin:2px 0 0">Every Saturday, in the council session, the week's biggest earner gets C$${D.weekly_bonus}.</p></div></section>` : `<section class="card in winner"><span class="trophy">🏆</span><div><h3>C$${D.weekly_bonus} to this week's biggest earner</h3><p class="muted" style="margin:2px 0 0">Paid Saturday in the council session. Leader right now: ${esc(ranked[0].name)}.</p></div></section>`}
+      ${(D.bonus_hold || []).includes(D.week) ? `<section class="card in winner"><span class="trophy">🏆</span><div><p class="eyebrow">${esc(D.week)}</p><h3>No bonus this week</h3><p class="muted" style="margin:2px 0 0">The owner forfeited this week's C$${D.weekly_bonus}: no payout and nothing carries over. The review and scale changes still happen on Saturday.</p></div></section>` : wk ? `<section class="card in winner"><span class="trophy">🏆</span><div><p class="eyebrow">Winner of ${esc(wk[0])}</p><h3>${esc(wk[1].name)} earned ${signed(wk[1].week_pnl)} and gets C$${wk[1].bonus} added</h3><p class="muted" style="margin:2px 0 0">Every Saturday, in the weekly review, the week's biggest earner gets C$${D.weekly_bonus}.</p></div></section>` : `<section class="card in winner"><span class="trophy">🏆</span><div><h3>C$${D.weekly_bonus} to this week's biggest earner</h3><p class="muted" style="margin:2px 0 0">Paid Saturday in the weekly review. Leader right now: ${esc(ranked[0].name)}.</p></div></section>`}
       <h2>Leaderboard</h2>
       <section class="grid">${ranked.map((t, i) => `
         <article class="card click in" data-go="t/${t.id}" tabindex="0" role="link" aria-label="${esc(t.name)}">
@@ -273,7 +273,7 @@
 
   function reviewsHtml() {
     const r = (D.reviews || [])[0];
-    if (!r) return `<h2>Saturday weekly review</h2><div class="tw"><div class="empty">The first review comes with the Saturday council session: insights for all 7, scale changes and the C$${D.weekly_bonus} bonus.</div></div>`;
+    if (!r) return `<h2>Saturday weekly review</h2><div class="tw"><div class="empty">The first review comes on Saturday: insights for all 7, scale changes and the C$${D.weekly_bonus} bonus.</div></div>`;
     const b = (D.bonuses || {})[r.week];
     return `<h2>Saturday weekly review · ${esc(r.week)}</h2><section class="card in">${r.summary ? `<p class="lede" style="font-size:17px">${esc(r.summary)}</p>` : ""}${b ? `<p style="margin:10px 0 0"><span class="chip ok">🏆 ${esc(b.name)} won C$${b.bonus} (${signed(b.week_pnl)} this week)</span></p>` : ""}
       ${Object.entries(r.weekly_review || {}).map(([id, notes]) => { const t = D.traders.find(x => x.id === id) || { id, name: id }; const adj = (r.adjustments || {})[id]; return `<div class="plan-tr">${avatar(t)}<div><h3>${esc(t.name)}</h3><ul style="margin:6px 0 0 18px;padding:0;color:var(--ink-2)">${(notes || []).map(n => `<li>${esc(n)}</li>`).join("")}</ul>${adj ? `<div class="order">Scales: ${Object.entries(adj.scales || {}).map(([k, v]) => `<span class="tag">${esc(k)} → ${v}</span>`).join("")}${Object.entries(adj.sectors || {}).map(([k, v]) => `<span class="tag">${esc(k)} → ${v}</span>`).join("")}<div style="color:var(--ink-2)">${esc(adj.why || "")}</div></div>` : ""}</div></div>`; }).join("")}</section>`;
@@ -304,7 +304,7 @@
           ${tp.failsafe ? `<div class="order failsafe"><span class="pill">Failsafe</span> ${esc(tp.failsafe)}</div>` : ""}</div></div>`; }).join("")}</section>`;
     };
     app.innerHTML = `<section class="hero in"><p class="eyebrow">7 AM meeting · shared plan</p><h1>The morning plan</h1>
-      <p class="lede">All seven traders read the Portfolio Council, the four daily reports and each other's books before the scanner runs. Weekly insights, scale changes and the C$${D.weekly_bonus} reward happen in the Saturday council session.</p>
+      <p class="lede">All seven traders read the morning meeting's plan, its levels and each other's books before the scanner runs. Weekly insights, scale changes and the C$${D.weekly_bonus} reward happen in the Saturday review.</p>
       <div style="margin-top:14px"><select id="ps" aria-label="Choose a meeting">${plans.map((p, i) => `<option value="${i}">${esc(p.date)}</option>`).join("")}</select></div></section><div id="pl"></div>`;
     $("#ps").onchange = e => show(+e.target.value); show(0);
     app.insertAdjacentHTML("beforeend", reviewsHtml() + `<h2>Every scale change</h2>${historyList(D.scale_history)}`);

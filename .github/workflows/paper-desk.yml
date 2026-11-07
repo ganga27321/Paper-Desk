@@ -62,8 +62,8 @@ jobs:
           M="${{ github.event.inputs.mode }}"
           case "${{ github.event_name }}:${{ github.event.schedule }}" in
             push:*) M=premarket
-                    W="papertrade/state/reviews/$(date -u +%G-W%V).json"
-                    if [ -f "$W" ] && ! grep -qs "$W" papertrade/state/reviews_applied.json; then M=weekly; fi ;;
+                    WK="$(date -u +%G-W%V)"   # reviews_applied.json lists each applied review by its week
+                    if [ -f "papertrade/state/reviews/$WK.json" ] && ! grep -qs "$WK" papertrade/state/reviews_applied.json; then M=weekly; fi ;;
             schedule:"50 12 * * 1-5") M=premarket ;;
             schedule:"5 21 * * 1-5") M=close ;;
             schedule:"17 */2 * * *") M=crypto ;;
@@ -71,11 +71,17 @@ jobs:
             schedule:*) M=market ;;
           esac
           echo "mode=${M:-market}" >> "$GITHUB_OUTPUT"; echo "mode: ${M:-market}"
-      - name: Share today's plan (every run checks; ntfy dedupe sends it once, whenever the plan lands)
+      - name: Share today's plan (every run checks; plans_shared.json sends it once, whenever the plan lands)
         if: steps.mode.outputs.mode != 'weekly'
         run: |
           P="papertrade/state/plans/$(TZ=America/Toronto date +%F).json"
-          [ -f "$P" ] && python -m papertrade.meeting validate "$P" && python -m papertrade.meeting share "$P" || echo "no plan for today"
+          # --no-clock: the meeting validated the clock when it wrote the plan; later in the day an event it
+          # rightly called "upcoming" has happened, which must not stop the plan from being shared
+          if [ -f "$P" ]; then
+            python -m papertrade.meeting validate "$P" --no-clock && python -m papertrade.meeting share "$P" || echo "plan not shared: see above"
+          else
+            echo "no plan for today"
+          fi
       - name: Premarket scan (fast whole-market screen, tabled tickers first)
         if: steps.mode.outputs.mode == 'premarket'
         run: |
@@ -95,17 +101,12 @@ jobs:
       - name: Closing scoreboard (4:05 PM ET)
         if: github.event.schedule == '5 21 * * 1-5' || steps.mode.outputs.mode == 'close'
         run: python -m papertrade scoreboard
-      - name: Weekly PDF
+      - name: Weekly review, bonus and PDF
         if: steps.mode.outputs.mode == 'weekly'
         run: |
           F=$(python -m papertrade review | tail -1); echo "$F"
-          python - "$F" <<'PY'
-          import os, sys, requests
-          t, f = os.environ.get("NTFY_TOPIC"), sys.argv[1]
-          if t:
-              requests.put(f"https://ntfy.sh/{t}", data=open(f, "rb").read(), timeout=60,
-                           headers={"Filename": os.path.basename(f), "Title": "Paper Desk weekly summary"})
-          PY
+          # the phone copy is a bonus: an ntfy hiccup must not fail the run before the review is saved
+          python -c "import sys; from papertrade import notify; notify.send_file(sys.argv[1], 'Paper Desk weekly summary')" "$F" || true
       - name: Save the desk's state
         run: |
           cd papertrade/state

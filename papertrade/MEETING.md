@@ -47,17 +47,19 @@ shared on ntfy and the dashboard, and the scanner then focuses on the tickers th
     affected orders, validate again and push again.
 
 ## During the day (no Claude)
-GitHub runs the desk every 15 minutes in market hours (crypto and futures every 2 hours): fills on new bars, stops and
+GitHub runs the desk every 5 minutes in market hours (Dax every run, the other six about every 15 minutes; crypto and
+futures every 2 hours): fills on new bars, stops and
 targets, time stops, the day-loss halt, new autopilot entries inside the morning's levels and limits. Every run that
 trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the closing scoreboard.
 
 ## The week's rhythm
-- **Weekdays:** this 7 AM meeting (plan only; no scale changes here).
-- **Saturday, in the Portfolio Council session** (the last session of the user's usage week, before the 18:00 UTC
-  reset): the Paper Desk weekly review. All 7 get insights on their week, their style scales are adjusted, and the
+- **Weekdays:** this 7 AM meeting (plan only; no scale changes here: validation refuses `adjustments` in a daily plan).
+- **Saturday, 14:40 UTC, before anything else in that session** (the last session of the user's usage week, before
+  the 18:00 UTC reset): the Paper Desk weekly review. All 7 get insights on their week, their style scales are adjusted, and the
   week's biggest dollar earner gets C$200. Steps are below ("Weekly review"). If that
   session is skipped, a Sunday GitHub job still pays the bonus and builds the PDF, with no scale changes.
-- **Monday's meeting** names last week's winner (`bonuses` in the context) and reads the review (`reviews/`).
+- **Monday's meeting** names last week's winner (`bonuses` in the context) and reads the review (`reviews/`). If last
+  week is in `bonus_hold` (traders.yaml) there is no winner: say the bonus was forfeited, nothing carried over.
 - The user can move any scale from the dashboard (`by: you` in the history). Never undo a user change without saying why.
 
 ## Rules the meeting must respect
@@ -85,7 +87,7 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
  "news_tickers": ["NVDA", "SOUN"],
  "levels": {"NVDA": {"stop": 168, "target": 205, "no_buy_above": 190}, "GC=F": {"stop": 3950}},
  "limits": {"day": {"max_day_loss_pct": 8, "max_trades_day": 4}, "options_aggr": {"max_day_loss_pct": 20}},
- "shared_notes": ["Council says...", "Sam and Vega agree on..."],
+ "shared_notes": ["Desk agrees: no chasing the open", "Sam and Vega agree on..."],
  "traders": {
   "day":   {"view": "...", "watch": ["SOUN", "RGTI"],
             "orders": [{"symbol": "SOUN", "kind": "stock", "entry_type": "stop", "price": 12.40, "stop": 11.80,
@@ -121,7 +123,7 @@ dashboard. Plan B answers "Plan A did not happen"; Plan C answers "the day is go
 Orders are optional: with none, a trader runs on its own rules (autopilot) using the scanner. `tabled` tickers are
 scanned first and every trader sees them.
 
-## Weekly review (Saturday, after the council sitting)
+## Weekly review (Saturday, first thing in the 14:40 UTC session)
 A week listed in `bonus_hold` (traders.yaml) pays no bonus and the C$ is forfeited (nothing carries over). The review and scale adjustments still happen.
 Keep it to one pass; it is the last session of the user's usage week.
 1. Clone/pull `papertrade/state` as in step 1, then `python -m papertrade context > /tmp/desk.json`

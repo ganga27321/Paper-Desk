@@ -1,8 +1,9 @@
 # Paper Desk — notes for Claude
 
 **This repo is PUBLIC.** Paper trading only. Never commit anything about the owner's real money: holdings, cash,
-amounts, trades, watchlists, account balances, alert levels, the ntfy topic, or anything from the private repo
-ganga27321/the-market-guy. The desk is independent: it reads nothing from that repo, and any security is fair game.
+amounts, trades, watchlists, account balances, alert levels, the ntfy topic, or anything from the owner's private
+repos. The desk is independent: it reads nothing from them, and any security is fair game. Nothing outside this repo
+may be copied into `papertrade/state` (the state's `.gitignore` blocks the old `feed.json`).
 - Meetings are time-aware: read `clock` in the context first; events already released are reported with actual numbers.
 
 - 7 traders, C$3,000 each, all books in C$ (US prices converted at USD/CAD). Six aggressive, Theo (options_safe) the one safe player.

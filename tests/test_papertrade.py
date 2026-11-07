@@ -192,7 +192,8 @@ def test_clock_and_released_events_must_have_results(tmp_path):
     assert c["status"] == "premarket" and "50 min" in c["note"]
     today = core.ny().date().isoformat()
     p = tmp_path / "plan.json"
-    base = {"date": today, "market_view": "x", "tabled": [], "traders": {}}
+    base = {"date": today, "market_view": "x", "tabled": [], "traders": {},
+            "scenarios": [{"if": "yields jump", "then": "tighten stops"}] * 3}   # plans from 2026-11-09 need scenarios
     p.write_text(json.dumps({**base, "events": [{"time_et": "00:00", "name": "jobs", "status": "upcoming"}]}))
     assert not meeting.validate(p)            # already out, still called upcoming
     p.write_text(json.dumps({**base, "events": [{"time_et": "00:00", "name": "jobs", "status": "released", "actual": "+142k"}]}))
@@ -298,3 +299,77 @@ def test_lessons_are_saved_deduplicated_capped_and_fed_to_the_meeting(tmp_path):
     p["traders"]["day"]["lessons_applied"] = ["l19: stood aside after the rout"]
     f.write_text(json.dumps(p))
     assert meeting.validate(str(f))
+
+
+def test_event_times_compare_as_times_not_text(tmp_path):
+    """'8:30' sorts after '10:05' as text; the clock check must still see that 8:30 has passed."""
+    from papertrade import meeting
+    assert meeting._hm("8:30") == dt.time(8, 30) and meeting._hm("08:30") == dt.time(8, 30)
+    assert meeting._hm("2:00pm") == dt.time(14, 0) and meeting._hm("soon") is None
+    today = core.ny().date().isoformat()
+    p = tmp_path / "plan.json"
+    p.write_text(json.dumps({"date": today, "market_view": "x", "tabled": [], "traders": {},
+                             "scenarios": [{"if": "a", "then": "b"}] * 3,
+                             "events": [{"time_et": "0:01", "name": "jobs", "status": "upcoming"}]}))
+    assert not meeting.validate(p)                       # unpadded time still counts as released
+    assert meeting.validate(p, check_clock=False)        # later re-checks (sharing) skip the clock
+
+
+def test_daily_plan_cannot_change_scales(tmp_path, capsys):
+    from papertrade import meeting
+    f = tmp_path / "p.json"
+    f.write_text(json.dumps(_detailed_plan(adjustments={"swing": {"scales": {"aggression": 9}}})))
+    assert not meeting.validate(str(f))
+    assert "only in the Saturday review" in capsys.readouterr().out
+    review = {"week": "2026-W46", "weekly_review": {}, "lessons": {}, "adjustments": {"options_safe": {"scales": {"aggression": 6}}}}
+    f.write_text(json.dumps(review))
+    assert not meeting.validate(str(f))                  # Theo stays the safe player
+
+
+def test_review_is_applied_once_wherever_it_was_applied_from(monkeypatch):
+    from papertrade import weekly, settings
+    monkeypatch.setattr(weekly, "build", lambda d=None: "pdf")
+    ny = core.ny()
+    tag = f"{ny.isocalendar()[0]}-W{ny.isocalendar()[1]:02d}"
+    (core.STATE / "reviews").mkdir()
+    (core.STATE / "reviews" / f"{tag}.json").write_text(json.dumps(
+        {"week": tag, "weekly_review": {}, "lessons": {}, "adjustments": {"swing": {"scales": {"aggression": 3}, "why": "t"}}}))
+    # an older run recorded the review by a full path from another machine
+    (core.STATE / "reviews_applied.json").write_text(json.dumps([f"/home/someone/papertrade/state/reviews/{tag}.json"]))
+    weekly.review()
+    assert settings.current("swing")["scales"]["aggression"] != 3   # not applied a second time
+    (core.STATE / "reviews_applied.json").write_text("[]")
+    weekly.review()
+    assert settings.current("swing")["scales"]["aggression"] == 3
+    assert json.loads((core.STATE / "reviews_applied.json").read_text()) == [f"{tag}.json"]
+
+
+def test_fx_falls_back_to_the_last_rate_seen(monkeypatch):
+    from papertrade import data
+    monkeypatch.setattr(data, "last_price", lambda s: 1.3712)
+    assert data.usdcad() == 1.3712
+    monkeypatch.setattr(data, "last_price", lambda s: None)
+    assert data.usdcad() == 1.3712                        # Yahoo down: last rate, not a made-up 1.40
+
+
+def test_notes_never_fail_a_run_and_the_plan_is_shared_once(monkeypatch, tmp_path):
+    import requests
+    from papertrade import notify, meeting
+    monkeypatch.setenv("NTFY_TOPIC", "test-topic")
+    monkeypatch.setattr(notify.time, "sleep", lambda s: None)
+    def down(*a, **k):
+        raise requests.ConnectionError("ntfy unreachable")
+    monkeypatch.setattr(notify.requests, "post", down)
+    monkeypatch.setattr(notify.requests, "get", down)
+    assert notify.send("t", "x") is False                 # warns, never raises
+    assert notify.sent_today("t", "x") is None            # unknown, not "not sent"
+    sent = []
+    class Ok:
+        def raise_for_status(self):
+            pass
+    monkeypatch.setattr(notify.requests, "post", lambda *a, **k: sent.append(k["json"]["title"]) or Ok())
+    f = tmp_path / "plan.json"
+    f.write_text(json.dumps({"date": "2026-11-09", "market_view": "x", "tabled": [], "traders": {}}))
+    meeting.share(str(f))
+    meeting.share(str(f))
+    assert sent == ["Paper Desk 7 AM plan 2026-11-09"]

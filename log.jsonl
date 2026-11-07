@@ -74,3 +74,6 @@
 {"ts": "2026-11-07T18:56:27Z", "event": "lessons", "week": "2026-W45", "traders": ["day", "swing", "long", "futures", "options_aggr", "options_safe", "crypto"]}
 {"ts": "2026-11-07T18:56:27Z", "event": "review", "week": "2026-W45", "traders": ["day", "swing", "long", "futures", "options_aggr", "options_safe", "crypto"]}
 {"ts": "2026-11-07T18:56:27Z", "event": "bonus_held", "week": "2026-W45"}
+{"ts": "2026-11-07T19:42:08Z", "event": "time_stop", "trader": "swing", "symbol": "MGNI", "old": "2026-11-13", "new": "2026-11-17", "why": "the holding scale now drives the earnings time stop (7 trading days)"}
+{"ts": "2026-11-07T19:42:08Z", "event": "time_stop", "trader": "swing", "symbol": "U", "old": "2026-11-13", "new": "2026-11-17", "why": "the holding scale now drives the earnings time stop (7 trading days)"}
+{"ts": "2026-11-07T19:42:08Z", "event": "time_stop", "trader": "swing", "symbol": "XERS", "old": "2026-11-13", "new": "2026-11-17", "why": "the holding scale now drives the earnings time stop (7 trading days)"}

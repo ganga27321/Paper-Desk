@@ -209,7 +209,7 @@ def test_long_trader_stop_is_always_a_positive_percent_below_entry():
         assert round(100 * (1 - r["long_stop_pct"] / 100), 2) < 100  # stop below entry for every scale
 
 
-def test_held_week_pays_nothing_and_rolls_into_the_next_paid_week(monkeypatch):
+def test_forfeited_week_pays_nothing_and_does_not_carry_over(monkeypatch):
     import datetime as dt
     from papertrade import weekly
     monkeypatch.setitem(core.CFG, "bonus_hold", ["2026-W45"])
@@ -219,5 +219,5 @@ def test_held_week_pays_nothing_and_rolls_into_the_next_paid_week(monkeypatch):
     assert weekly.award(dt.date(2026, 11, 6)) is None
     assert core.load_accounts()["swing"]["cash"] == 3000            # nothing paid for the held week
     core.append_equity("2026-11-13T21:00:00Z", [("day", 3000, 0, 3100), ("swing", 3000, 0, 3500)])
-    w = weekly.award(dt.date(2026, 11, 13))                         # next week: its own C$200 plus the held C$200
-    assert w["bonus"] == 400
+    w = weekly.award(dt.date(2026, 11, 13))                         # next week pays only its own C$200
+    assert w["bonus"] == 200

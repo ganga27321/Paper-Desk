@@ -286,6 +286,8 @@ def long(tid, a, ctx):
     a["seeded"] = True
     out = []
     # Lena rule 1: tranches - the 2nd and 3rd thirds go in on later Mondays if the stock held up and still qualifies
+    if not r.get("tranche_adds", True):   # owner: no waiting on Monday top-ups of old picks; Lena acts on the meeting's tabled names
+        a["tranches"] = {}
     for sym, tr in list(a.setdefault("tranches", {}).items()):
         pos = [p for p in a["positions"] if p["symbol"] == sym]
         if not pos or tr["left"] <= 0:
@@ -308,6 +310,9 @@ def long(tid, a, ctx):
         return out
     pool = list(dict.fromkeys([x["symbol"] for x in ctx.get("tabled_rows", [])] + T[tid].get("universe", []) +
                               [x["symbol"] for x in _scan(ctx, "pullback_uptrend")[:20]]))
+    if r.get("tabled_only"):   # owner: Lena focuses on what the morning meeting tabled
+        tabled = [x["symbol"] for x in ctx.get("tabled_rows", [])]
+        pool = [s for s in pool if s in tabled]
     d = data.daily(pool, "1y")
     scored = []
     for s in pool:

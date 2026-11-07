@@ -28,6 +28,11 @@ def _week(tid, a, trades):
             "deposits": a.get("deposits", [])}
 
 
+def _lessons():
+    from . import weekly
+    return {tid: [m["lesson"] for m in items] for tid, items in weekly.lessons().items()}
+
+
 def context():
     """Everything the meeting needs, as one JSON document (printed)."""
     acc = core.load_accounts()
@@ -60,7 +65,8 @@ def context():
            "recent_log": _tail(core.STATE / "log.jsonl", 40),
            "weekday": core.ny().strftime("%A"),
            "bonuses": json.loads((core.STATE / "bonuses.json").read_text()) if (core.STATE / "bonuses.json").exists() else {},
-           "scale_changes_recent": settings.history()[-30:]}
+           "scale_changes_recent": settings.history()[-30:],
+           "lessons": _lessons()}
     return json.dumps(out, indent=1, default=str)
 
 
@@ -119,7 +125,7 @@ def validate(path):
         if tid == "options_safe" and float((ch.get("scales") or {}).get("aggression", 0)) > 4:
             errs.append("adjustments options_safe: Theo is the safe player (aggression 4 or below)")
     if "week" in p and "traders" not in p:   # a Saturday review file
-        for k in ("week", "weekly_review"):
+        for k in ("week", "weekly_review", "lessons"):
             if k not in p:
                 errs.append(f"review: missing {k}")
         for e in errs:
@@ -148,6 +154,8 @@ def validate(path):
         for k in ("view", "failsafe"):
             if not str(tp.get(k) or "").strip():
                 errs.append(f"{tid}: missing {k}")
+        if _lessons().get(tid) and not isinstance(tp.get("lessons_applied"), list):
+            errs.append(f"{tid}: has lessons from past reviews: add lessons_applied (list of the lessons used)")
         pb = [x for x in tp.get("playbook") or [] if isinstance(x, dict) and x.get("if") and x.get("then")]
         if len(pb) < 3:
             errs.append(f"{tid}: playbook needs at least 3 if/then situations from today's news and levels")

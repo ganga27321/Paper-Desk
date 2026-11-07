@@ -18,7 +18,9 @@ shared on ntfy and the dashboard, and the scanner then focuses on the tickers th
    that calls a released number "upcoming".
 4. **Market check (2-3 searches):** pre-market (or intraday, if open) movers and why, rates and the dollar, gold/oil,
    crypto. If the market is already open, use where prices are now, not where they were before the open.
-5. Read the rest of the context: each trader's cash/positions/recent trades, scales, yesterday's scanner lists and plan.
+5. Read the rest of the context: each trader's cash/positions/recent trades, scales, yesterday's scanner lists and plan,
+   and **`lessons`**: what the desk has learned about each trader in past weekly reviews. Use them when you write each
+   trader's view, playbook, orders and Plan B/C, and list the ones you applied in that trader's `lessons_applied`.
 6. Set the day's guardrails (the bots trade alone all day inside them, no Claude needed):
    - `levels`: for every ticker the traders table, a `stop` (required), optional `target` and `no_buy_above`, in the
      instrument's own currency. The engine never lets a long on that symbol sit below the stop and refuses entries
@@ -35,6 +37,7 @@ shared on ntfy and the dashboard, and the scanner then focuses on the tickers th
      actual numbers and other traders), `playbook` (at least 3 if/then situations specific to that trader's style),
      `orders` (**Plan A**), `plan_b` and `plan_c` (contingent blocks, see below) and a `failsafe` (when this trader stands
      down or cuts risk, in plain words: day-loss limit, a VIX level, a headline that changes the picture).
+   - If the trader has `lessons`, add `lessons_applied` (a list of the lessons you used and how; empty only if none fit).
    - They cite each other ("Sam: Lena's NVDA thesis + Vega's call idea..."). Keep it decisive, with numbers.
 8. Write `papertrade/state/plans/<YYYY-MM-DD>.json` (schema below), validate with
    `python -m papertrade.meeting validate papertrade/state/plans/<date>.json`, fix anything it reports.
@@ -128,6 +131,8 @@ Keep it to one pass; it is the last session of the user's usage week.
 2. Write `papertrade/state/reviews/<YYYY-Www>.json` (ISO week of today, e.g. 2026-W45):
    `{"week": "2026-W45", "summary": "2-3 sentences on the desk's week",
      "weekly_review": {"<trader id>": ["2-3 insights: what worked, what didn't, what to change"], ...all 7},
+     "lessons": {"<trader id>": ["1-2 short, reusable lessons for next week's meetings, e.g. 'ORB entries fail on gap days after a >4% index drop'"], ...all 7},
+     "retire_lessons": {"<trader id>": ["exact text of a lesson that no longer holds"]},
      "adjustments": {"<trader id>": {"scales": {"<knob>": 0-10}, "sectors": {"<Industry>": 0-10}, "why": "..."}}}`
    Knobs: aggression, frequency, holding, deployment, stop_width, target. At most 3 scales per trader, usually 1-2
    steps. Theo (options_safe) stays the safe player: aggression 4 or below. The other six stay aggressive. Don't undo a

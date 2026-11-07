@@ -280,3 +280,21 @@ def test_plan_b_orders_go_live_only_when_their_condition_is_met():
     assert len(late) == 1 and "Plan B" in late[0]["why"]
     again = strategies.plan_orders("swing", a, {**base, "now_ny": core.ny(dt.datetime(2026, 11, 9, 17, 0))})
     assert again == []   # each block fires once
+
+
+def test_lessons_are_saved_deduplicated_capped_and_fed_to_the_meeting(tmp_path):
+    from papertrade import weekly, meeting
+    weekly.add_lessons({"week": "2026-W45", "lessons": {"day": ["ORB fails after a rout", "ORB fails after a rout", " "]}}, "2026-W45")
+    assert [m["lesson"] for m in weekly.lessons()["day"]] == ["ORB fails after a rout"]
+    weekly.add_lessons({"week": "2026-W46", "lessons": {"day": [f"l{i}" for i in range(20)]},
+                        "retire_lessons": {"day": ["l3"]}}, "2026-W46")
+    got = [m["lesson"] for m in weekly.lessons()["day"]]
+    assert len(got) == weekly.LESSONS_KEEP and "l3" not in got and got[-1] == "l19"
+    assert meeting._lessons()["day"] == got
+    p = _detailed_plan(); p["traders"]["day"] = dict(p["traders"]["swing"])
+    f = tmp_path / "p.json"
+    f.write_text(json.dumps(p))
+    assert not meeting.validate(str(f))          # lessons exist for Dax but the plan does not say which it used
+    p["traders"]["day"]["lessons_applied"] = ["l19: stood aside after the rout"]
+    f.write_text(json.dumps(p))
+    assert meeting.validate(str(f))

@@ -113,7 +113,7 @@ def build():
     doc = {"updated": core.utcnow().isoformat() + "Z", "start_date": core.CFG["start_date"], "traders": traders,
            "currency": core.CFG["base_currency"], "repo": core.CFG.get("repo", ""), "week": week,
            "scales_meta": {k: v for k, v in sx.items() if k != "traders"}, "scale_history": hist[::-1],
-           "bonuses": bonuses, "weekly_bonus": core.CFG.get("weekly_bonus", 200),
+           "bonuses": bonuses, "lessons": __import__("papertrade.weekly", fromlist=["lessons"]).lessons(), "weekly_bonus": core.CFG.get("weekly_bonus", 200),
            "reviews": [json.loads(open(r).read()) for r in sorted(glob.glob(str(core.STATE / "reviews" / "*.json")))[-8:]][::-1],
            "plans": [json.loads(open(p).read()) for p in plans[-10:]][::-1], "scans": scans,
            "weekly": [Path(p).name for p in pdfs][::-1], "log": log}

@@ -300,6 +300,7 @@
           ${ifThen(tp.playbook)}
           ${(tp.orders || []).length ? `<div class="muted" style="margin-top:8px"><b>Plan A</b></div>` : ""}${(tp.orders || []).map(orderHtml).join("") || '<div class="muted" style="margin-top:6px">No orders: autopilot rules.</div>'}
           ${planBlocks("Plan B", tp.plan_b)}${planBlocks("Plan C", tp.plan_c)}
+          ${(tp.lessons_applied || []).length ? `<div class="order"><span class="pill">Lessons applied</span><ul class="ifthen">${tp.lessons_applied.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
           ${tp.failsafe ? `<div class="order failsafe"><span class="pill">Failsafe</span> ${esc(tp.failsafe)}</div>` : ""}</div></div>`; }).join("")}</section>`;
     };
     app.innerHTML = `<section class="hero in"><p class="eyebrow">7 AM meeting · shared plan</p><h1>The morning plan</h1>

@@ -168,6 +168,39 @@ def build(week_end=None):
     return str(out)
 
 
+LESSONS_KEEP = 12   # newest lessons kept per trader
+
+
+def lessons():
+    """{trader id: [{"week", "lesson"}]}: what the desk has learned about each trader, newest last."""
+    import json
+    p = core.STATE / "lessons.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+
+
+def add_lessons(doc, tag):
+    """Saturday review: append each trader's new lessons (deduplicated), drop retired ones, keep the newest few."""
+    import json
+    cur = lessons()
+    week = doc.get("week", tag)
+    for tid, items in (doc.get("lessons") or {}).items():
+        if tid not in core.CFG["traders"]:
+            continue
+        mine = cur.setdefault(tid, [])
+        have = {m["lesson"] for m in mine}
+        for x in items:
+            if isinstance(x, str) and x.strip() and x.strip() not in have:
+                have.add(x.strip())
+                mine.append({"week": week, "lesson": x.strip()})
+    for tid, gone in (doc.get("retire_lessons") or {}).items():
+        if tid in cur:
+            cur[tid] = [m for m in cur[tid] if m["lesson"] not in set(gone)]
+    for tid in cur:
+        cur[tid] = cur[tid][-LESSONS_KEEP:]
+    (core.STATE / "lessons.json").write_text(json.dumps(cur, indent=1), encoding="utf-8")
+    core.log("lessons", week=week, traders=list((doc.get("lessons") or {}).keys()))
+
+
 def review(path=None):
     """Saturday council session: apply the week's review (insights + scale adjustments), pay the weekly bonus,
     build the PDF. Idempotent: a review is applied once, the bonus is paid once per week."""
@@ -181,6 +214,7 @@ def review(path=None):
     if path and __import__("pathlib").Path(path).exists() and str(path) not in applied:
         doc = json.loads(open(path, encoding="utf-8").read())
         settings.apply_doc(doc.get("adjustments", {}), by=f"Saturday council {doc.get('week', tag)}")
+        add_lessons(doc, tag)
         applied_p.write_text(json.dumps(applied + [str(path)]))
         core.log("review", week=doc.get("week", tag), traders=list((doc.get("weekly_review") or {}).keys()))
     return build(ny.date())

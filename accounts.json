@@ -50,7 +50,7 @@
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 270.4697024592315
+    "last": 268.46025337395076
    },
    {
     "id": "o4",
@@ -72,7 +72,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 38.808117841024796
+    "last": 38.71071821201326
    },
    {
     "id": "o3",
@@ -94,7 +94,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 74.19275807178747
+    "last": 72.7450720241336
    },
    {
     "id": "o2",
@@ -111,20 +111,20 @@
     "why": "[Earnings gap-and-hold] XERS reported 2026-11-05 (beat by 125%), gapped +19.6% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$17.28, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market.",
     "source": "autopilot",
     "meta": {},
-    "high": 21.19665026664734,
+    "high": 21.488687360536574,
     "low": 19.81499688106919,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 20.916248018886563
+    "last": 21.46043071471979
    }
   ],
   "pending": [],
   "last_bar": {
-   "ABNB": "2026-11-06T19:55:00",
-   "MGNI": "2026-11-06T19:55:00",
-   "U": "2026-11-06T19:55:00",
-   "XERS": "2026-11-06T19:55:00"
+   "ABNB": "2026-11-06T20:55:00",
+   "MGNI": "2026-11-06T20:55:00",
+   "U": "2026-11-06T20:55:00",
+   "XERS": "2026-11-06T20:55:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -139,7 +139,7 @@
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3043.1194526476197,
+  "equity_last": 3038.4747515123663,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -317,7 +317,7 @@
   ],
   "pending": [],
   "last_bar": {
-   "CASH.TO": "2026-11-06T19:55:00"
+   "CASH.TO": "2026-11-06T20:55:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -365,7 +365,7 @@
     },
     "high": 107469.81615736149,
     "low": 106393.44348295778,
-    "last": 107138.77946804278,
+    "last": 107153.66905506235,
     "init_stop": 79795.08261222
    },
    {
@@ -388,7 +388,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 3157.9045309190406,
+    "last": 3162.595123345818,
     "init_stop": 2350.66654513
    },
    {
@@ -411,7 +411,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.310512955085187,
+    "last": 15.307687559973715,
     "init_stop": 10.65203463
    },
    {
@@ -434,7 +434,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 127.1943781713162,
+    "last": 127.27914271936243,
     "init_stop": 88.10529987
    },
    {
@@ -457,17 +457,62 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.6647022188923444,
+    "last": 1.668092827761214,
     "init_stop": 1.1843018
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o6",
+    "kind": "crypto",
+    "symbol": "BTC-USD",
+    "qty": 0.00139919,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 80365.2517913,
+    "target": null,
+    "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "core",
+     "yahoo": "BTC-USD"
+    },
+    "created": "2026-11-07T00:10:43",
+    "valid_until": "2026-11-08T00:10:43",
+    "trail_pct": null,
+    "play": "Extreme-fear buy",
+    "reserve": 149.9283422051527
+   },
+   {
+    "id": "o7",
+    "kind": "crypto",
+    "symbol": "ETH-USD",
+    "qty": 0.04740677,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 2371.94634251,
+    "target": null,
+    "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.",
+    "source": "autopilot",
+    "meta": {
+     "bucket": "core",
+     "yahoo": "ETH-USD"
+    },
+    "created": "2026-11-07T00:10:43",
+    "valid_until": "2026-11-08T00:10:43",
+    "trail_pct": null,
+    "play": "Extreme-fear buy",
+    "reserve": 149.92841961557684
+   }
+  ],
   "last_bar": {
-   "BTC-USD": "2026-11-06T23:25:00",
-   "ETH-USD": "2026-11-06T23:25:00",
-   "LINK-USD": "2026-11-06T23:25:00",
-   "SOL-USD": "2026-11-06T23:25:00",
-   "XRP-USD": "2026-11-06T23:25:00"
+   "BTC-USD": "2026-11-07T00:05:00",
+   "ETH-USD": "2026-11-07T00:05:00",
+   "LINK-USD": "2026-11-07T00:05:00",
+   "SOL-USD": "2026-11-07T00:05:00",
+   "XRP-USD": "2026-11-07T00:05:00"
   },
   "day": {
    "date": "2026-11-06",
@@ -479,10 +524,10 @@
    "trades": 5
   },
   "realized": 0.0,
-  "seq": 5,
+  "seq": 7,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2997.124098336721,
+  "equity_last": 2998.568361056501,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": []
@@ -490,7 +535,8 @@
   "done": {
    "crypto_core": "2026-11-06",
    "crypto_news": "2026-11-06",
-   "crypto_meme": "2026-11-06"
+   "crypto_meme": "2026-11-06",
+   "kai_fear": "2026-11-06"
   }
  }
 }

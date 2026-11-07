@@ -1,17 +1,17 @@
 # The Paper Desk: seven paper traders (papertrade/). Paper money only - nothing here can reach a broker.
 # State (accounts, trades, plans, scans, PDFs) lives on the paper-data branch, so main stays clean.
-#  - push to paper-data with a new plan (the 7 AM meeting) -> share the plan, full-market premarket scan, first cycle
+#  - every run shares today's plan once it lands on paper-data (the 7 AM meeting pushes it)
 #  - every 5 min in market hours (Dax on 1-minute bars every run; the other six every ~15 min) (+ 4:05 PM ET, which closes any day trade) -> intraday scan + cycle (fills are replayed bar by bar, so a late start still fills right)
 #  - every 2 hours, any day -> futures + crypto cycle (they trade outside stock hours)
 #  - 7:50 AM ET weekdays -> premarket scan even if the meeting didn't happen (autopilot)
-#  - Saturday council session pushes reviews/<week>.json -> apply scale changes, pay the C$200 weekly bonus, weekly PDF
+#  - Saturday review pushes reviews/<week>.json -> the next run of any kind (crypto runs every 2 hours) becomes the weekly
+#    run: scale changes, lessons, the C$200 bonus (none for a week in bonus_hold), weekly PDF. A push to paper-data can't
+#    start a run itself: that branch holds no workflow files, and GitHub reads push workflows from the pushed branch.
 #  - Sunday fallback -> bonus + PDF if the Saturday session was skipped
 # Every run rebuilds the dashboard and deploys it to GitHub Pages.
 name: Paper desk
 
 on:
-  push:
-    branches: [paper-data]
   schedule:
     - cron: "*/5 14-20 * * 1-5"
     - cron: "5 21 * * 1-5"
@@ -58,18 +58,23 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Pick the mode
         id: mode
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_MODE: ${{ github.event.inputs.mode }}
         run: |
-          M="${{ github.event.inputs.mode }}"
-          case "${{ github.event_name }}:${{ github.event.schedule }}" in
-            push:*) M=premarket
-                    WK="$(date -u +%G-W%V)"   # reviews_applied.json lists each applied review by its week
-                    if [ -f "papertrade/state/reviews/$WK.json" ] && ! grep -qs "$WK" papertrade/state/reviews_applied.json; then M=weekly; fi ;;
+          M="$INPUT_MODE"
+          case "$EVENT:$SCHEDULE" in
             schedule:"50 12 * * 1-5") M=premarket ;;
             schedule:"5 21 * * 1-5") M=close ;;
             schedule:"17 */2 * * *") M=crypto ;;
             schedule:"40 15 * * 0") M=weekly ;;
             schedule:*) M=market ;;
           esac
+          # a weekly review waiting on paper-data turns this run into the weekly run (reviews_applied.json lists
+          # each applied review by its week)
+          WK="$(date -u +%G-W%V)"
+          if [ -f "papertrade/state/reviews/$WK.json" ] && ! grep -qs "$WK" papertrade/state/reviews_applied.json; then M=weekly; fi
           echo "mode=${M:-market}" >> "$GITHUB_OUTPUT"; echo "mode: ${M:-market}"
       - name: Share today's plan (every run checks; plans_shared.json sends it once, whenever the plan lands)
         if: steps.mode.outputs.mode != 'weekly'

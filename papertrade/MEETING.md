@@ -139,6 +139,7 @@ Keep it to one pass; it is the last session of the user's usage week.
    Knobs: aggression, frequency, holding, deployment, stop_width, target. At most 3 scales per trader, usually 1-2
    steps. Theo (options_safe) stays the safe player: aggression 4 or below. The other six stay aggressive. Don't undo a
    change the user made this week (history entries `by: you`) without saying why.
-3. `python -m papertrade.meeting validate <file>`, then commit that file on paper-data and push. The
-   push makes GitHub apply the adjustments, pay the C$200 bonus to the week's biggest earner, build the weekly PDF
-   and send it to the user's phone.
+3. `python -m papertrade.meeting validate <file>`, then commit that file on paper-data and push. The next desk run
+   (crypto runs every 2 hours, any day) sees the waiting review and applies the adjustments and lessons, pays the
+   C$200 bonus to the week's biggest earner (none for a week in `bonus_hold`), builds the weekly PDF and sends it to
+   the user's phone. To apply it at once, start paper-desk.yml with mode `weekly` (workflow_dispatch).

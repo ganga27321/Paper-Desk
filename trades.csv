@@ -22,3 +22,5 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-06T15:16:59Z,long,SELL,stock,USB,2,83.970056,0.08,167.94,0.48,5.6,stop hit,autopilot,yes
 2026-11-06T15:16:59Z,options_safe,BUY,stock,CASH.TO,49,50.029999,1.23,2451.47,,81.7,"[Cash parking] No cash-secured put qualifies today (needs a stock under US$20 above its 200-day). Idle cash parked in CASH.TO, a high-interest savings ETF, until one does.",autopilot,yes
 2026-11-06T19:04:15Z,futures,LONG,future,MGC,1,5765.018834,2.5,57650.19,,1921.7,"Meeting: Buy one micro gold contract only if gold breaks above 4,090; stop 80 points below. Sandbox: leverage not possible in your TFSA.",meeting,no (sandbox)
+2026-11-07T00:51:17Z,crypto,BUY,crypto,BTC-USD,0.00139919,107162.984705,0.9,149.94,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.,autopilot,no (sandbox)
+2026-11-07T00:51:17Z,crypto,BUY,crypto,ETH-USD,0.04740677,3164.17728,0.9,150.0,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.,autopilot,no (sandbox)

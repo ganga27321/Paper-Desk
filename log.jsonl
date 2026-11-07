@@ -56,3 +56,5 @@
 {"ts": "2026-11-06T19:04:15Z", "event": "open", "trader": "futures", "symbol": "MGC", "kind": "future", "qty": 1, "price": 5765.018833875656, "at": "2026-11-06T18:40:00"}
 {"ts": "2026-11-07T00:10:43Z", "event": "order", "trader": "crypto", "symbol": "BTC-USD", "kind": "crypto", "qty": 0.00139919, "type": "market", "price": null, "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.", "source": "autopilot"}
 {"ts": "2026-11-07T00:10:43Z", "event": "order", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04740677, "type": "market", "price": null, "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.", "source": "autopilot"}
+{"ts": "2026-11-07T00:51:17Z", "event": "open", "trader": "crypto", "symbol": "BTC-USD", "kind": "crypto", "qty": 0.00139919, "price": 107162.98470476177, "at": "2026-11-07T00:15:00"}
+{"ts": "2026-11-07T00:51:17Z", "event": "open", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04740677, "price": 3164.177279935393, "at": "2026-11-07T00:15:00"}

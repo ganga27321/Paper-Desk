@@ -343,7 +343,7 @@
   }
  },
  "crypto": {
-  "cash": 1035.8025981650426,
+  "cash": 734.0581282401552,
   "positions": [
    {
     "id": "o1",
@@ -365,7 +365,7 @@
     },
     "high": 107469.81615736149,
     "low": 106393.44348295778,
-    "last": 107153.66905506235,
+    "last": 107062.23440801259,
     "init_stop": 79795.08261222
    },
    {
@@ -388,7 +388,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 3162.595123345818,
+    "last": 3159.981305461406,
     "init_stop": 2350.66654513
    },
    {
@@ -411,7 +411,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.307687559973715,
+    "last": 15.27660551904546,
     "init_stop": 10.65203463
    },
    {
@@ -434,7 +434,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 127.27914271936243,
+    "last": 127.25089146294977,
     "init_stop": 88.10529987
    },
    {
@@ -457,77 +457,80 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.668092827761214,
+    "last": 1.6637132632357776,
     "init_stop": 1.1843018
-   }
-  ],
-  "pending": [
+   },
    {
     "id": "o6",
     "kind": "crypto",
     "symbol": "BTC-USD",
-    "qty": 0.00139919,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.00139919,
+    "entry": 107162.98470476177,
+    "entry_ts": "2026-11-07T00:15:00",
     "stop": 80365.2517913,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "BTC-USD"
     },
-    "created": "2026-11-07T00:10:43",
-    "valid_until": "2026-11-08T00:10:43",
-    "trail_pct": null,
+    "high": 107180.11490420904,
+    "low": 107162.98470476177,
     "play": "Extreme-fear buy",
-    "reserve": 149.9283422051527
+    "init_stop": 80365.2517913,
+    "last": 107062.23440801259
    },
    {
     "id": "o7",
     "kind": "crypto",
     "symbol": "ETH-USD",
-    "qty": 0.04740677,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.04740677,
+    "entry": 3164.177279935393,
+    "entry_ts": "2026-11-07T00:15:00",
     "stop": 2371.94634251,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "ETH-USD"
     },
-    "created": "2026-11-07T00:10:43",
-    "valid_until": "2026-11-08T00:10:43",
-    "trail_pct": null,
+    "high": 3164.6860396846023,
+    "low": 3164.177279935393,
     "play": "Extreme-fear buy",
-    "reserve": 149.92841961557684
+    "init_stop": 2371.94634251,
+    "last": 3159.981305461406
    }
   ],
+  "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-07T00:05:00",
-   "ETH-USD": "2026-11-07T00:05:00",
-   "LINK-USD": "2026-11-07T00:05:00",
-   "SOL-USD": "2026-11-07T00:05:00",
-   "XRP-USD": "2026-11-07T00:05:00"
+   "BTC-USD": "2026-11-07T00:45:00",
+   "ETH-USD": "2026-11-07T00:45:00",
+   "LINK-USD": "2026-11-07T00:45:00",
+   "SOL-USD": "2026-11-07T00:45:00",
+   "XRP-USD": "2026-11-07T00:45:00"
   },
   "day": {
    "date": "2026-11-06",
-   "trades": 0,
+   "trades": 2,
    "start_eq": 2982.8971649445257
   },
   "week": {
    "key": "2026-W45",
-   "trades": 5
+   "trades": 7
   },
   "realized": 0.0,
   "seq": 7,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2998.568361056501,
+  "equity_last": 2994.1925906312554,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": []

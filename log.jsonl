@@ -62,3 +62,5 @@
 {"ts": "2026-11-07T05:13:14Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,378 per contract is more than free equity"}
 {"ts": "2026-11-07T05:13:15Z", "event": "order", "trader": "crypto", "symbol": "BTC-USD", "kind": "crypto", "qty": 0.00139588, "type": "market", "price": null, "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.", "source": "autopilot"}
 {"ts": "2026-11-07T05:13:15Z", "event": "order", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04718964, "type": "market", "price": null, "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.", "source": "autopilot"}
+{"ts": "2026-11-07T07:13:35Z", "event": "open", "trader": "crypto", "symbol": "BTC-USD", "kind": "crypto", "qty": 0.00139588, "price": 107115.02676880918, "at": "2026-11-07T05:15:00"}
+{"ts": "2026-11-07T07:13:35Z", "event": "open", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04718964, "price": 3167.327796239988, "at": "2026-11-07T05:15:00"}

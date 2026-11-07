@@ -344,7 +344,7 @@
   }
  },
  "crypto": {
-  "cash": 734.0581282401552,
+  "cash": 433.27943751535577,
   "positions": [
    {
     "id": "o1",
@@ -366,7 +366,7 @@
     },
     "high": 107469.81615736149,
     "low": 106393.44348295778,
-    "last": 107127.19009341672,
+    "last": 107235.69975241553,
     "init_stop": 79795.08261222
    },
    {
@@ -389,7 +389,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 3168.839588769333,
+    "last": 3169.3059231292864,
     "init_stop": 2350.66654513
    },
    {
@@ -412,7 +412,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.24976224445993,
+    "last": 15.310512955085187,
     "init_stop": 10.65203463
    },
    {
@@ -435,7 +435,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 126.96833578359019,
+    "last": 127.30740475458333,
     "init_stop": 88.10529987
    },
    {
@@ -458,7 +458,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.6315014684682438,
+    "last": 1.6509979747208803,
     "init_stop": 1.1843018
    },
    {
@@ -483,7 +483,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 107127.19009341672
+    "last": 107235.69975241553
    },
    {
     "id": "o7",
@@ -507,76 +507,79 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 3168.839588769333
-   }
-  ],
-  "pending": [
+    "last": 3169.3059231292864
+   },
    {
     "id": "o8",
     "kind": "crypto",
     "symbol": "BTC-USD",
-    "qty": 0.00139588,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.00139588,
+    "entry": 107115.02676880918,
+    "entry_ts": "2026-11-07T05:15:00",
     "stop": 80345.39257006,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "BTC-USD"
     },
-    "created": "2026-11-07T05:13:15",
-    "valid_until": "2026-11-08T05:13:15",
-    "trail_pct": null,
+    "high": 107328.69068691507,
+    "low": 107115.02676880918,
     "play": "Extreme-fear buy",
-    "reserve": 149.53670210759853
+    "init_stop": 80345.39257006,
+    "last": 107235.69975241553
    },
    {
     "id": "o9",
     "kind": "crypto",
     "symbol": "ETH-USD",
-    "qty": 0.04718964,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.04718964,
+    "entry": 3167.327796239988,
+    "entry_ts": "2026-11-07T05:15:00",
     "stop": 2376.62969158,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to ETH. ETH/BTC above its 20-day: alt season on.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "ETH-USD"
     },
-    "created": "2026-11-07T05:13:15",
-    "valid_until": "2026-11-08T05:13:15",
-    "trail_pct": null,
+    "high": 3173.996515556064,
+    "low": 3167.327796239988,
     "play": "Extreme-fear buy",
-    "reserve": 149.53639941177286
+    "init_stop": 2376.62969158,
+    "last": 3169.3059231292864
    }
   ],
+  "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-07T05:05:00",
-   "ETH-USD": "2026-11-07T05:05:00",
-   "LINK-USD": "2026-11-07T05:05:00",
-   "SOL-USD": "2026-11-07T05:05:00",
-   "XRP-USD": "2026-11-07T05:05:00"
+   "BTC-USD": "2026-11-07T07:05:00",
+   "ETH-USD": "2026-11-07T07:05:00",
+   "LINK-USD": "2026-11-07T07:05:00",
+   "SOL-USD": "2026-11-07T07:05:00",
+   "XRP-USD": "2026-11-07T07:05:00"
   },
   "day": {
    "date": "2026-11-07",
-   "trades": 0,
+   "trades": 2,
    "start_eq": 2992.023784855164
   },
   "week": {
    "key": "2026-W45",
-   "trades": 7
+   "trades": 9
   },
   "realized": 0.0,
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2990.728075758523,
+  "equity_last": 2994.7374586277606,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

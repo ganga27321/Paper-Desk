@@ -46,6 +46,10 @@ def award(week_end=None):
     paid = json.loads(bp.read_text()) if bp.exists() else {}
     if tag in paid:
         return paid[tag]
+    held = sorted(core.CFG.get("bonus_hold") or [])
+    if tag in held:   # the owner held this week's bonus back: no payout, the C$ carries to the next paid week
+        core.log("bonus_held", week=tag)
+        return None
     acc, eq = core.load_accounts(), _equity()
     board = []
     for tid, t in core.CFG["traders"].items():
@@ -60,7 +64,9 @@ def award(week_end=None):
         return None
     board.sort(reverse=True)
     pnl, win = board[0]
-    amt = float(core.CFG.get("weekly_bonus", 200))
+    base_amt = float(core.CFG.get("weekly_bonus", 200))
+    carried = sum(1 for h in held if h < tag and h not in paid)   # held weeks roll into this one
+    amt = base_amt * (1 + carried)
     a = acc[win]
     a["cash"] += amt
     a["deposits"].append({"date": week_end.isoformat(), "amount": amt, "why": f"Winner of {tag}"})

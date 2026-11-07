@@ -94,6 +94,7 @@ Orders are optional: with none, a trader runs on its own rules (autopilot) using
 scanned first and every trader sees them.
 
 ## Weekly review (Saturday, after the council sitting)
+A week listed in `bonus_hold` (traders.yaml) pays no bonus; its C$ rolls into the next paid week. The review and scale adjustments still happen.
 Keep it to one pass; it is the last session of the user's usage week.
 1. Clone/pull `papertrade/state` as in step 1, then `python -m papertrade context > /tmp/desk.json`
    and read each trader's `week` block, scales, positions and trades.

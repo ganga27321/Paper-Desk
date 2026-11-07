@@ -93,9 +93,10 @@ def test_cash_secured_put_reserves_cash():
     assert engine.buying_power(a) == pytest.approx(a["cash"] - 2800)
 
 
-def test_weekly_bonus_goes_to_biggest_earner_once():
+def test_weekly_bonus_goes_to_biggest_earner_once(monkeypatch):
     import datetime as dt
     from papertrade import weekly
+    monkeypatch.setitem(core.CFG, "bonus_hold", [])
     core.append_equity("2026-11-02T15:00:00Z", [("day", 3000, 0, 3000), ("swing", 3000, 0, 3000)])
     core.append_equity("2026-11-06T21:00:00Z", [("day", 3000, 0, 3150), ("swing", 3000, 0, 3400)])
     core.save_accounts(core.load_accounts())
@@ -206,3 +207,17 @@ def test_long_trader_stop_is_always_a_positive_percent_below_entry():
         assert "stop_pct" not in r
         assert 0 < r["long_stop_pct"] <= 40
         assert round(100 * (1 - r["long_stop_pct"] / 100), 2) < 100  # stop below entry for every scale
+
+
+def test_held_week_pays_nothing_and_rolls_into_the_next_paid_week(monkeypatch):
+    import datetime as dt
+    from papertrade import weekly
+    monkeypatch.setitem(core.CFG, "bonus_hold", ["2026-W45"])
+    core.append_equity("2026-11-02T15:00:00Z", [("day", 3000, 0, 3000), ("swing", 3000, 0, 3000)])
+    core.append_equity("2026-11-06T21:00:00Z", [("day", 3000, 0, 3150), ("swing", 3000, 0, 3400)])
+    core.save_accounts(core.load_accounts())
+    assert weekly.award(dt.date(2026, 11, 6)) is None
+    assert core.load_accounts()["swing"]["cash"] == 3000            # nothing paid for the held week
+    core.append_equity("2026-11-13T21:00:00Z", [("day", 3000, 0, 3100), ("swing", 3000, 0, 3500)])
+    w = weekly.award(dt.date(2026, 11, 13))                         # next week: its own C$200 plus the held C$200
+    assert w["bonus"] == 400

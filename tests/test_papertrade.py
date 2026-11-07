@@ -373,3 +373,71 @@ def test_notes_never_fail_a_run_and_the_plan_is_shared_once(monkeypatch, tmp_pat
     meeting.share(str(f))
     meeting.share(str(f))
     assert sent == ["Paper Desk 7 AM plan 2026-11-09"]
+
+
+def test_time_stops_count_nyse_trading_days():
+    d = dt.date
+    assert core.after_sessions(d(2026, 11, 6), 5) == d(2026, 11, 13)    # Fri -> next Fri
+    assert core.after_sessions(d(2026, 11, 6), 7) == d(2026, 11, 17)
+    assert core.after_sessions(d(2026, 11, 20), 5) == d(2026, 11, 30)   # skips the weekend and Thanksgiving
+    assert core.after_sessions(d(2026, 12, 23), 2) == d(2026, 12, 28)   # Dec 24 counts (early close), Christmas doesn't
+
+
+def test_holding_scale_sets_both_of_sams_time_stops(monkeypatch):
+    """Regression: Sam's holding scale once drove nothing (earnings plays had a fixed 5 days, chart plays 14 calendar days)."""
+    from papertrade import settings, strategies, edge, data
+    r = settings.rules("swing")
+    assert (r["earn_time_stop"], r["time_stop_days"]) == (5, 10)
+    settings.apply("swing", {"scales": {"holding": 5}}, "test", "you")
+    r = settings.rules("swing")
+    assert (r["earn_time_stop"], r["time_stop_days"]) == (7, 13)
+    monkeypatch.setattr(strategies, "_earnings_gap_hold", lambda sym, *a: {
+        "last": "2026-11-05", "surprise_pct": 20.0, "gap_pct": 8.0, "sessions_since": 2,
+        "day_low_cad": 46.0, "mid_cad": 48.0, "last_cad": 50.0} if sym == "EARN" else None)
+    monkeypatch.setattr(edge, "headlines", lambda s, h: ["wins a contract"])
+    monkeypatch.setattr(edge, "earnings_within", lambda *a, **k: False)
+    monkeypatch.setattr(data, "info", lambda s: {"sector": "Technology"})
+    row = lambda s, px, atr: {"symbol": s, "price": px, "atr": atr, "d5": 0.05, "rsi": 60, "rel_vol": 2.0}
+    ctx = {"now_ny": core.ny(dt.datetime(2026, 11, 9, 15, 0)), "date": "2026-11-09", "fx": 1.0, "equity": 3000,
+           "prices": {"EARN": 50.0, "CHRT": 20.0}, "tabled_rows": [], "report_rows": [row("EARN", 50.0, 2.0)],
+           "premarket": {"lists": {"breakout_20d": [row("CHRT", 20.0, 1.0)]}}, "tnx_5d": None}
+    out = {o["symbol"]: o for o in strategies.swing("swing", core.load_accounts()["swing"], ctx)}
+    assert out["EARN"]["time_stop"] == "2026-11-18" and "out after 7 trading days" in out["EARN"]["why"]
+    assert out["CHRT"]["time_stop"] == "2026-11-27" and "out after 13 trading days" in out["CHRT"]["why"]   # Thanksgiving skipped
+
+
+def test_fox_target_scale_moves_his_chandelier_trail():
+    """Regression: Fox's target scale once drove target_atr, which he never uses (no fixed target)."""
+    from papertrade import settings
+    r = settings.rules("futures")
+    assert r["chandelier_atr"] == 3 and "target_atr" not in r
+    settings.apply("futures", {"scales": {"target": 5}}, "test", "you")
+    assert 2.2 < settings.rules("futures")["chandelier_atr"] < 2.3    # a tighter trail takes profit sooner
+
+
+def test_every_scale_drives_a_rule_the_trader_has():
+    for tid, t in core.CFG["traders"].items():
+        for knob, keys in (t.get("scale_map") or {}).items():
+            assert knob in t["scales"], (tid, knob)
+            for k in keys:   # settings.rules skips a missing rule without a word
+                assert isinstance(t["rules"].get(k), (int, float)), (tid, knob, k)
+
+
+def test_review_cannot_move_a_scale_that_drives_nothing(tmp_path, capsys):
+    from papertrade import meeting
+    f = tmp_path / "r.json"
+    review = {"week": "2026-W46", "weekly_review": {}, "lessons": {}, "adjustments": {"futures": {"scales": {"holding": 7}}}}
+    f.write_text(json.dumps(review))
+    assert not meeting.validate(str(f))
+    assert "drives nothing for Fox" in capsys.readouterr().out
+    review["adjustments"] = {"futures": {"scales": {"target": 5, "deployment": 9}}, "swing": {"scales": {"holding": 5}}}
+    f.write_text(json.dumps(review))
+    assert meeting.validate(str(f))
+
+
+def test_dashboard_script_parses():
+    import shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("node is not installed")
+    subprocess.run([node, "--check", str(core.ROOT / "web" / "app.js")], check=True)

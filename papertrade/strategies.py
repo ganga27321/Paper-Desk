@@ -18,6 +18,11 @@ def cad(sym, px, fx):
     return px if px is None or sym.endswith(CA) else px * fx
 
 
+def _n(x):
+    """A rule value for a trade note: 2.2738 -> '2.27', 2.0 -> '2'."""
+    return f"{x:.2f}".rstrip("0").rstrip(".")
+
+
 def ranked(tid, rows, key=lambda r: 0):
     """Order candidates by the trader's industry focus (sector scale); 0 = excluded."""
     out = []
@@ -265,9 +270,9 @@ def swing(tid, a, ctx):
             continue
         why = (f"{sym} reported {g['last']} ({'beat by ' + format(g['surprise_pct'], '.0f') + '%' if g.get('surprise_pct') else 'result'}), "
                f"gapped {g['gap_pct']:+.1f}% and has held above the gap-day midpoint for {g['sessions_since']} sessions. "
-               f"Stop under the gap-day low C${stop:.2f}, half off at 1R, out in {r.get('earn_time_stop', 5)} days if the drift stalls.")
+               f"Stop under the gap-day low C${stop:.2f}, half off at 1R, out after {r['earn_time_stop']} trading days if the drift stalls.")
         out.append(order(a, "stock", sym, qty, why, "autopilot", "market", None, stop, round(px + 2 * (px - stop), 2),
-                         time_stop=(t.date() + dt.timedelta(days=r.get("earn_time_stop", 5) + 2)).isoformat(),
+                         time_stop=core.after_sessions(t.date(), r["earn_time_stop"]).isoformat(),
                          play="Earnings gap-and-hold"))
 
     picks = [("Tabled at the meeting", x) for x in ctx.get("tabled_rows", [])]
@@ -300,11 +305,11 @@ def swing(tid, a, ctx):
         if qty < 1:
             continue
         why = (f"{label}: {s} at C${x['price']:.2f}, {x.get('d5', 0) * 100:+.1f}% in 5 days, RSI {x.get('rsi', 0):.0f}, "
-               f"volume {x.get('rel_vol', 0):.1f}x.{news}{rot_note} Stop {r['stop_atr']} ATR, half off at 1R, target "
-               f"{r['target_atr']} ATR, out in {r['time_stop_days']} days if neither.{rate_note}")
+               f"volume {x.get('rel_vol', 0):.1f}x.{news}{rot_note} Stop {_n(r['stop_atr'])} ATR, half off at 1R, target "
+               f"{_n(r['target_atr'])} ATR, out after {r['time_stop_days']} trading days if neither.{rate_note}")
         out.append(order(a, "stock", s, qty, why, "meeting" if label.startswith("Tabled") else "autopilot", "market",
                          None, stop, round(x["price"] + r["target_atr"] * x["atr"], 2),
-                         time_stop=(t.date() + dt.timedelta(days=14)).isoformat(),
+                         time_stop=core.after_sessions(t.date(), r["time_stop_days"]).isoformat(),
                          play="News breakout" if h and label == "20-day breakout" else "News pullback" if h else
                          "Rate rotation" if rot_note else label))
     return out
@@ -427,7 +432,8 @@ def futures(tid, a, ctx):
         tr = pd.concat([df["high"] - df["low"], (df["high"] - cl.shift()).abs(), (df["low"] - cl.shift()).abs()], axis=1).max(axis=1)
         return float(tr.rolling(14).mean().iloc[-1])
 
-    # Fox rule 3: chandelier exit - the stop trails 3 ATR behind the best price since entry, so trends can run
+    # Fox rule 3: chandelier exit - the stop trails chandelier_atr (3 ATR at target scale 6; the target scale moves it)
+    # behind the best price since entry, so trends can run
     # Fox rule 2: pyramiding - one more contract once a trade is 1.5 ATR in profit, if margin allows
     for p in [p for p in a["positions"] if p["kind"] == "future"]:
         df = d.get(p["meta"].get("yahoo"))
@@ -493,8 +499,8 @@ def futures(tid, a, ctx):
         sign = 1 if side == "long" else -1
         why = (f"{c['name']} trend is {'up' if side == 'long' else 'down'} (20-day EMA {'above' if side == 'long' else 'below'} "
                f"the 50-day). {'Buy' if side == 'long' else 'Sell short'} {n} on a break of the 20-day "
-               f"{'high' if side == 'long' else 'low'} US${trig / ctx['fx']:,.2f}; stop {r['stop_atr']} ATR, then a "
-               f"{r.get('chandelier_atr', 3)} ATR chandelier trail (no fixed target: let the trend run).{dx_note} "
+               f"{'high' if side == 'long' else 'low'} US${trig / ctx['fx']:,.2f}; stop {_n(r['stop_atr'])} ATR, then a "
+               f"{_n(r.get('chandelier_atr', 3))} ATR chandelier trail (no fixed target: let the trend run).{dx_note} "
                f"Notional C${n * trig * c['multiplier']:,.0f} on C${ctx['equity']:,.0f} equity.")
         out.append(order(a, "future", code, n, why, entry_type="stop", price=trig, stop=round(trig - sign * r["stop_atr"] * atr, 4),
                          target=None, side=side, meta={**c, "yahoo": c["yahoo"]}, valid_hours=24,

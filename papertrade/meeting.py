@@ -136,9 +136,13 @@ def validate(path, check_clock=True):
         if tid not in T:
             errs.append(f"adjustments: unknown trader {tid}")
             continue
+        live = set(T[tid].get("scale_map") or {}) | {"deployment"}   # deployment works for every trader
         for k, v in (ch.get("scales") or {}).items():
             if k not in [x[0] for x in settings.KNOBS] or not 0 <= float(v) <= 10:
                 errs.append(f"adjustments {tid}: bad scale {k}={v}")
+            elif k not in live:
+                errs.append(f"adjustments {tid}: the {k} scale drives nothing for {T[tid]['name']} "
+                            f"(scales that do: {', '.join(sorted(live))})")
         if tid == "options_safe" and float((ch.get("scales") or {}).get("aggression", 0)) > 4:
             errs.append("adjustments options_safe: Theo is the safe player (aggression 4 or below)")
     if review_file:

@@ -45,6 +45,16 @@ def market_open_at(t_ny):
     return bool(s) and s[0] <= t_ny.time() < s[1]
 
 
+def after_sessions(d, n):
+    """The date `n` NYSE sessions after `d` (weekends and NYSE holidays skipped). A time stop of n trading days
+    sells at that day's open."""
+    for _ in range(max(1, int(n))):
+        d += dt.timedelta(days=1)
+        while not session(d):
+            d += dt.timedelta(days=1)
+    return d
+
+
 def hhmm(text):
     h, m = text.split(":")
     return dt.time(int(h), int(m))

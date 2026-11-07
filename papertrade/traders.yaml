@@ -62,13 +62,15 @@ traders:
     tfsa: true
     account: Questrade
     capital: 3000
+    # time stops count NYSE trading days: time_stop_days for chart plays, earn_time_stop for earnings gap-and-hold;
+    # the holding scale drives both
     rules: {risk_pct: 3.0, max_position_pct: 50, max_positions: 6, stop_atr: 1.5, target_atr: 3.0,
             earn_gap_min: 4, earn_max_sessions: 3, earn_time_stop: 5, earnings_checks: 18, rate_move: 0.15, news_hours: 48,
             scale_out_r: 1, cooldown_days: 5, regime_size: {risk_on: 1.0, neutral: 0.9, risk_off: 0.6},
             time_stop_days: 10, trades_week_goal: 10, avoid_earnings_within_days: 2, new_per_day: 3}
     scales: {aggression: 8, frequency: 8, holding: 4, deployment: 10, stop_width: 5, target: 5}
     scale_map: {aggression: [risk_pct, max_position_pct], frequency: [max_positions, new_per_day, trades_week_goal],
-                holding: [time_stop_days], stop_width: [stop_atr], target: [target_atr]}
+                holding: [time_stop_days, earn_time_stop], stop_width: [stop_atr], target: [target_atr]}
   long:
     name: Lena
     title: Long-term investor
@@ -94,11 +96,12 @@ traders:
     tfsa_mirror: "GLD / SLV / USO ETFs or gold miners"
     account: Sandbox (futures account)
     capital: 3000
-    rules: {max_contracts: 3, stop_atr: 2.0, target_atr: 4.0, margin_pct: 0.045, maint_pct: 0.9,
+    # no fixed target: the target scale sets how far the chandelier trail sits behind the best price (3 ATR at 6)
+    rules: {max_contracts: 3, stop_atr: 2.0, margin_pct: 0.045, maint_pct: 0.9,
             chandelier_atr: 3, pyramid_atr: 1.5, max_adds: 1, dollar_sensitive: [MGC, SIL], dxy_tolerance: 0.002,
             cooldown_days: 3, regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.8}}
     scales: {aggression: 9, frequency: 6, holding: 5, deployment: 10, stop_width: 5, target: 6}
-    scale_map: {aggression: [max_contracts], stop_width: [stop_atr], target: [target_atr]}
+    scale_map: {aggression: [max_contracts], stop_width: [stop_atr], target: [chandelier_atr]}
     contracts:
       MGC: {name: Micro gold, yahoo: "GC=F", multiplier: 10}
       SIL: {name: Micro silver, yahoo: "SI=F", multiplier: 1000}

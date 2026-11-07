@@ -136,8 +136,9 @@ Keep it to one pass; it is the last session of the user's usage week.
      "lessons": {"<trader id>": ["1-2 short, reusable lessons for next week's meetings, e.g. 'ORB entries fail on gap days after a >4% index drop'"], ...all 7},
      "retire_lessons": {"<trader id>": ["exact text of a lesson that no longer holds"]},
      "adjustments": {"<trader id>": {"scales": {"<knob>": 0-10}, "sectors": {"<Industry>": 0-10}, "why": "..."}}}`
-   Knobs: aggression, frequency, holding, deployment, stop_width, target. At most 3 scales per trader, usually 1-2
-   steps. Theo (options_safe) stays the safe player: aggression 4 or below. The other six stay aggressive. Don't undo a
+   Knobs: aggression, frequency, holding, deployment, stop_width, target. Each trader's `scale_map` in
+   `traders.yaml` lists the rules a knob drives (deployment works for everyone); a knob that drives nothing for that
+   trader fails validation. At most 3 scales per trader, usually 1-2 steps. Theo (options_safe) stays the safe player: aggression 4 or below. The other six stay aggressive. Don't undo a
    change the user made this week (history entries `by: you`) without saying why.
 3. `python -m papertrade.meeting validate <file>`, then commit that file on paper-data and push. The next desk run
    (crypto runs every 2 hours, any day) sees the waiting review and applies the adjustments and lessons, pays the

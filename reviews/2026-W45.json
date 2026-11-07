@@ -1,0 +1,127 @@
+{
+ "week": "2026-W45",
+ "summary": "A one-day first week: the desk opened Friday into an AI-led rout (S&P -2.7% and Nasdaq -5% for the week, VIX 25.6 after 28 on Friday, oil -13%, gold +4.5%). Sam's earnings gap-and-hold buys carried the desk (+C$38.47); Fox's gold breakout faded (-C$82.50); Dax and Vega made no trades; Lena's six trades were the stop-sign bug, fixed Friday evening. The C$200 bonus for this week was forfeited by the owner: no payout, nothing carried over.",
+ "week_pnl": {
+  "day": 0.0,
+  "swing": 38.47,
+  "long": 1.35,
+  "futures": -82.5,
+  "options_aggr": 0.0,
+  "options_safe": -1.23,
+  "crypto": -12.81
+ },
+ "top_earner": {
+  "trader": "swing",
+  "name": "Sam",
+  "week_pnl": 38.47,
+  "bonus": "forfeited (2026-W45 in bonus_hold)"
+ },
+ "weekly_review": {
+  "day": [
+   "No trades: on a gap-down rout no 15-minute opening-range break came with the volume his rules need. The filter did its job.",
+   "His meeting plan was right to wait (two losses and done), but a whole day without a setup means his scan list was too narrow for a high-VIX open.",
+   "Next week: more attempts allowed and a nearer target, so wins are banked before the fast reversals a VIX-25 tape brings."
+  ],
+  "swing": [
+   "[Earnings gap-and-hold] made the desk's week: four buys (ABNB from the meeting, MGNI, U, XERS); XERS (+8%, beat by 125%) carried it while the other three sit about 1% under entry.",
+   "He is fully invested (C$19 cash), so a new setup Monday needs a sale first; the rate-rotation and breakout plays weren't used.",
+   "One order was cut to zero by the risk-off mood sizing: small positions round to nothing when the mood multiplier is 0.6."
+  ],
+  "long": [
+   "Her six trades this week were the stop-sign bug (a stop above the buy price sold each buy within minutes), fixed Friday evening; the +C$2.18 is noise, not a verdict on [Dividend grower].",
+   "She starts next week all cash (C$3,001) with a correct 18% stop below every buy, no Monday tranche top-ups, and her own list plus the meeting's names.",
+   "LLY, the meeting's long-term pick, never filled: she can rebuild from her own list first."
+  ],
+  "futures": [
+   "The meeting's gold breakout (buy above 4,090) filled, then gold slipped back to about 4,075: -C$82.50 open, stop near 4,010.",
+   "The breakout fired on a touch, not a close, in a risk-off tape where round-number breaks faded all day.",
+   "His second order was sized to zero by the mood multiplier (one contract x 0.8 rounds to nothing)."
+  ],
+  "options_aggr": [
+   "No trades: the meeting's one NVDA call was sized to zero because one contract x the 0.7 risk-off multiplier rounds down to nothing.",
+   "Waiting on the chip bounce was reasonable with Nov 17 earnings ahead, but a one-contract plan can never pass a mood cut.",
+   "Next week: slightly longer-dated options so a VIX-25 market's daily swings don't decide the trade."
+  ],
+  "options_safe": [
+   "No cash-secured put qualified (with C$3,000 the stock must be under about US$20 and above its 200-day), so 82% of his cash sits in CASH.TO: the safe default working.",
+   "Premiums were rich (VIX 25-28), which is when a careful seller wants to be active.",
+   "Next week: strikes one step closer for more premium while staying the desk's safe player (aggression 4)."
+  ],
+  "crypto": [
+   "[Extreme-fear buy] fired twice in about seven hours (Fear & Greed 25), adding BTC and ETH; the core and growth buckets were already built, leaving 14% cash.",
+   "BTC and ETH are flat from his entries; XRP is down 3%, LINK and SOL up about 1%: -C$12.81 for the week.",
+   "His growth-coin stops sit about 30% below entry, which suits coins that swing 5-10% a day."
+  ]
+ },
+ "lessons": {
+  "day": [
+   "On a gap-down rout day (S&P futures -2%+, VIX 25+) clean 15-minute range breaks with volume are rare: zero trades is the filter working, not a failure."
+  ],
+  "swing": [
+   "Earnings gap-and-hold names with a huge beat held best on a down day; small beats drifted with the market, so size the biggest beats first.",
+   "When fully invested, a new setup needs a planned sale: name which holding goes first."
+  ],
+  "long": [
+   "A long-term buy needs its stop well below the price (about 18%); check every stop is under the buy before trusting a fill."
+  ],
+  "futures": [
+   "Breakouts above a round number fade in a risk-off tape: buy on a 5-minute close above the level, not a touch."
+  ],
+  "options_aggr": [
+   "One contract times a risk-off mood cut (0.7) rounds to zero: plan two contracts on a cheaper strike, or expect no fill on a risk-off day."
+  ],
+  "options_safe": [
+   "With C$3,000 a cash-secured put needs a stock under about US$20 above its 200-day: table cheap quality names, or the cash stays parked."
+  ],
+  "crypto": [
+   "One extreme-fear add per fear episode keeps cash for a deeper flush; two adds in a day left only 14% cash."
+  ]
+ },
+ "retire_lessons": {},
+ "adjustments": {
+  "day": {
+   "scales": {
+    "frequency": 9,
+    "target": 5
+   },
+   "why": "Zero trades on a rout day: one more attempt allowed and a nearer target to bank wins before VIX-25 reversals."
+  },
+  "swing": {
+   "scales": {
+    "holding": 5,
+    "stop_width": 6
+   },
+   "why": "Gap-and-hold names need a few more days to drift, and a VIX-25 market needs a little more room before a stop."
+  },
+  "long": {
+   "scales": {
+    "frequency": 4
+   },
+   "why": "The stop bug, not her picks, emptied her book: one more position slot to rebuild from all cash."
+  },
+  "futures": {
+   "scales": {
+    "target": 5
+   },
+   "why": "Breakouts are fading in this tape: take profit sooner."
+  },
+  "options_aggr": {
+   "scales": {
+    "holding": 3
+   },
+   "why": "Slightly longer-dated options so daily VIX-25 swings don't decide the trade."
+  },
+  "options_safe": {
+   "scales": {
+    "aggression": 4
+   },
+   "why": "Rich premiums: strikes one step closer for more premium, still the safe player (4 is his ceiling)."
+  },
+  "crypto": {
+   "scales": {
+    "stop_width": 6
+   },
+   "why": "Crypto swings widened with the equity sell-off: a little more room before stops on news and meme coins."
+  }
+ }
+}

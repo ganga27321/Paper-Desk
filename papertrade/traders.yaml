@@ -76,7 +76,7 @@ traders:
     tfsa: true
     account: Wealthsimple
     capital: 3000
-    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02, long_stop_pct: 18, tranche_adds: false, tabled_only: true,
+    rules: {max_positions: 6, min_revenue_growth: 0.08, min_operating_margin: 0.15, buy_vs_50d_max: 0.02, long_stop_pct: 18, tranche_adds: false, tabled_only: false,
             tranche_max_drop: 0.03, max_forward_pe: 45, max_peg: 3, pre_earnings_wait_days: 7, cooldown_days: 30,
             regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.75},
             review: quarterly, us_dividend_withholding: 0.15}

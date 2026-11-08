@@ -77,3 +77,5 @@
 {"ts": "2026-11-07T19:42:08Z", "event": "time_stop", "trader": "swing", "symbol": "MGNI", "old": "2026-11-13", "new": "2026-11-17", "why": "the holding scale now drives the earnings time stop (7 trading days)"}
 {"ts": "2026-11-07T19:42:08Z", "event": "time_stop", "trader": "swing", "symbol": "U", "old": "2026-11-13", "new": "2026-11-17", "why": "the holding scale now drives the earnings time stop (7 trading days)"}
 {"ts": "2026-11-07T19:42:08Z", "event": "time_stop", "trader": "swing", "symbol": "XERS", "old": "2026-11-13", "new": "2026-11-17", "why": "the holding scale now drives the earnings time stop (7 trading days)"}
+{"ts": "2026-11-08T05:59:13Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $3,087 per contract is more than free equity"}
+{"ts": "2026-11-08T05:59:13Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,378 per contract is more than free equity"}

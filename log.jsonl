@@ -84,3 +84,4 @@
 {"ts": "2026-11-09T06:44:39Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $3,081 per contract is more than free equity"}
 {"ts": "2026-11-09T06:44:39Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,346 per contract is more than free equity"}
 {"ts": "2026-11-09T06:44:39Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}
+{"ts": "2026-11-09T08:25:03Z", "event": "halt", "trader": "futures", "reason": "day loss -16.6% hit the 10% limit"}

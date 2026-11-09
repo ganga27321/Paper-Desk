@@ -516,3 +516,25 @@ def test_fear_greed_falls_back_to_the_last_saved_reading(monkeypatch):
     edge._cache.pop("fg", None)
     assert edge.fear_greed() is None                                                # too old to trust
     edge._cache.pop("fg", None)
+
+
+def test_intraday_gap_is_measured_from_yesterdays_close(monkeypatch, tmp_path):
+    """Daily bars are labelled by trading date (naive midnight). Today's bar must count as today, so the gap is the
+    open vs YESTERDAY's close, not vs the live price (the bug that kept Dax from ever seeing a gapper)."""
+    from papertrade import data, scanner
+    monkeypatch.setattr(scanner, "SCANS", tmp_path)
+    monkeypatch.setattr(scanner.yf, "screen", lambda *a, **k: (_ for _ in ()).throw(RuntimeError("offline")))
+    monkeypatch.setattr(scanner, "_screen_pages", lambda *a, **k: [])
+    today = core.ny().date()
+    days = pd.DatetimeIndex([pd.Timestamp(today) - pd.Timedelta(days=k) for k in (6, 5, 4, 3, 2, 1, 0)])
+    daily = pd.DataFrame({"open": 10.0, "high": 10.5, "low": 9.5, "close": [10.0] * 6 + [12.5], "volume": 1e6}, index=days)
+    start = pd.Timestamp(today) + pd.Timedelta(hours=14, minutes=30)   # 9:30 ET as naive UTC (a test-day guess is fine)
+    five = pd.DataFrame({"open": [11.0, 11.5, 12.0, 12.4], "high": [11.6, 12.1, 12.5, 12.6], "low": [10.9, 11.4, 11.9, 12.3],
+                         "close": [11.5, 12.0, 12.4, 12.5], "volume": 5e5},
+                        index=pd.DatetimeIndex([start + pd.Timedelta(minutes=5 * i) for i in range(4)]))
+    monkeypatch.setattr(data, "bars", lambda syms, interval="5m", period="5d": {"GAPR": daily if interval == "1d" else five})
+    monkeypatch.setattr(core, "ny", lambda utc=None: dt.datetime.combine(today, dt.time(10, 0)) if utc is None
+                        else utc - dt.timedelta(hours=5))
+    row = scanner.intraday(tabled=("GAPR",))["rows"][0]
+    assert row["prev_close"] == 10.0
+    assert round(row["gap_pct"]) == 10 and round(row["chg_pct"]) == 25

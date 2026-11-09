@@ -225,6 +225,12 @@ def _write(name, obj):
     return obj
 
 
+def _bar_date(ix):
+    """The trading date of a daily bar: its own date when naive (Yahoo's daily label), else its New York date."""
+    t = ix.to_pydatetime()
+    return t.date() if t.tzinfo is None else core.ny(t.astimezone(dt.timezone.utc).replace(tzinfo=None)).date()
+
+
 def intraday(tabled=()):
     """Live small-cap gappers on 5-minute bars: gap vs yesterday, volume so far, opening range."""
     cands = set(tabled)
@@ -255,7 +261,9 @@ def intraday(tabled=()):
             continue
         if core.ny(f.index[-1].to_pydatetime()).date() != today:
             continue
-        prev = float(d["close"].iloc[-2]) if core.ny(d.index[-1].to_pydatetime()).date() == today else float(d["close"].iloc[-1])
+        # daily bars are labelled by trading date (naive midnight), not a UTC instant: core.ny() would turn today's
+        # bar into "yesterday 19:00" and make yesterday's close the live price (every gap read ~0 vs the open)
+        prev = float(d["close"].iloc[-2]) if _bar_date(d.index[-1]) == today else float(d["close"].iloc[-1])
         first = f.iloc[0]
         orb = f.iloc[:3]
         vol_today = float(f["volume"].sum())

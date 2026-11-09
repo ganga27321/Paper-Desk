@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2327.00469274388,
-  "positions": [
-   {
-    "id": "o6",
-    "kind": "stock",
-    "symbol": "STLN",
-    "side": "long",
-    "qty": 112,
-    "entry": 5.930847047749296,
-    "entry_ts": "2026-11-09T19:37:00",
-    "stop": 5.04,
-    "target": 6.75,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[ORB+VWAP] STLN gapped +9% on 3x normal volume and is above VWAP (C$5.72); buy a break above the 15-min high C$5.71, stop under the range low C$5.04, half off at 1R, target 1.5157R.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 6.0585526261425,
-    "low": 5.930847047749296,
-    "scale_out_r": 1,
-    "play": "ORB+VWAP",
-    "init_stop": 5.04,
-    "last": 5.767611731506349
-   }
-  ],
+  "cash": 2966.8781676369003,
+  "positions": [],
   "pending": [
    {
     "id": "o4",
@@ -58,8 +33,8 @@
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
-   "GFR": "2026-11-09T20:46:00",
-   "STLN": "2026-11-09T20:46:00"
+   "GFR": "2026-11-09T20:51:00",
+   "STLN": "2026-11-09T20:51:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -70,11 +45,11 @@
    "key": "2026-W46",
    "trades": 3
   },
-  "realized": -0.7803581103621653,
+  "realized": -25.161752565262642,
   "seq": 6,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2972.977206672591,
+  "equity_last": 2966.8781676369003,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

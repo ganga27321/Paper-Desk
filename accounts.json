@@ -53,7 +53,7 @@
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 274.3141588929793
+    "last": 271.91525542979434
    },
    {
     "id": "o4",
@@ -70,12 +70,12 @@
     "why": "[Earnings gap-and-hold] MGNI reported 2026-11-04 (beat by 17%), gapped +13.0% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$36.11, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market. Time stop moved from 2026-11-13 to 2026-11-17 on 2026-11-07: Sam's holding scale now sets it (7 trading days).",
     "source": "autopilot",
     "meta": {},
-    "high": 40.91068902617644,
+    "high": 40.94547588684463,
     "low": 39.0349800241238,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 40.64096605453415
+    "last": 40.76186507123566
    },
    {
     "id": "o3",
@@ -85,7 +85,7 @@
     "qty": 8,
     "entry": 73.08278422708281,
     "entry_ts": "2026-11-06T14:50:00",
-    "stop": 67.06430077552795,
+    "stop": 67.08900034427643,
     "target": 89.69,
     "flat_by": null,
     "time_stop": "2026-11-17",
@@ -97,7 +97,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 74.32136319770507
+    "last": 73.5860382224655
    },
    {
     "id": "o2",
@@ -119,15 +119,15 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 21.728833936001593
+    "last": 21.539100110530853
    }
   ],
   "pending": [],
   "last_bar": {
-   "ABNB": "2026-11-09T14:55:00",
-   "MGNI": "2026-11-09T14:55:00",
-   "U": "2026-11-09T14:55:00",
-   "XERS": "2026-11-09T14:55:00"
+   "ABNB": "2026-11-09T15:10:00",
+   "MGNI": "2026-11-09T15:10:00",
+   "U": "2026-11-09T15:10:00",
+   "XERS": "2026-11-09T15:10:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -142,7 +142,7 @@
   "seq": 7,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3108.514393223589,
+  "equity_last": 3085.5850500322285,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -158,7 +158,7 @@
   }
  },
  "long": {
-  "cash": 1912.1029151630637,
+  "cash": 1226.59077149152,
   "positions": [
    {
     "id": "o8",
@@ -168,7 +168,7 @@
     "qty": 1,
     "entry": 486.7722846077231,
     "entry_ts": "2026-11-09T14:30:00",
-    "stop": 396.7382845878601,
+    "stop": 396.88440203666687,
     "target": 563.8999938964844,
     "flat_by": null,
     "time_stop": null,
@@ -180,7 +180,7 @@
     "high": 494.39275624575384,
     "low": 486.7722846077231,
     "init_stop": 396.1397457122803,
-    "last": 492.5837732841028
+    "last": 494.354140329815
    },
    {
     "id": "o7",
@@ -190,7 +190,7 @@
     "qty": 3,
     "entry": 200.64441228102078,
     "entry_ts": "2026-11-09T14:30:00",
-    "stop": 160.24838185310364,
+    "stop": 160.30740082263947,
     "target": 267.8524971008301,
     "flat_by": null,
     "time_stop": null,
@@ -199,98 +199,109 @@
     "meta": {
      "small_cap": false
     },
-    "high": 206.33214472427062,
+    "high": 208.62561455325704,
     "low": 200.64441228102078,
     "init_stop": 160.00662326812744,
-    "last": 204.8496663984115
-   }
-  ],
-  "pending": [
-   {
-    "id": "o10",
-    "kind": "stock",
-    "symbol": "SHEL",
-    "qty": 1,
-    "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 114.8,
-    "target": null,
-    "why": "[Dividend grower] Shell PLC (raised its dividend this year): revenue +36%, operating margin 19%, dividend 3.1%; bought on a pullback to its rising 50-day average (-0.1%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
-    "source": "autopilot",
-    "meta": {
-     "yahoo": "SHEL",
-     "fx": false
-    },
-    "created": "2026-11-09T15:03:37",
-    "valid_until": "2026-11-09T23:03:37",
-    "play": "Dividend grower",
-    "reserve": 139.94555109616704
-   },
-   {
-    "id": "o11",
-    "kind": "stock",
-    "symbol": "BNS.TO",
-    "qty": 1,
-    "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 107.94,
-    "target": null,
-    "why": "[Dividend grower] BANK OF NOVA SCOTIA (raised its dividend this year): revenue +12%, operating margin 41%, dividend 3.5%; bought on a pullback to its rising 50-day average (+1.4%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
-    "source": "autopilot",
-    "meta": {
-     "yahoo": "BNS.TO",
-     "fx": true
-    },
-    "created": "2026-11-09T15:03:37",
-    "valid_until": "2026-11-09T23:03:37",
-    "play": "Dividend grower",
-    "reserve": 131.61000061035156
-   },
-   {
-    "id": "o12",
-    "kind": "stock",
-    "symbol": "RY",
-    "qty": 1,
-    "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 235.4,
-    "target": null,
-    "why": "[Dividend grower] Royal Bank Of Canada (raised its dividend this year): revenue +9%, operating margin 46%, dividend 2.5%; bought on a pullback to its rising 50-day average (+1.0%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
-    "source": "autopilot",
-    "meta": {
-     "yahoo": "RY",
-     "fx": false
-    },
-    "created": "2026-11-09T15:03:37",
-    "valid_until": "2026-11-09T23:03:37",
-    "play": "Dividend grower",
-    "reserve": 287.06345526050427
+    "last": 208.25837675840376
    },
    {
     "id": "o14",
     "kind": "stock",
     "symbol": "AES",
-    "qty": 6,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 6,
+    "entry": 21.037698754503253,
+    "entry_ts": "2026-11-09T15:05:00",
     "stop": 17.25,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Quality pullback] The AES Corporation: revenue +16%, operating margin 24%, dividend 4.7%; bought on a pullback to its rising 50-day average (+0.1%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
     "source": "autopilot",
     "meta": {
      "yahoo": "AES",
      "fx": false
     },
-    "created": "2026-11-09T15:03:37",
-    "valid_until": "2026-11-09T23:03:37",
+    "high": 21.051821730878828,
+    "low": 21.037698754503253,
     "play": "Quality pullback",
-    "reserve": 126.17972093697972
+    "init_stop": 17.25,
+    "last": 21.044759569206235
+   },
+   {
+    "id": "o11",
+    "kind": "stock",
+    "symbol": "BNS.TO",
+    "side": "long",
+    "qty": 1,
+    "entry": 131.64999389648438,
+    "entry_ts": "2026-11-09T15:05:00",
+    "stop": 107.94,
+    "target": null,
+    "flat_by": null,
+    "time_stop": null,
+    "why": "[Dividend grower] BANK OF NOVA SCOTIA (raised its dividend this year): revenue +12%, operating margin 41%, dividend 3.5%; bought on a pullback to its rising 50-day average (+1.4%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "BNS.TO",
+     "fx": true
+    },
+    "high": 131.94000244140625,
+    "low": 131.64999389648438,
+    "play": "Dividend grower",
+    "init_stop": 107.94,
+    "last": 131.89999389648438
+   },
+   {
+    "id": "o12",
+    "kind": "stock",
+    "symbol": "RY",
+    "side": "long",
+    "qty": 1,
+    "entry": 287.2680366120949,
+    "entry_ts": "2026-11-09T15:05:00",
+    "stop": 235.4,
+    "target": null,
+    "flat_by": null,
+    "time_stop": null,
+    "why": "[Dividend grower] Royal Bank Of Canada (raised its dividend this year): revenue +9%, operating margin 46%, dividend 2.5%; bought on a pullback to its rising 50-day average (+1.0%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "RY",
+     "fx": false
+    },
+    "high": 288.11548523704914,
+    "low": 287.2680366120949,
+    "play": "Dividend grower",
+    "init_stop": 235.4,
+    "last": 287.94753429014236
+   },
+   {
+    "id": "o10",
+    "kind": "stock",
+    "symbol": "SHEL",
+    "side": "long",
+    "qty": 1,
+    "entry": 140.0253358564987,
+    "entry_ts": "2026-11-09T15:05:00",
+    "stop": 114.8,
+    "target": null,
+    "flat_by": null,
+    "time_stop": null,
+    "why": "[Dividend grower] Shell PLC (raised its dividend this year): revenue +36%, operating margin 19%, dividend 3.1%; bought on a pullback to its rising 50-day average (-0.1%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "SHEL",
+     "fx": false
+    },
+    "high": 140.32193856492995,
+    "low": 140.0253358564987,
+    "play": "Dividend grower",
+    "init_stop": 114.8,
+    "last": 140.2654412715492
    }
   ],
+  "pending": [],
   "last_bar": {
    "JPM": "2026-11-06T15:10:00",
    "RY.TO": "2026-11-06T15:10:00",
@@ -298,23 +309,27 @@
    "TXN": "2026-11-06T15:10:00",
    "UMBF": "2026-11-06T15:10:00",
    "USB": "2026-11-06T15:10:00",
-   "AAPL": "2026-11-09T14:55:00",
-   "KLAC": "2026-11-09T14:55:00"
+   "AAPL": "2026-11-09T15:10:00",
+   "KLAC": "2026-11-09T15:10:00",
+   "AES": "2026-11-09T15:10:00",
+   "BNS.TO": "2026-11-09T15:10:00",
+   "RY": "2026-11-09T15:10:00",
+   "SHEL": "2026-11-09T15:10:00"
   },
   "day": {
    "date": "2026-11-09",
-   "trades": 2,
+   "trades": 6,
    "start_eq": 3001.3527893745745
   },
   "week": {
    "key": "2026-W46",
-   "trades": 2
+   "trades": 6
   },
   "realized": 2.192539577657341,
   "seq": 14,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3019.235687642401,
+  "equity_last": 3032.1015689699598,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -373,12 +388,12 @@
     "low": 5765.018833875656,
     "margin": 2594.2584752440453,
     "init_stop": 5652.255629301071,
-    "unrealized": 707.0456185052171
+    "unrealized": 580.2364014671184
    }
   ],
   "pending": [],
   "last_bar": {
-   "GC=F": "2026-11-09T14:50:00"
+   "GC=F": "2026-11-09T15:05:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -394,7 +409,7 @@
   "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3704.545618505217,
+  "equity_last": 3577.7364014671184,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -409,7 +424,7 @@
   }
  },
  "options_aggr": {
-  "cash": 2547.8900048828127,
+  "cash": 2223.579481143952,
   "positions": [
    {
     "id": "o2",
@@ -436,20 +451,20 @@
     },
     "high": 4.511199951171875,
     "low": 4.511199951171875,
-    "mark": 4.4407124519348145
-   }
-  ],
-  "pending": [
+    "mark": 4.299737453460693
+   },
    {
     "id": "o3",
     "kind": "option",
     "symbol": "U 2026-11-20 54C",
-    "qty": 1,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 1,
+    "entry": 3.233205237388611,
+    "entry_ts": "2026-11-09T15:18:09",
     "stop": null,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Earnings call] U gapped +13.2% on earnings (2026-11-05) and held above the gap-day midpoint. Buy the 2026-11-20 $54 call at $2.84 (stock $52.54). Half off at +100%, the rest runs with a breakeven stop. Max loss = premium paid. Sized x0.9 for a neutral market.",
     "source": "autopilot",
     "meta": {
@@ -461,27 +476,28 @@
      "iv": 0.831056376953125,
      "fx": 1.4118800163269043
     },
-    "created": "2026-11-09T15:03:49",
-    "valid_until": "2026-11-09T23:03:49",
-    "action": "BUY_TO_OPEN",
-    "play": "Earnings call"
+    "high": 3.233205237388611,
+    "low": 3.233205237388611,
+    "play": "Earnings call",
+    "mark": 2.781403632164001
    }
   ],
+  "pending": [],
   "last_bar": {},
   "day": {
    "date": "2026-11-09",
-   "trades": 1,
+   "trades": 2,
    "start_eq": 3000.0
   },
   "week": {
    "key": "2026-W46",
-   "trades": 1
+   "trades": 2
   },
   "realized": 0.0,
   "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2991.961250076294,
+  "equity_last": 2931.6935897064213,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -498,36 +514,11 @@
   }
  },
  "options_safe": {
-  "cash": 547.3043248443605,
-  "positions": [
-   {
-    "id": "o1",
-    "kind": "stock",
-    "symbol": "CASH.TO",
-    "side": "long",
-    "qty": 49,
-    "entry": 50.029998779296875,
-    "entry_ts": "2026-11-06T15:05:00",
-    "stop": 48.53,
-    "target": null,
-    "flat_by": null,
-    "time_stop": null,
-    "why": "[Cash parking] No cash-secured put qualifies today (needs a stock under US$20 above its 200-day). Idle cash parked in CASH.TO, a high-interest savings ETF, until one does.",
-    "source": "autopilot",
-    "meta": {
-     "yahoo": "CASH.TO"
-    },
-    "high": 50.040000915527344,
-    "low": 50.029998779296875,
-    "play": "Cash parking",
-    "init_stop": 48.53,
-    "last": 50.03499984741211,
-    "exit_next": "Selling the CASH.TO cash parking to secure a put on AAL"
-   }
-  ],
+  "cash": 2998.03838968277,
+  "positions": [],
   "pending": [],
   "last_bar": {
-   "CASH.TO": "2026-11-09T14:55:00"
+   "CASH.TO": "2026-11-09T15:10:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -538,11 +529,11 @@
    "key": "2026-W46",
    "trades": 0
   },
-  "realized": 0.0,
+  "realized": -0.7358753471374513,
   "seq": 1,
   "deposits": [],
   "deploy_frac": 0.8400000000000001,
-  "equity_last": 2999.019317367554,
+  "equity_last": 2998.03838968277,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -578,7 +569,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 105524.83896653354,
+    "last": 105779.27098032087,
     "init_stop": 79795.08261222
    },
    {
@@ -601,7 +592,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 3001.5862517707283,
+    "last": 3004.7113619034644,
     "init_stop": 2350.66654513
    },
    {
@@ -624,7 +615,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.108528356324314,
+    "last": 15.09996845593605,
     "init_stop": 10.65203463
    },
    {
@@ -647,7 +638,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 123.05946739351202,
+    "last": 123.34489521914293,
     "init_stop": 88.10529987
    },
    {
@@ -670,7 +661,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.5491148048105856,
+    "last": 1.5525101025141907,
     "init_stop": 1.1843018
    },
    {
@@ -695,7 +686,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 105524.83896653354
+    "last": 105779.27098032087
    },
    {
     "id": "o7",
@@ -719,7 +710,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 3001.5862517707283
+    "last": 3004.7113619034644
    },
    {
     "id": "o8",
@@ -743,7 +734,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 105524.83896653354
+    "last": 105779.27098032087
    },
    {
     "id": "o9",
@@ -767,16 +758,16 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 3001.5862517707283
+    "last": 3004.7113619034644
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-09T14:55:00",
-   "ETH-USD": "2026-11-09T14:55:00",
-   "LINK-USD": "2026-11-09T14:55:00",
-   "SOL-USD": "2026-11-09T14:55:00",
-   "XRP-USD": "2026-11-09T14:55:00"
+   "BTC-USD": "2026-11-09T15:10:00",
+   "ETH-USD": "2026-11-09T15:10:00",
+   "LINK-USD": "2026-11-09T15:10:00",
+   "SOL-USD": "2026-11-09T15:10:00",
+   "XRP-USD": "2026-11-09T15:10:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -791,7 +782,7 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2909.9246580225217,
+  "equity_last": 2914.063552159459,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

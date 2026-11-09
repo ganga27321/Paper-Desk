@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2353.0097918304964,
-  "positions": [
-   {
-    "id": "o2",
-    "kind": "stock",
-    "symbol": "TLS",
-    "side": "long",
-    "qty": 66,
-    "entry": 9.621167608720782,
-    "entry_ts": "2026-11-09T19:27:00",
-    "stop": 8.1,
-    "target": 9.71,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[ORB+VWAP] TLS gapped +21% on 4x normal volume and is above VWAP (C$8.70); buy a break above the 15-min high C$8.73, stop under the range low C$8.10, half off at 1R, target 1.5157R.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 9.621167608720782,
-    "low": 9.621167608720782,
-    "scale_out_r": 1,
-    "play": "ORB+VWAP",
-    "init_stop": 8.1,
-    "last": 9.684743714457511
-   }
-  ],
+  "cash": 2992.5880718304966,
+  "positions": [],
   "pending": [
    {
     "id": "o4",
@@ -53,11 +28,35 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 2351.52
+   },
+   {
+    "id": "o6",
+    "kind": "stock",
+    "symbol": "STLN",
+    "qty": 112,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 5.72,
+    "stop": 5.04,
+    "target": 6.75,
+    "why": "[ORB+VWAP] STLN gapped +9% on 3x normal volume and is above VWAP (C$5.72); buy a break above the 15-min high C$5.71, stop under the range low C$5.04, half off at 1R, target 1.5157R.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-09T19:36:24",
+    "valid_until": "2026-11-10T01:36:24",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 640.64
    }
   ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
-   "TLS": "2026-11-09T19:29:00"
+   "TLS": "2026-11-09T19:35:00",
+   "GFR": "2026-11-09T19:35:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -68,11 +67,11 @@
    "key": "2026-W46",
    "trades": 2
   },
-  "realized": -5.361575934790608,
-  "seq": 5,
+  "realized": -0.7803581103621653,
+  "seq": 6,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2992.202876984692,
+  "equity_last": 2992.5880718304966,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -38,3 +38,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-09T19:30:40Z,day,BUY,stock,BESS,500,5.361576,5.36,2680.79,,89.4,"[Squeeze ORB] BESS gapped +11% on 6x normal volume and is above VWAP (C$5.15); buy a break above the 15-min high C$4.83, stop under the range low C$4.54, half off at 1R, target 1.5157R. Float 4M, short interest 3%: squeeze candidate.",autopilot,yes
 2026-11-09T19:30:40Z,day,SELL,stock,BESS,500,5.361576,5.36,2680.79,-5.36,89.4,target hit,autopilot,yes
 2026-11-09T19:30:40Z,day,BUY,stock,TLS,66,9.621168,1.27,635.0,,21.2,"[ORB+VWAP] TLS gapped +21% on 4x normal volume and is above VWAP (C$8.70); buy a break above the 15-min high C$8.73, stop under the range low C$8.10, half off at 1R, target 1.5157R.",autopilot,yes
+2026-11-09T19:36:23Z,day,SELL,stock,TLS,66,9.71,1.28,640.86,4.58,21.5,target hit,autopilot,yes

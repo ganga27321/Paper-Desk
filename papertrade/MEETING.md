@@ -46,6 +46,27 @@ shared on ntfy and the dashboard, and the scanner then focuses on the tickers th
 10. If something big lands after the plan is written (a number released while you work), update `events` and the
     affected orders, validate again and push again.
 
+## Options mini convene (9:31 ET, weekdays, one pass)
+Vega and Theo meet right after the open, on live option quotes (before 9:30 a quote is yesterday's last trade). The
+morning plan's option orders, and any Plan B/C block holding options, go live at **9:45 ET** (`options_from` in
+`traders.yaml`) and pick their contract then, so the convene has until 9:45 to change them.
+1. **Clock first:** `TZ=America/New_York date`. If the market is closed today (weekend or holiday), reply "market closed" and stop.
+2. `git -C papertrade/state pull`, then `python -m papertrade options` (one JSON: each trader's cash, buying power,
+   rules and lessons; open options on live quotes with P/L and days to expiry; today's plan option orders, placed or
+   not, with `engine_pick_now`, the contract the engine would buy now: strike, expiry, bid/ask, spread, IV, C$ per contract).
+3. Vega and Theo decide in character, 2-4 sentences each, reacting to the open (the underlying's gap, IV, spreads):
+   for each option order not yet placed, keep it, change it (`dte`, `otm_pct`, `contracts`) or drop it with
+   `"cancel": true`; add at most one new order each, appended at the end; adjust their options `plan_b`/`plan_c`.
+   **Never delete or reorder orders or blocks** (placed orders are tracked by position). Placed orders and open
+   positions can't be changed from the plan: their engine rules (stop, take profit, exit before expiry) keep running.
+   A spread wider than about 15% of the mid is a reason to wait or pick a nearer strike. Theo's safe rules still hold
+   (aggression 4 or below, no put across an earnings date, nothing under its 200-day).
+4. Write it into `papertrade/state/plans/<date>.json`: the edited orders and blocks, plus
+   `"options_convene": {"time_et": "09:3x", "vega": "...", "theo": "...", "changes": ["..."]}`.
+5. `python -m papertrade.meeting validate --no-clock papertrade/state/plans/<date>.json`, then commit
+   "Options convene <date>" on paper-data and push before 9:45 ET (never force-push). One web search at most, only if a
+   tabled options name has fresh news. Reply with one line: what changed for Vega and for Theo.
+
 ## During the day (no Claude)
 GitHub runs the desk every 5 minutes in market hours (Dax every run, the other six about every 15 minutes; crypto and
 futures every 2 hours): fills on new bars, stops and
@@ -63,6 +84,8 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
 - The user can move any scale from the dashboard (`by: you` in the history). Never undo a user change without saying why.
 
 ## Rules the meeting must respect
+- Option orders from the plan go live at 9:45 ET on live quotes (the 9:31 options convene can change them first);
+  option fills and exits happen only in the regular session.
 - TFSA traders (day, swing, long, options_aggr, options_safe): long only, no margin, regular hours only, whole shares,
   options only as long calls/puts, covered calls (`covered: true`) or cash-secured puts (`cash_secured: true`).
 - Sandbox traders (futures, crypto) may short / use real coins and futures; label "not possible in your TFSA".

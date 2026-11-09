@@ -6,7 +6,7 @@ import json
 import re
 import sys
 
-from . import core, data, scanner, settings
+from . import core, data, edge, scanner, settings
 
 T = core.CFG["traders"]
 
@@ -60,6 +60,7 @@ def context():
     pre = json.loads(pm.read_text()) if pm.exists() else {}
     yday = sorted(glob.glob(str(core.STATE / "plans" / "*.json")))
     out = {"now_ny": core.ny().isoformat(timespec="minutes"), "market": snap, "traders": traders,
+           "crypto_fear_greed": edge.fear_greed_info(),   # source "saved" = the last desk run's reading (time in "at")
            "clock": clock(),
            "scanner_lists_previous": {k: [x["symbol"] for x in v[:15]] for k, v in pre.get("lists", {}).items()},
            "previous_plan": json.loads(open(yday[-1], encoding="utf-8").read()) if yday else None,
@@ -68,6 +69,71 @@ def context():
            "bonuses": json.loads((core.STATE / "bonuses.json").read_text()) if (core.STATE / "bonuses.json").exists() else {},
            "scale_changes_recent": settings.history()[-30:],
            "lessons": _lessons()}
+    return json.dumps(out, indent=1, default=str)
+
+
+def _engine_pick(o):
+    """The contract the engine would pick for a not-yet-placed option order right now, with its live quote."""
+    sym, right = o["symbol"], o.get("right", "C")
+    px = data.last_price(sym)
+    exp = data.pick_expiry(sym, *(o.get("dte") or [7, 30]), core.ny().date())
+    if not px or not exp:
+        return None
+    otm = o.get("otm_pct", 0.03)
+    c = data.pick_contract(sym, exp, right, px * (1 + otm) if right == "C" else px * (1 - otm))
+    if not c:
+        return None
+    prem = c["bid"] if o.get("action") == "SELL_TO_OPEN" else (c["ask"] or c["last"])
+    mid = (c["bid"] + c["ask"]) / 2 if c["bid"] and c["ask"] else None
+    return {"underlying_now": round(px, 2), "expiry": exp, "strike": c["strike"], "bid": c["bid"], "ask": c["ask"],
+            "last": c["last"], "iv": round(c["iv"], 3) if c.get("iv") else None,
+            "spread_pct": round(100 * (c["ask"] - c["bid"]) / mid, 1) if mid else None,
+            "per_contract_cad": round(prem * 100 * data.usdcad(), 2) if prem else None}
+
+
+def options_view():
+    """For the 9:31 ET options convene: Vega's and Theo's books on live quotes, today's plan option orders (placed or
+    not, and what the engine would pick now) and their Plan B/C blocks. Printed as one JSON document."""
+    from .engine import buying_power
+    acc = core.load_accounts()
+    t = core.ny()
+    date = t.date().isoformat()
+    plan = core.plan_for(date) or {}
+    fx = data.usdcad()
+    out = {"clock": clock(), "options_go_live_et": core.CFG.get("options_from", "09:45"), "usdcad": fx, "traders": {}}
+    for tid in ("options_aggr", "options_safe"):
+        a = acc[tid]
+        used = a.get("plan_used", {}).get(date, [])
+        positions = []
+        for p in a["positions"]:
+            if p["kind"] != "option":
+                positions.append({"symbol": p["symbol"], "qty": p["qty"], "entry_cad": round(p["entry"], 2)})
+                continue
+            m = p["meta"]
+            q = data.contract_quote(m["contract"], m["underlying"], m["expiry"], m["right"], m["strike"]) or {}
+            mid = (q["bid"] + q["ask"]) / 2 if q.get("bid") and q.get("ask") else q.get("last")
+            mark = mid * m.get("fx", fx) if mid else None
+            positions.append({"contract": p["symbol"], "side": p["side"], "qty": p["qty"], "entry_cad": round(p["entry"], 2),
+                              "quote_usd": {k: q.get(k) for k in ("bid", "ask", "last")}, "mark_cad": round(mark, 2) if mark else None,
+                              "pnl_pct": round(100 * (mark / p["entry"] - 1), 1) if mark and p["entry"] else None,
+                              "days_to_expiry": (dt.date.fromisoformat(m["expiry"]) - t.date()).days})
+        mine = (plan.get("traders") or {}).get(tid) or {}
+        orders = []
+        for i, o in enumerate(mine.get("orders") or []):
+            row = {"index": i, "placed": i in used, "cancelled": bool(o.get("cancel")), "order": o}
+            if o.get("kind") == "option" and not row["placed"] and not row["cancelled"]:
+                row["engine_pick_now"] = _engine_pick(o)
+            orders.append(row)
+        r = settings.rules(tid)
+        out["traders"][tid] = {
+            "name": T[tid]["name"], "cash": round(a["cash"], 2), "buying_power": round(buying_power(a), 2),
+            "rules": {k: r.get(k) for k in ("risk_pct", "dte_min", "dte_max", "otm_pct", "put_otm_pct", "take_profit_pct",
+                                             "stop_pct", "max_positions", "max_strike", "exit_days_before_expiry")},
+            "positions": positions, "pending": [{k: o.get(k) for k in ("symbol", "qty", "action", "created")} for o in a["pending"]],
+            "plan_orders": orders,
+            "plan_b": [{"index": j, "fired": f"plan_b{j}" in used, **b} for j, b in enumerate(mine.get("plan_b") or [])],
+            "plan_c": [{"index": j, "fired": f"plan_c{j}" in used, **b} for j, b in enumerate(mine.get("plan_c") or [])],
+            "lessons": _lessons().get(tid, [])}
     return json.dumps(out, indent=1, default=str)
 
 

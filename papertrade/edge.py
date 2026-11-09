@@ -121,17 +121,36 @@ def headlines(sym, hours=48):
 
 
 def fear_greed():
-    """Crypto Fear & Greed (0 = extreme fear, 100 = extreme greed) or None."""
+    """Crypto Fear & Greed (0 = extreme fear, 100 = extreme greed) or None. Every live reading is saved to
+    state/fear_greed.json; a run that can't reach alternative.me (an outage, or a network that blocks it, like a cloud
+    meeting session) uses the last saved reading while it is under 36 hours old."""
     if "fg" in _cache:
         return _cache["fg"]
-    v = None
+    v, src, at = None, None, None
+    f = core.STATE / "fear_greed.json"
     try:
         with urllib.request.urlopen("https://api.alternative.me/fng/?limit=1", timeout=15) as r:
             v = int(json.loads(r.read())["data"][0]["value"])
+        src, at = "live", core.utcnow().isoformat() + "Z"
+        try:
+            f.write_text(json.dumps({"value": v, "at": at}))
+        except OSError:
+            pass
     except Exception:
-        pass
-    _cache["fg"] = v
+        try:
+            saved = json.loads(f.read_text())
+            if core.utcnow() - dt.datetime.fromisoformat(saved["at"].rstrip("Z")) <= dt.timedelta(hours=36):
+                v, src, at = int(saved["value"]), "saved", saved["at"]
+        except Exception:
+            pass
+    _cache["fg"], _cache["fg_info"] = v, {"value": v, "source": src, "at": at}
     return v
+
+
+def fear_greed_info():
+    """The Fear & Greed reading with where it came from (live, or the last saved one) and when, for the meeting."""
+    fear_greed()
+    return _cache.get("fg_info") or {"value": _cache.get("fg"), "source": None, "at": None}
 
 
 def cooling(tid, sym, today=None):

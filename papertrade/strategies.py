@@ -94,6 +94,13 @@ def when_met(w, tid, a, ctx):
         return bool(start) and (a.get("equity_last") or start) < start * (1 - float(w["pct"]) / 100)
     return False
 
+def _options_open(ctx):
+    """Meeting option orders go live from options_from (ET) in the regular session, so the contract is picked on live
+    quotes (before the open they are yesterday's last trades) and the 9:31 convene can still change them."""
+    t = ctx["now_ny"]
+    return core.market_open_at(t) and t.time() >= core.hhmm(core.CFG.get("options_from", "09:45"))
+
+
 def plan_orders(tid, a, ctx):
     plan = ctx.get("plan") or {}
     mine = (plan.get("traders") or {}).get(tid) or {}
@@ -105,17 +112,21 @@ def plan_orders(tid, a, ctx):
         for j, blk in enumerate(mine.get(name) or []):
             if f"{name}{j}" in used:
                 continue
+            if not _options_open(ctx) and any(o.get("kind") == "option" for o in blk.get("orders") or []):
+                continue   # an options block is checked once option orders can go live
             if when_met(blk.get("when") or {}, tid, a, ctx):
                 core.log("plan_activated", trader=tid, plan=name, index=j, when=blk.get("when"), note=blk.get("note", ""))
                 used.append(f"{name}{j}")
                 specs += [(f"{name}{j}.{k}", {**o, "why": f"[{name.replace('_', ' ').title()}: {blk.get('note', 'condition met')}] "
                                                          + o.get("why", "")}) for k, o in enumerate(blk.get("orders", []))]
     for i, p in specs:
-        if i in used:
+        if i in used or p.get("cancel"):   # the 9:31 convene drops an order with "cancel": true (indexes never shift)
             continue
+        kind = p.get("kind", "stock")
+        if kind == "option" and not _options_open(ctx):
+            continue   # waits for live quotes; not marked used, so the convene's changes still apply
         used.append(i)
         why = "Meeting: " + p.get("why", "")
-        kind = p.get("kind", "stock")
         if kind == "option":
             o = option_order(tid, a, ctx, p["symbol"], p.get("right", "C"), p.get("action", "BUY_TO_OPEN"),
                              p.get("dte", [7, 30]), p.get("otm_pct", 0.03), why, "meeting", p.get("contracts"))

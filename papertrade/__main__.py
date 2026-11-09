@@ -1,4 +1,4 @@
-"""python -m papertrade cycle|premarket|intraday|context|site|weekly|status [--only day,swing]"""
+"""python -m papertrade cycle|premarket|intraday|context|options|site|weekly|status [--only day,swing]"""
 import sys
 
 from . import core
@@ -27,6 +27,9 @@ def main(argv):
     elif cmd == "context":
         from .meeting import context
         print(context())
+    elif cmd == "options":   # the 9:31 ET options convene's live picture (Vega and Theo)
+        from .meeting import options_view
+        print(options_view())
     elif cmd == "settings":  # python -m papertrade settings <file.json> [by]
         import json
         from .settings import apply_doc

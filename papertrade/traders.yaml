@@ -31,6 +31,9 @@ guards:
   crypto: {max_day_loss_pct: 12}
 weekly_bonus: 200          # C$ added to the biggest earner of the week, after Friday's close
 bonus_hold: ["2026-W45"]   # weeks whose bonus is forfeited (too few trades): nobody is paid, nothing carries over
+# Option orders from the morning plan go live at this time (ET) and pick their contract on live quotes; the 9:31 ET
+# options convene can change them first. Option fills and exits happen only in the regular session.
+options_from: "09:45"
 fees:
   stock: 0.0            # Questrade: $0 commission on stocks/ETFs
   option_contract: 0.99 # Questrade per contract

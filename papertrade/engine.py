@@ -251,29 +251,41 @@ def replay(tid, a, bars_by_sym, equity, now):
 
 # ------------------------------------------------------------------ options (quote snapshots)
 def manage_options(tid, a, equity, today):
+    """Option fills and exits happen only in the regular session, on live quotes (before the open a quote is the last
+    trade of the day before). An order with no live quote yet stays pending until it expires; expiry settles any time."""
     rules = settings.rules(tid)
+    live = core.market_open_at(core.ny())
+    now = core.utcnow()
     for o in [o for o in a["pending"] if o["kind"] == "option"]:
+        if dt.datetime.fromisoformat(o["valid_until"]) <= now:
+            a["pending"] = [x for x in a["pending"] if x["id"] != o["id"]]
+            core.log("skip", trader=tid, symbol=o["symbol"], reason="option order expired unfilled")
+            continue
+        if not live:
+            continue
         m = o["meta"]
         q = data.contract_quote(m["contract"], m["underlying"], m["expiry"], m["right"], m["strike"])
-        a["pending"] = [x for x in a["pending"] if x["id"] != o["id"]]
-        if not q:
-            core.log("skip", trader=tid, symbol=o["symbol"], reason="no option quote")
-            continue
         fx = m.get("fx", 1.0)
-        px = (q["bid"] if o.get("action") == "SELL_TO_OPEN" else (q["ask"] or q["last"] * 1.05)) * fx
-        if px <= 0:
+        px = ((q["bid"] if o.get("action") == "SELL_TO_OPEN" else (q["ask"] or (q.get("last") or 0) * 1.05)) * fx) if q else 0
+        if not px or px <= 0:
+            if not o.get("no_quote"):
+                core.log("skip", trader=tid, symbol=o["symbol"], reason="no live option quote yet: the order stays pending")
+                o["no_quote"] = True
             continue
+        a["pending"] = [x for x in a["pending"] if x["id"] != o["id"]]
         open_position(tid, a, o, px, core.utcnow(), equity)
     for p in [p for p in a["positions"] if p["kind"] == "option"]:
         m = p["meta"]
         exp = dt.date.fromisoformat(m["expiry"])
+        if today > exp:
+            _settle_expiry(tid, a, p, equity)
+            continue
+        if not live:
+            continue
         q = data.contract_quote(m["contract"], m["underlying"], m["expiry"], m["right"], m["strike"])
         fx = m.get("fx", 1.0)
         if q:
             q = {k: v * fx for k, v in q.items()}
-        if today > exp:
-            _settle_expiry(tid, a, p, equity)
-            continue
         if not q:
             continue
         mid = (q["bid"] + q["ask"]) / 2 if q["ask"] else q["last"]

@@ -441,3 +441,78 @@ def test_dashboard_script_parses():
     if not node:
         pytest.skip("node is not installed")
     subprocess.run([node, "--check", str(core.ROOT / "web" / "app.js")], check=True)
+
+
+def test_meeting_option_orders_wait_for_the_options_window(monkeypatch):
+    """Plan option orders go live at options_from (9:45 ET) on live quotes; before that they stay unplaced so the 9:31
+    convene can change them, and "cancel": true drops one without shifting the others."""
+    from papertrade import strategies
+    made = []
+    monkeypatch.setattr(strategies, "option_order", lambda tid, a, ctx, sym, *rest: made.append(sym) or {"symbol": sym, "kind": "option"})
+    plan = {"traders": {"options_aggr": {
+        "orders": [{"symbol": "NVDA", "kind": "option", "right": "C", "action": "BUY_TO_OPEN", "why": "x"},
+                   {"symbol": "AMD", "kind": "option", "right": "C", "action": "BUY_TO_OPEN", "why": "y", "cancel": True}],
+        "plan_b": [{"when": {"type": "time_after", "time_et": "09:31"}, "note": "n",
+                    "orders": [{"symbol": "TSLA", "kind": "option", "right": "P", "action": "BUY_TO_OPEN", "why": "z"}]}]}}}
+    a = core.load_accounts()["options_aggr"]
+    base = {"plan": plan, "date": "2026-11-09", "fx": 1.0, "prices": {}, "equity": 3000}
+    for utc_hm in ((12, 51), (14, 35)):   # 07:51 ET (pre-market) and 09:35 ET (open, before the window)
+        assert strategies.plan_orders("options_aggr", a, {**base, "now_ny": core.ny(dt.datetime(2026, 11, 9, *utc_hm))}) == []
+    assert a["plan_used"]["2026-11-09"] == []
+    out = strategies.plan_orders("options_aggr", a, {**base, "now_ny": core.ny(dt.datetime(2026, 11, 9, 14, 46))})   # 09:46 ET
+    assert [o["symbol"] for o in out] == ["NVDA", "TSLA"] and made == ["NVDA", "TSLA"]   # AMD was cancelled
+
+
+def test_option_orders_fill_and_exit_only_in_the_session(monkeypatch):
+    """Regression: a pre-market run once filled options at the day-before's last trade + 5%."""
+    from papertrade import data
+    a = core.load_accounts()["options_aggr"]
+    o = {"id": "o9", "kind": "option", "symbol": "NVDA 2026-11-20 190C", "qty": 1, "side": "long", "action": "BUY_TO_OPEN",
+         "why": "t", "source": "meeting", "created": "2026-11-09T12:51:00", "valid_until": "2026-11-09T22:00:00",
+         "meta": {"underlying": "NVDA", "expiry": "2026-11-20", "right": "C", "strike": 190.0,
+                  "contract": "NVDA261120C00190000", "fx": 1.4}}
+    a["pending"], quote = [o], {"bid": 5.0, "ask": 5.2, "last": 8.8}
+    monkeypatch.setattr(data, "contract_quote", lambda *k: quote)
+    monkeypatch.setattr(core, "utcnow", lambda: dt.datetime(2026, 11, 9, 13, 0))   # 08:00 ET
+    engine.manage_options("options_aggr", a, 3000, dt.date(2026, 11, 9))
+    assert a["pending"] and not a["positions"]                                      # no fill before the open
+    monkeypatch.setattr(core, "utcnow", lambda: dt.datetime(2026, 11, 9, 15, 0))   # 10:00 ET
+    monkeypatch.setattr(data, "contract_quote", lambda *k: {"bid": 0.0, "ask": 0.0, "last": None})
+    engine.manage_options("options_aggr", a, 3000, dt.date(2026, 11, 9))
+    assert a["pending"] and not a["positions"]                                      # no live quote yet: stays pending
+    monkeypatch.setattr(data, "contract_quote", lambda *k: quote)
+    engine.manage_options("options_aggr", a, 3000, dt.date(2026, 11, 9))
+    assert not a["pending"] and a["positions"][0]["entry"] == pytest.approx(5.2 * 1.4)   # filled at the live ask
+    a["pending"] = [{**o, "id": "o10", "valid_until": "2026-11-09T14:00:00"}]
+    engine.manage_options("options_aggr", a, 3000, dt.date(2026, 11, 9))
+    assert not a["pending"] and len(a["positions"]) == 1                            # expired unfilled: dropped
+
+
+def test_fear_greed_falls_back_to_the_last_saved_reading(monkeypatch):
+    import urllib.request
+    from papertrade import edge
+
+    class Resp:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return b'{"data": [{"value": "23"}]}'
+
+    def blocked(*a, **k):
+        raise OSError("CONNECT tunnel failed, response 403")
+
+    edge._cache.pop("fg", None)
+    monkeypatch.setattr(urllib.request, "urlopen", lambda *a, **k: Resp())
+    assert edge.fear_greed() == 23 and edge.fear_greed_info()["source"] == "live"
+    assert json.loads((core.STATE / "fear_greed.json").read_text())["value"] == 23
+    monkeypatch.setattr(urllib.request, "urlopen", blocked)
+    edge._cache.pop("fg", None)
+    assert edge.fear_greed() == 23 and edge.fear_greed_info()["source"] == "saved"
+    (core.STATE / "fear_greed.json").write_text(json.dumps({"value": 30, "at": "2026-01-01T00:00:00Z"}))
+    edge._cache.pop("fg", None)
+    assert edge.fear_greed() is None                                                # too old to trust
+    edge._cache.pop("fg", None)

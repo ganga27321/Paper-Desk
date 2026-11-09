@@ -136,3 +136,4 @@
 {"ts": "2026-11-09T19:36:24Z", "event": "order", "trader": "day", "symbol": "STLN", "kind": "stock", "qty": 112, "type": "stop", "price": 5.72, "why": "[ORB+VWAP] STLN gapped +9% on 3x normal volume and is above VWAP (C$5.72); buy a break above the 15-min high C$5.71, stop under the range low C$5.04, half off at 1R, target 1.5157R.", "source": "autopilot"}
 {"ts": "2026-11-09T19:41:19Z", "event": "open", "trader": "day", "symbol": "STLN", "kind": "stock", "qty": 112, "price": 5.930847047749296, "at": "2026-11-09T19:37:00"}
 {"ts": "2026-11-09T19:46:41Z", "event": "close", "trader": "swing", "symbol": "XERS", "kind": "stock", "price": 22.349993762138382, "pnl": 40.38, "why": "took half at 1R; rest rides with the stop at breakeven"}
+{"ts": "2026-11-09T20:32:21Z", "event": "close", "trader": "futures", "symbol": "MGC", "kind": "future", "price": 5863.686637878418, "pnl": 984.18, "why": "target hit"}

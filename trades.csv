@@ -41,3 +41,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-09T19:36:23Z,day,SELL,stock,TLS,66,9.71,1.28,640.86,4.58,21.5,target hit,autopilot,yes
 2026-11-09T19:41:19Z,day,BUY,stock,STLN,112,5.930847,1.33,664.25,,22.2,"[ORB+VWAP] STLN gapped +9% on 3x normal volume and is above VWAP (C$5.72); buy a break above the 15-min high C$5.71, stop under the range low C$5.04, half off at 1R, target 1.5157R.",autopilot,yes
 2026-11-09T19:46:41Z,swing,SELL,stock,XERS,16,22.349994,0.18,357.6,40.38,11.5,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
+2026-11-09T20:32:21Z,futures,SELL,future,MGC,1,5863.686638,2.5,58636.87,984.18,1464.1,target hit,meeting,no (sandbox)

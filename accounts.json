@@ -53,7 +53,7 @@
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 275.98840343763004
+    "last": 274.3141588929793
    },
    {
     "id": "o4",
@@ -75,7 +75,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 40.51555204415126
+    "last": 40.64096605453415
    },
    {
     "id": "o3",
@@ -85,7 +85,7 @@
     "qty": 8,
     "entry": 73.08278422708281,
     "entry_ts": "2026-11-06T14:50:00",
-    "stop": 67.03200221061707,
+    "stop": 67.06430077552795,
     "target": 89.69,
     "flat_by": null,
     "time_stop": "2026-11-17",
@@ -97,7 +97,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 75.51331212166588
+    "last": 74.32136319770507
    },
    {
     "id": "o2",
@@ -119,15 +119,15 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 21.73953634010695
+    "last": 21.728833936001593
    }
   ],
   "pending": [],
   "last_bar": {
-   "ABNB": "2026-11-09T14:40:00",
-   "MGNI": "2026-11-09T14:40:00",
-   "U": "2026-11-09T14:40:00",
-   "XERS": "2026-11-09T14:40:00"
+   "ABNB": "2026-11-09T14:55:00",
+   "MGNI": "2026-11-09T14:55:00",
+   "U": "2026-11-09T14:55:00",
+   "XERS": "2026-11-09T14:55:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -142,7 +142,7 @@
   "seq": 7,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3125.5202465701773,
+  "equity_last": 3108.514393223589,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -168,7 +168,7 @@
     "qty": 1,
     "entry": 486.7722846077231,
     "entry_ts": "2026-11-09T14:30:00",
-    "stop": 396.54721307754517,
+    "stop": 396.7382845878601,
     "target": 563.8999938964844,
     "flat_by": null,
     "time_stop": null,
@@ -180,7 +180,7 @@
     "high": 494.39275624575384,
     "low": 486.7722846077231,
     "init_stop": 396.1397457122803,
-    "last": 492.3042077393766
+    "last": 492.5837732841028
    },
    {
     "id": "o7",
@@ -190,7 +190,7 @@
     "qty": 3,
     "entry": 200.64441228102078,
     "entry_ts": "2026-11-09T14:30:00",
-    "stop": 160.1712052822113,
+    "stop": 160.24838185310364,
     "target": 267.8524971008301,
     "flat_by": null,
     "time_stop": null,
@@ -199,13 +199,98 @@
     "meta": {
      "small_cap": false
     },
-    "high": 205.13203962628177,
+    "high": 206.33214472427062,
     "low": 200.64441228102078,
     "init_stop": 160.00662326812744,
-    "last": 205.64007250436407
+    "last": 204.8496663984115
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o10",
+    "kind": "stock",
+    "symbol": "SHEL",
+    "qty": 1,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 114.8,
+    "target": null,
+    "why": "[Dividend grower] Shell PLC (raised its dividend this year): revenue +36%, operating margin 19%, dividend 3.1%; bought on a pullback to its rising 50-day average (-0.1%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "SHEL",
+     "fx": false
+    },
+    "created": "2026-11-09T15:03:37",
+    "valid_until": "2026-11-09T23:03:37",
+    "play": "Dividend grower",
+    "reserve": 139.94555109616704
+   },
+   {
+    "id": "o11",
+    "kind": "stock",
+    "symbol": "BNS.TO",
+    "qty": 1,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 107.94,
+    "target": null,
+    "why": "[Dividend grower] BANK OF NOVA SCOTIA (raised its dividend this year): revenue +12%, operating margin 41%, dividend 3.5%; bought on a pullback to its rising 50-day average (+1.4%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "BNS.TO",
+     "fx": true
+    },
+    "created": "2026-11-09T15:03:37",
+    "valid_until": "2026-11-09T23:03:37",
+    "play": "Dividend grower",
+    "reserve": 131.61000061035156
+   },
+   {
+    "id": "o12",
+    "kind": "stock",
+    "symbol": "RY",
+    "qty": 1,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 235.4,
+    "target": null,
+    "why": "[Dividend grower] Royal Bank Of Canada (raised its dividend this year): revenue +9%, operating margin 46%, dividend 2.5%; bought on a pullback to its rising 50-day average (+1.0%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "RY",
+     "fx": false
+    },
+    "created": "2026-11-09T15:03:37",
+    "valid_until": "2026-11-09T23:03:37",
+    "play": "Dividend grower",
+    "reserve": 287.06345526050427
+   },
+   {
+    "id": "o14",
+    "kind": "stock",
+    "symbol": "AES",
+    "qty": 6,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 17.25,
+    "target": null,
+    "why": "[Quality pullback] The AES Corporation: revenue +16%, operating margin 24%, dividend 4.7%; bought on a pullback to its rising 50-day average (+0.1%). Held for the long term; reviewed each quarter after earnings. Safety stop 18% below. First third now; the rest over the next two Mondays if it holds.",
+    "source": "autopilot",
+    "meta": {
+     "yahoo": "AES",
+     "fx": false
+    },
+    "created": "2026-11-09T15:03:37",
+    "valid_until": "2026-11-09T23:03:37",
+    "play": "Quality pullback",
+    "reserve": 126.17972093697972
+   }
+  ],
   "last_bar": {
    "JPM": "2026-11-06T15:10:00",
    "RY.TO": "2026-11-06T15:10:00",
@@ -213,8 +298,8 @@
    "TXN": "2026-11-06T15:10:00",
    "UMBF": "2026-11-06T15:10:00",
    "USB": "2026-11-06T15:10:00",
-   "AAPL": "2026-11-09T14:40:00",
-   "KLAC": "2026-11-09T14:40:00"
+   "AAPL": "2026-11-09T14:55:00",
+   "KLAC": "2026-11-09T14:55:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -226,10 +311,10 @@
    "trades": 2
   },
   "realized": 2.192539577657341,
-  "seq": 9,
+  "seq": 14,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3021.3273404155325,
+  "equity_last": 3019.235687642401,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -244,21 +329,21 @@
    ]
   },
   "done": {
-   "long_review": "2026-11-06"
+   "long_review": "2026-11-09"
   },
   "seeded": true,
   "tranches": {
-   "UMBF": {
+   "SHEL": {
     "left": 2,
     "per": 1
    },
-   "USB": {
+   "BNS.TO": {
     "left": 2,
     "per": 1
    },
-   "TD.TO": {
+   "AES": {
     "left": 2,
-    "per": 1
+    "per": 5
    }
   }
  },
@@ -288,12 +373,12 @@
     "low": 5765.018833875656,
     "margin": 2594.2584752440453,
     "init_stop": 5652.255629301071,
-    "unrealized": 550.5267368676141
+    "unrealized": 707.0456185052171
    }
   ],
   "pending": [],
   "last_bar": {
-   "GC=F": "2026-11-09T14:35:00"
+   "GC=F": "2026-11-09T14:50:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -309,7 +394,7 @@
   "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3548.026736867614,
+  "equity_last": 3704.545618505217,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -351,10 +436,37 @@
     },
     "high": 4.511199951171875,
     "low": 4.511199951171875,
-    "mark": 4.215152454376221
+    "mark": 4.4407124519348145
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o3",
+    "kind": "option",
+    "symbol": "U 2026-11-20 54C",
+    "qty": 1,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": null,
+    "target": null,
+    "why": "[Earnings call] U gapped +13.2% on earnings (2026-11-05) and held above the gap-day midpoint. Buy the 2026-11-20 $54 call at $2.84 (stock $52.54). Half off at +100%, the rest runs with a breakeven stop. Max loss = premium paid. Sized x0.9 for a neutral market.",
+    "source": "autopilot",
+    "meta": {
+     "underlying": "U",
+     "expiry": "2026-11-20",
+     "right": "C",
+     "strike": 54.0,
+     "contract": "U261120C00054000",
+     "iv": 0.831056376953125,
+     "fx": 1.4118800163269043
+    },
+    "created": "2026-11-09T15:03:49",
+    "valid_until": "2026-11-09T23:03:49",
+    "action": "BUY_TO_OPEN",
+    "play": "Earnings call"
+   }
+  ],
   "last_bar": {},
   "day": {
    "date": "2026-11-09",
@@ -366,10 +478,10 @@
    "trades": 1
   },
   "realized": 0.0,
-  "seq": 2,
+  "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2969.405250320435,
+  "equity_last": 2991.961250076294,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -382,7 +494,7 @@
    ]
   },
   "done": {
-   "oa_pick": "2026-11-06"
+   "oa_pick": "2026-11-09"
   }
  },
  "options_safe": {
@@ -409,12 +521,13 @@
     "low": 50.029998779296875,
     "play": "Cash parking",
     "init_stop": 48.53,
-    "last": 50.03499984741211
+    "last": 50.03499984741211,
+    "exit_next": "Selling the CASH.TO cash parking to secure a put on AAL"
    }
   ],
   "pending": [],
   "last_bar": {
-   "CASH.TO": "2026-11-09T14:40:00"
+   "CASH.TO": "2026-11-09T14:55:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -438,7 +551,7 @@
    "2026-11-09": []
   },
   "done": {
-   "os_pick": "2026-11-06",
+   "os_pick": "2026-11-09",
    "os_park": "2026-11-06"
   }
  },
@@ -465,7 +578,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 105355.70829947665,
+    "last": 105524.83896653354,
     "init_stop": 79795.08261222
    },
    {
@@ -488,7 +601,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2998.0238699641777,
+    "last": 3001.5862517707283,
     "init_stop": 2350.66654513
    },
    {
@@ -511,7 +624,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 15.067382961499789,
+    "last": 15.108528356324314,
     "init_stop": 10.65203463
    },
    {
@@ -534,7 +647,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 123.0707547667007,
+    "last": 123.05946739351202,
     "init_stop": 88.10529987
    },
    {
@@ -557,7 +670,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.5500621265429686,
+    "last": 1.5491148048105856,
     "init_stop": 1.1843018
    },
    {
@@ -582,7 +695,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 105355.70829947665
+    "last": 105524.83896653354
    },
    {
     "id": "o7",
@@ -606,7 +719,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2998.0238699641777
+    "last": 3001.5862517707283
    },
    {
     "id": "o8",
@@ -630,7 +743,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 105355.70829947665
+    "last": 105524.83896653354
    },
    {
     "id": "o9",
@@ -654,16 +767,16 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2998.0238699641777
+    "last": 3001.5862517707283
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-09T14:40:00",
-   "ETH-USD": "2026-11-09T14:40:00",
-   "LINK-USD": "2026-11-09T14:40:00",
-   "SOL-USD": "2026-11-09T14:40:00",
-   "XRP-USD": "2026-11-09T14:40:00"
+   "BTC-USD": "2026-11-09T14:55:00",
+   "ETH-USD": "2026-11-09T14:55:00",
+   "LINK-USD": "2026-11-09T14:55:00",
+   "SOL-USD": "2026-11-09T14:55:00",
+   "XRP-USD": "2026-11-09T14:55:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -678,7 +791,7 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2906.9088905658027,
+  "equity_last": 2909.9246580225217,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -49,11 +49,11 @@
     "meta": {
      "small_cap": false
     },
-    "high": 271.48799058794975,
+    "high": 279.2341463181074,
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 274.63945484043506
+    "last": 275.98840343763004
    },
    {
     "id": "o4",
@@ -70,12 +70,12 @@
     "why": "[Earnings gap-and-hold] MGNI reported 2026-11-04 (beat by 17%), gapped +13.0% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$36.11, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market. Time stop moved from 2026-11-13 to 2026-11-17 on 2026-11-07: Sam's holding scale now sets it (7 trading days).",
     "source": "autopilot",
     "meta": {},
-    "high": 39.44497017108233,
+    "high": 40.91068902617644,
     "low": 39.0349800241238,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 40.640826175247184
+    "last": 40.51555204415126
    },
    {
     "id": "o3",
@@ -85,19 +85,19 @@
     "qty": 8,
     "entry": 73.08278422708281,
     "entry_ts": "2026-11-06T14:50:00",
-    "stop": 67.00587570667267,
+    "stop": 67.03200221061707,
     "target": 89.69,
     "flat_by": null,
     "time_stop": "2026-11-17",
     "why": "[Earnings gap-and-hold] U reported 2026-11-05 (beat by 28%), gapped +13.2% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$62.86, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market. Time stop moved from 2026-11-13 to 2026-11-17 on 2026-11-07: Sam's holding scale now sets it (7 trading days).",
     "source": "autopilot",
     "meta": {},
-    "high": 74.76553155079728,
+    "high": 76.57876966412732,
     "low": 73.08278422708281,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 76.0693009760189
+    "last": 75.51331212166588
    },
    {
     "id": "o2",
@@ -114,20 +114,20 @@
     "why": "[Earnings gap-and-hold] XERS reported 2026-11-05 (beat by 125%), gapped +19.6% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$17.28, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market. Time stop moved from 2026-11-13 to 2026-11-17 on 2026-11-07: Sam's holding scale now sets it (7 trading days).",
     "source": "autopilot",
     "meta": {},
-    "high": 21.488687360536574,
+    "high": 22.099392513473504,
     "low": 19.81499688106919,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 21.463040191606524
+    "last": 21.73953634010695
    }
   ],
   "pending": [],
   "last_bar": {
-   "ABNB": "2026-11-06T20:55:00",
-   "MGNI": "2026-11-06T20:55:00",
-   "U": "2026-11-06T20:55:00",
-   "XERS": "2026-11-06T20:55:00"
+   "ABNB": "2026-11-09T14:40:00",
+   "MGNI": "2026-11-09T14:40:00",
+   "U": "2026-11-09T14:40:00",
+   "XERS": "2026-11-09T14:40:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -139,10 +139,10 @@
    "trades": 0
   },
   "realized": 0.0,
-  "seq": 5,
+  "seq": 7,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3115.3517828294716,
+  "equity_last": 3125.5202465701773,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -153,57 +153,59 @@
    "2026-11-09": []
   },
   "done": {
-   "swing_pick_am": "2026-11-06",
+   "swing_pick_am": "2026-11-09",
    "swing_pick_pm": "2026-11-06"
   }
  },
  "long": {
-  "cash": 3001.3527893745745,
-  "positions": [],
-  "pending": [
-   {
-    "id": "o7",
-    "kind": "stock",
-    "symbol": "KLAC",
-    "qty": 3,
-    "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 160.00662326812744,
-    "target": 267.8524971008301,
-    "why": "Meeting: Long-term buy: KLA makes the inspection tools every chip maker needs; 19x forward earnings with revenue +29%, a 45% operating margin and a growing dividend, 35% under its 3-month high after the AI rout. 3 shares (about C$587); stop US$113.50, 18% under.",
-    "source": "meeting",
-    "meta": {
-     "small_cap": false
-    },
-    "created": "2026-11-09T12:51:35",
-    "valid_until": "2026-11-09T20:51:35",
-    "flat_by": null,
-    "no_entry_after": null,
-    "reserve": 585.7088493923948
-   },
+  "cash": 1912.1029151630637,
+  "positions": [
    {
     "id": "o8",
     "kind": "stock",
     "symbol": "AAPL",
-    "qty": 1,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 396.1397457122803,
+    "qty": 1,
+    "entry": 486.7722846077231,
+    "entry_ts": "2026-11-09T14:30:00",
+    "stop": 396.54721307754517,
     "target": 563.8999938964844,
+    "flat_by": null,
+    "time_stop": null,
     "why": "Meeting: Long-term buy: Apple holds its uptrend (2% over its 50-day, above its 200-day), revenue +12%, a 31% operating margin and a rising dividend. 1 share (about C$484); stop US$281, 18% under.",
     "source": "meeting",
     "meta": {
      "small_cap": false
     },
-    "created": "2026-11-09T12:51:35",
-    "valid_until": "2026-11-09T20:51:35",
+    "high": 494.39275624575384,
+    "low": 486.7722846077231,
+    "init_stop": 396.1397457122803,
+    "last": 492.3042077393766
+   },
+   {
+    "id": "o7",
+    "kind": "stock",
+    "symbol": "KLAC",
+    "side": "long",
+    "qty": 3,
+    "entry": 200.64441228102078,
+    "entry_ts": "2026-11-09T14:30:00",
+    "stop": 160.1712052822113,
+    "target": 267.8524971008301,
     "flat_by": null,
-    "no_entry_after": null,
-    "reserve": 482.649039758835
+    "time_stop": null,
+    "why": "Meeting: Long-term buy: KLA makes the inspection tools every chip maker needs; 19x forward earnings with revenue +29%, a 45% operating margin and a growing dividend, 35% under its 3-month high after the AI rout. 3 shares (about C$587); stop US$113.50, 18% under.",
+    "source": "meeting",
+    "meta": {
+     "small_cap": false
+    },
+    "high": 205.13203962628177,
+    "low": 200.64441228102078,
+    "init_stop": 160.00662326812744,
+    "last": 205.64007250436407
    }
   ],
+  "pending": [],
   "last_bar": {
    "JPM": "2026-11-06T15:10:00",
    "RY.TO": "2026-11-06T15:10:00",
@@ -211,23 +213,23 @@
    "TXN": "2026-11-06T15:10:00",
    "UMBF": "2026-11-06T15:10:00",
    "USB": "2026-11-06T15:10:00",
-   "AAPL": "2026-11-06T20:55:00",
-   "KLAC": "2026-11-06T20:55:00"
+   "AAPL": "2026-11-09T14:40:00",
+   "KLAC": "2026-11-09T14:40:00"
   },
   "day": {
    "date": "2026-11-09",
-   "trades": 0,
+   "trades": 2,
    "start_eq": 3001.3527893745745
   },
   "week": {
    "key": "2026-W46",
-   "trades": 0
+   "trades": 2
   },
   "realized": 2.192539577657341,
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3001.3527893745745,
+  "equity_last": 3021.3273404155325,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -286,12 +288,12 @@
     "low": 5765.018833875656,
     "margin": 2594.2584752440453,
     "init_stop": 5652.255629301071,
-    "unrealized": 702.7615542465355
+    "unrealized": 550.5267368676141
    }
   ],
   "pending": [],
   "last_bar": {
-   "GC=F": "2026-11-09T14:15:00"
+   "GC=F": "2026-11-09T14:35:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -307,7 +309,7 @@
   "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3700.2615542465355,
+  "equity_last": 3548.026736867614,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -349,7 +351,7 @@
     },
     "high": 4.511199951171875,
     "low": 4.511199951171875,
-    "mark": 4.017787456512451
+    "mark": 4.215152454376221
    }
   ],
   "pending": [],
@@ -367,7 +369,7 @@
   "seq": 2,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2949.668750534058,
+  "equity_last": 2969.405250320435,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -407,12 +409,12 @@
     "low": 50.029998779296875,
     "play": "Cash parking",
     "init_stop": 48.53,
-    "last": 50.040000915527344
+    "last": 50.03499984741211
    }
   ],
   "pending": [],
   "last_bar": {
-   "CASH.TO": "2026-11-06T20:55:00"
+   "CASH.TO": "2026-11-09T14:40:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -427,7 +429,7 @@
   "seq": 1,
   "deposits": [],
   "deploy_frac": 0.8400000000000001,
-  "equity_last": 2999.2643697052004,
+  "equity_last": 2999.019317367554,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -463,7 +465,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 105004.03718437068,
+    "last": 105355.70829947665,
     "init_stop": 79795.08261222
    },
    {
@@ -486,7 +488,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2985.3304548122105,
+    "last": 2998.0238699641777,
     "init_stop": 2350.66654513
    },
    {
@@ -509,7 +511,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 14.96558629841843,
+    "last": 15.067382961499789,
     "init_stop": 10.65203463
    },
    {
@@ -532,7 +534,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 122.54317066685871,
+    "last": 123.0707547667007,
     "init_stop": 88.10529987
    },
    {
@@ -555,7 +557,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.5407120038278777,
+    "last": 1.5500621265429686,
     "init_stop": 1.1843018
    },
    {
@@ -580,7 +582,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 105004.03718437068
+    "last": 105355.70829947665
    },
    {
     "id": "o7",
@@ -604,7 +606,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2985.3304548122105
+    "last": 2998.0238699641777
    },
    {
     "id": "o8",
@@ -628,7 +630,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 105004.03718437068
+    "last": 105355.70829947665
    },
    {
     "id": "o9",
@@ -652,16 +654,16 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2985.3304548122105
+    "last": 2998.0238699641777
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-09T14:25:00",
-   "ETH-USD": "2026-11-09T14:25:00",
-   "LINK-USD": "2026-11-09T14:25:00",
-   "SOL-USD": "2026-11-09T14:25:00",
-   "XRP-USD": "2026-11-09T14:25:00"
+   "BTC-USD": "2026-11-09T14:40:00",
+   "ETH-USD": "2026-11-09T14:40:00",
+   "LINK-USD": "2026-11-09T14:40:00",
+   "SOL-USD": "2026-11-09T14:40:00",
+   "XRP-USD": "2026-11-09T14:40:00"
   },
   "day": {
    "date": "2026-11-09",
@@ -676,7 +678,7 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2896.28786156637,
+  "equity_last": 2906.9088905658027,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

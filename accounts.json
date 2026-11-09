@@ -5,7 +5,54 @@
  "day": {
   "cash": 3000.0,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o1",
+    "kind": "stock",
+    "symbol": "BESS",
+    "qty": 500,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 4.84,
+    "stop": 4.54,
+    "target": 5.29,
+    "why": "[Squeeze ORB] BESS gapped +11% on 6x normal volume and is above VWAP (C$5.15); buy a break above the 15-min high C$4.83, stop under the range low C$4.54, half off at 1R, target 1.5157R. Float 4M, short interest 3%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-09T19:26:09",
+    "valid_until": "2026-11-10T01:26:09",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 2420.0
+   },
+   {
+    "id": "o2",
+    "kind": "stock",
+    "symbol": "TLS",
+    "qty": 66,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 8.74,
+    "stop": 8.1,
+    "target": 9.71,
+    "why": "[ORB+VWAP] TLS gapped +21% on 4x normal volume and is above VWAP (C$8.70); buy a break above the 15-min high C$8.73, stop under the range low C$8.10, half off at 1R, target 1.5157R.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-09T19:26:09",
+    "valid_until": "2026-11-10T01:26:09",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 576.84
+   }
+  ],
   "last_bar": {},
   "day": {
    "date": "2026-11-09",
@@ -17,7 +64,7 @@
    "trades": 0
   },
   "realized": 0.0,
-  "seq": 0,
+  "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3000.0,

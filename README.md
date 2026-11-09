@@ -12,7 +12,7 @@ Seven paper traders, C$3,000 each, all books in Canadian dollars. **Paper money 
 ## The seven and their unique plays
 | Trader | Role | Unique plays and tools |
 |---|---|---|
-| Dax | Day trader, small caps, super aggressive | 1) only above VWAP 2) low-float / high-short-interest squeeze ranking 3) done after 2 losers; no entries 11:30-1:30. Plus: 1-minute bars every 5 min, opening-range breakout, flat by 3:50 |
+| Dax | Day trader, small caps, super aggressive | 1) only above VWAP 2) low-float / high-short-interest squeeze ranking 3) done after 2 losers; no entries 11:30-1:30 4) no chasing: no order once the price is more than 0.5R past the breakout level. Plus: 1-minute bars every 5 min, opening-range breakout, flat by 3:50 |
 | Sam | Swing: news, earnings, rates | 1) earnings gap-and-hold (post-earnings drift) 2) rate rotation: rising yields -> banks/energy, falling -> tech 3) breakouts need a fresh headline. Two pick windows a day; time stops in trading days, set by the holding scale |
 | Lena | Long-term growth + dividends | 1) buys in thirds over three Mondays 2) dividend-raiser bonus 3) valuation guard (forward P/E, PEG) and never buys the week before a report |
 | Fox | Futures & metals (sandbox) | 1) US-dollar filter for gold/silver 2) pyramids one contract into a winner 3) chandelier trail behind the best price (3 ATR at the default target scale; the target scale moves it), no fixed target |

@@ -246,6 +246,12 @@ def replay(tid, a, bars_by_sym, equity, now):
                 px = _entry_fill(o, b)
                 if px is not None:
                     a["pending"] = [x for x in a["pending"] if x["id"] != o["id"]]
+                    tg, long = o.get("target"), o.get("side", "long") == "long"
+                    if tg is not None and (px >= tg if long else px <= tg):
+                        # the price gapped through the entry AND the target: nothing left to earn, only fees
+                        core.log("skip", trader=tid, symbol=o["symbol"],
+                                 reason=f"order cancelled: the fill ({px:.2f}) would be past its target ({tg:.2f})")
+                        continue
                     open_position(tid, a, o, float(px), ts, equity)
 
 

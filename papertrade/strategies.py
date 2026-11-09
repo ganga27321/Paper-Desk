@@ -216,6 +216,13 @@ def day(tid, a, ctx):
         risk = entry - stop
         if risk <= 0 or risk / entry > 0.15:
             continue
+        # Dax rule 4: no chasing. A breakout that already ran more than chase_r x the risk past the trigger is a
+        # different trade (the fill would sit far above the stop the size was built on, often past the target)
+        if row["price"] > entry + r.get("chase_r", 0.5) * risk:
+            if _once(a, f"dax_chase_{s}", ctx["date"]):
+                core.log("skip", trader=tid, symbol=s, reason=f"already {row['price'] - entry:.2f} past the breakout "
+                         f"level C${entry:.2f} (more than {r.get('chase_r', 0.5):g}R): no chase")
+            continue
         qty = _size(ctx["equity"], buying_power(a), entry, risk, r["risk_pct"], r["max_position_pct"])
         if qty < 1:
             continue

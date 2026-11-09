@@ -538,3 +538,50 @@ def test_intraday_gap_is_measured_from_yesterdays_close(monkeypatch, tmp_path):
     row = scanner.intraday(tabled=("GAPR",))["rows"][0]
     assert row["prev_close"] == 10.0
     assert round(row["gap_pct"]) == 10 and round(row["chg_pct"]) == 25
+
+
+def test_fill_past_the_target_is_cancelled_not_traded():
+    """A breakout order whose price has already gapped through entry AND target has nothing left to earn."""
+    a = core.load_accounts()["day"]
+    a["pending"] = [order()]                                  # buy stop 10.00, target 11.00
+    engine.replay("day", a, {"XYZ": bars([[11.4, 11.6, 11.3, 11.5, 1]])}, 3000, dt.datetime(2026, 11, 9, 16, 0))
+    assert not a["pending"] and not a["positions"] and not core.read_trades()
+    assert a["cash"] == 3000
+
+
+def _dax_ctx(price):
+    row = {"symbol": "GAPR", "price": price, "prev_close": 9.0, "gap_pct": 12.0, "chg_pct": 15.0, "rel_vol": 5.0,
+           "or_high": 10.0, "or_low": 9.5, "vwap": 9.9, "bars": 20, "tabled": False}
+    now = dt.datetime(2026, 11, 9, 15, 30)                    # 10:30 New York
+    return {"now_ny": now - dt.timedelta(hours=5), "date": "2026-11-09", "intraday": {"rows": [row]}, "equity": 3000,
+            "fx": 1.4, "regime": {"mode": "neutral"}}
+
+
+def test_dax_buys_near_the_breakout_but_never_chases(monkeypatch):
+    from papertrade import data, strategies
+    monkeypatch.setattr(data, "info", lambda s: {})
+    a = core.load_accounts()["day"]
+    a["day"] = {"date": "2026-11-09", "trades": 0, "start_eq": 3000}
+    near = strategies.day("day", a, _dax_ctx(10.05))          # 0.04 past the 10.01 trigger: fine
+    assert [o["symbol"] for o in near] == ["GAPR"] and near[0]["price"] == 10.01
+    assert strategies.day("day", a, _dax_ctx(10.60)) == []    # 0.59 past it, risk 0.51: more than 0.5R -> no chase
+
+
+def test_the_meetings_avoid_list_is_validated(tmp_path, capsys):
+    import json
+    from papertrade import meeting
+    p = tmp_path / "plan.json"
+    for bad in ({"GFR": ""}, ["GFR"], {"GFR": 1}):
+        p.write_text(json.dumps({"date": "2026-11-09", "avoid": bad}))
+        meeting.validate(p)
+        assert "PLAN: avoid:" in capsys.readouterr().out
+    p.write_text(json.dumps({"date": "2026-11-09", "avoid": {"GFR": "takeover pinned to the deal price"}}))
+    meeting.validate(p)
+    assert "PLAN: avoid:" not in capsys.readouterr().out
+
+
+def test_avoid_list_blocks_a_symbol_for_every_trader():
+    from papertrade import run
+    plan = {"avoid": {"gfr": "takeover pinned to the deal price"}}
+    assert run._avoided(plan, "GFR", "GFR") == "takeover pinned to the deal price"
+    assert run._avoided(plan, "GFR.TO", "GFR.TO") is None and run._avoided(None, "GFR") is None

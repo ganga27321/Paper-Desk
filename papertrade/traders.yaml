@@ -52,7 +52,8 @@ traders:
     tfsa: true
     account: Questrade
     capital: 3000
-    rules: {price_min: 1, price_max: 20, gap_min_pct: 8, rel_vol_min: 3, or_minutes: 15, risk_pct: 5.0,
+    # chase_r: no order once the price is more than this many R past the breakout level
+    rules: {price_min: 1, price_max: 20, gap_min_pct: 8, rel_vol_min: 3, or_minutes: 15, risk_pct: 5.0, chase_r: 0.5,
             max_losses_day: 2, lunch: ['11:30', '13:30'], low_float_m: 50, high_short: 0.15, scale_out_r: 1,
             cooldown_days: 2, regime_size: {risk_on: 1.0, neutral: 1.0, risk_off: 0.75},
             max_position_pct: 100, max_trades_day: 5, flat_by: "15:50", no_entry_after: "15:15", target_r: 2.0}

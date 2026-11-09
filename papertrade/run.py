@@ -65,6 +65,12 @@ def _syms(a):
     return {x["meta"].get("yahoo", x["symbol"]) for x in a["positions"] + a["pending"] if x["kind"] != "option"}
 
 
+def _avoided(plan, *symbols):
+    """Why the meeting put this symbol on today's do-not-trade list (plan `avoid`), or None."""
+    skip = {str(k).upper(): v for k, v in ((plan or {}).get("avoid") or {}).items()}
+    return next((skip[s.upper()] for s in symbols if s and s.upper() in skip), None)
+
+
 def _levels(plan, fx):
     """The morning meeting's levels, in C$: {symbol: {"stop", "target", "no_buy_above"}}."""
     out = {}
@@ -132,6 +138,12 @@ def cycle(only=None):
             engine.manage_options(tid, a, eq, tny.date())
         # expire stale orders, time stops
         a["pending"] = [o for o in a["pending"] if dt.datetime.fromisoformat(o["valid_until"]) > now or o["kind"] == "option"]
+        # a day-trade order that can no longer fill (past its no-entry time) is cancelled, so it stops holding cash
+        late = [o for o in a["pending"] if o["kind"] != "option" and o.get("no_entry_after")
+                and tny.time() >= core.hhmm(o["no_entry_after"])]
+        for o in late:
+            core.log("skip", trader=tid, symbol=o["symbol"], reason=f"order cancelled: unfilled by {o['no_entry_after']} ET")
+        a["pending"] = [o for o in a["pending"] if o not in late]
         for p in a["positions"]:
             if p.get("time_stop") and date >= p["time_stop"] and not p.get("exit_next"):
                 p["exit_next"] = f"time stop: {p['time_stop']} reached without stop or target"
@@ -185,6 +197,9 @@ def cycle(only=None):
                 if o["qty"] <= 0:
                     why_not = why_not or "market mood sized it to zero"
             ysym = o["meta"].get("yahoo", o["symbol"])
+            avoided = _avoided(plan, o["symbol"], ysym)   # the meeting's do-not-trade list (all traders)
+            if avoided:
+                why_not = why_not or f"the meeting said to skip it: {avoided}"
             est = o.get("price") or prices.get(ysym) or ((data.last_price(ysym) or 0) * (1 if ysym.endswith(CA) else fx))
             lv = levels.get(ysym) or levels.get(o["symbol"])
             if lv and o["kind"] != "option" and o.get("side", "long") == "long":

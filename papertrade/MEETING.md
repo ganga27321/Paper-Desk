@@ -27,6 +27,9 @@ shared on ntfy and the dashboard, and the scanner then focuses on the tickers th
      above `no_buy_above`.
    - `limits`: per trader, tighten when the market is rough: `max_day_loss_pct`, `max_trades_day`. Defaults are in
      `traders.yaml` `guards`.
+   - `avoid` (optional): `{"SYMBOL": "why"}`, tickers no trader may buy today (a takeover pinned to its deal price,
+     a halted stock). A playbook line is only words: the bots trade on their rules, so a "skip it" the meeting means
+     must be listed here. The engine rejects every order in a listed symbol and logs the reason.
    - `news_tickers`: up to 8 tickers moving on real news today (Sam reads them).
    - Every stock, future and crypto order needs a `stop`. Validation fails without one.
 7. Hold the meeting. **It is a full working session, not a summary** (plans dated 2026-11-09 or later are validated for this):

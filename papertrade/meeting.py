@@ -269,6 +269,9 @@ def validate(path, check_clock=True):
     for tid, lim in (p.get("limits") or {}).items():
         if tid not in T or not isinstance(lim, dict):
             errs.append(f"limits: bad entry {tid}")
+    av = p.get("avoid") or {}
+    if not isinstance(av, dict) or any(not isinstance(v, str) or not v.strip() for v in av.values()):
+        errs.append('avoid: must be {"SYMBOL": "why no trader may buy it today"}')
     for e in errs:
         print("PLAN:", e)
     return not errs

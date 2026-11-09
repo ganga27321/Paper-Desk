@@ -1,0 +1,592 @@
+{
+ "date": "2026-11-09",
+ "market_view": "Monday after the AI rout: futures are flat (S&P 500 +0.1%, Nasdaq-100 -0.1%, Russell +0.6%), the VIX eased to 23 from 26 and the desk's mood reads neutral. NVDA is about -5% pre-market (US$177.60) on its board's probe of CEO Jensen Huang while AMD (+3%) and the mega-caps are up; oil is -3.4% at US$88, gold US$4,115, BTC US$74.5k. October CPI tomorrow at 8:30 ET caps how much risk anyone adds today. Last week's C$200 bonus (2026-W45) was forfeited: no winner, nothing carried over.",
+ "tabled": [
+  "NVDA",
+  "CEG",
+  "KLAC",
+  "AAPL",
+  "RY.TO",
+  "LRCX",
+  "CNH",
+  "U",
+  "GC=F",
+  "CL=F",
+  "BTC-USD",
+  "ETH-USD"
+ ],
+ "events": [
+  {
+   "time_et": "06:00",
+   "name": "NVDA: board opens a probe of CEO Jensen Huang over an alleged China spy link (weekend news)",
+   "status": "released",
+   "actual": "Huang admitted an affair with a woman US intelligence links to Beijing; the board says it has no current reason to believe national security or company secrets were compromised; China calls the allegation a smear; Trump backs Huang",
+   "reaction": "NVDA about -5% pre-market at US$177.60 (Friday close 186.64); AMD +3%, TSM +1%, Nasdaq-100 futures flat"
+  },
+  {
+   "time_et": "06:35",
+   "name": "Pre-market tape",
+   "status": "released",
+   "actual": "S&P 500 futures +0.1%, Nasdaq-100 -0.1%, Russell +0.6%, Dow +0.3%; VIX 23.3; WTI -3.4% at US$88.2; gold US$4,115; 10-year 4.86%; BTC US$74.5k, ETH US$2,117; Greenfire Resources +25% on a Strathcona takeover offer",
+   "reaction": "A calm open is priced; the risk sits in tomorrow's CPI"
+  },
+  {
+   "time_et": "09:00",
+   "name": "Constellation Energy Q3 call (results due before the open; consensus about US$3.85 EPS on US$9.4B revenue)",
+   "status": "upcoming"
+  },
+  {
+   "name": "Other before-the-open reports: Barrick Mining, KKR, NRG Energy, monday.com, Ferguson (results not out in searches at 06:50 ET)",
+   "status": "upcoming"
+  },
+  {
+   "time_et": "16:05",
+   "name": "After the close: Take-Two Interactive (call 16:30 ET), Skydance",
+   "status": "upcoming"
+  },
+  {
+   "name": "Tue Nov 10, 08:30 ET: US CPI for October (BLS schedule)",
+   "status": "upcoming"
+  },
+  {
+   "name": "Wed Nov 11: US Veterans Day (stocks open, bond market closed); TSX open",
+   "status": "upcoming"
+  },
+  {
+   "name": "Tue Nov 17 after the close: NVDA earnings",
+   "status": "upcoming"
+  }
+ ],
+ "scenarios": [
+  {
+   "if": "NVDA loses US$172 (the probe story gets worse)",
+   "then": "Vega's Plan B puts go live; Sam's NVDA Plan B stays off; nobody buys chip dips today, and AMD/TSM holding up says it is NVDA-only"
+  },
+  {
+   "if": "SPY holds its 200-day (730) and the VIX drops under 22 by noon",
+   "then": "A calm tape into CPI: Dax runs his full ORB list, Lena fills her three Monday buys, Kai still keeps his cash for a deeper flush"
+  },
+  {
+   "if": "SPY loses 730 before noon or the VIX tops 26",
+   "then": "No new longs after 12:00: U's raised stop is Sam's first exit, Lena stops at what filled, Vega stands aside, Dax stops after one loss"
+  },
+  {
+   "if": "Crude breaks its 20-day low (US$86.65)",
+   "then": "Fox's micro crude short triggers at 86.40; airlines and cruise lines lift, energy names lag"
+  },
+  {
+   "if": "Constellation Energy gaps up more than 4% on its results and holds",
+   "then": "CEG goes on Sam's and Vega's gap-and-hold list for tomorrow (their rules need one session after the report)"
+  }
+ ],
+ "news_tickers": [
+  "NVDA",
+  "CEG",
+  "AMD",
+  "GFR",
+  "KKR",
+  "MNDY",
+  "MSTR",
+  "TTWO"
+ ],
+ "levels": {
+  "NVDA": {
+   "stop": 168,
+   "target": 205,
+   "no_buy_above": 186
+  },
+  "KLAC": {
+   "stop": 113.5,
+   "target": 190,
+   "no_buy_above": 145
+  },
+  "AAPL": {
+   "stop": 281,
+   "target": 400
+  },
+  "RY.TO": {
+   "stop": 233,
+   "target": 330
+  },
+  "LRCX": {
+   "stop": 164,
+   "target": 280
+  },
+  "U": {
+   "stop": 47.5
+  },
+  "CEG": {
+   "stop": 228
+  },
+  "CNH": {
+   "stop": 10.0
+  },
+  "GC=F": {
+   "stop": 4001,
+   "target": 4150
+  },
+  "CL=F": {
+   "stop": 82
+  },
+  "BTC-USD": {
+   "stop": 56000,
+   "no_buy_above": 71000
+  },
+  "ETH-USD": {
+   "stop": 1600,
+   "no_buy_above": 2000
+  }
+ },
+ "limits": {
+  "day": {
+   "max_day_loss_pct": 8,
+   "max_trades_day": 5
+  },
+  "swing": {
+   "max_day_loss_pct": 6
+  },
+  "options_aggr": {
+   "max_day_loss_pct": 20
+  },
+  "options_safe": {
+   "max_trades_day": 1
+  },
+  "futures": {
+   "max_day_loss_pct": 10
+  },
+  "crypto": {
+   "max_day_loss_pct": 8
+  }
+ },
+ "shared_notes": [
+  "Last week's C$200 bonus (2026-W45) was forfeited: no winner, nothing carried over. Saturday's review changes are live: Dax 7 trades a day and a 1.5R target, Sam's time stops follow his holding dial (7 trading days on earnings plays), Lena has 8 slots, Fox's trail sits 2.27 ATR behind the best price, Vega 9-28 day options, Theo's strikes 5.3% out, Kai's wider stops.",
+  "CPI tomorrow at 8:30 ET is the week's big number: no one adds size after 3 PM today.",
+  "NVDA is Vega's headline trade; Lena and Theo stay away while the board's probe runs; Sam takes it only with U's cash and only back above Friday's low.",
+  "Takeover gappers (Greenfire) pin to the deal price: off Dax's list."
+ ],
+ "traders": {
+  "day": {
+   "view": "Flat futures with small caps +0.6% is the opposite of a rout morning, so opening-range breaks can work today. Greenfire's +25% is a takeover price, not a breakout: it will sit near the deal value, so it's off my list. The micro-cap gappers only count above VWAP with 3x volume and a 15-minute range under 15% wide. CPI is tomorrow, so I bank half at 1R, the rest at 1.5R, and I'm flat by 3:50. Sam's NVDA story isn't my game: it's no small cap.",
+   "playbook": [
+    {
+     "if": "a small-cap gapper (8%+, 3x volume) breaks its 15-minute high above VWAP after 9:45",
+     "then": "buy the break, stop under the range low, half off at 1R, the rest at 1.5R"
+    },
+    {
+     "if": "the gap is a takeover with a set deal price (like Greenfire)",
+     "then": "skip it: the price pins to the deal, there's no range to trade"
+    },
+    {
+     "if": "a fill drops back under VWAP",
+     "then": "out on the next bar; never average down"
+    },
+    {
+     "if": "two losers by noon",
+     "then": "done for the day (rule 3a)"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "11:30"
+     },
+     "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b): if nothing broke cleanly this morning, flat is the right answer",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4% on the day: the tape isn't paying breakouts; stand aside",
+     "orders": []
+    }
+   ],
+   "failsafe": "Done after two losers or a 4% day loss (hard limit 8%); no entries after 3:15, flat by 3:50; above a VIX of 26, one trade only.",
+   "lessons_applied": [
+    "Zero trades on a gap-down rout day is the filter working: today isn't one (futures flat, small caps up), so the full ORB list runs; if it turns into a rout, zero trades is still a pass."
+   ]
+  },
+  "swing": {
+   "view": "I'm fully invested in ABNB, MGNI, U and XERS with C$19 cash. XERS (beat by 125%) is the one working: +8% and at its high, half comes off at US$15.82 (1R). My lesson says name the first sale, so it's U: its stop sat 14% below, the widest, and its 28% beat has drifted flat, so the meeting raises U's stop to US$47.50. MGNI (the smallest beat, 17%) is next; its stop is already tight at US$25.56. NVDA's -5% is a governance headline eight days before earnings: if U is sold, that cash goes to NVDA only back above Friday's low (US$181.46). CEG reports this morning, but my rule waits a session, so it's tomorrow's name.",
+   "playbook": [
+    {
+     "if": "XERS trades US$15.82 (1R)",
+     "then": "half comes off and the stop on the rest moves to my buy price"
+    },
+    {
+     "if": "U trades under US$47.50",
+     "then": "the meeting's stop sells it, and that cash funds Plan B"
+    },
+    {
+     "if": "CPI comes in hot tomorrow (10-year above 5%)",
+     "then": "no new buys this week; the time stops (Nov 17) do the work"
+    },
+    {
+     "if": "CEG gaps up 4%+ on its results and holds above the gap-day midpoint",
+     "then": "it goes on tomorrow's gap-and-hold list"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "U"
+     },
+     "note": "U was the planned first sale: its cash goes to NVDA, but only if NVDA reclaims Friday's low",
+     "orders": [
+      {
+       "symbol": "NVDA",
+       "kind": "stock",
+       "entry_type": "stop",
+       "price": 181.5,
+       "stop": 169.5,
+       "target": 205,
+       "why": "Plan B after U's exit: buy NVDA only if it trades back above Friday's low (US$181.46), the probe drop reversing. Stop US$169.50 (about 1.5 ATR under), target US$205; size is what U's sale frees up."
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Panic tape: no new buys; the four holdings ride their stops",
+     "orders": []
+    }
+   ],
+   "failsafe": "No new buys if the VIX tops 28 or SPY loses its 200-day (730); if two holdings stop out today, Sam is done until CPI is out; the 6% day-loss limit halts him.",
+   "lessons_applied": [
+    "Huge beats hold best on down days: XERS (beat 125%) keeps its full size until 1R, while MGNI (17% beat) is next in line to go.",
+    "Fully invested, so a new setup needs a planned sale: U goes first (stop raised to US$47.50), and only its cash funds the NVDA Plan B."
+   ]
+  },
+  "long": {
+   "view": "Monday is my review day and I'm all cash (C$3,001) after Friday's stop-sign bug. Three buys, each with a stop 18% under the price: KLA, chip-equipment quality on sale (19x forward earnings, revenue +29%, a growing dividend, 35% under its 3-month high); Apple, still in its uptrend 2% over its 50-day; and Royal Bank, a Canadian dividend grower in an uptrend with earnings Dec 3. That's about half my cash; the rest waits for later Mondays. Vega can trade NVDA's headline; I don't buy a company while its board is investigating its CEO.",
+   "playbook": [
+    {
+     "if": "KLAC opens above US$145 (the meeting's no-buy level)",
+     "then": "no chase: Plan B buys 2 shares of Lam Research at 11:00 instead"
+    },
+    {
+     "if": "a pick reports within 7 days",
+     "then": "it waits (rule): Franco-Nevada (Nov 11) and Applied Materials (Nov 12) are skipped this week"
+    },
+    {
+     "if": "CPI tomorrow is hot and the 10-year tops 5%",
+     "then": "no more buys this week; the stops stay 18% under"
+    },
+    {
+     "if": "a holding falls 10% after I buy",
+     "then": "nothing happens: the stop is 18% under for exactly this, and I never add the same day"
+    }
+   ],
+   "orders": [
+    {
+     "symbol": "KLAC",
+     "kind": "stock",
+     "entry_type": "market",
+     "stop": 113.5,
+     "target": 190,
+     "qty": 3,
+     "why": "Long-term buy: KLA makes the inspection tools every chip maker needs; 19x forward earnings with revenue +29%, a 45% operating margin and a growing dividend, 35% under its 3-month high after the AI rout. 3 shares (about C$587); stop US$113.50, 18% under."
+    },
+    {
+     "symbol": "AAPL",
+     "kind": "stock",
+     "entry_type": "market",
+     "stop": 281,
+     "target": 400,
+     "qty": 1,
+     "why": "Long-term buy: Apple holds its uptrend (2% over its 50-day, above its 200-day), revenue +12%, a 31% operating margin and a rising dividend. 1 share (about C$484); stop US$281, 18% under."
+    },
+    {
+     "symbol": "RY.TO",
+     "kind": "stock",
+     "entry_type": "market",
+     "stop": 233,
+     "target": 330,
+     "qty": 2,
+     "why": "Long-term buy: Royal Bank, Canada's biggest bank and a dividend grower (2.5% yield), in an uptrend at 16x forward earnings; it reports Dec 3. 2 shares (about C$568); stop C$233, 18% under."
+    }
+   ],
+   "plan_b": [
+    {
+     "when": {
+      "type": "unfilled_by",
+      "symbol": "KLAC",
+      "time_et": "11:00"
+     },
+     "note": "KLAC opened above its no-buy level and was refused: take Lam Research, the other chip-equipment dividend grower",
+     "orders": [
+      {
+       "symbol": "LRCX",
+       "kind": "stock",
+       "entry_type": "market",
+       "stop": 164,
+       "target": 280,
+       "qty": 2,
+       "why": "Plan B for KLAC: Lam Research at 16x forward earnings with revenue +54% and a growing dividend, 43% under its 3-month high. 2 shares (about C$566); stop US$164, 18% under."
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Fear spike: no new buys today; stops stay 18% under and the cash waits for next Monday",
+     "orders": []
+    }
+   ],
+   "failsafe": "No buys if the VIX tops 28, inside 7 days of a report, or above a no-buy level (KLAC US$145); stops always 18% under the buy; never averages down the same day.",
+   "lessons_applied": [
+    "Every stop sits about 18% under the buy price (KLAC 113.50, AAPL 281, RY.TO 233, LRCX 164), each checked against today's price before the order: no stop above a buy."
+   ]
+  },
+  "futures": {
+   "view": "My gold long from 4,090 is up a little at 4,117: the stop stays 4,001, the target 4,150, and my trail now sits 2.27 ATR behind the best price (the review's take-profit-sooner change). Crude is the trend I want: -8.6% in five days to US$88, just above its 20-day low of 86.65. Per my lesson I don't trade the touch: the short triggers at 86.40, a quarter under the low. Not possible in your TFSA: this is the sandbox.",
+   "playbook": [
+    {
+     "if": "crude trades US$86.40 (a quarter under its 20-day low)",
+     "then": "short 1 micro crude (MCL), stop 90.20, target 80.00"
+    },
+    {
+     "if": "gold reaches 4,150",
+     "then": "the target closes the long; no re-entry on a touch of 4,200"
+    },
+    {
+     "if": "gold loses 4,001",
+     "then": "the stop closes the long; no new gold trade today (3-day cooldown)"
+    },
+    {
+     "if": "CPI is hot tomorrow and the dollar jumps",
+     "then": "no new metal longs (rule 1, dollar filter)"
+    }
+   ],
+   "orders": [
+    {
+     "symbol": "MCL",
+     "kind": "future",
+     "side": "short",
+     "entry_type": "stop",
+     "price": 86.4,
+     "stop": 90.2,
+     "target": 80.0,
+     "qty": 1,
+     "why": "Micro crude trend: -8.6% in five days after oil topped near US$100. Short 1 contract only if it breaks 86.40, a quarter under the 20-day low (no touch trades, per the lesson). Stop 90.20, target 80.00; risk about US$380 (C$537). Not possible in your TFSA."
+    }
+   ],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "MGC"
+     },
+     "note": "Gold long stopped at 4,001: no revenge trade; gold is done for today",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 6
+     },
+     "note": "Down 6% on the day: no new futures; the open stops stay",
+     "orders": []
+    }
+   ],
+   "failsafe": "One futures loss and he's done for the day; a 6% day loss stops new trades (hard limit 10%); margin rules liquidate under 90% of margin.",
+   "lessons_applied": [
+    "Breakouts above round numbers fade in a risk-off tape: the crude short needs 86.40, a quarter past the 20-day low, not the touch of 86.65; no gold re-entry on a touch of 4,200."
+   ]
+  },
+  "options_aggr": {
+   "view": "NVDA's -5% is the hottest move on the board and it's a headline, not a broken business: eight days to earnings (Nov 17), and the board already says no secrets were compromised. I buy calls into that, about 6% out of the money, expiring Nov 20 so the report is inside the trade. My lesson says one contract times the mood cut rounds to zero: I plan two, and today's neutral mood (x0.9) leaves one. If NVDA breaks 172 the story is getting worse and puts take over. Lena won't touch NVDA while the probe runs, which is exactly why it's cheap enough for a trade.",
+   "playbook": [
+    {
+     "if": "NVDA holds Friday's low (US$181.46) into the afternoon",
+     "then": "the call rides: half off at +100%, the rest to +300% or back to breakeven"
+    },
+    {
+     "if": "NVDA breaks US$172",
+     "then": "Plan B: 2 puts about 4% out of the money"
+    },
+    {
+     "if": "the call loses 50%",
+     "then": "the option stop sells it; no averaging down"
+    },
+    {
+     "if": "CEG gaps up 5%+ on its results",
+     "then": "it goes on tomorrow's earnings gap-and-hold list (needs one session after the report)"
+    }
+   ],
+   "orders": [
+    {
+     "symbol": "NVDA",
+     "kind": "option",
+     "right": "C",
+     "action": "BUY_TO_OPEN",
+     "dte": [
+      10,
+      21
+     ],
+     "otm_pct": 0.06,
+     "contracts": 2,
+     "why": "Calls on NVDA's CEO-probe dip into its Nov 17 earnings: about 6% out of the money, Nov 20 expiry so the report is in the trade. 2 contracts planned (the 0.9 neutral-mood cut leaves 1); the -50% stop and +100% half-take apply."
+    }
+   ],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "NVDA",
+      "level": 172
+     },
+     "note": "NVDA lost 172: the probe story is getting worse; ride it down with puts",
+     "orders": [
+      {
+       "symbol": "NVDA",
+       "kind": "option",
+       "right": "P",
+       "action": "BUY_TO_OPEN",
+       "dte": [
+        10,
+        21
+       ],
+       "otm_pct": 0.04,
+       "contracts": 2,
+       "why": "Plan B: NVDA broke US$172 on the probe; puts about 4% out of the money, Nov 20 expiry. 2 contracts planned (the mood cut leaves 1)."
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Panic tape: premiums blow out; no new options today",
+     "orders": []
+    }
+   ],
+   "failsafe": "No new options if the VIX tops 28 or after a 20% day loss (the limit); every option has a -50% stop and nothing is held into its last 2 days.",
+   "lessons_applied": [
+    "One contract times the mood cut rounds to zero: two contracts planned on a strike 6% out (cheaper than 3%), so today's neutral cut (x0.9) still leaves one."
+   ]
+  },
+  "options_safe": {
+   "view": "My lesson says table cheap quality names or the cash stays parked. From my list only two are under about US$20 and above their 200-day today: CNH Industrial (US$11.56) and Rocket (US$15.06). I table CNH; Rocket is a mortgage lender a day before CPI, so it doesn't go on the table. The mood reads neutral (VIX 23), so my strike sits 5.3% under the price at 25-50 days and the put must yield 0.6%+ for the period. If nothing qualifies, C$2,451 stays in CASH.TO earning interest. I'm the safe one: no NVDA, no chasing Vega's calls.",
+   "playbook": [
+    {
+     "if": "CNH passes my checks (above its 200-day, no report in 50 days, the put yields 0.6%+)",
+     "then": "sell 1 cash-secured put about 5.3% under (around US$11), 25-50 days, paid for from CASH.TO"
+    },
+    {
+     "if": "the put gains 50% (premium halves)",
+     "then": "buy it back and keep the profit (rule)"
+    },
+    {
+     "if": "CPI is hot tomorrow and the 10-year tops 5%",
+     "then": "no new puts this week; the cash stays parked"
+    },
+    {
+     "if": "the mood turns risk-off (VIX 25+)",
+     "then": "half the cash only, strikes 1.5x further away (rule 3)"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No put qualified by 2 PM: the cash stays in CASH.TO; parked cash is the safe default, not a miss",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 27
+     },
+     "note": "Fear spike: no new puts; keep the cash",
+     "orders": []
+    }
+   ],
+   "failsafe": "No put across an earnings date or on a stock under its 200-day, at most one new put a day (the limit); above a VIX of 27 he sells nothing new.",
+   "lessons_applied": [
+    "Tabled the one cheap quality name that passes today (CNH at US$11.56, above its 200-day), so his rules have a qualifying put instead of parked cash."
+   ]
+  },
+  "crypto": {
+   "view": "BTC is US$74.5k, -7% in five days and sitting on its 20-day low (73.7k), just above its 200-day (73.2k); ETH is worse, -13% in five days at US$2,117. I added twice in this fear episode and I'm at 14% cash, so my lesson says no more adds up here: the one add waits for a deeper flush under US$70k. Crypto-linked stocks (MSTR, CoreWeave) are lower pre-market, so the selling isn't over. Not possible in your TFSA: the sandbox holds real coins.",
+   "playbook": [
+    {
+     "if": "BTC breaks US$70,000",
+     "then": "Plan B: one fear add, 5% of the book into BTC, stop 33% under"
+    },
+    {
+     "if": "BTC reclaims US$78,000 (its 20-day average)",
+     "then": "hold; no chasing, cash stays at 14%"
+    },
+    {
+     "if": "ETH loses US$2,081 (its 20-day low)",
+     "then": "no ETH add; the core stops do the work"
+    },
+    {
+     "if": "BTC loses US$65,000",
+     "then": "Plan C: stand aside, no buys at all"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "BTC-USD",
+      "level": 70000
+     },
+     "note": "The deeper flush: the one fear add of this episode",
+     "orders": [
+      {
+       "symbol": "BTC-USD",
+       "kind": "crypto",
+       "pct": 5,
+       "stop": 47000,
+       "why": "Plan B: BTC under US$70,000, the deeper flush the lesson waits for. One add of 5% of the book (about C$150) to the core; stop US$47,000, about 33% under (the core stop)."
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "BTC-USD",
+      "level": 65000
+     },
+     "note": "Crash mode: no buys at all; the stops handle exits",
+     "orders": []
+    }
+   ],
+   "failsafe": "No BTC or ETH buys above US$71,000 / US$2,000 today (the no-buy levels) and none at all under BTC US$65,000; an 8% day loss halts him.",
+   "lessons_applied": [
+    "One extreme-fear add per fear episode: no-buy levels block adds above US$71,000 (BTC) and US$2,000 (ETH); the single add is Plan B under US$70,000, keeping cash for the deeper flush."
+   ]
+  }
+ }
+}

@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2036.7490796097723,
+  "cash": 967.3762569466412,
   "positions": [
    {
     "id": "o7",
@@ -27,8 +27,32 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.49,
-    "last": 2.9340386386216153,
+    "last": 2.920832838942715,
     "scaled": true
+   },
+   {
+    "id": "o10",
+    "kind": "stock",
+    "symbol": "ZNTL",
+    "side": "long",
+    "qty": 386,
+    "entry": 2.7648661812725095,
+    "entry_ts": "2026-11-10T15:24:00",
+    "stop": 2.61,
+    "target": 2.99,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[ORB+VWAP] ZNTL gapped +11% on 4x normal volume and is above VWAP (C$2.73); buy a break above the 15-min high C$2.75, stop under the range low C$2.61, half off at 1R, target 1.5157R.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 2.7648661812725095,
+    "low": 2.7648661812725095,
+    "scale_out_r": 1,
+    "play": "ORB+VWAP",
+    "init_stop": 2.61,
+    "last": 2.7435978316566434
    }
   ],
   "pending": [
@@ -54,29 +78,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 969.95
-   },
-   {
-    "id": "o10",
-    "kind": "stock",
-    "symbol": "ZNTL",
-    "qty": 386,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 2.76,
-    "stop": 2.61,
-    "target": 2.99,
-    "why": "[ORB+VWAP] ZNTL gapped +11% on 4x normal volume and is above VWAP (C$2.73); buy a break above the 15-min high C$2.75, stop under the range low C$2.61, half off at 1R, target 1.5157R.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-10T15:23:01",
-    "valid_until": "2026-11-10T21:23:01",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "ORB+VWAP",
-    "scale_out_r": 1,
-    "reserve": 1065.36
    }
   ],
   "last_bar": {
@@ -84,24 +85,25 @@
    "TLS": "2026-11-09T19:35:00",
    "GFR": "2026-11-09T20:59:00",
    "STLN": "2026-11-09T20:51:00",
-   "KULR": "2026-11-10T15:21:00",
-   "PXLW": "2026-11-10T15:21:00",
-   "WFF": "2026-11-10T15:11:00"
+   "KULR": "2026-11-10T15:27:00",
+   "PXLW": "2026-11-10T15:27:00",
+   "WFF": "2026-11-10T15:11:00",
+   "ZNTL": "2026-11-10T15:26:00"
   },
   "day": {
    "date": "2026-11-10",
-   "trades": 2,
+   "trades": 3,
    "start_eq": 2966.8781676369003
   },
   "week": {
    "key": "2026-W46",
-   "trades": 5
+   "trades": 6
   },
   "realized": 47.31250429421109,
   "seq": 10,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3125.2774145383914,
+  "equity_last": 3110.034003213853,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

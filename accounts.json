@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 2.61,
-    "last": 2.774653409830762
+    "last": 2.746925937961578
    }
   ],
   "pending": [
@@ -53,6 +53,29 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 969.95
+   },
+   {
+    "id": "o11",
+    "kind": "stock",
+    "symbol": "MNDO",
+    "qty": 610,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 1.81,
+    "stop": 1.77,
+    "target": 1.87,
+    "why": "[Squeeze ORB] MNDO gapped +44% on 1440x normal volume and is above VWAP (C$1.79); buy a break above the 15-min high C$1.80, stop under the range low C$1.77, half off at 1R, target 1.5157R. Float 16M, short interest 0%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-10T15:53:11",
+    "valid_until": "2026-11-10T21:53:11",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1104.1000000000001
    }
   ],
   "last_bar": {
@@ -61,9 +84,9 @@
    "GFR": "2026-11-09T20:59:00",
    "STLN": "2026-11-09T20:51:00",
    "KULR": "2026-11-10T15:37:00",
-   "PXLW": "2026-11-10T15:47:00",
+   "PXLW": "2026-11-10T15:52:00",
    "WFF": "2026-11-10T15:11:00",
-   "ZNTL": "2026-11-10T15:47:00"
+   "ZNTL": "2026-11-10T15:52:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -75,10 +98,10 @@
    "trades": 6
   },
   "realized": 155.77327864440983,
-  "seq": 10,
+  "seq": 11,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3145.4638931413156,
+  "equity_last": 3134.7610889998105,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

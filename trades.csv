@@ -44,3 +44,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-09T20:32:21Z,futures,SELL,future,MGC,1,5863.686638,2.5,58636.87,984.18,1464.1,target hit,meeting,no (sandbox)
 2026-11-09T20:52:34Z,day,SELL,stock,STLN,112,5.724605,1.28,641.16,-24.38,21.6,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-10T13:31:22Z,futures,SHORT,future,MCL,1,119.745818,2.5,11974.58,,300.7,"Meeting: Micro crude short on a break of Monday's low (85.02): WTI is -11% in five days and under its 200-day (87.41); entry a quarter past the level, stop 3.80 above, target 79.50",meeting,no (sandbox)
+2026-11-10T14:47:59Z,options_aggr,SELL_TO_CLOSE,option,U 2026-11-20 54C,1,0.833009,0.99,83.3,-241.01,3.1,option stop (-58%),autopilot,yes

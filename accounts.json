@@ -5,7 +5,77 @@
  "day": {
   "cash": 2966.8781676369003,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o7",
+    "kind": "stock",
+    "symbol": "KULR",
+    "qty": 741,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 2.69,
+    "stop": 2.49,
+    "target": 2.99,
+    "why": "[Squeeze ORB] KULR gapped +9% on 22x normal volume and is above VWAP (C$2.55); buy a break above the 15-min high C$2.68, stop under the range low C$2.49, half off at 1R, target 1.5157R. Float 43M, short interest 16%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-10T14:47:40",
+    "valid_until": "2026-11-10T20:47:40",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1993.29
+   },
+   {
+    "id": "o8",
+    "kind": "stock",
+    "symbol": "PXLW",
+    "qty": 95,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 10.21,
+    "stop": 9.0,
+    "target": 12.04,
+    "why": "[Squeeze ORB] PXLW gapped +28% on 12226x normal volume and is above VWAP (C$9.41); buy a break above the 15-min high C$10.20, stop under the range low C$9.00, half off at 1R, target 1.5157R. Float 5M, short interest 1%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-10T14:47:40",
+    "valid_until": "2026-11-10T20:47:40",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 969.95
+   },
+   {
+    "id": "o9",
+    "kind": "stock",
+    "symbol": "WFF",
+    "qty": 1,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 1.82,
+    "stop": 1.73,
+    "target": 1.96,
+    "why": "[Squeeze ORB] WFF gapped +14% on 25x normal volume and is above VWAP (C$1.76); buy a break above the 15-min high C$1.81, stop under the range low C$1.73, half off at 1R, target 1.5157R. Float 1M, short interest 2%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-10T14:47:40",
+    "valid_until": "2026-11-10T20:47:40",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1.82
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -22,7 +92,7 @@
    "trades": 3
   },
   "realized": -25.161752565262642,
-  "seq": 6,
+  "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 2966.8781676369003,
@@ -48,7 +118,7 @@
     "qty": 5,
     "entry": 270.13834335584033,
     "entry_ts": "2026-11-06T14:30:00",
-    "stop": 249.23712921142578,
+    "stop": 249.31104469299316,
     "target": 303.3886593580246,
     "flat_by": null,
     "time_stop": null,
@@ -61,7 +131,7 @@
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 268.5530058609802
+    "last": 266.28118816032475
    },
    {
     "id": "o4",
@@ -71,19 +141,19 @@
     "qty": 10,
     "entry": 39.0349800241238,
     "entry_ts": "2026-11-06T14:50:00",
-    "stop": 37.52718138694763,
+    "stop": 37.53831070661545,
     "target": 43.9,
     "flat_by": null,
     "time_stop": "2026-11-17",
     "why": "[Earnings gap-and-hold] MGNI reported 2026-11-04 (beat by 17%), gapped +13.0% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$36.11, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market. Time stop moved from 2026-11-13 to 2026-11-17 on 2026-11-07: Sam's holding scale now sets it (7 trading days).",
     "source": "autopilot",
     "meta": {},
-    "high": 41.32469156384468,
+    "high": 41.3629698593445,
     "low": 39.0349800241238,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 41.2515759361404
+    "last": 41.27797551242293
    },
    {
     "id": "o3",
@@ -93,7 +163,7 @@
     "qty": 8,
     "entry": 73.08278422708281,
     "entry_ts": "2026-11-06T14:50:00",
-    "stop": 67.26570248603821,
+    "stop": 67.28565126657486,
     "target": 89.69,
     "flat_by": null,
     "time_stop": "2026-11-17",
@@ -105,7 +175,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 71.88225147974845
+    "last": 72.11251313660978
    },
    {
     "id": "o2",
@@ -115,28 +185,28 @@
     "qty": 17,
     "entry": 19.81499688106919,
     "entry_ts": "2026-11-06T14:50:00",
-    "stop": 19.896486735343935,
+    "stop": 19.902387374639513,
     "target": 24.41,
     "flat_by": null,
     "time_stop": "2026-11-17",
     "why": "[Earnings gap-and-hold] XERS reported 2026-11-05 (beat by 125%), gapped +19.6% and has held above the gap-day midpoint for 1 sessions. Stop under the gap-day low C$17.28, half off at 1R, out in 5 days if the drift stalls. Sized x0.9 for a neutral market. Time stop moved from 2026-11-13 to 2026-11-17 on 2026-11-07: Sam's holding scale now sets it (7 trading days).",
     "source": "autopilot",
     "meta": {},
-    "high": 22.499423717864033,
+    "high": 22.8159270138799,
     "low": 19.81499688106919,
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 22.657920837402344,
+    "last": 22.43799423851624,
     "scaled": true
    }
   ],
   "pending": [],
   "last_bar": {
-   "ABNB": "2026-11-09T20:55:00",
-   "MGNI": "2026-11-09T20:55:00",
-   "U": "2026-11-09T20:55:00",
-   "XERS": "2026-11-09T20:55:00"
+   "ABNB": "2026-11-10T14:40:00",
+   "MGNI": "2026-11-10T14:40:00",
+   "U": "2026-11-10T14:40:00",
+   "XERS": "2026-11-10T14:40:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -148,10 +218,10 @@
    "trades": 0
   },
   "realized": 40.38115014700994,
-  "seq": 9,
+  "seq": 11,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3091.8560677279074,
+  "equity_last": 3078.8643160612824,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -163,7 +233,7 @@
    "2026-11-10": []
   },
   "done": {
-   "swing_pick_am": "2026-11-09",
+   "swing_pick_am": "2026-11-10",
    "swing_pick_pm": "2026-11-09"
   }
  },
@@ -178,7 +248,7 @@
     "qty": 1,
     "entry": 486.7722846077231,
     "entry_ts": "2026-11-09T14:30:00",
-    "stop": 397.92973470687866,
+    "stop": 398.0477474927902,
     "target": 563.8999938964844,
     "flat_by": null,
     "time_stop": null,
@@ -187,10 +257,10 @@
     "meta": {
      "small_cap": false
     },
-    "high": 497.60957501597295,
+    "high": 501.27101231915003,
     "low": 486.7722846077231,
     "init_stop": 396.1397457122803,
-    "last": 497.5042196443246
+    "last": 496.1998180446135
    },
    {
     "id": "o7",
@@ -200,7 +270,7 @@
     "qty": 3,
     "entry": 200.64441228102078,
     "entry_ts": "2026-11-09T14:30:00",
-    "stop": 160.72962594032288,
+    "stop": 160.7772930264473,
     "target": 267.8524971008301,
     "flat_by": null,
     "time_stop": null,
@@ -212,7 +282,7 @@
     "high": 215.9501073426436,
     "low": 200.64441228102078,
     "init_stop": 160.00662326812744,
-    "last": 212.5596284991916
+    "last": 213.0830378339797
    },
    {
     "id": "o14",
@@ -232,11 +302,11 @@
      "yahoo": "AES",
      "fx": false
     },
-    "high": 21.10445172175332,
+    "high": 21.11509713479495,
     "low": 21.037698754503253,
     "play": "Quality pullback",
     "init_stop": 17.25,
-    "last": 21.101604932295686
+    "last": 21.113528719180863
    },
    {
     "id": "o11",
@@ -256,11 +326,11 @@
      "yahoo": "BNS.TO",
      "fx": true
     },
-    "high": 132.5,
+    "high": 133.10000610351562,
     "low": 131.64999389648438,
     "play": "Dividend grower",
     "init_stop": 107.94,
-    "last": 132.8000030517578
+    "last": 132.77999877929688
    },
    {
     "id": "o12",
@@ -280,11 +350,11 @@
      "yahoo": "RY",
      "fx": false
     },
-    "high": 289.76844631764834,
+    "high": 290.44495832678876,
     "low": 287.2680366120949,
     "play": "Dividend grower",
     "init_stop": 235.4,
-    "last": 289.7239963217726
+    "last": 289.73908754354306
    },
    {
     "id": "o10",
@@ -308,7 +378,7 @@
     "low": 140.0253358564987,
     "play": "Dividend grower",
     "init_stop": 114.8,
-    "last": 136.65558505058289
+    "last": 137.4185510128018
    }
   ],
   "pending": [],
@@ -319,12 +389,12 @@
    "TXN": "2026-11-06T15:10:00",
    "UMBF": "2026-11-06T15:10:00",
    "USB": "2026-11-06T15:10:00",
-   "AAPL": "2026-11-09T20:55:00",
-   "KLAC": "2026-11-09T20:55:00",
-   "AES": "2026-11-09T20:55:00",
-   "BNS.TO": "2026-11-09T20:55:00",
-   "RY": "2026-11-09T20:55:00",
-   "SHEL": "2026-11-09T20:55:00"
+   "AAPL": "2026-11-10T14:40:00",
+   "KLAC": "2026-11-10T14:40:00",
+   "AES": "2026-11-10T14:40:00",
+   "BNS.TO": "2026-11-10T14:40:00",
+   "RY": "2026-11-10T14:40:00",
+   "SHEL": "2026-11-10T14:40:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -339,7 +409,7 @@
   "seq": 14,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3047.563090651307,
+  "equity_last": 3048.6585126887994,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -398,7 +468,7 @@
     "high": 119.74581849575043,
     "low": 119.74581849575043,
     "margin": 538.8561832308769,
-    "unrealized": 28.19300162154832
+    "unrealized": -27.762271878327738
    }
   ],
   "pending": [
@@ -425,8 +495,8 @@
    }
   ],
   "last_bar": {
-   "GC=F": "2026-11-10T14:20:00",
-   "CL=F": "2026-11-10T14:20:00"
+   "GC=F": "2026-11-10T14:35:00",
+   "CL=F": "2026-11-10T14:35:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -441,7 +511,7 @@
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 4007.3710416491667,
+  "equity_last": 3951.4157681492907,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -459,7 +529,7 @@
   }
  },
  "options_aggr": {
-  "cash": 2223.579481143952,
+  "cash": 2305.8904021072394,
   "positions": [
    {
     "id": "o2",
@@ -486,35 +556,7 @@
     },
     "high": 4.511199951171875,
     "low": 4.511199951171875,
-    "mark": 3.0591574668884274
-   },
-   {
-    "id": "o3",
-    "kind": "option",
-    "symbol": "U 2026-11-20 54C",
-    "side": "long",
-    "qty": 1,
-    "entry": 3.233205237388611,
-    "entry_ts": "2026-11-09T15:18:09",
-    "stop": null,
-    "target": null,
-    "flat_by": null,
-    "time_stop": null,
-    "why": "[Earnings call] U gapped +13.2% on earnings (2026-11-05) and held above the gap-day midpoint. Buy the 2026-11-20 $54 call at $2.84 (stock $52.54). Half off at +100%, the rest runs with a breakeven stop. Max loss = premium paid. Sized x0.9 for a neutral market.",
-    "source": "autopilot",
-    "meta": {
-     "underlying": "U",
-     "expiry": "2026-11-20",
-     "right": "C",
-     "strike": 54.0,
-     "contract": "U261120C00054000",
-     "iv": 0.831056376953125,
-     "fx": 1.4118800163269043
-    },
-    "high": 3.233205237388611,
-    "low": 3.233205237388611,
-    "play": "Earnings call",
-    "mark": 1.637780818939209
+    "mark": 2.3472337245941164
    }
   ],
   "pending": [],
@@ -528,11 +570,11 @@
    "key": "2026-W46",
    "trades": 2
   },
-  "realized": 0.0,
+  "realized": -241.00960277557377,
   "seq": 3,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2693.2733097267155,
+  "equity_last": 2540.613774566651,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -608,7 +650,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 104334.6252113618,
+    "last": 104850.68809947465,
     "init_stop": 79795.08261222
    },
    {
@@ -631,7 +673,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2918.198522705701,
+    "last": 2934.305948301335,
     "init_stop": 2350.66654513
    },
    {
@@ -654,7 +696,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 14.678084018355548,
+    "last": 14.805675883176718,
     "init_stop": 10.65203463
    },
    {
@@ -677,7 +719,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 118.30267046878362,
+    "last": 118.93269934188993,
     "init_stop": 88.10529987
    },
    {
@@ -700,7 +742,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.4964140468804317,
+    "last": 1.500824128531093,
     "init_stop": 1.1843018
    },
    {
@@ -725,7 +767,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 104334.6252113618
+    "last": 104850.68809947465
    },
    {
     "id": "o7",
@@ -749,7 +791,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2918.198522705701
+    "last": 2934.305948301335
    },
    {
     "id": "o8",
@@ -773,7 +815,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 104334.6252113618
+    "last": 104850.68809947465
    },
    {
     "id": "o9",
@@ -797,16 +839,16 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2918.198522705701
+    "last": 2934.305948301335
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-10T14:25:00",
-   "ETH-USD": "2026-11-10T14:25:00",
-   "LINK-USD": "2026-11-10T14:25:00",
-   "SOL-USD": "2026-11-10T14:25:00",
-   "XRP-USD": "2026-11-10T14:25:00"
+   "BTC-USD": "2026-11-10T14:40:00",
+   "ETH-USD": "2026-11-10T14:40:00",
+   "LINK-USD": "2026-11-10T14:40:00",
+   "SOL-USD": "2026-11-10T14:40:00",
+   "XRP-USD": "2026-11-10T14:40:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -821,7 +863,7 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2853.5122852241125,
+  "equity_last": 2866.4494183972315,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

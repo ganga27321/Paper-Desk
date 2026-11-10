@@ -374,8 +374,33 @@
   }
  },
  "futures": {
-  "cash": 3981.6780400276184,
-  "positions": [],
+  "cash": 3979.1780400276184,
+  "positions": [
+   {
+    "id": "o5",
+    "kind": "future",
+    "symbol": "MCL",
+    "side": "short",
+    "qty": 1,
+    "entry": 119.74581849575043,
+    "entry_ts": "2026-11-10T13:15:00",
+    "stop": 125.11495254039764,
+    "target": 112.32793593406677,
+    "flat_by": null,
+    "time_stop": null,
+    "why": "Meeting: Micro crude short on a break of Monday's low (85.02): WTI is -11% in five days and under its 200-day (87.41); entry a quarter past the level, stop 3.80 above, target 79.50",
+    "source": "meeting",
+    "meta": {
+     "name": "Micro crude",
+     "yahoo": "CL=F",
+     "multiplier": 100
+    },
+    "high": 119.74581849575043,
+    "low": 119.74581849575043,
+    "margin": 538.8561832308769,
+    "unrealized": -46.04219845641637
+   }
+  ],
   "pending": [
    {
     "id": "o4",
@@ -397,46 +422,26 @@
     "created": "2026-11-10T05:49:21",
     "valid_until": "2026-11-11T05:49:21",
     "play": "Metal trend + dollar"
-   },
-   {
-    "id": "o5",
-    "kind": "future",
-    "symbol": "MCL",
-    "qty": 1,
-    "side": "short",
-    "entry_type": "stop",
-    "price": 119.74581849575043,
-    "stop": 125.11495254039764,
-    "target": 112.32793593406677,
-    "why": "Meeting: Micro crude short on a break of Monday's low (85.02): WTI is -11% in five days and under its 200-day (87.41); entry a quarter past the level, stop 3.80 above, target 79.50",
-    "source": "meeting",
-    "meta": {
-     "name": "Micro crude",
-     "yahoo": "CL=F",
-     "multiplier": 100
-    },
-    "created": "2026-11-10T12:43:19",
-    "valid_until": "2026-11-11T12:43:19"
    }
   ],
   "last_bar": {
-   "GC=F": "2026-11-10T12:40:00",
-   "CL=F": "2026-11-10T12:40:00"
+   "GC=F": "2026-11-10T13:20:00",
+   "CL=F": "2026-11-10T13:20:00"
   },
   "day": {
    "date": "2026-11-10",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 3981.6780400276184
   },
   "week": {
    "key": "2026-W46",
-   "trades": 0
+   "trades": 1
   },
   "realized": 984.1780400276184,
   "seq": 5,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3981.6780400276184,
+  "equity_last": 3933.135841571202,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -603,7 +608,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 104936.97504775599,
+    "last": 104476.75417882204,
     "init_stop": 79795.08261222
    },
    {
@@ -626,7 +631,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2956.4741481544334,
+    "last": 2914.0461604676675,
     "init_stop": 2350.66654513
    },
    {
@@ -649,7 +654,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 14.800599647127228,
+    "last": 14.69533251915459,
     "init_stop": 10.65203463
    },
    {
@@ -672,7 +677,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 119.87157703935009,
+    "last": 118.43725300348888,
     "init_stop": 88.10529987
    },
    {
@@ -695,7 +700,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.5238654696055676,
+    "last": 1.5039224402652849,
     "init_stop": 1.1843018
    },
    {
@@ -720,7 +725,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 104936.97504775599
+    "last": 104476.75417882204
    },
    {
     "id": "o7",
@@ -744,7 +749,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2956.4741481544334
+    "last": 2914.0461604676675
    },
    {
     "id": "o8",
@@ -768,7 +773,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 104936.97504775599
+    "last": 104476.75417882204
    },
    {
     "id": "o9",
@@ -792,16 +797,16 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2956.4741481544334
+    "last": 2914.0461604676675
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-10T12:45:00",
-   "ETH-USD": "2026-11-10T12:45:00",
-   "LINK-USD": "2026-11-10T12:45:00",
-   "SOL-USD": "2026-11-10T12:45:00",
-   "XRP-USD": "2026-11-10T12:45:00"
+   "BTC-USD": "2026-11-10T13:25:00",
+   "ETH-USD": "2026-11-10T13:25:00",
+   "LINK-USD": "2026-11-10T13:25:00",
+   "SOL-USD": "2026-11-10T13:25:00",
+   "XRP-USD": "2026-11-10T13:25:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -816,7 +821,7 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2877.9672754131752,
+  "equity_last": 2855.5060180669216,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

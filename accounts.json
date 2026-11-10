@@ -3,32 +3,34 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2966.8781676369003,
-  "positions": [],
-  "pending": [
+  "cash": 968.3594899998227,
+  "positions": [
    {
     "id": "o7",
     "kind": "stock",
     "symbol": "KULR",
-    "qty": 741,
     "side": "long",
-    "entry_type": "stop",
-    "price": 2.69,
+    "qty": 741,
+    "entry": 2.69167289932561,
+    "entry_ts": "2026-11-10T14:48:00",
     "stop": 2.49,
     "target": 2.99,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] KULR gapped +9% on 22x normal volume and is above VWAP (C$2.55); buy a break above the 15-min high C$2.68, stop under the range low C$2.49, half off at 1R, target 1.5157R. Float 43M, short interest 16%: squeeze candidate.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-10T14:47:40",
-    "valid_until": "2026-11-10T20:47:40",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 2.69167289932561,
+    "low": 2.69167289932561,
     "scale_out_r": 1,
-    "reserve": 1993.29
-   },
+    "play": "Squeeze ORB",
+    "init_stop": 2.49,
+    "last": 2.6562561839818954
+   }
+  ],
+  "pending": [
    {
     "id": "o8",
     "kind": "stock",
@@ -80,22 +82,25 @@
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
    "GFR": "2026-11-09T20:59:00",
-   "STLN": "2026-11-09T20:51:00"
+   "STLN": "2026-11-09T20:51:00",
+   "KULR": "2026-11-10T14:51:00",
+   "PXLW": "2026-11-10T14:51:00",
+   "WFF": "2026-11-10T14:51:00"
   },
   "day": {
    "date": "2026-11-10",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 2966.8781676369003
   },
   "week": {
    "key": "2026-W46",
-   "trades": 3
+   "trades": 4
   },
   "realized": -25.161752565262642,
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2966.8781676369003,
+  "equity_last": 2936.645322330407,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

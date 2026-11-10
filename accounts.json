@@ -3,17 +3,17 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 968.3522099998228,
+  "cash": 2036.7490796097723,
   "positions": [
    {
     "id": "o7",
     "kind": "stock",
     "symbol": "KULR",
     "side": "long",
-    "qty": 741,
+    "qty": 371,
     "entry": 2.69167289932561,
     "entry_ts": "2026-11-10T14:48:00",
-    "stop": 2.49,
+    "stop": 2.6917,
     "target": 2.99,
     "flat_by": "15:50",
     "time_stop": null,
@@ -22,12 +22,13 @@
     "meta": {
      "small_cap": true
     },
-    "high": 2.890394314122773,
+    "high": 2.9765608985509857,
     "low": 2.69167289932561,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.49,
-    "last": 2.8833101898597704
+    "last": 2.9340386386216153,
+    "scaled": true
    }
   ],
   "pending": [
@@ -53,6 +54,29 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 969.95
+   },
+   {
+    "id": "o10",
+    "kind": "stock",
+    "symbol": "ZNTL",
+    "qty": 386,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 2.76,
+    "stop": 2.61,
+    "target": 2.99,
+    "why": "[ORB+VWAP] ZNTL gapped +11% on 4x normal volume and is above VWAP (C$2.73); buy a break above the 15-min high C$2.75, stop under the range low C$2.61, half off at 1R, target 1.5157R.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-10T15:23:01",
+    "valid_until": "2026-11-10T21:23:01",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 1065.36
    }
   ],
   "last_bar": {
@@ -60,8 +84,8 @@
    "TLS": "2026-11-09T19:35:00",
    "GFR": "2026-11-09T20:59:00",
    "STLN": "2026-11-09T20:51:00",
-   "KULR": "2026-11-10T15:17:00",
-   "PXLW": "2026-11-10T15:17:00",
+   "KULR": "2026-11-10T15:21:00",
+   "PXLW": "2026-11-10T15:21:00",
    "WFF": "2026-11-10T15:11:00"
   },
   "day": {
@@ -73,11 +97,11 @@
    "key": "2026-W46",
    "trades": 5
   },
-  "realized": -25.165392565262643,
-  "seq": 9,
+  "realized": 47.31250429421109,
+  "seq": 10,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3104.8850606859123,
+  "equity_last": 3125.2774145383914,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -162,3 +162,4 @@
 {"ts": "2026-11-10T15:22:59Z", "event": "close", "trader": "day", "symbol": "KULR", "kind": "stock", "price": 2.89334579865122, "pnl": 72.48, "why": "took half at 1R; rest rides with the stop at breakeven"}
 {"ts": "2026-11-10T15:23:01Z", "event": "order", "trader": "day", "symbol": "ZNTL", "kind": "stock", "qty": 386, "type": "stop", "price": 2.76, "why": "[ORB+VWAP] ZNTL gapped +11% on 4x normal volume and is above VWAP (C$2.73); buy a break above the 15-min high C$2.75, stop under the range low C$2.61, half off at 1R, target 1.5157R.", "source": "autopilot"}
 {"ts": "2026-11-10T15:28:13Z", "event": "open", "trader": "day", "symbol": "ZNTL", "kind": "stock", "qty": 386, "price": 2.7648661812725095, "at": "2026-11-10T15:24:00"}
+{"ts": "2026-11-10T15:38:19Z", "event": "close", "trader": "day", "symbol": "KULR", "kind": "stock", "price": 2.99, "pnl": 108.46, "why": "target hit"}

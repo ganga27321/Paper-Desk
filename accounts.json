@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 966.5358499998227,
+  "cash": 968.3522099998228,
   "positions": [
    {
     "id": "o7",
@@ -22,37 +22,12 @@
     "meta": {
      "small_cap": true
     },
-    "high": 2.8190339914951323,
+    "high": 2.8620369140272146,
     "low": 2.69167289932561,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.49,
-    "last": 2.8190339914951323
-   },
-   {
-    "id": "o9",
-    "kind": "stock",
-    "symbol": "WFF",
-    "side": "long",
-    "qty": 1,
-    "entry": 1.82,
-    "entry_ts": "2026-11-10T14:56:00",
-    "stop": 1.82,
-    "target": 1.96,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] WFF gapped +14% on 25x normal volume and is above VWAP (C$1.76); buy a break above the 15-min high C$1.81, stop under the range low C$1.73, half off at 1R, target 1.5157R. Float 1M, short interest 2%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 1.9265760052194594,
-    "low": 1.82,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "last": 1.8486629112596518,
-    "scaled": true,
-    "init_stop": 1.73
+    "last": 2.883289812222955
    }
   ],
   "pending": [
@@ -85,9 +60,9 @@
    "TLS": "2026-11-09T19:35:00",
    "GFR": "2026-11-09T20:59:00",
    "STLN": "2026-11-09T20:51:00",
-   "KULR": "2026-11-10T15:06:00",
-   "PXLW": "2026-11-10T15:06:00",
-   "WFF": "2026-11-10T15:06:00"
+   "KULR": "2026-11-10T15:11:00",
+   "PXLW": "2026-11-10T15:11:00",
+   "WFF": "2026-11-10T15:11:00"
   },
   "day": {
    "date": "2026-11-10",
@@ -98,11 +73,11 @@
    "key": "2026-W46",
    "trades": 5
   },
-  "realized": -25.161752565262642,
+  "realized": -25.165392565262643,
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3057.2887006089754,
+  "equity_last": 3104.8699608570323,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -139,3 +139,7 @@
 {"ts": "2026-11-09T20:32:21Z", "event": "close", "trader": "futures", "symbol": "MGC", "kind": "future", "price": 5863.686637878418, "pnl": 984.18, "why": "target hit"}
 {"ts": "2026-11-09T20:52:34Z", "event": "close", "trader": "day", "symbol": "STLN", "kind": "stock", "price": 5.724605236303148, "pnl": -24.38, "why": "flat by 15:50 (day trade closed before the bell)"}
 {"ts": "2026-11-09T23:19:18Z", "event": "skip", "trader": "day", "symbol": "GFR", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-10T05:49:21Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $3,084 per contract is more than free equity"}
+{"ts": "2026-11-10T05:49:21Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,350 per contract is more than free equity"}
+{"ts": "2026-11-10T05:49:21Z", "event": "order", "trader": "futures", "symbol": "MGC", "kind": "future", "qty": 1, "type": "stop", "price": 5476.407918886223, "why": "[Metal trend + dollar] Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar falling (-0.04% on its 20-day trend) agrees. Notional C$54,764 on C$3,982 equity.", "source": "autopilot"}
+{"ts": "2026-11-10T05:49:22Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}

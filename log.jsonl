@@ -175,3 +175,5 @@
 {"ts": "2026-11-10T19:00:47Z", "event": "skip", "trader": "day", "symbol": "NCI", "reason": "already 2.10 past the breakout level C$7.33 (more than 0.5R): no chase"}
 {"ts": "2026-11-10T19:56:09Z", "event": "open", "trader": "day", "symbol": "PXLW", "kind": "stock", "qty": 95, "price": 10.21, "at": "2026-11-10T19:51:00"}
 {"ts": "2026-11-10T20:02:57Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "Nothing to do by 3 PM is the plan: the next buying day is Monday"}
+{"ts": "2026-11-10T20:16:32Z", "event": "skip", "trader": "day", "symbol": "MNDO", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-10T20:16:32Z", "event": "skip", "trader": "day", "symbol": "AMPY", "reason": "order cancelled: unfilled by 15:15 ET"}

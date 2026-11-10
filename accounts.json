@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 968.3594899998227,
+  "cash": 966.5358499998227,
   "positions": [
    {
     "id": "o7",
@@ -22,12 +22,35 @@
     "meta": {
      "small_cap": true
     },
-    "high": 2.69167289932561,
+    "high": 2.761707075417519,
     "low": 2.69167289932561,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.49,
-    "last": 2.6562561839818954
+    "last": 2.754625782150555
+   },
+   {
+    "id": "o9",
+    "kind": "stock",
+    "symbol": "WFF",
+    "side": "long",
+    "qty": 1,
+    "entry": 1.82,
+    "entry_ts": "2026-11-10T14:56:00",
+    "stop": 1.73,
+    "target": 1.96,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] WFF gapped +14% on 25x normal volume and is above VWAP (C$1.76); buy a break above the 15-min high C$1.81, stop under the range low C$1.73, half off at 1R, target 1.5157R. Float 1M, short interest 2%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 1.82,
+    "low": 1.82,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "last": 1.905152876130245
    }
   ],
   "pending": [
@@ -53,29 +76,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 969.95
-   },
-   {
-    "id": "o9",
-    "kind": "stock",
-    "symbol": "WFF",
-    "qty": 1,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 1.82,
-    "stop": 1.73,
-    "target": 1.96,
-    "why": "[Squeeze ORB] WFF gapped +14% on 25x normal volume and is above VWAP (C$1.76); buy a break above the 15-min high C$1.81, stop under the range low C$1.73, half off at 1R, target 1.5157R. Float 1M, short interest 2%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-10T14:47:40",
-    "valid_until": "2026-11-10T20:47:40",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1.82
    }
   ],
   "last_bar": {
@@ -83,24 +83,24 @@
    "TLS": "2026-11-09T19:35:00",
    "GFR": "2026-11-09T20:59:00",
    "STLN": "2026-11-09T20:51:00",
-   "KULR": "2026-11-10T14:51:00",
-   "PXLW": "2026-11-10T14:51:00",
-   "WFF": "2026-11-10T14:51:00"
+   "KULR": "2026-11-10T14:56:00",
+   "PXLW": "2026-11-10T14:56:00",
+   "WFF": "2026-11-10T14:56:00"
   },
   "day": {
    "date": "2026-11-10",
-   "trades": 1,
+   "trades": 2,
    "start_eq": 2966.8781676369003
   },
   "week": {
    "key": "2026-W46",
-   "trades": 4
+   "trades": 5
   },
   "realized": -25.161752565262642,
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2936.645322330407,
+  "equity_last": 3009.618707449514,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

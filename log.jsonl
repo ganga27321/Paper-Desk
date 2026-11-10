@@ -152,3 +152,4 @@
 {"ts": "2026-11-10T14:47:59Z", "event": "rejected", "trader": "swing", "symbol": "KLAC", "reason": "market mood sized it to zero", "why": "[Tabled at the meeting] Tabled at the meeting: KLAC at C$214.44, -1.1% in 5 days, RSI 44, volume 1.5x. Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield +0.02 pts in 5 days Sized x0.9 for a neutral market."}
 {"ts": "2026-11-10T14:47:59Z", "event": "close", "trader": "options_aggr", "symbol": "U 2026-11-20 54C", "kind": "option", "price": 0.8330092096328735, "pnl": -241.01, "why": "option stop (-58%)"}
 {"ts": "2026-11-10T14:52:23Z", "event": "open", "trader": "day", "symbol": "KULR", "kind": "stock", "qty": 741, "price": 2.69167289932561, "at": "2026-11-10T14:48:00"}
+{"ts": "2026-11-10T14:57:28Z", "event": "open", "trader": "day", "symbol": "WFF", "kind": "stock", "qty": 1, "price": 1.82, "at": "2026-11-10T14:56:00"}

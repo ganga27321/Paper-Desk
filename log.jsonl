@@ -177,3 +177,4 @@
 {"ts": "2026-11-10T20:02:57Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "Nothing to do by 3 PM is the plan: the next buying day is Monday"}
 {"ts": "2026-11-10T20:16:32Z", "event": "skip", "trader": "day", "symbol": "MNDO", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-10T20:16:32Z", "event": "skip", "trader": "day", "symbol": "AMPY", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-10T20:51:36Z", "event": "close", "trader": "day", "symbol": "PXLW", "kind": "stock", "price": 10.375156945085905, "pnl": 13.72, "why": "flat by 15:50 (day trade closed before the bell)"}

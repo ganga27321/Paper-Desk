@@ -56,3 +56,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-10T15:38:19Z,day,SELL,stock,KULR,371,2.99,2.22,1109.29,108.46,34.9,target hit,autopilot,yes
 2026-11-10T18:05:02Z,day,SELL,stock,ZNTL,386,2.61,2.01,1007.46,-61.79,32.3,stop hit,autopilot,yes
 2026-11-10T18:05:24Z,options_aggr,SELL_TO_CLOSE,option,U 2026-11-20 53C,3,0.878187,2.97,263.46,-325.92,11.8,option stop (-52%),autopilot,yes
+2026-11-10T19:56:09Z,day,BUY,stock,PXLW,95,10.21,1.94,969.95,,31.5,"[Squeeze ORB] PXLW gapped +28% on 12226x normal volume and is above VWAP (C$9.41); buy a break above the 15-min high C$10.20, stop under the range low C$9.00, half off at 1R, target 1.5157R. Float 5M, short interest 1%: squeeze candidate.",autopilot,yes

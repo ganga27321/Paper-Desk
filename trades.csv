@@ -54,3 +54,5 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-10T15:22:59Z,day,SELL,stock,KULR,370,2.893346,2.14,1070.54,72.48,34.1,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-10T15:28:13Z,day,BUY,stock,ZNTL,386,2.764866,2.13,1067.24,,34.2,"[ORB+VWAP] ZNTL gapped +11% on 4x normal volume and is above VWAP (C$2.73); buy a break above the 15-min high C$2.75, stop under the range low C$2.61, half off at 1R, target 1.5157R.",autopilot,yes
 2026-11-10T15:38:19Z,day,SELL,stock,KULR,371,2.99,2.22,1109.29,108.46,34.9,target hit,autopilot,yes
+2026-11-10T18:05:02Z,day,SELL,stock,ZNTL,386,2.61,2.01,1007.46,-61.79,32.3,stop hit,autopilot,yes
+2026-11-10T18:05:24Z,options_aggr,SELL_TO_CLOSE,option,U 2026-11-20 53C,3,0.878187,2.97,263.46,-325.92,11.8,option stop (-52%),autopilot,yes

@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 261.7919607592179,
+  "cash": -3.3773192407820716,
   "positions": [
    {
     "id": "o14",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 4.3,
-    "last": 4.734068449677466
+    "last": 4.741586918676376
    },
    {
     "id": "o13",
@@ -51,7 +51,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 12.84,
-    "last": 14.729004112394705
+    "last": 14.587855421072959
    },
    {
     "id": "o19",
@@ -75,34 +75,34 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.07,
-    "last": 1.1532617745966434
-   }
-  ],
-  "pending": [
+    "last": 1.1250233657907103
+   },
    {
     "id": "o15",
     "kind": "stock",
     "symbol": "PEPG",
-    "qty": 32,
     "side": "long",
-    "entry_type": "stop",
-    "price": 8.27,
+    "qty": 32,
+    "entry": 8.27,
+    "entry_ts": "2026-11-11T15:28:00",
     "stop": 7.29,
     "target": 9.76,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] PEPG gapped +17% on 11x normal volume and is above VWAP (C$7.77); buy a break above the 15-min high C$8.26, stop under the range low C$7.29, half off at 1R, target 1.5157R. Float 36M, short interest 7%: squeeze candidate.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-11T14:46:05",
-    "valid_until": "2026-11-11T20:46:05",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 8.27,
+    "low": 8.27,
     "scale_out_r": 1,
-    "reserve": 264.64
+    "play": "Squeeze ORB",
+    "init_stop": 7.29,
+    "last": 8.009437546133995
    }
   ],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -114,26 +114,26 @@
    "ZNTL": "2026-11-10T18:02:00",
    "MNDO": "2026-11-10T20:15:00",
    "AMPY": "2026-11-10T20:14:00",
-   "BGS": "2026-11-11T15:24:00",
+   "BGS": "2026-11-11T15:30:00",
    "BRAI": "2026-11-11T15:04:00",
-   "CAPR": "2026-11-11T15:24:00",
-   "PEPG": "2026-11-11T15:24:00",
-   "MGX": "2026-11-11T15:23:00"
+   "CAPR": "2026-11-11T15:30:00",
+   "PEPG": "2026-11-11T15:30:00",
+   "MGX": "2026-11-11T15:29:00"
   },
   "day": {
    "date": "2026-11-11",
-   "trades": 4,
+   "trades": 5,
    "start_eq": 3091.671486910236
   },
   "week": {
    "key": "2026-W46",
-   "trades": 11
+   "trades": 12
   },
   "realized": 107.0090924661389,
   "seq": 19,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3105.2657030142914,
+  "equity_last": 3080.2565198077127,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

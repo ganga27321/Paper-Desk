@@ -199,3 +199,4 @@
 {"ts": "2026-11-11T15:06:02Z", "event": "rejected", "trader": "options_aggr", "symbol": "NVDA 2026-11-20 155P", "reason": "market mood sized it to zero", "why": "[Momentum put] NVDA breaking down: -18.3% in 5 days on 3.1x volume. Buy the 2026-11-20 $155 put at $2.71 (stock $173.46). Half off at +100%, the rest rides to +300% or back to breakeven; cut at -50%. Max loss = premium paid. Sized x0.9 for a neutral market."}
 {"ts": "2026-11-11T15:10:31Z", "event": "open", "trader": "day", "symbol": "CAPR", "kind": "stock", "qty": 125, "price": 14.07, "at": "2026-11-11T15:08:00"}
 {"ts": "2026-11-11T15:10:31Z", "event": "open", "trader": "day", "symbol": "MGX", "kind": "stock", "qty": 3, "price": 1.15, "at": "2026-11-11T15:06:00"}
+{"ts": "2026-11-11T15:31:21Z", "event": "open", "trader": "day", "symbol": "PEPG", "kind": "stock", "qty": 32, "price": 8.27, "at": "2026-11-11T15:28:00"}

@@ -529,5 +529,14 @@
     "One extreme-fear add per fear episode: the no-buy levels block adds near today's price; the single add is Plan B under US$70,000."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:33",
+  "vega": "IWM opened at 282.83, under my 284 trigger, and NVDA has already slipped from 177.40 pre-market to 173.40 in the first two minutes, so the chip gap is being sold. I own nothing and I keep it that way unless small caps clear 284: the two IWM calls stay as planned, one trade at most, 12% day-loss limit. No NVDA or U today.",
+  "theo": "Rocket opened at 14.43, flat, with the VIX at 18.3. My December 12.50 put has no live bid or ask yet (last 0.18), about where I sold it. The strike is 13% under the price with 30 days left, so I hold it and sell nothing new: C$773 of buying power is not enough for a second put.",
+  "changes": [
+   "Vega: no change. Plan B (2 IWM calls above 284) kept; nothing placed.",
+   "Theo: no change. Holds the RKT 12.50 put; no new order."
+  ]
  }
 }

@@ -302,7 +302,10 @@ def share(path):
 
 if __name__ == "__main__":
     cmd = sys.argv[1]
+    path = next((x for x in sys.argv[2:] if not x.startswith("--")), None)   # flags may come before or after the file
+    if path is None:
+        sys.exit(f"usage: python -m papertrade.meeting {cmd} <plan.json> [--no-clock]")
     if cmd == "validate":
-        sys.exit(0 if validate(sys.argv[2], check_clock="--no-clock" not in sys.argv) else 1)
+        sys.exit(0 if validate(path, check_clock="--no-clock" not in sys.argv) else 1)
     if cmd == "share":
-        share(sys.argv[2])
+        share(path)

@@ -207,3 +207,4 @@
 {"ts": "2026-11-11T18:08:59Z", "event": "rejected", "trader": "swing", "symbol": "NVDA", "reason": "market mood sized it to zero", "why": "[Tabled at the meeting] Tabled at the meeting: NVDA at C$240.62, -18.3% in 5 days, RSI 24, volume 3.1x. Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield +0.10 pts in 5 days Sized x0.9 for a neutral market."}
 {"ts": "2026-11-11T19:09:01Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put today: the leftover cash stays parked"}
 {"ts": "2026-11-11T19:39:03Z", "event": "close", "trader": "day", "symbol": "PEPG", "kind": "stock", "price": 7.29, "pnl": -31.83, "why": "stop hit"}
+{"ts": "2026-11-11T19:54:50Z", "event": "close", "trader": "day", "symbol": "CAPR", "kind": "stock", "price": 15.93, "pnl": 115.17, "why": "target hit"}

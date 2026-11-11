@@ -209,3 +209,5 @@
 {"ts": "2026-11-11T19:39:03Z", "event": "close", "trader": "day", "symbol": "PEPG", "kind": "stock", "price": 7.29, "pnl": -31.83, "why": "stop hit"}
 {"ts": "2026-11-11T19:54:50Z", "event": "close", "trader": "day", "symbol": "CAPR", "kind": "stock", "price": 15.93, "pnl": 115.17, "why": "target hit"}
 {"ts": "2026-11-11T20:09:38Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "Nothing to do by 3 PM is the plan: the next buying day is Monday"}
+{"ts": "2026-11-11T21:00:28Z", "event": "close", "trader": "day", "symbol": "BGS", "kind": "stock", "price": 5.123306426647758, "pnl": 17.53, "why": "flat by 15:50 (day trade closed before the bell)"}
+{"ts": "2026-11-11T21:00:28Z", "event": "close", "trader": "day", "symbol": "MGX", "kind": "stock", "price": 1.07, "pnl": -0.25, "why": "stop hit"}

@@ -70,3 +70,5 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-11T17:37:45Z,swing,SELL,stock,MGNI,5,41.95996,0.1,209.8,14.52,6.8,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-11T19:39:03Z,day,SELL,stock,PEPG,32,7.29,0.47,233.28,-31.83,7.3,stop hit,autopilot,yes
 2026-11-11T19:54:50Z,day,SELL,stock,CAPR,63,15.93,2.01,1003.59,115.17,30.9,target hit,autopilot,yes
+2026-11-11T21:00:28Z,day,SELL,stock,BGS,211,5.123306,2.16,1081.02,17.53,33.0,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-11T21:00:28Z,day,SELL,stock,MGX,3,1.07,0.01,3.21,-0.25,0.1,stop hit,autopilot,yes

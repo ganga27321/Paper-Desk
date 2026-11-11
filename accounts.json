@@ -411,50 +411,50 @@
     "high": 119.74581849575043,
     "low": 119.74581849575043,
     "margin": 538.8561832308769,
-    "unrealized": -271.09077154300394
+    "unrealized": -376.9733706056286
    }
   ],
   "pending": [
    {
-    "id": "o4",
+    "id": "o6",
     "kind": "future",
     "symbol": "MGC",
     "qty": 1,
     "side": "short",
     "entry_type": "stop",
-    "price": 5476.407918886223,
-    "stop": 5727.1863,
+    "price": 5515.12319101335,
+    "stop": 5769.8476,
     "target": null,
-    "why": "[Metal trend + dollar] Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar falling (-0.04% on its 20-day trend) agrees. Notional C$54,764 on C$3,982 equity.",
+    "why": "[Metal trend + dollar] Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar firm (+0.10% on its 20-day trend) agrees. Notional C$55,151 on C$3,602 equity.",
     "source": "autopilot",
     "meta": {
      "name": "Micro gold",
      "yahoo": "GC=F",
      "multiplier": 10
     },
-    "created": "2026-11-10T05:49:21",
-    "valid_until": "2026-11-11T05:49:21",
+    "created": "2026-11-11T09:29:39",
+    "valid_until": "2026-11-12T09:29:39",
     "play": "Metal trend + dollar"
    }
   ],
   "last_bar": {
-   "GC=F": "2026-11-11T01:45:00",
-   "CL=F": "2026-11-11T01:45:00"
+   "GC=F": "2026-11-11T09:15:00",
+   "CL=F": "2026-11-11T09:15:00"
   },
   "day": {
-   "date": "2026-11-10",
-   "trades": 1,
-   "start_eq": 3981.6780400276184
+   "date": "2026-11-11",
+   "trades": 0,
+   "start_eq": 3708.0872684846145
   },
   "week": {
    "key": "2026-W46",
    "trades": 1
   },
   "realized": 984.1780400276184,
-  "seq": 5,
+  "seq": 6,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3708.0872684846145,
+  "equity_last": 3602.20466942199,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -466,10 +466,11 @@
    "2026-11-10": [
     0,
     "plan_c0"
-   ]
+   ],
+   "2026-11-11": []
   },
   "done": {
-   "fut_daily": "2026-11-10"
+   "fut_daily": "2026-11-11"
   }
  },
  "options_aggr": {
@@ -597,7 +598,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 104322.9491413571,
+    "last": 104724.01235298812,
     "init_stop": 79795.08261222
    },
    {
@@ -620,7 +621,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2911.529449306545,
+    "last": 2920.756121665938,
     "init_stop": 2350.66654513
    },
    {
@@ -643,7 +644,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 14.687995706941592,
+    "last": 14.711543759429333,
     "init_stop": 10.65203463
    },
    {
@@ -666,7 +667,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 118.01485331006916,
+    "last": 118.15582347381132,
     "init_stop": 88.10529987
    },
    {
@@ -689,7 +690,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.4923570447891166,
+    "last": 1.5018626408661362,
     "init_stop": 1.1843018
    },
    {
@@ -714,7 +715,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 104322.9491413571
+    "last": 104724.01235298812
    },
    {
     "id": "o7",
@@ -738,7 +739,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2911.529449306545
+    "last": 2920.756121665938
    },
    {
     "id": "o8",
@@ -762,7 +763,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 104322.9491413571
+    "last": 104724.01235298812
    },
    {
     "id": "o9",
@@ -786,21 +787,21 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2911.529449306545
+    "last": 2920.756121665938
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-11T01:50:00",
-   "ETH-USD": "2026-11-11T01:50:00",
-   "LINK-USD": "2026-11-11T01:50:00",
-   "SOL-USD": "2026-11-11T01:50:00",
-   "XRP-USD": "2026-11-11T01:50:00"
+   "BTC-USD": "2026-11-11T09:20:00",
+   "ETH-USD": "2026-11-11T09:20:00",
+   "LINK-USD": "2026-11-11T09:20:00",
+   "SOL-USD": "2026-11-11T09:20:00",
+   "XRP-USD": "2026-11-11T09:20:00"
   },
   "day": {
-   "date": "2026-11-10",
+   "date": "2026-11-11",
    "trades": 0,
-   "start_eq": 2894.6243422101297
+   "start_eq": 2850.736876479937
   },
   "week": {
    "key": "2026-W46",
@@ -810,21 +811,22 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2850.736876479937,
+  "equity_last": 2858.9371787756577,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
    "2026-11-07": [],
    "2026-11-08": [],
    "2026-11-09": [],
-   "2026-11-10": []
+   "2026-11-10": [],
+   "2026-11-11": []
   },
   "done": {
-   "crypto_core": "2026-11-10",
-   "crypto_news": "2026-11-10",
-   "crypto_meme": "2026-11-10",
+   "crypto_core": "2026-11-11",
+   "crypto_news": "2026-11-11",
+   "crypto_meme": "2026-11-11",
    "kai_fear": "2026-11-07",
-   "kai_alt_off": "2026-11-10"
+   "kai_alt_off": "2026-11-11"
   }
  }
 }

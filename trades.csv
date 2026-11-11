@@ -68,3 +68,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-11T15:36:01Z,futures,COVER,future,MCL,1,125.114953,2.5,12511.5,-539.41,374.3,stop hit,meeting,no (sandbox)
 2026-11-11T17:37:45Z,day,SELL,stock,CAPR,62,15.3,1.9,948.6,74.36,29.9,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-11T17:37:45Z,swing,SELL,stock,MGNI,5,41.95996,0.1,209.8,14.52,6.8,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
+2026-11-11T19:39:03Z,day,SELL,stock,PEPG,32,7.29,0.47,233.28,-31.83,7.3,stop hit,autopilot,yes

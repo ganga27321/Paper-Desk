@@ -5,7 +5,100 @@
  "day": {
   "cash": 3091.671486910236,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o13",
+    "kind": "stock",
+    "symbol": "CAPR",
+    "qty": 125,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 14.07,
+    "stop": 12.84,
+    "target": 15.93,
+    "why": "[Squeeze ORB] CAPR gapped +11% on 4x normal volume and is above VWAP (C$13.35); buy a break above the 15-min high C$14.06, stop under the range low C$12.84, half off at 1R, target 1.5157R. Float 46M, short interest 36%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-11T14:46:05",
+    "valid_until": "2026-11-11T20:46:05",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1758.75
+   },
+   {
+    "id": "o14",
+    "kind": "stock",
+    "symbol": "BGS",
+    "qty": 211,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 5.03,
+    "stop": 4.3,
+    "target": 6.14,
+    "why": "[Squeeze ORB] BGS gapped +15% on 27x normal volume and is above VWAP (C$4.80); buy a break above the 15-min high C$5.02, stop under the range low C$4.30, half off at 1R, target 1.5157R. Float 77M, short interest 18%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-11T14:46:05",
+    "valid_until": "2026-11-11T20:46:05",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1061.3300000000002
+   },
+   {
+    "id": "o15",
+    "kind": "stock",
+    "symbol": "PEPG",
+    "qty": 32,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 8.27,
+    "stop": 7.29,
+    "target": 9.76,
+    "why": "[Squeeze ORB] PEPG gapped +17% on 11x normal volume and is above VWAP (C$7.77); buy a break above the 15-min high C$8.26, stop under the range low C$7.29, half off at 1R, target 1.5157R. Float 36M, short interest 7%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-11T14:46:05",
+    "valid_until": "2026-11-11T20:46:05",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 264.64
+   },
+   {
+    "id": "o16",
+    "kind": "stock",
+    "symbol": "BRAI",
+    "qty": 2,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 3.14,
+    "stop": 2.89,
+    "target": 3.52,
+    "why": "[Squeeze ORB] BRAI gapped +16% on 6x normal volume and is above VWAP (C$3.02); buy a break above the 15-min high C$3.13, stop under the range low C$2.89, half off at 1R, target 1.5157R. Float 40M, short interest 5%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-11T14:46:05",
+    "valid_until": "2026-11-11T20:46:05",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 6.28
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -28,7 +121,7 @@
    "trades": 7
   },
   "realized": 107.69864263681569,
-  "seq": 12,
+  "seq": 18,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3091.671486910236,

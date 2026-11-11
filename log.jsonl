@@ -200,3 +200,5 @@
 {"ts": "2026-11-11T15:10:31Z", "event": "open", "trader": "day", "symbol": "CAPR", "kind": "stock", "qty": 125, "price": 14.07, "at": "2026-11-11T15:08:00"}
 {"ts": "2026-11-11T15:10:31Z", "event": "open", "trader": "day", "symbol": "MGX", "kind": "stock", "qty": 3, "price": 1.15, "at": "2026-11-11T15:06:00"}
 {"ts": "2026-11-11T15:31:21Z", "event": "open", "trader": "day", "symbol": "PEPG", "kind": "stock", "qty": 32, "price": 8.27, "at": "2026-11-11T15:28:00"}
+{"ts": "2026-11-11T15:36:01Z", "event": "close", "trader": "futures", "symbol": "MCL", "kind": "future", "price": 125.11495254039764, "pnl": -539.41, "why": "stop hit"}
+{"ts": "2026-11-11T15:36:01Z", "event": "plan_activated", "trader": "futures", "plan": "plan_b", "index": 0, "when": {"type": "stopped_out", "symbol": "MCL"}, "note": "Crude short stopped at 88.20: no revenge trade; crude is done for today"}

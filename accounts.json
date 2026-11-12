@@ -3,32 +3,33 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 3259.7809414698495,
-  "positions": [],
-  "pending": [
+  "cash": 1085.9294147829387,
+  "positions": [
    {
     "id": "o20",
     "kind": "stock",
     "symbol": "MSC",
-    "qty": 1358,
     "side": "long",
-    "entry_type": "stop",
-    "price": 1.59,
+    "qty": 1358,
+    "entry": 1.5975791617699144,
+    "entry_ts": "2026-11-12T15:44:00",
     "stop": 1.47,
     "target": 1.77,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] MSC gapped +10% on 6x normal volume and is above VWAP (C$1.49); buy a break above the 15-min high C$1.58, stop under the range low C$1.47, half off at 1R, target 1.5157R. Float 14M, short interest 0%: squeeze candidate.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-12T14:49:39",
-    "valid_until": "2026-11-12T20:49:39",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 1.5975791617699144,
+    "low": 1.5975791617699144,
     "scale_out_r": 1,
-    "reserve": 2159.2200000000003
-   },
+    "play": "Squeeze ORB",
+    "last": 1.4549381317823418
+   }
+  ],
+  "pending": [
    {
     "id": "o21",
     "kind": "stock",
@@ -69,23 +70,23 @@
    "CAPR": "2026-11-11T19:53:00",
    "PEPG": "2026-11-11T19:38:00",
    "MGX": "2026-11-11T20:59:00",
-   "MSC": "2026-11-12T14:46:00",
-   "ICMB": "2026-11-12T15:39:00"
+   "MSC": "2026-11-12T15:44:00",
+   "ICMB": "2026-11-12T15:44:00"
   },
   "day": {
    "date": "2026-11-12",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 3259.7809414698495
   },
   "week": {
    "key": "2026-W46",
-   "trades": 12
+   "trades": 13
   },
   "realized": 281.99735317677045,
   "seq": 21,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3259.7809414698495,
+  "equity_last": 3061.7353977433586,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

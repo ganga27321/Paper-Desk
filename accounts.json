@@ -28,6 +28,29 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 2159.2200000000003
+   },
+   {
+    "id": "o21",
+    "kind": "stock",
+    "symbol": "ICMB",
+    "qty": 714,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 1.54,
+    "stop": 1.37,
+    "target": 1.8,
+    "why": "[ORB+VWAP] ICMB gapped +62% on 4037x normal volume and is above VWAP (C$1.42); buy a break above the 15-min high C$1.53, stop under the range low C$1.37, half off at 1R, target 1.5157R.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-12T14:54:35",
+    "valid_until": "2026-11-12T20:54:35",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 1099.56
    }
   ],
   "last_bar": {
@@ -45,7 +68,8 @@
    "BRAI": "2026-11-11T15:04:00",
    "CAPR": "2026-11-11T19:53:00",
    "PEPG": "2026-11-11T19:38:00",
-   "MGX": "2026-11-11T20:59:00"
+   "MGX": "2026-11-11T20:59:00",
+   "MSC": "2026-11-12T14:46:00"
   },
   "day": {
    "date": "2026-11-12",
@@ -57,7 +81,7 @@
    "trades": 12
   },
   "realized": 281.99735317677045,
-  "seq": 20,
+  "seq": 21,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3259.7809414698495,

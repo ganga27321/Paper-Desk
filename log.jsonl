@@ -225,3 +225,4 @@
 {"ts": "2026-11-12T15:20:09Z", "event": "open", "trader": "futures", "symbol": "MGC", "kind": "future", "qty": 1, "price": 5531.028648257197, "at": "2026-11-12T14:55:00"}
 {"ts": "2026-11-12T15:40:22Z", "event": "skip", "trader": "day", "symbol": "GP", "reason": "already 0.95 past the breakout level C$0.73 (more than 0.5R): no chase"}
 {"ts": "2026-11-12T15:45:20Z", "event": "open", "trader": "day", "symbol": "MSC", "kind": "stock", "qty": 1358, "price": 1.5975791617699144, "at": "2026-11-12T15:44:00"}
+{"ts": "2026-11-12T15:50:31Z", "event": "close", "trader": "day", "symbol": "MSC", "kind": "stock", "price": 1.4550299348545082, "pnl": -197.53, "why": "stop hit"}

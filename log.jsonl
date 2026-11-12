@@ -229,3 +229,4 @@
 {"ts": "2026-11-12T16:10:53Z", "event": "order", "trader": "day", "symbol": "MYPS", "kind": "stock", "qty": 272, "type": "stop", "price": 7.18, "why": "[Squeeze ORB] MYPS gapped +17% on 19x normal volume and is above VWAP (C$6.87); buy a break above the 15-min high C$7.17, stop under the range low C$6.76, half off at 1R, target 1.5157R. Float 8M, short interest 0%: squeeze candidate.", "source": "autopilot"}
 {"ts": "2026-11-12T17:36:57Z", "event": "open", "trader": "day", "symbol": "ICMB", "kind": "stock", "qty": 714, "price": 1.54, "at": "2026-11-12T17:32:00"}
 {"ts": "2026-11-12T20:18:45Z", "event": "skip", "trader": "day", "symbol": "MYPS", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-12T20:54:00Z", "event": "close", "trader": "day", "symbol": "ICMB", "kind": "stock", "price": 1.473656840737533, "pnl": -49.47, "why": "flat by 15:50 (day trade closed before the bell)"}

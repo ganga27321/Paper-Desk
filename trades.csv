@@ -78,3 +78,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-12T15:45:20Z,day,BUY,stock,MSC,1358,1.597579,4.34,2169.51,,66.6,"[Squeeze ORB] MSC gapped +10% on 6x normal volume and is above VWAP (C$1.49); buy a break above the 15-min high C$1.58, stop under the range low C$1.47, half off at 1R, target 1.5157R. Float 14M, short interest 0%: squeeze candidate.",autopilot,yes
 2026-11-12T15:50:31Z,day,SELL,stock,MSC,1358,1.45503,3.95,1975.93,-197.53,57.9,stop hit,autopilot,yes
 2026-11-12T17:36:57Z,day,BUY,stock,ICMB,714,1.54,2.2,1099.56,,36.0,"[ORB+VWAP] ICMB gapped +62% on 4037x normal volume and is above VWAP (C$1.42); buy a break above the 15-min high C$1.53, stop under the range low C$1.37, half off at 1R, target 1.5157R.",autopilot,yes
+2026-11-12T20:54:00Z,day,SELL,stock,ICMB,714,1.473657,2.1,1052.19,-49.47,35.0,flat by 15:50 (day trade closed before the bell),autopilot,yes

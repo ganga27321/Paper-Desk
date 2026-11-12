@@ -28,6 +28,29 @@
     "play": "ORB+VWAP",
     "scale_out_r": 1,
     "reserve": 1099.56
+   },
+   {
+    "id": "o22",
+    "kind": "stock",
+    "symbol": "MYPS",
+    "qty": 272,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 7.18,
+    "stop": 6.76,
+    "target": 7.82,
+    "why": "[Squeeze ORB] MYPS gapped +17% on 19x normal volume and is above VWAP (C$6.87); buy a break above the 15-min high C$7.17, stop under the range low C$6.76, half off at 1R, target 1.5157R. Float 8M, short interest 0%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-12T16:10:53",
+    "valid_until": "2026-11-12T22:10:53",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1952.96
    }
   ],
   "last_bar": {
@@ -47,7 +70,7 @@
    "PEPG": "2026-11-11T19:38:00",
    "MGX": "2026-11-11T20:59:00",
    "MSC": "2026-11-12T15:49:00",
-   "ICMB": "2026-11-12T16:05:00"
+   "ICMB": "2026-11-12T16:09:00"
   },
   "day": {
    "date": "2026-11-12",
@@ -59,7 +82,7 @@
    "trades": 13
   },
   "realized": 84.46364172258387,
-  "seq": 21,
+  "seq": 22,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3057.908205012296,

@@ -425,42 +425,42 @@
   "positions": [],
   "pending": [
    {
-    "id": "o6",
+    "id": "o7",
     "kind": "future",
     "symbol": "MGC",
     "qty": 1,
     "side": "short",
     "entry_type": "stop",
-    "price": 5515.12319101335,
-    "stop": 5769.8476,
+    "price": 5531.028648257197,
+    "stop": 5786.8136,
     "target": null,
-    "why": "[Metal trend + dollar] Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar firm (+0.10% on its 20-day trend) agrees. Notional C$55,151 on C$3,602 equity.",
+    "why": "[Metal trend + dollar] Micro gold trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$3,879.30; stop 2 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar firm (+0.27% on its 20-day trend) agrees. Notional C$55,310 on C$3,440 equity.",
     "source": "autopilot",
     "meta": {
      "name": "Micro gold",
      "yahoo": "GC=F",
      "multiplier": 10
     },
-    "created": "2026-11-11T09:29:39",
-    "valid_until": "2026-11-12T09:29:39",
+    "created": "2026-11-12T06:36:37",
+    "valid_until": "2026-11-13T06:36:37",
     "play": "Metal trend + dollar"
    }
   ],
   "last_bar": {
-   "GC=F": "2026-11-12T04:25:00",
+   "GC=F": "2026-11-12T06:25:00",
    "CL=F": "2026-11-11T15:25:00"
   },
   "day": {
-   "date": "2026-11-11",
+   "date": "2026-11-12",
    "trades": 0,
-   "start_eq": 3708.0872684846145
+   "start_eq": 3439.764635562897
   },
   "week": {
    "key": "2026-W46",
    "trades": 1
   },
   "realized": 444.7646355628973,
-  "seq": 6,
+  "seq": 8,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3439.764635562897,
@@ -479,10 +479,11 @@
    "2026-11-11": [
     "plan_c0",
     "plan_b0"
-   ]
+   ],
+   "2026-11-12": []
   },
   "done": {
-   "fut_daily": "2026-11-11"
+   "fut_daily": "2026-11-12"
   }
  },
  "options_aggr": {
@@ -613,7 +614,7 @@
     },
     "high": 107567.67462920398,
     "low": 106393.44348295778,
-    "last": 104879.93169780169,
+    "last": 104851.14142955281,
     "init_stop": 79795.08261222
    },
    {
@@ -636,7 +637,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2918.248400026918,
+    "last": 2917.6307149649074,
     "init_stop": 2350.66654513
    },
    {
@@ -659,7 +660,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 14.370205139073278,
+    "last": 14.34049526765989,
     "init_stop": 10.65203463
    },
    {
@@ -682,7 +683,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 118.03333043011571,
+    "last": 118.11161477566202,
     "init_stop": 88.10529987
    },
    {
@@ -705,7 +706,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.4857911868188154,
+    "last": 1.4828112058341958,
     "init_stop": 1.1843018
    },
    {
@@ -730,7 +731,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 104879.93169780169
+    "last": 104851.14142955281
    },
    {
     "id": "o7",
@@ -754,7 +755,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2918.248400026918
+    "last": 2917.6307149649074
    },
    {
     "id": "o8",
@@ -778,7 +779,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 104879.93169780169
+    "last": 104851.14142955281
    },
    {
     "id": "o9",
@@ -802,21 +803,21 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2918.248400026918
+    "last": 2917.6307149649074
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-12T04:30:00",
-   "ETH-USD": "2026-11-12T04:30:00",
-   "LINK-USD": "2026-11-12T04:30:00",
-   "SOL-USD": "2026-11-12T04:30:00",
-   "XRP-USD": "2026-11-12T04:30:00"
+   "BTC-USD": "2026-11-12T06:30:00",
+   "ETH-USD": "2026-11-12T06:30:00",
+   "LINK-USD": "2026-11-12T06:30:00",
+   "SOL-USD": "2026-11-12T06:30:00",
+   "XRP-USD": "2026-11-12T06:30:00"
   },
   "day": {
-   "date": "2026-11-11",
+   "date": "2026-11-12",
    "trades": 0,
-   "start_eq": 2850.736876479937
+   "start_eq": 2851.566819880598
   },
   "week": {
    "key": "2026-W46",
@@ -826,7 +827,7 @@
   "seq": 9,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2851.566819880598,
+  "equity_last": 2850.363817571589,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -834,14 +835,15 @@
    "2026-11-08": [],
    "2026-11-09": [],
    "2026-11-10": [],
-   "2026-11-11": []
+   "2026-11-11": [],
+   "2026-11-12": []
   },
   "done": {
-   "crypto_core": "2026-11-11",
-   "crypto_news": "2026-11-11",
-   "crypto_meme": "2026-11-11",
+   "crypto_core": "2026-11-12",
+   "crypto_news": "2026-11-12",
+   "crypto_meme": "2026-11-12",
    "kai_fear": "2026-11-07",
-   "kai_alt_off": "2026-11-11"
+   "kai_alt_off": "2026-11-12"
   }
  }
 }

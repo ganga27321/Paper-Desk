@@ -72,3 +72,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-11T19:54:50Z,day,SELL,stock,CAPR,63,15.93,2.01,1003.59,115.17,30.9,target hit,autopilot,yes
 2026-11-11T21:00:28Z,day,SELL,stock,BGS,211,5.123306,2.16,1081.02,17.53,33.0,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-11T21:00:28Z,day,SELL,stock,MGX,3,1.07,0.01,3.21,-0.25,0.1,stop hit,autopilot,yes
+2026-11-12T14:34:32Z,crypto,SELL,crypto,BTC-USD,0.00677267,102191.654146,4.15,692.11,-32.61,24.8,stop hit,autopilot,no (sandbox)

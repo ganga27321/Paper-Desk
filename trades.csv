@@ -73,3 +73,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-11T21:00:28Z,day,SELL,stock,BGS,211,5.123306,2.16,1081.02,17.53,33.0,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-11T21:00:28Z,day,SELL,stock,MGX,3,1.07,0.01,3.21,-0.25,0.1,stop hit,autopilot,yes
 2026-11-12T14:34:32Z,crypto,SELL,crypto,BTC-USD,0.00677267,102191.654146,4.15,692.11,-32.61,24.8,stop hit,autopilot,no (sandbox)
+2026-11-12T15:04:54Z,swing,BUY,stock,RSKD,15,14.350951,0.11,215.26,,7.1,"[20-day breakout] 20-day breakout: RSKD at C$14.78, +17.7% in 5 days, RSI 73, volume 6.1x. (news feed unavailable: chart-only entry) Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield +0.20 pts in 5 days (rising: rotation applied) Sized x0.9 for a neutral market.",autopilot,yes

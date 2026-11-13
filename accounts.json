@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 99.01018612447524,
+  "cash": -35.00731387552477,
   "positions": [
    {
     "id": "o23",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 12.04,
-    "last": 13.495268975532326
+    "last": 13.824730982736583
    },
    {
     "id": "o31",
@@ -51,7 +51,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.61,
-    "last": 3.1708472949171096
+    "last": 3.1711366724748586
    },
    {
     "id": "o30",
@@ -74,35 +74,35 @@
     "low": 1.78,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
-    "last": 1.7815174947826762,
+    "last": 1.8098995594943972,
     "init_stop": 1.55
-   }
-  ],
-  "pending": [
+   },
    {
     "id": "o25",
     "kind": "stock",
     "symbol": "VTSI",
-    "qty": 25,
     "side": "long",
-    "entry_type": "stop",
-    "price": 5.35,
+    "qty": 25,
+    "entry": 5.35,
+    "entry_ts": "2026-11-13T16:05:00",
     "stop": 4.77,
     "target": 6.23,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] VTSI gapped +34% on 291x normal volume and is above VWAP (C$5.04); buy a break above the 15-min high C$5.34, stop under the range low C$4.77, half off at 1R, target 1.5157R. Float 11M, short interest 1%: squeeze candidate.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-13T14:48:04",
-    "valid_until": "2026-11-13T20:48:04",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 5.558397238276484,
+    "low": 5.35,
     "scale_out_r": 1,
-    "reserve": 133.75
+    "play": "Squeeze ORB",
+    "init_stop": 4.77,
+    "last": 5.472883178452776
    }
   ],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -123,25 +123,25 @@
    "ICMB": "2026-11-12T20:52:00",
    "MYPS": "2026-11-12T20:17:00",
    "LFMD": "2026-11-13T15:22:00",
-   "NMAX": "2026-11-13T16:02:00",
-   "VTSI": "2026-11-13T16:02:00",
-   "CNVS": "2026-11-13T16:02:00",
-   "MRLN": "2026-11-13T16:02:00"
+   "NMAX": "2026-11-13T16:07:00",
+   "VTSI": "2026-11-13T16:07:00",
+   "CNVS": "2026-11-13T16:07:00",
+   "MRLN": "2026-11-13T16:07:00"
   },
   "day": {
    "date": "2026-11-13",
-   "trades": 4,
+   "trades": 5,
    "start_eq": 3006.2356873303215
   },
   "week": {
    "key": "2026-W46",
-   "trades": 18
+   "trades": 19
   },
   "realized": 212.69651651399798,
   "seq": 33,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3164.3538677847077,
+  "equity_last": 3210.157557240248,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

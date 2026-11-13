@@ -263,3 +263,4 @@
 {"ts": "2026-11-13T15:28:27Z", "event": "open", "trader": "day", "symbol": "CNVS", "kind": "stock", "qty": 278, "price": 3.0470626040874436, "at": "2026-11-13T15:24:00"}
 {"ts": "2026-11-13T15:33:35Z", "event": "skip", "trader": "day", "symbol": "SBC", "reason": "already 0.46 past the breakout level C$9.50 (more than 0.5R): no chase"}
 {"ts": "2026-11-13T15:38:47Z", "event": "open", "trader": "day", "symbol": "MRLN", "kind": "stock", "qty": 688, "price": 1.78, "at": "2026-11-13T15:37:00"}
+{"ts": "2026-11-13T16:08:58Z", "event": "open", "trader": "day", "symbol": "VTSI", "kind": "stock", "qty": 25, "price": 5.35, "at": "2026-11-13T16:05:00"}

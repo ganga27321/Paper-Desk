@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2174.8770368686573,
+  "cash": 1326.0994661244754,
   "positions": [
    {
     "id": "o23",
@@ -27,7 +27,31 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 12.04,
-    "last": 13.993276073678771
+    "last": 13.840571800895304
+   },
+   {
+    "id": "o31",
+    "kind": "stock",
+    "symbol": "CNVS",
+    "side": "long",
+    "qty": 278,
+    "entry": 3.0470626040874436,
+    "entry_ts": "2026-11-13T15:24:00",
+    "stop": 2.61,
+    "target": 3.42,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] CNVS gapped +10% on 78x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.92, stop under the range low C$2.61, half off at 1R, target 1.5157R. Float 20M, short interest 2%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 3.091512237999723,
+    "low": 3.0470626040874436,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 2.61,
+    "last": 3.0701421890356073
    }
   ],
   "pending": [
@@ -76,29 +100,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 1224.64
-   },
-   {
-    "id": "o31",
-    "kind": "stock",
-    "symbol": "CNVS",
-    "qty": 278,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 2.93,
-    "stop": 2.61,
-    "target": 3.42,
-    "why": "[Squeeze ORB] CNVS gapped +10% on 78x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.92, stop under the range low C$2.61, half off at 1R, target 1.5157R. Float 20M, short interest 2%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-13T15:23:21",
-    "valid_until": "2026-11-13T21:23:21",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 814.5400000000001
    }
   ],
   "last_bar": {
@@ -121,23 +122,25 @@
    "ICMB": "2026-11-12T20:52:00",
    "MYPS": "2026-11-12T20:17:00",
    "LFMD": "2026-11-13T15:22:00",
-   "NMAX": "2026-11-13T15:22:00",
-   "VTSI": "2026-11-13T15:22:00"
+   "NMAX": "2026-11-13T15:27:00",
+   "VTSI": "2026-11-13T15:27:00",
+   "CNVS": "2026-11-13T15:27:00",
+   "MRLN": "2026-11-13T15:27:00"
   },
   "day": {
    "date": "2026-11-13",
-   "trades": 2,
+   "trades": 3,
    "start_eq": 3006.2356873303215
   },
   "week": {
    "key": "2026-W46",
-   "trades": 16
+   "trades": 17
   },
   "realized": 212.69651651399798,
   "seq": 33,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3168.39963809985,
+  "equity_last": 3162.279592539941,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

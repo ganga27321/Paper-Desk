@@ -230,3 +230,5 @@
 {"ts": "2026-11-12T17:36:57Z", "event": "open", "trader": "day", "symbol": "ICMB", "kind": "stock", "qty": 714, "price": 1.54, "at": "2026-11-12T17:32:00"}
 {"ts": "2026-11-12T20:18:45Z", "event": "skip", "trader": "day", "symbol": "MYPS", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-12T20:54:00Z", "event": "close", "trader": "day", "symbol": "ICMB", "kind": "stock", "price": 1.473656840737533, "pnl": -49.47, "why": "flat by 15:50 (day trade closed before the bell)"}
+{"ts": "2026-11-13T00:00:46Z", "event": "rejected", "trader": "crypto", "symbol": "BTC-USD", "reason": "cooldown: stopped out of BTC-USD within 3 days", "why": "[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to BTC. ETH/BTC below its 20-day: alt season off."}
+{"ts": "2026-11-13T00:00:46Z", "event": "order", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04881129, "type": "market", "price": null, "why": "[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.", "source": "autopilot"}

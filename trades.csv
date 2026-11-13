@@ -91,3 +91,8 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-13T16:08:58Z,day,BUY,stock,VTSI,25,5.35,0.27,133.75,,4.2,"[Squeeze ORB] VTSI gapped +34% on 291x normal volume and is above VWAP (C$5.04); buy a break above the 15-min high C$5.34, stop under the range low C$4.77, half off at 1R, target 1.5157R. Float 11M, short interest 1%: squeeze candidate.",autopilot,yes
 2026-11-13T18:56:00Z,day,SELL,stock,VTSI,12,5.93,0.14,71.16,6.82,2.2,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-13T19:06:10Z,day,BUY,stock,BIRD,18,1.91,0.07,34.38,,1.1,"[Squeeze ORB] BIRD gapped +13% on 5x normal volume and is above VWAP (C$1.89); buy a break above the 15-min high C$1.90, stop under the range low C$1.74, half off at 1R, target 1.5157R. Float 8M, short interest 16%: squeeze candidate.",autopilot,yes
+2026-11-13T20:52:20Z,day,SELL,stock,BIRD,18,2.054232,0.07,36.98,2.52,1.2,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-13T20:52:20Z,day,SELL,stock,CNVS,278,3.13841,1.74,872.48,23.65,27.9,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-13T20:52:21Z,day,SELL,stock,MRLN,688,1.683329,2.32,1158.13,-68.83,37.1,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-13T20:52:21Z,day,SELL,stock,NMAX,71,13.723411,1.95,974.36,-30.82,31.2,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-13T20:52:21Z,day,SELL,stock,VTSI,13,5.834732,0.15,75.85,6.15,2.4,flat by 15:50 (day trade closed before the bell),autopilot,yes

@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": -35.00731387552477,
+  "cash": 36.010366124475226,
   "positions": [
    {
     "id": "o23",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 12.04,
-    "last": 13.153713817083371
+    "last": 13.096555944943248
    },
    {
     "id": "o31",
@@ -51,7 +51,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.61,
-    "last": 3.181429632695199
+    "last": 3.1742739389762846
    },
    {
     "id": "o30",
@@ -74,7 +74,7 @@
     "low": 1.78,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
-    "last": 1.8689114803323719,
+    "last": 1.876174243585524,
     "init_stop": 1.55
    },
    {
@@ -82,10 +82,10 @@
     "kind": "stock",
     "symbol": "VTSI",
     "side": "long",
-    "qty": 25,
+    "qty": 13,
     "entry": 5.35,
     "entry_ts": "2026-11-13T16:05:00",
-    "stop": 4.77,
+    "stop": 5.35,
     "target": 6.23,
     "flat_by": "15:50",
     "time_stop": null,
@@ -94,15 +94,40 @@
     "meta": {
      "small_cap": true
     },
-    "high": 5.892064858625417,
+    "high": 6.034687369854737,
     "low": 5.35,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 4.77,
-    "last": 5.801044107779035
+    "last": 5.8348150978649755,
+    "scaled": true
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o34",
+    "kind": "stock",
+    "symbol": "BIRD",
+    "qty": 18,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 1.91,
+    "stop": 1.74,
+    "target": 2.17,
+    "why": "[Squeeze ORB] BIRD gapped +13% on 5x normal volume and is above VWAP (C$1.89); buy a break above the 15-min high C$1.90, stop under the range low C$1.74, half off at 1R, target 1.5157R. Float 8M, short interest 16%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-13T18:56:02",
+    "valid_until": "2026-11-14T00:56:02",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 34.379999999999995
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -123,10 +148,10 @@
    "ICMB": "2026-11-12T20:52:00",
    "MYPS": "2026-11-12T20:17:00",
    "LFMD": "2026-11-13T15:22:00",
-   "NMAX": "2026-11-13T18:49:00",
-   "VTSI": "2026-11-13T18:49:00",
-   "CNVS": "2026-11-13T18:47:00",
-   "MRLN": "2026-11-13T18:49:00"
+   "NMAX": "2026-11-13T18:54:00",
+   "VTSI": "2026-11-13T18:54:00",
+   "CNVS": "2026-11-13T18:53:00",
+   "MRLN": "2026-11-13T18:54:00"
   },
   "day": {
    "date": "2026-11-13",
@@ -137,11 +162,11 @@
    "key": "2026-W46",
    "trades": 19
   },
-  "realized": 212.69651651399798,
-  "seq": 33,
+  "realized": 219.51419651399797,
+  "seq": 35,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3214.1810061898077,
+  "equity_last": 3214.974469109938,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

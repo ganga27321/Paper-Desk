@@ -5,7 +5,77 @@
  "day": {
   "cash": 3006.2356873303215,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o23",
+    "kind": "stock",
+    "symbol": "NMAX",
+    "qty": 71,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 14.13,
+    "stop": 12.04,
+    "target": 17.3,
+    "why": "[Squeeze ORB] NMAX gapped +27% on 23x normal volume and is above VWAP (C$12.97); buy a break above the 15-min high C$14.12, stop under the range low C$12.04, half off at 1R, target 1.5157R. Float 31M, short interest 63%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-13T14:48:04",
+    "valid_until": "2026-11-13T20:48:04",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1003.23
+   },
+   {
+    "id": "o24",
+    "kind": "stock",
+    "symbol": "LFMD",
+    "qty": 653,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 2.86,
+    "stop": 2.63,
+    "target": 3.21,
+    "why": "[Squeeze ORB] LFMD gapped +12% on 10x normal volume and is above VWAP (C$2.78); buy a break above the 15-min high C$2.85, stop under the range low C$2.63, half off at 1R, target 1.5157R. Float 40M, short interest 18%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-13T14:48:04",
+    "valid_until": "2026-11-13T20:48:04",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1867.58
+   },
+   {
+    "id": "o25",
+    "kind": "stock",
+    "symbol": "VTSI",
+    "qty": 25,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 5.35,
+    "stop": 4.77,
+    "target": 6.23,
+    "why": "[Squeeze ORB] VTSI gapped +34% on 291x normal volume and is above VWAP (C$5.04); buy a break above the 15-min high C$5.34, stop under the range low C$4.77, half off at 1R, target 1.5157R. Float 11M, short interest 1%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-13T14:48:04",
+    "valid_until": "2026-11-13T20:48:04",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 133.75
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -36,7 +106,7 @@
    "trades": 14
   },
   "realized": 34.99024404060921,
-  "seq": 22,
+  "seq": 29,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3006.2356873303215,
@@ -61,7 +131,7 @@
   }
  },
  "swing": {
-  "cash": 44.96506840069202,
+  "cash": 243.01599340069203,
   "positions": [
    {
     "id": "o1",
@@ -84,7 +154,7 @@
     "low": 270.13834335584033,
     "scale_out_r": 1,
     "init_stop": 248.35536766052246,
-    "last": 259.1300089025899
+    "last": 263.0016322928259
    },
    {
     "id": "o4",
@@ -106,7 +176,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 36.11,
-    "last": 41.77471758227921,
+    "last": 42.18957644846341,
     "scaled": true
    },
    {
@@ -129,7 +199,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 62.86,
-    "last": 71.35742559062965
+    "last": 72.0667457704144
    },
    {
     "id": "o2",
@@ -151,7 +221,7 @@
     "scale_out_r": 1,
     "play": "Earnings gap-and-hold",
     "init_stop": 17.28,
-    "last": 23.693230083543767,
+    "last": 23.592856822581325,
     "scaled": true
    },
    {
@@ -174,39 +244,38 @@
     "scale_out_r": 1,
     "play": "Tabled at the meeting",
     "init_stop": 54.13,
-    "last": 79.91747136502454
-   },
-   {
-    "id": "o17",
-    "kind": "stock",
-    "symbol": "RSKD",
-    "side": "long",
-    "qty": 15,
-    "entry": 14.350951058796682,
-    "entry_ts": "2026-11-12T14:50:00",
-    "stop": 13.21,
-    "target": 17.17,
-    "flat_by": null,
-    "time_stop": "2026-12-02",
-    "why": "[20-day breakout] 20-day breakout: RSKD at C$14.78, +17.7% in 5 days, RSI 73, volume 6.1x. (news feed unavailable: chart-only entry) Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield +0.20 pts in 5 days (rising: rotation applied) Sized x0.9 for a neutral market.",
-    "source": "autopilot",
-    "meta": {},
-    "high": 14.432406127374065,
-    "low": 14.350951058796682,
-    "scale_out_r": 1,
-    "play": "20-day breakout",
-    "init_stop": 13.21,
-    "last": 12.941190024733714
+    "last": 76.57892130496975
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o18",
+    "kind": "stock",
+    "symbol": "TRMK",
+    "qty": 2,
+    "side": "long",
+    "entry_type": "market",
+    "price": null,
+    "stop": 64.0,
+    "target": 74.31,
+    "why": "[Rate rotation] 20-day breakout: TRMK at C$68.10, +7.0% in 5 days, RSI 66, volume 9.9x. (news feed unavailable: chart-only entry) Financial Services favoured while yields are rising. Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield +0.31 pts in 5 days (rising: rotation applied) Sized x0.9 for a neutral market.",
+    "source": "autopilot",
+    "meta": {},
+    "created": "2026-11-13T14:48:23",
+    "valid_until": "2026-11-13T22:48:23",
+    "time_stop": "2026-12-03",
+    "play": "Rate rotation",
+    "scale_out_r": 1,
+    "reserve": 136.48982939269445
+   }
+  ],
   "last_bar": {
-   "ABNB": "2026-11-12T20:55:00",
-   "MGNI": "2026-11-12T20:55:00",
-   "U": "2026-11-12T20:55:00",
-   "XERS": "2026-11-12T20:55:00",
-   "CRWV": "2026-11-12T20:55:00",
-   "RSKD": "2026-11-12T20:55:00"
+   "ABNB": "2026-11-13T14:40:00",
+   "MGNI": "2026-11-13T14:40:00",
+   "U": "2026-11-13T14:40:00",
+   "XERS": "2026-11-13T14:40:00",
+   "CRWV": "2026-11-13T14:40:00",
+   "RSKD": "2026-11-13T14:40:00"
   },
   "day": {
    "date": "2026-11-13",
@@ -217,11 +286,11 @@
    "key": "2026-W46",
    "trades": 2
   },
-  "realized": 54.90115036750831,
-  "seq": 17,
+  "realized": 37.6878094855581,
+  "seq": 18,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3036.9207528014226,
+  "equity_last": 3052.900254474215,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -236,7 +305,7 @@
    "2026-11-13": []
   },
   "done": {
-   "swing_pick_am": "2026-11-12",
+   "swing_pick_am": "2026-11-13",
    "swing_pick_pm": "2026-11-11"
   }
  },
@@ -260,10 +329,10 @@
     "meta": {
      "small_cap": false
     },
-    "high": 512.6570137577655,
+    "high": 513.6054189226888,
     "low": 486.7722846077231,
     "init_stop": 396.1397457122803,
-    "last": 513.2151584906096
+    "last": 511.861788619226
    },
    {
     "id": "o7",
@@ -285,7 +354,7 @@
     "high": 234.12203749043329,
     "low": 200.64441228102078,
     "init_stop": 160.00662326812744,
-    "last": 220.68103856201924
+    "last": 220.09323187172413
    },
    {
     "id": "o14",
@@ -309,7 +378,7 @@
     "low": 21.037698754503253,
     "play": "Quality pullback",
     "init_stop": 17.25,
-    "last": 21.25055544275665
+    "last": 21.23727130496661
    },
    {
     "id": "o11",
@@ -333,7 +402,7 @@
     "low": 131.64999389648438,
     "play": "Dividend grower",
     "init_stop": 107.94,
-    "last": 132.50999450683594
+    "last": 132.22999572753906
    },
    {
     "id": "o12",
@@ -357,7 +426,7 @@
     "low": 287.2680366120949,
     "play": "Dividend grower",
     "init_stop": 235.4,
-    "last": 289.7026022286227
+    "last": 289.07377046646616
    },
    {
     "id": "o10",
@@ -381,7 +450,7 @@
     "low": 140.0253358564987,
     "play": "Dividend grower",
     "init_stop": 114.8,
-    "last": 140.8632677592086
+    "last": 140.3757162922784
    }
   ],
   "pending": [],
@@ -392,12 +461,12 @@
    "TXN": "2026-11-06T15:10:00",
    "UMBF": "2026-11-06T15:10:00",
    "USB": "2026-11-06T15:10:00",
-   "AAPL": "2026-11-12T20:55:00",
-   "KLAC": "2026-11-12T20:55:00",
-   "AES": "2026-11-12T20:55:00",
-   "BNS.TO": "2026-11-12T20:55:00",
-   "RY": "2026-11-12T20:55:00",
-   "SHEL": "2026-11-12T20:55:00"
+   "AAPL": "2026-11-13T14:40:00",
+   "KLAC": "2026-11-13T14:40:00",
+   "AES": "2026-11-13T14:40:00",
+   "BNS.TO": "2026-11-13T14:40:00",
+   "RY": "2026-11-13T14:40:00",
+   "SHEL": "2026-11-13T14:40:00"
   },
   "day": {
    "date": "2026-11-13",
@@ -412,7 +481,7 @@
   "seq": 14,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3092.4282428193947,
+  "equity_last": 3087.8353660420016,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -479,12 +548,12 @@
     "low": 5531.028648257197,
     "play": "Metal trend + dollar",
     "margin": 2488.962891715739,
-    "unrealized": -23.76678347645793
+    "unrealized": -196.62304049707018
    }
   ],
   "pending": [],
   "last_bar": {
-   "GC=F": "2026-11-13T14:20:00",
+   "GC=F": "2026-11-13T14:35:00",
    "CL=F": "2026-11-11T15:25:00"
   },
   "day": {
@@ -500,7 +569,7 @@
   "seq": 8,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3413.4978520864393,
+  "equity_last": 3240.641595065827,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -592,7 +661,7 @@
     "low": 0.24079309940338137,
     "play": "Volatility-sized put",
     "reserved": 1770.5374956130981,
-    "mark": 0.42492899894714353
+    "mark": 0.48866834878921506
    }
   ],
   "pending": [],
@@ -612,7 +681,7 @@
   "seq": 2,
   "deposits": [],
   "deploy_frac": 0.8400000000000001,
-  "equity_last": 2978.634799728394,
+  "equity_last": 2972.2608647441866,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -656,7 +725,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2802.509585044143,
+    "last": 2792.96717565383,
     "init_stop": 2350.66654513
    },
    {
@@ -679,7 +748,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 14.433855497769173,
+    "last": 14.374917016232871,
     "init_stop": 10.65203463
    },
    {
@@ -702,7 +771,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 116.22287418472297,
+    "last": 115.35234090467839,
     "init_stop": 88.10529987
    },
    {
@@ -725,7 +794,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.4750049582566476,
+    "last": 1.4743577377970496,
     "init_stop": 1.1843018
    },
    {
@@ -750,7 +819,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 98759.13402090222
+    "last": 98367.25160089787
    },
    {
     "id": "o7",
@@ -774,7 +843,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2802.509585044143
+    "last": 2792.96717565383
    },
    {
     "id": "o8",
@@ -798,7 +867,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 98759.13402090222
+    "last": 98367.25160089787
    },
    {
     "id": "o9",
@@ -822,7 +891,7 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2802.509585044143
+    "last": 2792.96717565383
    },
    {
     "id": "o11",
@@ -846,7 +915,7 @@
     "low": 2876.266671180114,
     "play": "Extreme-fear buy",
     "init_stop": 1928.35806325,
-    "last": 2802.509585044143
+    "last": 2792.96717565383
    },
    {
     "id": "o13",
@@ -870,16 +939,16 @@
     "low": 2726.8593090004288,
     "play": "Extreme-fear buy",
     "init_stop": 1827.81905457,
-    "last": 2802.509585044143
+    "last": 2792.96717565383
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-13T14:25:00",
-   "ETH-USD": "2026-11-13T14:25:00",
-   "LINK-USD": "2026-11-13T14:25:00",
-   "SOL-USD": "2026-11-13T14:25:00",
-   "XRP-USD": "2026-11-13T14:25:00"
+   "BTC-USD": "2026-11-13T14:40:00",
+   "ETH-USD": "2026-11-13T14:40:00",
+   "LINK-USD": "2026-11-13T14:40:00",
+   "SOL-USD": "2026-11-13T14:40:00",
+   "XRP-USD": "2026-11-13T14:40:00"
   },
   "day": {
    "date": "2026-11-13",
@@ -894,7 +963,7 @@
   "seq": 13,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2777.7726683352425,
+  "equity_last": 2770.5712450947394,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

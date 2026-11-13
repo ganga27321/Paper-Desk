@@ -82,3 +82,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-13T01:08:10Z,crypto,BUY,crypto,ETH-USD,0.04881129,2876.266671,0.84,140.39,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)
 2026-11-13T07:50:15Z,crypto,BUY,crypto,ETH-USD,0.04996854,2726.859309,0.82,136.26,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)
 2026-11-13T14:48:04Z,swing,SELL,stock,RSKD,15,13.21,0.1,198.15,-17.21,6.5,stop hit,autopilot,yes
+2026-11-13T14:53:00Z,day,BUY,stock,LFMD,653,2.931442,3.83,1914.23,,63.7,"[Squeeze ORB] LFMD gapped +12% on 10x normal volume and is above VWAP (C$2.78); buy a break above the 15-min high C$2.85, stop under the range low C$2.63, half off at 1R, target 1.5157R. Float 40M, short interest 18%: squeeze candidate.",autopilot,yes

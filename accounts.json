@@ -3,8 +3,33 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 3006.2356873303215,
-  "positions": [],
+  "cash": 1088.1757568686571,
+  "positions": [
+   {
+    "id": "o24",
+    "kind": "stock",
+    "symbol": "LFMD",
+    "side": "long",
+    "qty": 653,
+    "entry": 2.9314417573148717,
+    "entry_ts": "2026-11-13T14:49:00",
+    "stop": 2.63,
+    "target": 3.21,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] LFMD gapped +12% on 10x normal volume and is above VWAP (C$2.78); buy a break above the 15-min high C$2.85, stop under the range low C$2.63, half off at 1R, target 1.5157R. Float 40M, short interest 18%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 3.0595146761446017,
+    "low": 2.9314417573148717,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 2.63,
+    "last": 3.0523993631977078
+   }
+  ],
   "pending": [
    {
     "id": "o23",
@@ -28,29 +53,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 1003.23
-   },
-   {
-    "id": "o24",
-    "kind": "stock",
-    "symbol": "LFMD",
-    "qty": 653,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 2.86,
-    "stop": 2.63,
-    "target": 3.21,
-    "why": "[Squeeze ORB] LFMD gapped +12% on 10x normal volume and is above VWAP (C$2.78); buy a break above the 15-min high C$2.85, stop under the range low C$2.63, half off at 1R, target 1.5157R. Float 40M, short interest 18%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-13T14:48:04",
-    "valid_until": "2026-11-13T20:48:04",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1867.58
    },
    {
     "id": "o25",
@@ -94,22 +96,25 @@
    "MGX": "2026-11-11T20:59:00",
    "MSC": "2026-11-12T15:49:00",
    "ICMB": "2026-11-12T20:52:00",
-   "MYPS": "2026-11-12T20:17:00"
+   "MYPS": "2026-11-12T20:17:00",
+   "LFMD": "2026-11-13T14:51:00",
+   "NMAX": "2026-11-13T14:51:00",
+   "VTSI": "2026-11-13T14:51:00"
   },
   "day": {
    "date": "2026-11-13",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 3006.2356873303215
   },
   "week": {
    "key": "2026-W46",
-   "trades": 14
+   "trades": 15
   },
   "realized": 34.99024404060921,
   "seq": 29,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3006.2356873303215,
+  "equity_last": 3081.39254103676,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -127,7 +132,8 @@
   },
   "done": {
    "dax_chase_NCI": "2026-11-10",
-   "dax_chase_GP": "2026-11-12"
+   "dax_chase_GP": "2026-11-12",
+   "dax_chase_BIRD": "2026-11-13"
   }
  },
  "swing": {

@@ -79,3 +79,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-12T15:50:31Z,day,SELL,stock,MSC,1358,1.45503,3.95,1975.93,-197.53,57.9,stop hit,autopilot,yes
 2026-11-12T17:36:57Z,day,BUY,stock,ICMB,714,1.54,2.2,1099.56,,36.0,"[ORB+VWAP] ICMB gapped +62% on 4037x normal volume and is above VWAP (C$1.42); buy a break above the 15-min high C$1.53, stop under the range low C$1.37, half off at 1R, target 1.5157R.",autopilot,yes
 2026-11-12T20:54:00Z,day,SELL,stock,ICMB,714,1.473657,2.1,1052.19,-49.47,35.0,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-13T01:08:10Z,crypto,BUY,crypto,ETH-USD,0.04881129,2876.266671,0.84,140.39,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)

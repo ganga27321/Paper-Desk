@@ -262,3 +262,4 @@
 {"ts": "2026-11-13T15:23:21Z", "event": "rejected", "trader": "day", "symbol": "NUAI", "reason": "not enough buying power", "why": "[Squeeze ORB] NUAI gapped +8% on 4x normal volume and is above VWAP (C$4.25); buy a break above the 15-min high C$4.49, stop under the range low C$4.10, half off at 1R, target 1.5157R. Float 97M, short interest 24%: squeeze candidate."}
 {"ts": "2026-11-13T15:28:27Z", "event": "open", "trader": "day", "symbol": "CNVS", "kind": "stock", "qty": 278, "price": 3.0470626040874436, "at": "2026-11-13T15:24:00"}
 {"ts": "2026-11-13T15:33:35Z", "event": "skip", "trader": "day", "symbol": "SBC", "reason": "already 0.46 past the breakout level C$9.50 (more than 0.5R): no chase"}
+{"ts": "2026-11-13T15:38:47Z", "event": "open", "trader": "day", "symbol": "MRLN", "kind": "stock", "qty": 688, "price": 1.78, "at": "2026-11-13T15:37:00"}

@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 1326.0994661244754,
+  "cash": 99.01018612447524,
   "positions": [
    {
     "id": "o23",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 12.04,
-    "last": 14.030636168500905
+    "last": 13.59818947634335
    },
    {
     "id": "o31",
@@ -46,12 +46,35 @@
     "meta": {
      "small_cap": true
     },
-    "high": 3.1052575227833756,
+    "high": 3.1057154247520486,
     "low": 3.0470626040874436,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.61,
-    "last": 3.0639489899266437
+    "last": 3.1057154247520486
+   },
+   {
+    "id": "o30",
+    "kind": "stock",
+    "symbol": "MRLN",
+    "side": "long",
+    "qty": 688,
+    "entry": 1.78,
+    "entry_ts": "2026-11-13T15:37:00",
+    "stop": 1.55,
+    "target": 2.13,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] MRLN gapped +29% on 63x normal volume and is above VWAP (C$1.65); buy a break above the 15-min high C$1.77, stop under the range low C$1.55, half off at 1R, target 1.5157R. Float 46M, short interest 0%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 1.78,
+    "low": 1.78,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "last": 1.7594304938264855
    }
   ],
   "pending": [
@@ -77,29 +100,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 133.75
-   },
-   {
-    "id": "o30",
-    "kind": "stock",
-    "symbol": "MRLN",
-    "qty": 688,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 1.78,
-    "stop": 1.55,
-    "target": 2.13,
-    "why": "[Squeeze ORB] MRLN gapped +29% on 63x normal volume and is above VWAP (C$1.65); buy a break above the 15-min high C$1.77, stop under the range low C$1.55, half off at 1R, target 1.5157R. Float 46M, short interest 0%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-13T15:23:21",
-    "valid_until": "2026-11-13T21:23:21",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1224.64
    }
   ],
   "last_bar": {
@@ -122,25 +122,25 @@
    "ICMB": "2026-11-12T20:52:00",
    "MYPS": "2026-11-12T20:17:00",
    "LFMD": "2026-11-13T15:22:00",
-   "NMAX": "2026-11-13T15:32:00",
-   "VTSI": "2026-11-13T15:32:00",
-   "CNVS": "2026-11-13T15:32:00",
-   "MRLN": "2026-11-13T15:32:00"
+   "NMAX": "2026-11-13T15:37:00",
+   "VTSI": "2026-11-13T15:37:00",
+   "CNVS": "2026-11-13T15:37:00",
+   "MRLN": "2026-11-13T15:37:00"
   },
   "day": {
    "date": "2026-11-13",
-   "trades": 3,
+   "trades": 4,
    "start_eq": 3006.2356873303215
   },
   "week": {
    "key": "2026-W46",
-   "trades": 17
+   "trades": 18
   },
   "realized": 212.69651651399798,
   "seq": 33,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3174.0524532876466,
+  "equity_last": 3138.3587067785447,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

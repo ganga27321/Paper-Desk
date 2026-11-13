@@ -3,57 +3,34 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 1088.1757568686571,
+  "cash": 2174.8770368686573,
   "positions": [
-   {
-    "id": "o24",
-    "kind": "stock",
-    "symbol": "LFMD",
-    "side": "long",
-    "qty": 653,
-    "entry": 2.9314417573148717,
-    "entry_ts": "2026-11-13T14:49:00",
-    "stop": 2.63,
-    "target": 3.21,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] LFMD gapped +12% on 10x normal volume and is above VWAP (C$2.78); buy a break above the 15-min high C$2.85, stop under the range low C$2.63, half off at 1R, target 1.5157R. Float 40M, short interest 18%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 3.1895360319509507,
-    "low": 2.9314417573148717,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "init_stop": 2.63,
-    "last": 3.1681773824548713
-   }
-  ],
-  "pending": [
    {
     "id": "o23",
     "kind": "stock",
     "symbol": "NMAX",
-    "qty": 71,
     "side": "long",
-    "entry_type": "stop",
-    "price": 14.13,
+    "qty": 71,
+    "entry": 14.13,
+    "entry_ts": "2026-11-13T15:20:00",
     "stop": 12.04,
     "target": 17.3,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] NMAX gapped +27% on 23x normal volume and is above VWAP (C$12.97); buy a break above the 15-min high C$14.12, stop under the range low C$12.04, half off at 1R, target 1.5157R. Float 31M, short interest 63%: squeeze candidate.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-13T14:48:04",
-    "valid_until": "2026-11-13T20:48:04",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 14.136348021556842,
+    "low": 14.13,
     "scale_out_r": 1,
-    "reserve": 1003.23
-   },
+    "play": "Squeeze ORB",
+    "init_stop": 12.04,
+    "last": 13.993276073678771
+   }
+  ],
+  "pending": [
    {
     "id": "o25",
     "kind": "stock",
@@ -76,6 +53,52 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 133.75
+   },
+   {
+    "id": "o30",
+    "kind": "stock",
+    "symbol": "MRLN",
+    "qty": 688,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 1.78,
+    "stop": 1.55,
+    "target": 2.13,
+    "why": "[Squeeze ORB] MRLN gapped +29% on 63x normal volume and is above VWAP (C$1.65); buy a break above the 15-min high C$1.77, stop under the range low C$1.55, half off at 1R, target 1.5157R. Float 46M, short interest 0%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-13T15:23:21",
+    "valid_until": "2026-11-13T21:23:21",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1224.64
+   },
+   {
+    "id": "o31",
+    "kind": "stock",
+    "symbol": "CNVS",
+    "qty": 278,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 2.93,
+    "stop": 2.61,
+    "target": 3.42,
+    "why": "[Squeeze ORB] CNVS gapped +10% on 78x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.92, stop under the range low C$2.61, half off at 1R, target 1.5157R. Float 20M, short interest 2%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-13T15:23:21",
+    "valid_until": "2026-11-13T21:23:21",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 814.5400000000001
    }
   ],
   "last_bar": {
@@ -97,24 +120,24 @@
    "MSC": "2026-11-12T15:49:00",
    "ICMB": "2026-11-12T20:52:00",
    "MYPS": "2026-11-12T20:17:00",
-   "LFMD": "2026-11-13T15:17:00",
-   "NMAX": "2026-11-13T15:17:00",
-   "VTSI": "2026-11-13T15:17:00"
+   "LFMD": "2026-11-13T15:22:00",
+   "NMAX": "2026-11-13T15:22:00",
+   "VTSI": "2026-11-13T15:22:00"
   },
   "day": {
    "date": "2026-11-13",
-   "trades": 1,
+   "trades": 2,
    "start_eq": 3006.2356873303215
   },
   "week": {
    "key": "2026-W46",
-   "trades": 15
+   "trades": 16
   },
-  "realized": 34.99024404060921,
-  "seq": 29,
+  "realized": 212.69651651399798,
+  "seq": 33,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3156.9955876116883,
+  "equity_last": 3168.39963809985,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

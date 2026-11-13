@@ -240,3 +240,4 @@
 {"ts": "2026-11-13T06:09:42Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}
 {"ts": "2026-11-13T06:09:42Z", "event": "rejected", "trader": "crypto", "symbol": "BTC-USD", "reason": "cooldown: stopped out of BTC-USD within 3 days", "why": "[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to BTC. ETH/BTC below its 20-day: alt season off."}
 {"ts": "2026-11-13T06:09:42Z", "event": "order", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04996854, "type": "market", "price": null, "why": "[Extreme-fear buy] Crypto Fear & Greed at 20 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.", "source": "autopilot"}
+{"ts": "2026-11-13T07:50:15Z", "event": "open", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "qty": 0.04996854, "price": 2726.8593090004288, "at": "2026-11-13T06:10:00"}

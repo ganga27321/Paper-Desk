@@ -96,3 +96,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-13T20:52:21Z,day,SELL,stock,MRLN,688,1.683329,2.32,1158.13,-68.83,37.1,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-13T20:52:21Z,day,SELL,stock,NMAX,71,13.723411,1.95,974.36,-30.82,31.2,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-13T20:52:21Z,day,SELL,stock,VTSI,13,5.834732,0.15,75.85,6.15,2.4,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-14T06:30:42Z,crypto,BUY,crypto,ETH-USD,0.04985229,2708.27611,0.81,135.01,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 13 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)

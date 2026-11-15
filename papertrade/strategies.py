@@ -13,6 +13,15 @@ R = settings.rules
 CA = (".TO", ".V")
 
 
+def _fear_add_ok(date, gap_days):
+    """No Extreme-fear buy by Kai within the last gap_days days."""
+    d0 = dt.date.fromisoformat(date)
+    for t in reversed(core.read_trades()):
+        if t["trader"] == "crypto" and (t.get("why") or "").startswith("[Extreme-fear buy]"):
+            return (d0 - dt.date.fromisoformat(t["ts"][:10])).days >= gap_days
+    return True
+
+
 def cad(sym, px, fx):
     """Native price -> C$ (US-listed, futures and crypto are in US$)."""
     return px if px is None or sym.endswith(CA) else px * fx
@@ -755,7 +764,10 @@ def crypto(tid, a, ctx):
                          meta={"bucket": bucket, "yahoo": c}, valid_hours=24, trail_pct=trail,
                          play=play or f"{bucket.title()} bucket"))
 
-    if fg is not None and fg <= r.get("fear_level", 25) and _once(a, "kai_fear", ctx["date"]):
+    # Kai lesson: one extreme-fear add per fear episode (one every fear_add_gap_days), not one a day: daily adds
+    # during the 2026-W46 slide left him 17% cash and every lot under water
+    if (fg is not None and fg <= r.get("fear_level", 25) and _fear_add_ok(ctx["date"], r.get("fear_add_gap_days", 7))
+            and _once(a, "kai_fear", ctx["date"])):
         for c in b["core"]["coins"]:   # extreme fear: add to BTC/ETH (others' panic is the core bucket's discount)
             buy(c, eq * r.get("fear_buy_pct", 5) / 100, f"Crypto Fear & Greed at {fg} (extreme fear): add "
                 f"{r.get('fear_buy_pct', 5)}% to {c.split('-')[0]}.", "core", play="Extreme-fear buy")

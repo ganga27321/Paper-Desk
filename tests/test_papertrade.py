@@ -585,3 +585,21 @@ def test_avoid_list_blocks_a_symbol_for_every_trader():
     plan = {"avoid": {"gfr": "takeover pinned to the deal price"}}
     assert run._avoided(plan, "GFR", "GFR") == "takeover pinned to the deal price"
     assert run._avoided(plan, "GFR.TO", "GFR.TO") is None and run._avoided(None, "GFR") is None
+
+
+def test_option_stop_cools_the_underlying_for_new_option_orders():
+    from papertrade import edge
+    core.append_trade({"ts": "2026-11-10T14:47:00Z", "trader": "options_aggr", "action": "SELL_TO_CLOSE", "kind": "option",
+                       "symbol": "U 2026-11-20 54C", "qty": 1, "price": 1.0, "fee": 0, "value": 100, "pnl": -241.0,
+                       "why": "option stop (-58%)", "source": "autopilot", "tfsa_legal": "yes"})
+    assert edge.cooling("options_aggr", "U", dt.date(2026, 11, 10))
+    assert not edge.cooling("options_aggr", "NVDA", dt.date(2026, 11, 10))
+
+
+def test_kai_adds_once_per_fear_episode_not_once_a_day():
+    from papertrade import strategies
+    assert strategies._fear_add_ok("2026-11-12", 7)
+    core.append_trade({"ts": "2026-11-10T03:00:00Z", "trader": "crypto", "action": "BUY", "kind": "crypto", "symbol": "ETH-USD",
+                       "qty": 0.05, "price": 2700, "fee": 0, "value": 135, "pnl": "", "why": "[Extreme-fear buy] add 5%",
+                       "source": "autopilot", "tfsa_legal": "no (sandbox)"})
+    assert not strategies._fear_add_ok("2026-11-12", 7) and strategies._fear_add_ok("2026-11-17", 7)

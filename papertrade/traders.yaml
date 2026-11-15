@@ -30,7 +30,7 @@ guards:
   options_safe: {max_day_loss_pct: 3}
   crypto: {max_day_loss_pct: 12}
 weekly_bonus: 200          # C$ added to the biggest earner of the week, after Friday's close
-bonus_hold: ["2026-W45"]   # weeks whose bonus is forfeited (too few trades): nobody is paid, nothing carries over
+bonus_hold: ["2026-W45", "2026-W46"]   # weeks whose bonus is forfeited (W45: too few trades; W46: owner's call after the losses): nobody is paid, nothing carries over
 # Option orders from the morning plan go live at this time (ET) and pick their contract on live quotes; the 9:31 ET
 # options convene can change them first. Option fills and exits happen only in the regular session.
 options_from: "09:45"
@@ -153,6 +153,6 @@ traders:
       growth: {pct: 25, coins: [XRP-USD, SOL-USD, LINK-USD, ADA-USD, AVAX-USD, SUI20947-USD]}
     rules: {meme_stop_pct: -20, meme_take_pct: 40, news_stop_pct: -10, news_take_pct: 20, rebalance_drift: 0.25,
             core_stop_pct: -25, growth_stop_pct: -30, news_trail_pct: 12, meme_trail_pct: 18, fear_level: 25,
-            greed_level: 75, greed_trail_pct: 8, fear_buy_pct: 5, cooldown_days: 3}
+            greed_level: 75, greed_trail_pct: 8, fear_buy_pct: 5, cooldown_days: 3, fear_add_gap_days: 7}
     scales: {aggression: 8, frequency: 6, holding: 6, deployment: 10, stop_width: 5, target: 6}
     scale_map: {stop_width: [meme_stop_pct, news_stop_pct, core_stop_pct, growth_stop_pct], target: [meme_take_pct, news_take_pct]}

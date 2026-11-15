@@ -186,7 +186,8 @@ def cycle(only=None):
             rules = settings.rules(tid)
             if o.get("play") and not o.get("why", "").startswith("["):
                 o["why"] = f"[{o['play']}] " + o.get("why", "")
-            if o["kind"] != "option" and edge.cooling(tid, o["symbol"], tny.date()):
+            # options too (by underlying): Vega re-bought a U call 16 minutes after a U call stopped out on 2026-11-10
+            if edge.cooling(tid, str(o["symbol"]).split(" ")[0], tny.date()):
                 why_not = why_not or f"cooldown: stopped out of {o['symbol']} within {rules.get('cooldown_days')} days"
             if o["kind"] in ("stock", "crypto", "future") and rules.get("scale_out_r") and o.get("scale_out_r") is None:
                 o["scale_out_r"] = rules["scale_out_r"]

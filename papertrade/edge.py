@@ -160,6 +160,7 @@ def cooling(tid, sym, today=None):
         return False
     today = today or core.ny().date()
     for t in reversed(core.read_trades()):
-        if t["trader"] == tid and t["symbol"] == sym and "stop" in (t.get("why") or "") and t.get("pnl") not in ("", None):
+        under = str(t["symbol"]).split(" ")[0]   # an option contract "U 2026-11-20 54C" cools its underlying "U"
+        if t["trader"] == tid and under == sym and "stop" in (t.get("why") or "") and t.get("pnl") not in ("", None):
             return (today - dt.date.fromisoformat(t["ts"][:10])).days < days
     return False

@@ -1,0 +1,93 @@
+{
+ "week": "2026-W46",
+ "summary": "A split week: Fox (+C$384), Dax (+C$113), Lena (+C$76) and Sam (+C$55) made money, while Vega (-C$814) and Kai (-C$283) gave back more than all of it. The losses came from repeats, not single bad calls: Vega re-bought a U call 16 minutes after one stopped out, and Kai added to ETH almost every day of the slide. No bonus this week (the owner's call); the rules now block both repeats.",
+ "weekly_review": {
+  "day": [
+   "Squeeze ORB carried the week: 19 closes, 11 winners, +C$283. Plain ORB+VWAP lost C$131 on 4 closes (1 winner).",
+   "The scanner fix and the no-chase rule worked: first real week of trading ended +C$113.",
+   "The worst trade (-C$198) was a full-size position: positions near 90% of the book make one loser expensive."
+  ],
+  "swing": [
+   "Earnings gap-and-hold paid again (2 closes, both winners, +C$55); the one 20-day breakout lost C$17.",
+   "XERS and MGNI ride at breakeven-or-better stops, so the open book can't lose much on them.",
+   "He is fully invested with C$106 of cash: CRWV's stop is 33% under its buy, far wider than the rest."
+  ],
+  "long": [
+   "All six holdings are above their buy price (+C$76 for the week); no sales, as planned.",
+   "Every stop sits about 18% under its buy: a hot CPI and a 5% 10-year didn't touch any of them."
+  ],
+  "futures": [
+   "The gold long hit its target (+C$984); the crude short then stopped out (-C$539), giving back more than half.",
+   "One trade's loss was 15% of the book: the size of a single micro contract is large for C$3,600."
+  ],
+  "options_aggr": [
+   "Three calls, three stops, -C$809: two earnings-call plays (NVDA, U) and a re-buy of U the same morning.",
+   "The re-buy is the expensive mistake: options had no cooldown after a stop. They do now.",
+   "Risk per trade at 35% of the book means three losers erase a quarter of it."
+  ],
+  "options_safe": [
+   "One cash-secured put (RKT 12.50, 30 days) is open and roughly flat; cash parking cost C$0.74.",
+   "Safe and quiet, as designed: -C$18 for the week."
+  ],
+  "crypto": [
+   "Kai added on extreme fear almost daily (BTC and five ETH lots), so every lot is under water and cash is 17%.",
+   "The lesson 'one add per fear episode' was only words; the rule now enforces one add every 7 days."
+  ]
+ },
+ "lessons": {
+  "day": [
+   "Squeeze ORB (small float or heavy short interest) is the edge; a plain ORB+VWAP setup has lost: take it only when it ranks first."
+  ],
+  "swing": [
+   "Biggest earnings beats hold best: keep them at breakeven stops and sell the smaller beats first when cash is needed."
+  ],
+  "long": [
+   "Stops about 18% under the buy ride out a hot CPI week: check them weekly, never tighten them on one day's news."
+  ],
+  "futures": [
+   "After a big win, risk the next trade small: one micro crude contract lost 15% of the book in two days."
+  ],
+  "options_aggr": [
+   "After an option stop, no new option on that underlying for 3 days (now enforced); never re-buy the same morning.",
+   "Earnings-call plays lost all three times this week: wait for the report and buy the gap that holds."
+  ],
+  "options_safe": [
+   "One put at a time with C$3,000: the RKT put uses most of the buying power, so the next put waits for it to close."
+  ],
+  "crypto": [
+   "One extreme-fear add every 7 days (now enforced): a slow slide is many fear days, and daily adds only average down."
+  ]
+ },
+ "retire_lessons": {
+  "crypto": [
+   "One extreme-fear add per fear episode keeps cash for a deeper flush; two adds in a day left only 14% cash."
+  ]
+ },
+ "adjustments": {
+  "options_aggr": {
+   "scales": {
+    "aggression": 8,
+    "frequency": 5
+   },
+   "why": "Lost C$814 (27% of the book) on three option stops in one day: risk per trade drops from about 35% to about 20% and she holds fewer positions at once. Still the aggressive options player."
+  },
+  "crypto": {
+   "scales": {
+    "deployment": 8
+   },
+   "why": "Down C$283 with only 17% cash after daily fear adds: he now keeps about 16% of the book in cash at all times instead of 0%."
+  },
+  "day": {
+   "scales": {
+    "aggression": 8
+   },
+   "why": "Profitable (+C$113), but the worst loser was C$198 on a near-full-size position: a smaller size per trade keeps one bad break from erasing a day's wins. Still the desk's most aggressive stock trader."
+  },
+  "futures": {
+   "scales": {
+    "stop_width": 4
+   },
+   "why": "The crude short gave back C$539 of the C$984 gold win: a tighter stop (about 1.5 ATR instead of 2) cuts the loss on a failed trade."
+  }
+ }
+}

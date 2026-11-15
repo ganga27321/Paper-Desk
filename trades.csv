@@ -99,4 +99,3 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-14T06:30:42Z,crypto,BUY,crypto,ETH-USD,0.04985229,2708.27611,0.81,135.01,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 13 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)
 2026-11-15T08:16:23Z,crypto,BUY,crypto,BTC-USD,0.00141122,91984.498237,0.78,129.81,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 10 (extreme fear): add 5% to BTC. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)
 2026-11-15T08:16:23Z,crypto,BUY,crypto,ETH-USD,0.05072991,2559.713833,0.78,129.85,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 10 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)
-2026-11-15T20:32:40Z,futures,BONUS,cash,BONUS,1,200.0,0,200.0,,,Weekly bonus: biggest earner of 2026-W46 (+384.21 C$ this week). C$200 added to the account.,desk,no (sandbox)

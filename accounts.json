@@ -466,7 +466,7 @@
   }
  },
  "futures": {
-  "cash": 3637.264635562897,
+  "cash": 3437.264635562897,
   "positions": [
    {
     "id": "o7",
@@ -510,13 +510,7 @@
   },
   "realized": 444.7646355628973,
   "seq": 8,
-  "deposits": [
-   {
-    "date": "2026-11-15",
-    "amount": 200.0,
-    "why": "Winner of 2026-W46"
-   }
-  ],
+  "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3454.626680668444,
   "plan_used": {

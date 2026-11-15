@@ -88,5 +88,55 @@
   "new": 6.0,
   "why": "Crypto swings widened with the equity sell-off: a little more room before stops on news and meme coins.",
   "by": "Saturday review 2026-W45"
+ },
+ {
+  "ts": "2026-11-15T23:47:20Z",
+  "week": "2026-W46",
+  "trader": "options_aggr",
+  "knob": "aggression",
+  "old": 10,
+  "new": 8.0,
+  "why": "Lost C$814 (27% of the book) on three option stops in one day: risk per trade drops from about 35% to about 20% and she holds fewer positions at once. Still the aggressive options player.",
+  "by": "Saturday review 2026-W46"
+ },
+ {
+  "ts": "2026-11-15T23:47:20Z",
+  "week": "2026-W46",
+  "trader": "options_aggr",
+  "knob": "frequency",
+  "old": 6,
+  "new": 5.0,
+  "why": "Lost C$814 (27% of the book) on three option stops in one day: risk per trade drops from about 35% to about 20% and she holds fewer positions at once. Still the aggressive options player.",
+  "by": "Saturday review 2026-W46"
+ },
+ {
+  "ts": "2026-11-15T23:47:20Z",
+  "week": "2026-W46",
+  "trader": "crypto",
+  "knob": "deployment",
+  "old": 10,
+  "new": 8.0,
+  "why": "Down C$283 with only 17% cash after daily fear adds: he now keeps about 16% of the book in cash at all times instead of 0%.",
+  "by": "Saturday review 2026-W46"
+ },
+ {
+  "ts": "2026-11-15T23:47:20Z",
+  "week": "2026-W46",
+  "trader": "day",
+  "knob": "aggression",
+  "old": 9,
+  "new": 8.0,
+  "why": "Profitable (+C$113), but the worst loser was C$198 on a near-full-size position: a smaller size per trade keeps one bad break from erasing a day's wins. Still the desk's most aggressive stock trader.",
+  "by": "Saturday review 2026-W46"
+ },
+ {
+  "ts": "2026-11-15T23:47:20Z",
+  "week": "2026-W46",
+  "trader": "futures",
+  "knob": "stop_width",
+  "old": 5,
+  "new": 4.0,
+  "why": "The crude short gave back C$539 of the C$984 gold win: a tighter stop (about 1.5 ATR instead of 2) cuts the loss on a failed trade.",
+  "by": "Saturday review 2026-W46"
  }
 ]

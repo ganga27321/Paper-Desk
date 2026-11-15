@@ -3,6 +3,10 @@
   {
    "week": "2026-W45",
    "lesson": "On a gap-down rout day (S&P futures -2%+, VIX 25+) clean 15-minute range breaks with volume are rare: zero trades is the filter working, not a failure."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "Squeeze ORB (small float or heavy short interest) is the edge; a plain ORB+VWAP setup has lost: take it only when it ranks first."
   }
  ],
  "swing": [
@@ -13,36 +17,60 @@
   {
    "week": "2026-W45",
    "lesson": "When fully invested, a new setup needs a planned sale: name which holding goes first."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "Biggest earnings beats hold best: keep them at breakeven stops and sell the smaller beats first when cash is needed."
   }
  ],
  "long": [
   {
    "week": "2026-W45",
    "lesson": "A long-term buy needs its stop well below the price (about 18%); check every stop is under the buy before trusting a fill."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "Stops about 18% under the buy ride out a hot CPI week: check them weekly, never tighten them on one day's news."
   }
  ],
  "futures": [
   {
    "week": "2026-W45",
    "lesson": "Breakouts above a round number fade in a risk-off tape: buy on a 5-minute close above the level, not a touch."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "After a big win, risk the next trade small: one micro crude contract lost 15% of the book in two days."
   }
  ],
  "options_aggr": [
   {
    "week": "2026-W45",
    "lesson": "One contract times a risk-off mood cut (0.7) rounds to zero: plan two contracts on a cheaper strike, or expect no fill on a risk-off day."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "After an option stop, no new option on that underlying for 3 days (now enforced); never re-buy the same morning."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "Earnings-call plays lost all three times this week: wait for the report and buy the gap that holds."
   }
  ],
  "options_safe": [
   {
    "week": "2026-W45",
    "lesson": "With C$3,000 a cash-secured put needs a stock under about US$20 above its 200-day: table cheap quality names, or the cash stays parked."
+  },
+  {
+   "week": "2026-W46",
+   "lesson": "One put at a time with C$3,000: the RKT put uses most of the buying power, so the next put waits for it to close."
   }
  ],
  "crypto": [
   {
-   "week": "2026-W45",
-   "lesson": "One extreme-fear add per fear episode keeps cash for a deeper flush; two adds in a day left only 14% cash."
+   "week": "2026-W46",
+   "lesson": "One extreme-fear add every 7 days (now enforced): a slow slide is many fear days, and daily adds only average down."
   }
  ]
 }

@@ -645,7 +645,7 @@
   }
  },
  "crypto": {
-  "cash": 707.1019032041473,
+  "cash": 445.87950075043875,
   "positions": [
    {
     "id": "o2",
@@ -667,7 +667,7 @@
     },
     "high": 3177.005613896472,
     "low": 3134.2220601756126,
-    "last": 2550.62576063702,
+    "last": 2536.900913641861,
     "init_stop": 2350.66654513
    },
    {
@@ -690,7 +690,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 12.924475285484505,
+    "last": 12.851714097277068,
     "init_stop": 10.65203463
    },
    {
@@ -713,7 +713,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 100.05446680055047,
+    "last": 99.64072249552919,
     "init_stop": 88.10529987
    },
    {
@@ -736,7 +736,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.3592171131240463,
+    "last": 1.3522262285833264,
     "init_stop": 1.1843018
    },
    {
@@ -761,7 +761,7 @@
     "low": 107162.98470476177,
     "play": "Extreme-fear buy",
     "init_stop": 80365.2517913,
-    "last": 91688.58616797673
+    "last": 91158.41107415268
    },
    {
     "id": "o7",
@@ -785,7 +785,7 @@
     "low": 3164.177279935393,
     "play": "Extreme-fear buy",
     "init_stop": 2371.94634251,
-    "last": 2550.62576063702
+    "last": 2536.900913641861
    },
    {
     "id": "o8",
@@ -809,7 +809,7 @@
     "low": 107115.02676880918,
     "play": "Extreme-fear buy",
     "init_stop": 80345.39257006,
-    "last": 91688.58616797673
+    "last": 91158.41107415268
    },
    {
     "id": "o9",
@@ -833,7 +833,7 @@
     "low": 3167.327796239988,
     "play": "Extreme-fear buy",
     "init_stop": 2376.62969158,
-    "last": 2550.62576063702
+    "last": 2536.900913641861
    },
    {
     "id": "o11",
@@ -857,7 +857,7 @@
     "low": 2876.266671180114,
     "play": "Extreme-fear buy",
     "init_stop": 1928.35806325,
-    "last": 2550.62576063702
+    "last": 2536.900913641861
    },
    {
     "id": "o13",
@@ -881,7 +881,7 @@
     "low": 2726.8593090004288,
     "play": "Extreme-fear buy",
     "init_stop": 1827.81905457,
-    "last": 2550.62576063702
+    "last": 2536.900913641861
    },
    {
     "id": "o15",
@@ -905,76 +905,79 @@
     "low": 2708.2761101944197,
     "play": "Extreme-fear buy",
     "init_stop": 1814.93541497,
-    "last": 2550.62576063702
-   }
-  ],
-  "pending": [
+    "last": 2536.900913641861
+   },
    {
     "id": "o16",
     "kind": "crypto",
     "symbol": "BTC-USD",
-    "qty": 0.00141122,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.00141122,
+    "entry": 91984.49823706783,
+    "entry_ts": "2026-11-15T06:20:00",
     "stop": 61442.63042864,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Extreme-fear buy] Crypto Fear & Greed at 10 (extreme fear): add 5% to BTC. ETH/BTC below its 20-day: alt season off.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "BTC-USD"
     },
-    "created": "2026-11-15T06:15:51",
-    "valid_until": "2026-11-16T06:15:51",
-    "trail_pct": null,
+    "high": 92127.62522650976,
+    "low": 91984.49823706783,
     "play": "Extreme-fear buy",
-    "reserve": 129.39276657197212
+    "init_stop": 61442.63042864,
+    "last": 91158.41107415268
    },
    {
     "id": "o17",
     "kind": "crypto",
     "symbol": "ETH-USD",
-    "qty": 0.05072991,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
+    "qty": 0.05072991,
+    "entry": 2559.713832645197,
+    "entry_ts": "2026-11-15T06:20:00",
     "stop": 1709.2329866,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Extreme-fear buy] Crypto Fear & Greed at 10 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.",
     "source": "autopilot",
     "meta": {
      "bucket": "core",
      "yahoo": "ETH-USD"
     },
-    "created": "2026-11-15T06:15:51",
-    "valid_until": "2026-11-16T06:15:51",
-    "trail_pct": null,
+    "high": 2566.062577964287,
+    "low": 2559.713832645197,
     "play": "Extreme-fear buy",
-    "reserve": 129.39301528079758
+    "init_stop": 1709.2329866,
+    "last": 2536.900913641861
    }
   ],
+  "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-15T06:10:00",
-   "ETH-USD": "2026-11-15T06:10:00",
-   "LINK-USD": "2026-11-15T06:10:00",
-   "SOL-USD": "2026-11-15T06:10:00",
-   "XRP-USD": "2026-11-15T06:10:00"
+   "BTC-USD": "2026-11-15T08:10:00",
+   "ETH-USD": "2026-11-15T08:10:00",
+   "LINK-USD": "2026-11-15T08:10:00",
+   "SOL-USD": "2026-11-15T08:10:00",
+   "XRP-USD": "2026-11-15T08:10:00"
   },
   "day": {
    "date": "2026-11-15",
-   "trades": 0,
+   "trades": 2,
    "start_eq": 2620.4509782292703
   },
   "week": {
    "key": "2026-W46",
-   "trades": 3
+   "trades": 5
   },
   "realized": -32.60999469234477,
   "seq": 17,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2587.860210356611,
+  "equity_last": 2573.9988756679304,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

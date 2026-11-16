@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 1262.011422570045,
-  "positions": [
-   {
-    "id": "o37",
-    "kind": "stock",
-    "symbol": "FF",
-    "side": "long",
-    "qty": 380,
-    "entry": 4.861626260746959,
-    "entry_ts": "2026-11-16T14:50:00",
-    "stop": 4.53,
-    "target": 5.31,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] FF gapped +10% on 6x normal volume and is above VWAP (C$4.72); buy a break above the 15-min high C$4.83, stop under the range low C$4.53, half off at 1R, target 1.5157R. Float 26M, short interest 7%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 4.918821807664301,
-    "low": 4.861626260746959,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "init_stop": 4.53,
-    "last": 4.582350517117561
-   }
-  ],
+  "cash": 2979.968622570045,
+  "positions": [],
   "pending": [
    {
     "id": "o36",
@@ -103,9 +78,9 @@
    "CNVS": "2026-11-13T20:51:00",
    "MRLN": "2026-11-13T20:51:00",
    "BIRD": "2026-11-13T20:51:00",
-   "CLRO": "2026-11-16T19:31:00",
-   "FF": "2026-11-16T19:31:00",
-   "TU": "2026-11-16T19:31:00"
+   "CLRO": "2026-11-16T19:36:00",
+   "FF": "2026-11-16T19:36:00",
+   "TU": "2026-11-16T19:36:00"
   },
   "day": {
    "date": "2026-11-16",
@@ -116,11 +91,11 @@
    "key": "2026-W47",
    "trades": 1
   },
-  "realized": 152.19342406527053,
+  "realized": 22.732644981426063,
   "seq": 38,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3003.304619074718,
+  "equity_last": 2979.968622570045,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -137,7 +112,8 @@
    "2026-11-13": [],
    "2026-11-15": [],
    "2026-11-16": [
-    "plan_b0"
+    "plan_b0",
+    "plan_c0"
    ]
   },
   "done": {

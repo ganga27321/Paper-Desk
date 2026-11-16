@@ -51,6 +51,29 @@
     "play": "ORB+VWAP",
     "scale_out_r": 1,
     "reserve": 473.28
+   },
+   {
+    "id": "o39",
+    "kind": "stock",
+    "symbol": "GTN-A",
+    "qty": 88,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 9.03,
+    "stop": 7.76,
+    "target": 10.95,
+    "why": "[ORB+VWAP] GTN-A gapped +10% on 3x normal volume and is above VWAP (C$8.98); buy a break above the 15-min high C$9.02, stop under the range low C$7.76, half off at 1R, target 1.5157R.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-16T20:08:04",
+    "valid_until": "2026-11-17T02:08:04",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 794.64
    }
   ],
   "last_bar": {
@@ -78,9 +101,9 @@
    "CNVS": "2026-11-13T20:51:00",
    "MRLN": "2026-11-13T20:51:00",
    "BIRD": "2026-11-13T20:51:00",
-   "CLRO": "2026-11-16T20:01:00",
+   "CLRO": "2026-11-16T20:07:00",
    "FF": "2026-11-16T19:36:00",
-   "TU": "2026-11-16T20:01:00"
+   "TU": "2026-11-16T20:07:00"
   },
   "day": {
    "date": "2026-11-16",
@@ -92,7 +115,7 @@
    "trades": 1
   },
   "realized": 22.732644981426063,
-  "seq": 38,
+  "seq": 39,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 2979.968622570045,

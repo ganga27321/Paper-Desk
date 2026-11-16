@@ -320,3 +320,6 @@
 {"ts": "2026-11-16T19:37:39Z", "event": "plan_activated", "trader": "day", "plan": "plan_c", "index": 0, "when": {"type": "day_loss_over", "pct": 4}, "note": "Down 4% on the day: stand aside"}
 {"ts": "2026-11-16T20:02:47Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "No buy today by design: the week's buying day moves to next Monday after NVDA"}
 {"ts": "2026-11-16T20:08:04Z", "event": "order", "trader": "day", "symbol": "GTN-A", "kind": "stock", "qty": 88, "type": "stop", "price": 9.03, "why": "[ORB+VWAP] GTN-A gapped +10% on 3x normal volume and is above VWAP (C$8.98); buy a break above the 15-min high C$9.02, stop under the range low C$7.76, half off at 1R, target 1.5157R.", "source": "autopilot"}
+{"ts": "2026-11-16T20:18:07Z", "event": "skip", "trader": "day", "symbol": "CLRO", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-16T20:18:07Z", "event": "skip", "trader": "day", "symbol": "TU", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-16T20:18:07Z", "event": "skip", "trader": "day", "symbol": "GTN-A", "reason": "order cancelled: unfilled by 15:15 ET"}

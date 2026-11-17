@@ -54,6 +54,11 @@ Vega and Theo meet right after the open, on live option quotes (before 9:30 a qu
 morning plan's option orders, and any Plan B/C block holding options, go live at **9:45 ET** (`options_from` in
 `traders.yaml`) and pick their contract then, so the convene has until 9:45 to change them.
 1. **Clock first:** `TZ=America/New_York date`. If the market is closed today (weekend or holiday), reply "market closed" and stop.
+   **Already done?** If today's plan already has `options_convene`, reply "already done" and stop (a backup run or a
+   doubled wake-up must not convene twice). **Late?** From 9:45 to 15:30 ET it is a *late convene*: orders already placed
+   and open positions stay as they are (engine rules keep running); only orders not yet placed (e.g. waiting on a
+   level) and the options `plan_b`/`plan_c` may change, and `options_convene` gets `"late": true`. After 15:30 ET reply
+   "too late today" and stop.
 2. `git -C papertrade/state pull`, then `python -m papertrade options` (one JSON: each trader's cash, buying power,
    rules and lessons; open options on live quotes with P/L and days to expiry; today's plan option orders, placed or
    not, with `engine_pick_now`, the contract the engine would buy now: strike, expiry, bid/ask, spread, IV, C$ per contract).
@@ -67,7 +72,7 @@ morning plan's option orders, and any Plan B/C block holding options, go live at
 4. Write it into `papertrade/state/plans/<date>.json`: the edited orders and blocks, plus
    `"options_convene": {"time_et": "09:3x", "vega": "...", "theo": "...", "changes": ["..."]}`.
 5. `python -m papertrade.meeting validate --no-clock papertrade/state/plans/<date>.json`, then commit
-   "Options convene <date>" on paper-data and push before 9:45 ET (never force-push). One web search at most, only if a
+   "Options convene <date>" on paper-data and push (before 9:45 ET when on time) (never force-push). One web search at most, only if a
    tabled options name has fresh news. Reply with one line: what changed for Vega and for Theo.
 
 ## During the day (no Claude)

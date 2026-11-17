@@ -3,8 +3,33 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2979.968622570045,
-  "positions": [],
+  "cash": 2977.163022570045,
+  "positions": [
+   {
+    "id": "o44",
+    "kind": "stock",
+    "symbol": "CVM",
+    "side": "long",
+    "qty": 1,
+    "entry": 2.8,
+    "entry_ts": "2026-11-17T15:49:00",
+    "stop": 2.47,
+    "target": 3.3,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] CVM gapped +12% on 15x normal volume and is above VWAP (C$2.64); buy a break above the 15-min high C$2.79, stop under the range low C$2.47, half off at 1R, target 1.5157R. Float 17M, short interest 4%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 2.8434116225609785,
+    "low": 2.8,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 2.47,
+    "last": 2.793973382868728
+   }
+  ],
   "pending": [
    {
     "id": "o40",
@@ -74,29 +99,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 922.3399999999999
-   },
-   {
-    "id": "o44",
-    "kind": "stock",
-    "symbol": "CVM",
-    "qty": 1,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 2.8,
-    "stop": 2.47,
-    "target": 3.3,
-    "why": "[Squeeze ORB] CVM gapped +12% on 15x normal volume and is above VWAP (C$2.64); buy a break above the 15-min high C$2.79, stop under the range low C$2.47, half off at 1R, target 1.5157R. Float 17M, short interest 4%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-17T15:39:07",
-    "valid_until": "2026-11-17T21:39:07",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 2.8
    }
   ],
   "last_bar": {
@@ -128,25 +130,25 @@
    "FF": "2026-11-16T19:36:00",
    "TU": "2026-11-16T20:17:00",
    "GTN-A": "2026-11-16T19:52:00",
-   "PCT": "2026-11-17T15:48:00",
-   "SPAI": "2026-11-17T15:48:00",
+   "PCT": "2026-11-17T15:53:00",
+   "SPAI": "2026-11-17T15:53:00",
    "TRIB": "2026-11-17T14:50:00",
-   "CVM": "2026-11-17T15:48:00"
+   "CVM": "2026-11-17T15:53:00"
   },
   "day": {
    "date": "2026-11-17",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 2979.968622570045
   },
   "week": {
    "key": "2026-W47",
-   "trades": 1
+   "trades": 2
   },
   "realized": 22.732644981426063,
   "seq": 44,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2979.968622570045,
+  "equity_last": 2979.956995952914,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

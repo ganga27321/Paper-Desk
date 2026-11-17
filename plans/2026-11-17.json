@@ -388,7 +388,7 @@
    "failsafe": "Down 12% on the day or VIX over 30: no new options; open ones keep their rules.",
    "lessons_applied": [
     "Earnings-call plays lost three times: no NVDA option before the report.",
-    "Two contracts on the IWM put rather than one rounding to zero."
+    "One IWM put held from Monday; no new contract on a risk-off day."
    ]
   },
   "options_safe": {
@@ -477,5 +477,14 @@
     "One extreme-fear add every 7 days: no add today."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "My IWM 266 put is marked about +49% (bid 2.03 / ask 2.12, 10 days left). The 100% take-profit and -50% stop keep managing it. No new option today, and no NVDA play before tonight's report. Plan B and C stay: no second trade.",
+  "theo": "The RKT 12.50 short put has no live bid or ask yet in the first minutes (last 0.30, mark C$0.42 against my C$0.24 credit), with 24 days left. Buying power is C$774, so one put at a time still holds. No new put; the cash stays parked.",
+  "changes": [
+   "No option orders were planned, so none changed",
+   "Vega's lessons line corrected: one IWM put, not two"
+  ]
  }
 }

@@ -351,3 +351,4 @@
 {"ts": "2026-11-17T19:01:28Z", "event": "skip", "trader": "day", "symbol": "VAI", "reason": "already 0.19 past the breakout level C$3.41 (more than 0.5R): no chase"}
 {"ts": "2026-11-17T19:06:49Z", "event": "plan_activated", "trader": "options_aggr", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second option today: the IWM put is the trade"}
 {"ts": "2026-11-17T19:06:49Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
+{"ts": "2026-11-17T20:07:17Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "No buy today by design: this week's buy moves to Wednesday after NVDA"}

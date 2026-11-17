@@ -323,3 +323,7 @@
 {"ts": "2026-11-16T20:18:07Z", "event": "skip", "trader": "day", "symbol": "CLRO", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-16T20:18:07Z", "event": "skip", "trader": "day", "symbol": "TU", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-16T20:18:07Z", "event": "skip", "trader": "day", "symbol": "GTN-A", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-17T05:50:20Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $2,989 per contract is more than free equity"}
+{"ts": "2026-11-17T05:50:20Z", "event": "skip", "trader": "futures", "symbol": "MCL", "reason": "margin $540 per contract is more than free equity"}
+{"ts": "2026-11-17T05:50:20Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,392 per contract is more than free equity"}
+{"ts": "2026-11-17T05:50:21Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}

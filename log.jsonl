@@ -355,3 +355,4 @@
 {"ts": "2026-11-17T20:17:31Z", "event": "skip", "trader": "day", "symbol": "SPAI", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-17T20:17:31Z", "event": "skip", "trader": "day", "symbol": "PCT", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-17T20:17:31Z", "event": "skip", "trader": "day", "symbol": "TRIB", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-17T20:52:58Z", "event": "close", "trader": "day", "symbol": "CVM", "kind": "stock", "price": 2.6298569011921415, "pnl": -0.18, "why": "flat by 15:50 (day trade closed before the bell)"}

@@ -390,3 +390,4 @@
 {"ts": "2026-11-18T20:08:07Z", "event": "close", "trader": "day", "symbol": "AZI", "kind": "stock", "price": 1.53, "pnl": 76.04, "why": "target hit"}
 {"ts": "2026-11-18T20:18:02Z", "event": "skip", "trader": "day", "symbol": "BRBR", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-18T20:18:02Z", "event": "skip", "trader": "day", "symbol": "ANGX", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-18T20:53:33Z", "event": "close", "trader": "day", "symbol": "ICCM", "kind": "stock", "price": 1.4468654460187906, "pnl": -12.53, "why": "flat by 15:50 (day trade closed before the bell)"}

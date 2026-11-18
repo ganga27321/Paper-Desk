@@ -27,57 +27,10 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.29,
-    "last": 1.483537896115351
+    "last": 1.5190859022274026
    }
   ],
-  "pending": [
-   {
-    "id": "o47",
-    "kind": "stock",
-    "symbol": "BRBR",
-    "qty": 30,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 20.07,
-    "stop": 18.48,
-    "target": 22.48,
-    "why": "[ORB+VWAP] BRBR gapped +20% on 10x normal volume and is above VWAP (C$19.15); buy a break above the 15-min high C$20.06, stop under the range low C$18.48, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-18T14:48:59",
-    "valid_until": "2026-11-18T20:48:59",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "ORB+VWAP",
-    "scale_out_r": 1,
-    "reserve": 602.1
-   },
-   {
-    "id": "o50",
-    "kind": "stock",
-    "symbol": "ANGX",
-    "qty": 34,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 6.86,
-    "stop": 6.31,
-    "target": 7.69,
-    "why": "[ORB+VWAP] ANGX gapped +9% on 3x normal volume and is above VWAP (C$6.56); buy a break above the 15-min high C$6.85, stop under the range low C$6.31, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-18T15:34:57",
-    "valid_until": "2026-11-18T21:34:57",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "ORB+VWAP",
-    "scale_out_r": 1,
-    "reserve": 233.24
-   }
-  ],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -111,12 +64,12 @@
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
-   "BRBR": "2026-11-18T20:11:00",
+   "BRBR": "2026-11-18T20:17:00",
    "GMM": "2026-11-18T16:49:00",
    "QSI": "2026-11-18T19:06:00",
-   "ANGX": "2026-11-18T20:09:00",
+   "ANGX": "2026-11-18T20:17:00",
    "AZI": "2026-11-18T20:07:00",
-   "ICCM": "2026-11-18T20:01:00"
+   "ICCM": "2026-11-18T20:16:00"
   },
   "day": {
    "date": "2026-11-18",
@@ -131,7 +84,7 @@
   "seq": 51,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3208.2447939620106,
+  "equity_last": 3238.03402308391,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

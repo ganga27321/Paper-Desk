@@ -388,3 +388,5 @@
 {"ts": "2026-11-18T19:07:42Z", "event": "plan_activated", "trader": "options_aggr", "plan": "plan_c", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No NVDA trigger by 2:00: no option today"}
 {"ts": "2026-11-18T19:07:43Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
 {"ts": "2026-11-18T20:08:07Z", "event": "close", "trader": "day", "symbol": "AZI", "kind": "stock", "price": 1.53, "pnl": 76.04, "why": "target hit"}
+{"ts": "2026-11-18T20:18:02Z", "event": "skip", "trader": "day", "symbol": "BRBR", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-18T20:18:02Z", "event": "skip", "trader": "day", "symbol": "ANGX", "reason": "order cancelled: unfilled by 15:15 ET"}

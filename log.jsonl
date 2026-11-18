@@ -379,3 +379,4 @@
 {"ts": "2026-11-18T15:39:47Z", "event": "open", "trader": "day", "symbol": "AZI", "kind": "stock", "qty": 505, "price": 1.3763609622491302, "at": "2026-11-18T15:35:00"}
 {"ts": "2026-11-18T15:39:47Z", "event": "close", "trader": "day", "symbol": "KULR", "kind": "stock", "price": 2.4768236886346813, "pnl": -1.7, "why": "stop hit"}
 {"ts": "2026-11-18T16:10:09Z", "event": "open", "trader": "day", "symbol": "GMM", "kind": "stock", "qty": 273, "price": 2.46, "at": "2026-11-18T16:05:00"}
+{"ts": "2026-11-18T16:30:26Z", "event": "plan_activated", "trader": "day", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "11:30"}, "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)"}

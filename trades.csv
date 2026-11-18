@@ -112,3 +112,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-17T16:04:52Z,options_aggr,SELL_TO_CLOSE,option,IWM 2026-11-27 266P,1,4.902156,0.99,490.22,290.57,21.2,take profit (+150%),meeting,yes
 2026-11-17T20:52:58Z,day,SELL,stock,CVM,1,2.629857,0.01,2.63,-0.18,0.1,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-18T07:35:04Z,futures,SHORT,future,MCL,3,119.998728,7.5,35999.62,,767.2,"[Trend breakout] Micro crude trend is down (20-day EMA below the 50-day). Sell short 3 on a break of the 20-day low US$83.88; stop 1.52 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). Notional C$36,000 on C$4,631 equity.",autopilot,no (sandbox)
+2026-11-18T14:48:59Z,long,BUY,stock,KLAC,1,211.155262,0.11,211.16,,7.0,"Meeting: Weekly long-term buy after NVDA's report: one more KLAC share at US$150 or better if the chip gap holds; stop US$121, 18% under.",meeting,yes

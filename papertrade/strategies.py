@@ -174,7 +174,7 @@ def plan_orders(tid, a, ctx):
             out.append(order(a, kind, p["symbol"], qty, why, "meeting", p.get("entry_type", "market"), p.get("price"),
                              stop, p.get("target"), p.get("side", "long"), {"small_cap": tid == "day"},
                              flat_by=R(tid).get("flat_by") if tid == "day" else None,
-                             no_entry_after=R(tid).get("no_entry_after") if tid == "day" else None))
+                             no_entry_after=p.get("no_entry_after") or (R(tid).get("no_entry_after") if tid == "day" else None)))
     return out
 
 

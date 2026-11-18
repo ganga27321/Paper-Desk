@@ -146,7 +146,7 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
 level and TFSA checks as Plan A, and are tagged "Plan B"/"Plan C" in their `why`). `when.type` is one of:
 `time_after {time_et}`, `price_below|price_above {symbol, level}` (any Yahoo symbol, native currency), `vix_above|vix_below
 {level}`, `unfilled_by {symbol, time_et}` (Plan A on that symbol has not bought by then), `stopped_out {symbol}`,
-`day_loss_over {pct}`. A block with `"orders": []` is a "stand aside" plan: it documents the decision and shows on the
+`day_loss_over {pct}`. A stock order may carry `"no_entry_after": "HH:MM"` (ET): left unfilled by then, it is cancelled. A block with `"orders": []` is a "stand aside" plan: it documents the decision and shows on the
 dashboard. Plan B answers "Plan A did not happen"; Plan C answers "the day is going wrong" (use `vix_above`,
 `day_loss_over` or `stopped_out`). `failsafe` and `playbook` are written for the owner to read; the engine's
 `limits` enforce the hard stops.

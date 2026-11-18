@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2406.6062064529274,
+  "cash": 1181.5777483883905,
   "positions": [
    {
     "id": "o48",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 1.55,
-    "last": 1.5891933357918617
+    "last": 1.5899973525871758
    },
    {
     "id": "o49",
@@ -51,7 +51,31 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.1,
-    "last": 1.346960905458218
+    "last": 1.3300112770667027
+   },
+   {
+    "id": "o51",
+    "kind": "stock",
+    "symbol": "ICCM",
+    "side": "long",
+    "qty": 838,
+    "entry": 1.4589299421021167,
+    "entry_ts": "2026-11-18T18:43:00",
+    "stop": 1.29,
+    "target": 1.64,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] ICCM gapped +14% on 27x normal volume and is above VWAP (C$1.41); buy a break above the 15-min high C$1.42, stop under the range low C$1.29, half off at 1R, target 1.5157R. Float 3M, short interest 2%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 1.4603624390685468,
+    "low": 1.4589299421021167,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 1.29,
+    "last": 1.4539164588580604
    }
   ],
   "pending": [
@@ -100,29 +124,6 @@
     "play": "ORB+VWAP",
     "scale_out_r": 1,
     "reserve": 233.24
-   },
-   {
-    "id": "o51",
-    "kind": "stock",
-    "symbol": "ICCM",
-    "qty": 838,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 1.43,
-    "stop": 1.29,
-    "target": 1.64,
-    "why": "[Squeeze ORB] ICCM gapped +14% on 27x normal volume and is above VWAP (C$1.41); buy a break above the 15-min high C$1.42, stop under the range low C$1.29, half off at 1R, target 1.5157R. Float 3M, short interest 2%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-18T18:42:25",
-    "valid_until": "2026-11-19T00:42:25",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1198.34
    }
   ],
   "last_bar": {
@@ -158,26 +159,27 @@
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
-   "BRBR": "2026-11-18T18:41:00",
+   "BRBR": "2026-11-18T18:46:00",
    "GMM": "2026-11-18T16:49:00",
-   "QSI": "2026-11-18T18:41:00",
-   "ANGX": "2026-11-18T18:41:00",
-   "AZI": "2026-11-18T18:41:00"
+   "QSI": "2026-11-18T18:46:00",
+   "ANGX": "2026-11-18T18:46:00",
+   "AZI": "2026-11-18T18:46:00",
+   "ICCM": "2026-11-18T18:46:00"
   },
   "day": {
    "date": "2026-11-18",
-   "trades": 4,
+   "trades": 5,
    "start_eq": 2979.7876197574346
   },
   "week": {
    "key": "2026-W47",
-   "trades": 6
+   "trades": 7
   },
   "realized": 164.03152782542128,
   "seq": 51,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3099.5350103956625,
+  "equity_last": 3084.3354146508273,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

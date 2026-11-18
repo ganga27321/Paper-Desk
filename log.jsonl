@@ -356,3 +356,7 @@
 {"ts": "2026-11-17T20:17:31Z", "event": "skip", "trader": "day", "symbol": "PCT", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-17T20:17:31Z", "event": "skip", "trader": "day", "symbol": "TRIB", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-17T20:52:58Z", "event": "close", "trader": "day", "symbol": "CVM", "kind": "stock", "price": 2.6298569011921415, "pnl": -0.18, "why": "flat by 15:50 (day trade closed before the bell)"}
+{"ts": "2026-11-18T05:20:17Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $2,991 per contract is more than free equity"}
+{"ts": "2026-11-18T05:20:17Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,395 per contract is more than free equity"}
+{"ts": "2026-11-18T05:20:17Z", "event": "order", "trader": "futures", "symbol": "MCL", "kind": "future", "qty": 3, "type": "stop", "price": 119.99872802245318, "why": "[Trend breakout] Micro crude trend is down (20-day EMA below the 50-day). Sell short 3 on a break of the 20-day low US$83.88; stop 1.52 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). Notional C$36,000 on C$4,631 equity.", "source": "autopilot"}
+{"ts": "2026-11-18T05:20:17Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}

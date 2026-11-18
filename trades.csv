@@ -123,3 +123,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-18T16:50:51Z,day,SELL,stock,GMM,137,2.93,0.8,401.41,63.59,13.3,target hit,autopilot,yes
 2026-11-18T18:47:16Z,day,BUY,stock,ICCM,838,1.45893,2.45,1222.58,,39.6,"[Squeeze ORB] ICCM gapped +14% on 27x normal volume and is above VWAP (C$1.41); buy a break above the 15-min high C$1.42, stop under the range low C$1.29, half off at 1R, target 1.5157R. Float 3M, short interest 2%: squeeze candidate.",autopilot,yes
 2026-11-18T19:07:42Z,day,SELL,stock,QSI,8,1.547794,0.02,12.38,-1.08,0.4,stop hit,autopilot,yes
+2026-11-18T20:08:07Z,day,SELL,stock,AZI,505,1.53,1.55,772.65,76.04,24.1,target hit,autopilot,yes

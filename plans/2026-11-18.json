@@ -1,0 +1,499 @@
+{
+ "date": "2026-11-18",
+ "market_view": "Pre-market 6:40 ET Wednesday: NVDA beat last night (revenue US$115.8B vs about US$108.9B, EPS US$2.68 vs US$2.47, Q4 guide US$130B \u00b13% with an extra week, buyback +US$150B; Huang not returning) and chips lead: NVDA 160.10 (+3.0%), TSM +3.2%, AMD +2.2%, KLAC +2.6%, CRWV +4.6%. SPY 735.60 (+0.4%), QQQ 662.87 (+0.9%), IWM 269.28 (+0.1%), VIX 24, 10-year 5.10%, WTI US$83.77, gold US$3,769, BTC US$64,152 with Fear & Greed 11. The question for the day is whether the chip gap holds past 10:30.",
+ "tabled": [
+  "NVDA",
+  "TSM",
+  "AMD",
+  "CRWV",
+  "U",
+  "ABNB",
+  "MGNI",
+  "XERS",
+  "TRMK",
+  "KLAC",
+  "RKT",
+  "IWM",
+  "QQQ",
+  "CL=F",
+  "GC=F",
+  "BTC-USD",
+  "ETH-USD"
+ ],
+ "events": [
+  {
+   "name": "Tue Nov 17: S&P 500 -1.0% into NVDA's report; VIX 25",
+   "status": "released",
+   "actual": "SPY 732.44, QQQ 656.95, IWM 269.05; NVDA closed 155.46",
+   "reaction": "Futures higher after NVDA"
+  },
+  {
+   "time_et": "16:20",
+   "name": "NVDA fiscal Q3 results (Tue after the close)",
+   "status": "released",
+   "actual": "Revenue US$115.8B vs about US$108.9B expected; adjusted EPS US$2.68 vs US$2.47; data center US$107.6B; Q4 guide US$130B \u00b13% including an extra week; buyback +US$150B; board says Huang will not return, CFO Kress interim CEO",
+   "reaction": "NVDA 160.10 pre-market (+3.0%); chips +2-5%"
+  },
+  {
+   "time_et": "06:40",
+   "name": "Pre-market tape",
+   "status": "released",
+   "actual": "SPY 735.60 (+0.4%), QQQ 662.87 (+0.9%), IWM 269.28, VIX 24, 10-year 5.10%, WTI US$83.77 (under its 20-day low of 82.39 area), gold US$3,769, BTC US$64,152, ETH US$1,799",
+   "reaction": "Chips lead, small caps flat"
+  },
+  {
+   "name": "This week: Fed minutes and Fed Chair Warsh remarks (dates not confirmed)",
+   "status": "upcoming"
+  },
+  {
+   "name": "Thu Nov 19: Anthropic's market debut expected",
+   "status": "upcoming"
+  }
+ ],
+ "scenarios": [
+  {
+   "if": "NVDA holds above 160 through 10:30",
+   "then": "The gap is real: Vega's NVDA call plan comes into play above 163; Lena's KLAC add stands"
+  },
+  {
+   "if": "NVDA fades back under 155.46 (yesterday's close) before noon",
+   "then": "Sell-the-news: no chip buys anywhere; Lena's KLAC order is cancelled by its 11:00 check"
+  },
+  {
+   "if": "IWM loses 267.87 (the 20-day low)",
+   "then": "Small caps break down: Dax takes one setup at most; Sam's RKT and CVBF stops are the first to watch"
+  },
+  {
+   "if": "WTI stays under US$82.39 (its 20-day low)",
+   "then": "Fox's crude short works; no second futures trade"
+  },
+  {
+   "if": "BTC stays under US$65,000",
+   "then": "Kai stays in crash mode: no buys; stops handle exits"
+  }
+ ],
+ "news_tickers": [
+  "NVDA",
+  "TSM",
+  "AMD",
+  "KLAC",
+  "CRWV",
+  "SMCI",
+  "COIN",
+  "AVGO"
+ ],
+ "levels": {
+  "NVDA": {
+   "stop": 145,
+   "target": 190,
+   "no_buy_above": 172
+  },
+  "ABNB": {
+   "stop": 176,
+   "target": 215
+  },
+  "CRWV": {
+   "stop": 38.0
+  },
+  "TRMK": {
+   "stop": 44.8
+  },
+  "KLAC": {
+   "stop": 121,
+   "target": 190,
+   "no_buy_above": 156
+  },
+  "RKT": {
+   "stop": 12.5
+  },
+  "IWM": {
+   "stop": 262
+  },
+  "GC=F": {
+   "stop": 3990
+  },
+  "CL=F": {
+   "stop": 80
+  },
+  "BTC-USD": {
+   "stop": 48000,
+   "no_buy_above": 65000
+  },
+  "ETH-USD": {
+   "stop": 1350,
+   "no_buy_above": 1850
+  },
+  "COIN": {
+   "stop": 101.5
+  },
+  "CVBF": {
+   "stop": 21.4
+  }
+ },
+ "avoid": {
+  "GFR": "takeover offer from Strathcona: the price is pinned to the deal",
+  "GFR.TO": "takeover offer from Strathcona: the price is pinned to the deal"
+ },
+ "limits": {
+  "day": {
+   "max_day_loss_pct": 6,
+   "max_trades_day": 5
+  },
+  "swing": {
+   "max_day_loss_pct": 6
+  },
+  "options_aggr": {
+   "max_day_loss_pct": 12,
+   "max_trades_day": 1
+  },
+  "options_safe": {
+   "max_trades_day": 1
+  },
+  "futures": {
+   "max_day_loss_pct": 8,
+   "max_trades_day": 1
+  },
+  "crypto": {
+   "max_day_loss_pct": 8
+  }
+ },
+ "shared_notes": [
+  "NVDA has reported: buys in chips only if the gap holds; nobody buys NVDA above 172.",
+  "Option orders go live at 9:45 ET; Vega and Theo meet at 9:31 first."
+ ],
+ "traders": {
+  "day": {
+   "view": "Dax: Monday's FF stop and Tuesday's one-share CVM scratch: two quiet days. Today has a real catalyst: NVDA's beat lifts chips and anything AI-adjacent with float. I trade squeeze breaks after 9:45 only, no chase past half an R, and if the chip gap fades by 10:30 I go to one setup max.",
+   "playbook": [
+    {
+     "if": "NVDA and SMCI hold their gaps at 9:45",
+     "then": "run the squeeze list in AI small caps, five trades max"
+    },
+    {
+     "if": "the gap fades and QQQ loses 656.95 (yesterday's close)",
+     "then": "one setup at most"
+    },
+    {
+     "if": "price runs past entry plus half an R before the fill",
+     "then": "no chase, the order dies"
+    },
+    {
+     "if": "two losers by noon",
+     "then": "done for the day"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "11:30"
+     },
+     "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4% on the day: stand aside",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 4% on the day or VIX over 27: stand aside.",
+   "lessons_applied": [
+    "Rout-day filter: if the open gaps down 1%+ with VIX 25+, zero trades until 10:30.",
+    "Squeeze ORB is the edge: plain ORB+VWAP only when it ranks first."
+   ]
+  },
+  "swing": {
+   "view": "Sam: The time stop sold MGNI, U and XERS yesterday for C$86 total gains (XERS +C$70), and I rotated into COIN, CVBF and RKT on the rate idea. COIN has fallen to US$116 already. I'm fully invested with C$20 cash, so today is about letting stops work: COIN 101.50, CVBF 21.40, RKT 12.50, ABNB 176, CRWV 38, TRMK 44.80. CRWV is +4.6% on NVDA's beat.",
+   "playbook": [
+    {
+     "if": "COIN loses US$114 (its 20-day low)",
+     "then": "hold for the stop at 101.50; no early sale"
+    },
+    {
+     "if": "CRWV runs above US$55 on the NVDA news",
+     "then": "it's the first holding to raise its stop next meeting"
+    },
+    {
+     "if": "a holding stops out",
+     "then": "the cash waits for tomorrow's scan"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "COIN"
+     },
+     "note": "COIN stopped: cash waits for the scan, no replacement today",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 26
+     },
+     "note": "Fear is back: no new buys",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 26 or a 6% day loss: no new buys, stops stay.",
+   "lessons_applied": [
+    "Fully invested: a new setup needs a planned sale, so no buys today.",
+    "Biggest beat (XERS) keeps its stop; smaller holdings go first if cash is needed."
+   ]
+  },
+  "long": {
+   "view": "Lena: The report is out, and the guide (US$130B) keeps the chip-tool story alive. My weekly buy is today, as planned: one more KLAC share (US$148 pre-market), only if the gap holds. Limit US$150, stop US$121 (18% under), target US$190. If chips fade, I skip the week rather than chase.",
+   "playbook": [
+    {
+     "if": "KLAC holds above US$146 at 10:00",
+     "then": "the limit order fills and the stop goes 18% under"
+    },
+    {
+     "if": "KLAC fades under US$144.56 (yesterday's close)",
+     "then": "no buy; the 11:00 check stands aside"
+    },
+    {
+     "if": "any stop is hit",
+     "then": "no replacement buy the same day"
+    }
+   ],
+   "orders": [
+    {
+     "symbol": "KLAC",
+     "kind": "stock",
+     "entry_type": "limit",
+     "price": 150,
+     "stop": 121,
+     "target": 190,
+     "qty": 1,
+     "why": "Weekly long-term buy after NVDA's report: one more KLAC share at US$150 or better if the chip gap holds; stop US$121, 18% under.",
+     "no_entry_after": "11:00"
+    }
+   ],
+   "plan_b": [
+    {
+     "when": {
+      "type": "unfilled_by",
+      "symbol": "KLAC",
+      "time_et": "11:00"
+     },
+     "note": "KLAC never filled by 11:00: the order is cancelled, this week's buy is skipped",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Fear spike: no buys this week",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 28: no buys this week.",
+   "lessons_applied": [
+    "Stop about 18% under the buy (121 vs 150 limit).",
+    "Stops not tightened on one day's news: AAPL, AES, BNS.TO, RY, SHEL stay where they are."
+   ]
+  },
+  "futures": {
+   "view": "Fox: The engine shorted 3 micro crude at 7:35 ET on a break of the 20-day low; WTI is US$83.77. That's my one trade today, plus the gold short from last week (gold US$3,769, at its 20-day low). After my crude loss two weeks ago I keep the risk on the stops, with no adds.",
+   "playbook": [
+    {
+     "if": "WTI closes a 5-minute bar under US$82.39",
+     "then": "the crude short works, keep the stop"
+    },
+    {
+     "if": "WTI reclaims US$86",
+     "then": "the stop decides, no re-short today"
+    },
+    {
+     "if": "gold loses US$3,760",
+     "then": "the gold short works; nothing new"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "MGC"
+     },
+     "note": "Gold short stopped: no revenge trade",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4%: no new futures; stops stay",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 4% on the day: no new futures; stops stay.",
+   "lessons_applied": [
+    "After a big win, risk small: no second crude position.",
+    "Breaks need a 5-minute close, not a touch."
+   ]
+  },
+  "options_aggr": {
+   "view": "Vega: The IWM put paid +150% (C$291) yesterday. Now NVDA: my lesson is to wait for the report and buy the gap that holds. If NVDA trades above 163 (over the after-hours high) after 9:45, I buy 2 calls about 3% out, 10-21 days. If the gap fades, nothing today.",
+   "playbook": [
+    {
+     "if": "NVDA holds above 163 after 9:45",
+     "then": "2 calls about 3% out, -50% stop, +100% target"
+    },
+    {
+     "if": "NVDA fades under 155",
+     "then": "no option today"
+    },
+    {
+     "if": "VIX jumps over 27",
+     "then": "no new options"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "NVDA",
+      "level": 163
+     },
+     "note": "NVDA's beat holds above the after-hours high: the one trade today",
+     "orders": [
+      {
+       "symbol": "NVDA",
+       "kind": "option",
+       "right": "C",
+       "action": "BUY_TO_OPEN",
+       "dte": [
+        10,
+        21
+       ],
+       "otm_pct": 0.03,
+       "contracts": 2,
+       "why": "NVDA holding above 163 after the beat: 2 calls about 3% out; -50% stop, +100% target"
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No NVDA trigger by 2:00: no option today",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 12% on the day or VIX over 30: no new options.",
+   "lessons_applied": [
+    "Earnings: waited for the report and only buy a gap that holds.",
+    "Two contracts so a risk-off cut doesn't round to zero."
+   ]
+  },
+  "options_safe": {
+   "view": "Theo: RKT is US$13.33, still above my 12.50 strike with 23 days left. One put at a time, so no new put. The cash stays parked.",
+   "playbook": [
+    {
+     "if": "RKT falls toward US$12.50",
+     "then": "hold, assignment at a price I chose is acceptable"
+    },
+    {
+     "if": "RKT rises above US$14.50",
+     "then": "the put decays faster, keep holding"
+    },
+    {
+     "if": "No put across an earnings date, nothing under its 200-day",
+     "then": "follow the rules"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No second put: the cash stays parked",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 27
+     },
+     "note": "Fear spike: keep the cash",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 27: keep the cash, no new puts.",
+   "lessons_applied": [
+    "One put at a time: RKT uses most of the buying power, so no new put."
+   ]
+  },
+  "crypto": {
+   "view": "Kai: BTC US$64,152 and Fear & Greed 11. Under US$65,000 I'm in crash mode: no buys, and the 7-day gap on fear adds still holds. ETH/BTC stays under its 20-day, so no alts.",
+   "playbook": [
+    {
+     "if": "BTC reclaims US$68,000 and holds a day",
+     "then": "still no buy, a bounce isn't a signal"
+    },
+    {
+     "if": "BTC loses US$60,000",
+     "then": "no buys; stops handle exits"
+    },
+    {
+     "if": "Fear & Greed rises above 25 with BTC over US$65,000",
+     "then": "crash mode ends next meeting"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "BTC-USD",
+      "level": 68000
+     },
+     "note": "A bounce is not a buy signal: hold and keep the cash",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "BTC-USD",
+      "level": 60000
+     },
+     "note": "Deeper flush: still no buys; stops handle exits",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 8% on the day: no buys; stops stay.",
+   "lessons_applied": [
+    "One extreme-fear add every 7 days: no add today."
+   ]
+  }
+ }
+}

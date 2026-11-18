@@ -495,5 +495,13 @@
     "One extreme-fear add every 7 days: no add today."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "NVDA opened at 158.93 and trades 158.96, already giving back part of the 160 pre-market gap. That's the fade my lesson warns about. The call plan stays at 163: it only fires if NVDA reclaims the after-hours high, and the 2:00 cut-off stands.",
+  "theo": "RKT is 13.19, above my 12.50 strike, with 23 days left. There's no live bid/ask on the put yet (last 0.39). One put at a time: no new put, cash parked.",
+  "changes": [
+   "None: no option orders were planned; Vega's NVDA 163 trigger and Theo's stand-aside plans are kept"
+  ]
  }
 }

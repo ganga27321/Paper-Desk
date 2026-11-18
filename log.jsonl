@@ -384,3 +384,6 @@
 {"ts": "2026-11-18T16:50:51Z", "event": "close", "trader": "day", "symbol": "GMM", "kind": "stock", "price": 2.93, "pnl": 63.59, "why": "target hit"}
 {"ts": "2026-11-18T18:42:25Z", "event": "order", "trader": "day", "symbol": "ICCM", "kind": "stock", "qty": 838, "type": "stop", "price": 1.43, "why": "[Squeeze ORB] ICCM gapped +14% on 27x normal volume and is above VWAP (C$1.41); buy a break above the 15-min high C$1.42, stop under the range low C$1.29, half off at 1R, target 1.5157R. Float 3M, short interest 2%: squeeze candidate.", "source": "autopilot"}
 {"ts": "2026-11-18T18:47:16Z", "event": "open", "trader": "day", "symbol": "ICCM", "kind": "stock", "qty": 838, "price": 1.4589299421021167, "at": "2026-11-18T18:43:00"}
+{"ts": "2026-11-18T19:07:42Z", "event": "close", "trader": "day", "symbol": "QSI", "kind": "stock", "price": 1.5477941669533948, "pnl": -1.08, "why": "stop hit"}
+{"ts": "2026-11-18T19:07:42Z", "event": "plan_activated", "trader": "options_aggr", "plan": "plan_c", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No NVDA trigger by 2:00: no option today"}
+{"ts": "2026-11-18T19:07:43Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}

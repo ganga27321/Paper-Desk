@@ -369,3 +369,6 @@
 {"ts": "2026-11-18T14:48:59Z", "event": "open", "trader": "long", "symbol": "KLAC", "kind": "stock", "qty": 1, "price": 211.15526184246482, "at": "2026-11-18T14:30:00"}
 {"ts": "2026-11-18T14:59:17Z", "event": "open", "trader": "day", "symbol": "KULR", "kind": "stock", "qty": 685, "price": 2.4768236886346813, "at": "2026-11-18T14:56:00"}
 {"ts": "2026-11-18T14:59:19Z", "event": "skip", "trader": "day", "symbol": "CLRO", "reason": "already 1.92 past the breakout level C$8.46 (more than 0.5R): no chase"}
+{"ts": "2026-11-18T15:04:36Z", "event": "open", "trader": "day", "symbol": "QSI", "kind": "stock", "qty": 8, "price": 1.68, "at": "2026-11-18T15:00:00"}
+{"ts": "2026-11-18T15:04:37Z", "event": "plan_activated", "trader": "swing", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 26}, "note": "Fear is back: no new buys"}
+{"ts": "2026-11-18T15:04:53Z", "event": "rejected", "trader": "options_aggr", "symbol": "NVDA 2026-11-27 145P", "reason": "market mood sized it to zero", "why": "[Momentum put] NVDA breaking down: -8.0% in 5 days on 1.8x volume. Buy the 2026-11-27 $145 put at $2.55 (stock $155.12). Half off at +100%, the rest rides to +300% or back to breakeven; cut at -50%. Max loss = premium paid. Sized x0.7 for a risk-off market."}

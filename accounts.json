@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2151.556612809318,
+  "cash": 2302.9556264529274,
   "positions": [
-   {
-    "id": "o45",
-    "kind": "stock",
-    "symbol": "KULR",
-    "side": "long",
-    "qty": 343,
-    "entry": 2.4768236886346813,
-    "entry_ts": "2026-11-18T14:56:00",
-    "stop": 2.4768236886346813,
-    "target": 2.64,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] KULR gapped +10% on 11x normal volume and is above VWAP (C$2.43); buy a break above the 15-min high C$2.46, stop under the range low C$2.36, half off at 1R, target 1.5157R. Float 43M, short interest 17%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 2.6226096839813238,
-    "low": 2.4768236886346813,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "init_stop": 2.36,
-    "last": 2.509383313632725,
-    "scaled": true
-   },
    {
     "id": "o48",
     "kind": "stock",
@@ -52,7 +27,31 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 1.55,
-    "last": 1.6628408894160884
+    "last": 1.6503143682416237
+   },
+   {
+    "id": "o49",
+    "kind": "stock",
+    "symbol": "AZI",
+    "side": "long",
+    "qty": 505,
+    "entry": 1.3763609622491302,
+    "entry_ts": "2026-11-18T15:35:00",
+    "stop": 1.1,
+    "target": 1.53,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] AZI gapped +18% on 55x normal volume and is above VWAP (C$1.21); buy a break above the 15-min high C$1.26, stop under the range low C$1.10, half off at 1R, target 1.5157R. Float 4M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 1.462231186703491,
+    "low": 1.3763609622491302,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 1.1,
+    "last": 1.433416633981281
    }
   ],
   "pending": [
@@ -103,29 +102,6 @@
     "reserve": 602.1
    },
    {
-    "id": "o49",
-    "kind": "stock",
-    "symbol": "AZI",
-    "qty": 505,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 1.27,
-    "stop": 1.1,
-    "target": 1.53,
-    "why": "[Squeeze ORB] AZI gapped +18% on 55x normal volume and is above VWAP (C$1.21); buy a break above the 15-min high C$1.26, stop under the range low C$1.10, half off at 1R, target 1.5157R. Float 4M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-18T15:34:57",
-    "valid_until": "2026-11-18T21:34:57",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 641.35
-   },
-   {
     "id": "o50",
     "kind": "stock",
     "symbol": "ANGX",
@@ -154,7 +130,7 @@
    "TLS": "2026-11-09T19:35:00",
    "GFR": "2026-11-09T20:59:00",
    "STLN": "2026-11-09T20:51:00",
-   "KULR": "2026-11-18T15:33:00",
+   "KULR": "2026-11-18T15:38:00",
    "PXLW": "2026-11-10T20:50:00",
    "WFF": "2026-11-10T15:11:00",
    "ZNTL": "2026-11-10T18:02:00",
@@ -182,24 +158,26 @@
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
-   "BRBR": "2026-11-18T15:33:00",
-   "GMM": "2026-11-18T15:33:00",
-   "QSI": "2026-11-18T15:33:00"
+   "BRBR": "2026-11-18T15:38:00",
+   "GMM": "2026-11-18T15:38:00",
+   "QSI": "2026-11-18T15:38:00",
+   "ANGX": "2026-11-18T15:38:00",
+   "AZI": "2026-11-18T15:38:00"
   },
   "day": {
    "date": "2026-11-18",
-   "trades": 2,
+   "trades": 3,
    "start_eq": 2979.7876197574346
   },
   "week": {
    "key": "2026-W47",
-   "trades": 4
+   "trades": 5
   },
-  "realized": 60.73688887582462,
+  "realized": 59.037787825421226,
   "seq": 50,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3025.5778165006714,
+  "equity_last": 3040.0335415594072,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

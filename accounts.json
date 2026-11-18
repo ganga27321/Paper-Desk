@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2302.9556264529274,
+  "cash": 1630.0324664529273,
   "positions": [
    {
     "id": "o48",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 1.55,
-    "last": 1.6480764643404484
+    "last": 1.6557270778361328
    },
    {
     "id": "o49",
@@ -51,33 +51,34 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.1,
-    "last": 1.3399578522041082
-   }
-  ],
-  "pending": [
+    "last": 1.3833563863782175
+   },
    {
     "id": "o46",
     "kind": "stock",
     "symbol": "GMM",
-    "qty": 273,
     "side": "long",
-    "entry_type": "stop",
-    "price": 2.46,
+    "qty": 273,
+    "entry": 2.46,
+    "entry_ts": "2026-11-18T16:05:00",
     "stop": 2.15,
     "target": 2.93,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] GMM gapped +23% on 58x normal volume and is above VWAP (C$2.25); buy a break above the 15-min high C$2.45, stop under the range low C$2.15, half off at 1R, target 1.5157R. Float 1M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-18T14:48:59",
-    "valid_until": "2026-11-18T20:48:59",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 2.766712772756435,
+    "low": 2.46,
     "scale_out_r": 1,
-    "reserve": 671.58
-   },
+    "play": "Squeeze ORB",
+    "init_stop": 2.15,
+    "last": 2.515845095832205
+   }
+  ],
+  "pending": [
    {
     "id": "o47",
     "kind": "stock",
@@ -158,26 +159,26 @@
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
-   "BRBR": "2026-11-18T16:03:00",
-   "GMM": "2026-11-18T16:03:00",
-   "QSI": "2026-11-18T16:03:00",
-   "ANGX": "2026-11-18T16:03:00",
-   "AZI": "2026-11-18T16:03:00"
+   "BRBR": "2026-11-18T16:09:00",
+   "GMM": "2026-11-18T16:09:00",
+   "QSI": "2026-11-18T16:09:00",
+   "ANGX": "2026-11-18T16:08:00",
+   "AZI": "2026-11-18T16:09:00"
   },
   "day": {
    "date": "2026-11-18",
-   "trades": 3,
+   "trades": 4,
    "start_eq": 2979.7876197574346
   },
   "week": {
    "key": "2026-W47",
-   "trades": 5
+   "trades": 6
   },
   "realized": 59.037787825421226,
   "seq": 50,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2992.8189535307256,
+  "equity_last": 3028.6989693588084,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

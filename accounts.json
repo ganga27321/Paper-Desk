@@ -5,7 +5,54 @@
  "day": {
   "cash": 3175.088334293566,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o52",
+    "kind": "stock",
+    "symbol": "NCPL",
+    "qty": 190,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 5.12,
+    "stop": 4.49,
+    "target": 6.07,
+    "why": "[Squeeze ORB] NCPL gapped +22% on 4x normal volume and is above VWAP (C$4.77); buy a break above the 15-min high C$5.11, stop under the range low C$4.49, half off at 1R, target 1.5157R. Float 4M, short interest 16%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-19T14:48:20",
+    "valid_until": "2026-11-19T20:48:20",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 972.8000000000001
+   },
+   {
+    "id": "o53",
+    "kind": "stock",
+    "symbol": "PCT",
+    "qty": 429,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 3.08,
+    "stop": 2.8,
+    "target": 3.5,
+    "why": "[Squeeze ORB] PCT gapped +15% on 7x normal volume and is above VWAP (C$2.93); buy a break above the 15-min high C$3.07, stop under the range low C$2.80, half off at 1R, target 1.5157R. Float 162M, short interest 47%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-19T14:48:20",
+    "valid_until": "2026-11-19T20:48:20",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1321.32
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -56,7 +103,7 @@
    "trades": 7
   },
   "realized": 226.45653631321176,
-  "seq": 51,
+  "seq": 53,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3175.088334293566,

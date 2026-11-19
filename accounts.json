@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2200.3427342935656,
+  "cash": 1326.8986652060062,
   "positions": [
    {
     "id": "o52",
@@ -27,7 +27,31 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 4.49,
-    "last": 5.078640300721929
+    "last": 5.167170863336082
+   },
+   {
+    "id": "o54",
+    "kind": "stock",
+    "symbol": "MAGN",
+    "side": "long",
+    "qty": 46,
+    "entry": 18.95001451634903,
+    "entry_ts": "2026-11-19T15:14:00",
+    "stop": 16.8,
+    "target": 21.81,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] MAGN gapped +10% on 4x normal volume and is above VWAP (C$17.67); buy a break above the 15-min high C$18.78, stop under the range low C$16.80, half off at 1R, target 1.5157R. Float 30M, short interest 6%: squeeze candidate.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 19.307688695807315,
+    "low": 18.95001451634903,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 16.8,
+    "last": 19.307688695807315
    }
   ],
   "pending": [
@@ -53,29 +77,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 1321.32
-   },
-   {
-    "id": "o54",
-    "kind": "stock",
-    "symbol": "MAGN",
-    "qty": 46,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 18.79,
-    "stop": 16.8,
-    "target": 21.81,
-    "why": "[Squeeze ORB] MAGN gapped +10% on 4x normal volume and is above VWAP (C$17.67); buy a break above the 15-min high C$18.78, stop under the range low C$16.80, half off at 1R, target 1.5157R. Float 30M, short interest 6%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-19T14:58:55",
-    "valid_until": "2026-11-19T20:58:55",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 864.3399999999999
    }
   ],
   "last_bar": {
@@ -107,7 +108,7 @@
    "FF": "2026-11-16T19:36:00",
    "TU": "2026-11-16T20:17:00",
    "GTN-A": "2026-11-16T19:52:00",
-   "PCT": "2026-11-19T15:12:00",
+   "PCT": "2026-11-19T15:17:00",
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
@@ -117,23 +118,23 @@
    "ANGX": "2026-11-18T20:17:00",
    "AZI": "2026-11-18T20:07:00",
    "ICCM": "2026-11-18T20:51:00",
-   "NCPL": "2026-11-19T15:12:00",
-   "MAGN": "2026-11-19T15:11:00"
+   "NCPL": "2026-11-19T15:17:00",
+   "MAGN": "2026-11-19T15:17:00"
   },
   "day": {
    "date": "2026-11-19",
-   "trades": 1,
+   "trades": 2,
    "start_eq": 3175.088334293566
   },
   "week": {
    "key": "2026-W47",
-   "trades": 8
+   "trades": 9
   },
   "realized": 226.45653631321176,
   "seq": 55,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3165.2843914307323,
+  "equity_last": 3196.8148092469983,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

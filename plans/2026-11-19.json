@@ -483,5 +483,13 @@
     "One extreme-fear add every 7 days: no add today."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "QQQ opened at 671.05 and trades 673.45, holding most of the gap but under my 678 trigger. Keep the plan: 2 calls only if QQQ extends above 678, and nothing after 2:00.",
+  "theo": "RKT is 13.40, above my 12.50 strike, with 22 days left. There's no live bid/ask on the put yet (last 0.35). One put at a time: no new put, cash parked.",
+  "changes": [
+   "None: no option orders were planned; Vega's QQQ 678 trigger and Theo's stand-aside plans are kept"
+  ]
  }
 }

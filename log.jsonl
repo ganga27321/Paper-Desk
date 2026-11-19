@@ -421,3 +421,6 @@
 {"ts": "2026-11-19T16:55:12Z", "event": "close", "trader": "swing", "symbol": "TRMK", "kind": "stock", "price": 64.274560546875, "pnl": -8.21, "why": "stop hit"}
 {"ts": "2026-11-19T16:55:31Z", "event": "rejected", "trader": "swing", "symbol": "U", "reason": "cooldown: stopped out of U within 5 days", "why": "[Tabled at the meeting] Tabled at the meeting: U at C$70.04, -1.4% in 5 days, RSI 58, volume 0.6x. Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield -0.02 pts in 5 days Sized x0.6 for a risk-off market."}
 {"ts": "2026-11-19T17:10:22Z", "event": "close", "trader": "swing", "symbol": "ABNB", "kind": "stock", "price": 252.5072021484375, "pnl": -88.79, "why": "stop hit"}
+{"ts": "2026-11-19T17:25:35Z", "event": "close", "trader": "swing", "symbol": "CVBF", "kind": "stock", "price": 30.702580261230466, "pnl": -6.49, "why": "stop hit"}
+{"ts": "2026-11-19T17:25:35Z", "event": "plan_activated", "trader": "long", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 28}, "note": "Fear spike: no buys this week"}
+{"ts": "2026-11-19T17:25:36Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}

@@ -1,0 +1,487 @@
+{
+ "date": "2026-11-19",
+ "market_view": "Pre-market 6:40 ET Thursday: Anthropic priced its IPO at US$83, above the range, and tech futures jump: QQQ 674.74 (+2.3%), SPY 739.68 (+1.3%), GOOGL +3.9%, AMZN +2.4%, AMD +3.7%, KLAC +4.3%, CRWV +6.2%, NVDA 154.53 (+2.4%). Yesterday NVDA's beat faded (-2.9%) and the dollar hit a 19-month high (DXY 103.7). VIX 22, 10-year 5.07%, WTI US$82.15, gold US$3,729, BTC US$63,922 with Fear & Greed 10. After yesterday's fade the desk wants the gap to hold past 10:30 before adding risk.",
+ "tabled": [
+  "NVDA",
+  "TSM",
+  "AMD",
+  "CRWV",
+  "U",
+  "ABNB",
+  "MGNI",
+  "XERS",
+  "TRMK",
+  "KLAC",
+  "RKT",
+  "IWM",
+  "QQQ",
+  "CL=F",
+  "GC=F",
+  "BTC-USD",
+  "ETH-USD"
+ ],
+ "events": [
+  {
+   "name": "Wed Nov 18: S&P 500 -0.3% as NVDA's post-earnings pop faded; dollar at a 19-month high",
+   "status": "released",
+   "actual": "SPY 730.20, QQQ 659.51, NVDA 150.96 (-2.9%), IWM 270.12; AVGO +3.6%, AMZN +3.8%",
+   "reaction": "Futures higher overnight on Anthropic"
+  },
+  {
+   "name": "Anthropic IPO priced (overnight)",
+   "status": "released",
+   "actual": "Priced at US$83, above the marketed range; Nasdaq 100 futures about +1.9%",
+   "reaction": "GOOGL +3.9%, AMZN +2.4%, AI chips +2-4% pre-market"
+  },
+  {
+   "time_et": "06:40",
+   "name": "Pre-market tape",
+   "status": "released",
+   "actual": "SPY 739.68 (+1.3%), QQQ 674.74 (+2.3%), IWM 272.08 (+0.7%), VIX 22, 10-year 5.07%, DXY 103.7, WTI US$82.15, gold US$3,729, BTC US$63,922, ETH US$1,808",
+   "reaction": "Broad tech gap up"
+  },
+  {
+   "name": "Today: Anthropic's first trade (time not confirmed)",
+   "status": "upcoming"
+  },
+  {
+   "name": "This week: Fed minutes and Fed Chair Warsh remarks (dates not confirmed)",
+   "status": "upcoming"
+  }
+ ],
+ "scenarios": [
+  {
+   "if": "QQQ holds above 670 through 10:30",
+   "then": "The gap holds: Dax runs his list; Vega's QQQ call plan comes into play above 678"
+  },
+  {
+   "if": "QQQ fades under 665 before noon (yesterday's NVDA pattern)",
+   "then": "Sell-the-news: no new longs; Dax one setup at most"
+  },
+  {
+   "if": "Anthropic opens far above US$83 and AI names spike",
+   "then": "No chasing gaps over 5% at the open; the engine's no-chase rule applies"
+  },
+  {
+   "if": "WTI loses US$81.69 (the 20-day low)",
+   "then": "Fox's crude short works; no add"
+  },
+  {
+   "if": "BTC stays under US$65,000",
+   "then": "Kai stays in crash mode: no buys"
+  }
+ ],
+ "news_tickers": [
+  "GOOGL",
+  "AMZN",
+  "NVDA",
+  "AMD",
+  "KLAC",
+  "CRWV",
+  "MSFT",
+  "COIN"
+ ],
+ "levels": {
+  "NVDA": {
+   "stop": 145,
+   "target": 190,
+   "no_buy_above": 172
+  },
+  "ABNB": {
+   "stop": 176,
+   "target": 215
+  },
+  "CRWV": {
+   "stop": 38.0
+  },
+  "TRMK": {
+   "stop": 44.8
+  },
+  "KLAC": {
+   "stop": 121,
+   "target": 190
+  },
+  "RKT": {
+   "stop": 12.5
+  },
+  "IWM": {
+   "stop": 262
+  },
+  "GC=F": {
+   "stop": 3990
+  },
+  "CL=F": {
+   "stop": 80
+  },
+  "BTC-USD": {
+   "stop": 48000,
+   "no_buy_above": 65000
+  },
+  "ETH-USD": {
+   "stop": 1350,
+   "no_buy_above": 1850
+  },
+  "COIN": {
+   "stop": 101.5
+  },
+  "CVBF": {
+   "stop": 21.4
+  },
+  "QQQ": {
+   "stop": 640
+  }
+ },
+ "avoid": {
+  "GFR": "takeover offer from Strathcona: the price is pinned to the deal",
+  "GFR.TO": "takeover offer from Strathcona: the price is pinned to the deal"
+ },
+ "limits": {
+  "day": {
+   "max_day_loss_pct": 6,
+   "max_trades_day": 5
+  },
+  "swing": {
+   "max_day_loss_pct": 6
+  },
+  "options_aggr": {
+   "max_day_loss_pct": 12,
+   "max_trades_day": 1
+  },
+  "options_safe": {
+   "max_trades_day": 1
+  },
+  "futures": {
+   "max_day_loss_pct": 8,
+   "max_trades_day": 1
+  },
+  "crypto": {
+   "max_day_loss_pct": 8
+  }
+ },
+ "shared_notes": [
+  "Anthropic IPO day: nobody chases a gap over 5% at the open; buys wait for 10:00 and a hold above the opening range.",
+  "Option orders go live at 9:45 ET; Vega and Theo meet at 9:31 first."
+ ],
+ "traders": {
+  "day": {
+   "view": "Dax: Yesterday was my best day in a week: GMM and AZI both hit targets and KULR paid half at 1R, about +C$195 net. Today the tape gaps up on Anthropic, so the squeeze names will be AI-adjacent small caps. Same rules: after 9:45 only, no chase past half an R, done after two losers.",
+   "playbook": [
+    {
+     "if": "QQQ holds the gap at 9:45",
+     "then": "run the squeeze list, five trades max"
+    },
+    {
+     "if": "the gap fades and QQQ loses 665",
+     "then": "one setup at most"
+    },
+    {
+     "if": "price runs past entry plus half an R",
+     "then": "no chase, the order dies"
+    },
+    {
+     "if": "two losers by noon",
+     "then": "done for the day"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "11:30"
+     },
+     "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4% on the day: stand aside",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 4% on the day or VIX over 27: stand aside.",
+   "lessons_applied": [
+    "Squeeze ORB is the edge: plain ORB+VWAP (QSI lost yesterday) only when it ranks first.",
+    "Not a rout morning (futures green, VIX 22), so clean breaks are possible."
+   ]
+  },
+  "swing": {
+   "view": "Sam: Fully invested with C$20 cash. COIN is US$114.86 pre-market (+3.9%) after a slide to US$110.51, near its 20-day low; its stop is 101.50. CRWV +6.2% on the AI gap. No buys; the stops work.",
+   "playbook": [
+    {
+     "if": "COIN reclaims US$120",
+     "then": "hold; the rate-rotation idea gets time"
+    },
+    {
+     "if": "COIN loses US$109.94 (its 20-day low)",
+     "then": "the 101.50 stop decides, no early sale"
+    },
+    {
+     "if": "a holding stops out",
+     "then": "the cash waits for tomorrow's scan"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "COIN"
+     },
+     "note": "COIN stopped: cash waits for the scan, no replacement today",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 26
+     },
+     "note": "Fear is back: no new buys",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 26 or a 6% day loss: no new buys, stops stay.",
+   "lessons_applied": [
+    "Fully invested: a new setup needs a planned sale, so no buys today.",
+    "Biggest beat (XERS) keeps its stop; smaller holdings go first if cash is needed."
+   ]
+  },
+  "long": {
+   "view": "Lena: My KLAC add filled yesterday, so I own 4 now. KLAC is US$151.06 pre-market (+4.3%), and the stops on both lots stay under the buys. This week's buy is done, and I don't touch stops on one day's news.",
+   "playbook": [
+    {
+     "if": "KLAC runs above US$156",
+     "then": "nothing to do; next week's buy decides"
+    },
+    {
+     "if": "any stop is hit",
+     "then": "no replacement buy the same day"
+    },
+    {
+     "if": "VIX jumps over 28",
+     "then": "no buys next week either"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "15:00"
+     },
+     "note": "No buy today: this week's buy (KLAC) is done",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Fear spike: no buys this week",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 28: no buys this week.",
+   "lessons_applied": [
+    "Weekly buy already made (KLAC); no second buy this week.",
+    "Stops stay about 18% under the buys."
+   ]
+  },
+  "futures": {
+   "view": "Fox: Short 3 micro crude since yesterday's 20-day-low break; WTI US$82.15 sits just above the US$81.69 low. My gold short is working too: gold US$3,729, near its US$3,694.50 20-day low. Two positions open, so no new futures today.",
+   "playbook": [
+    {
+     "if": "WTI closes a 5-minute bar under US$81.69",
+     "then": "the crude short works, keep the stop"
+    },
+    {
+     "if": "WTI reclaims US$85",
+     "then": "the stop decides; no re-short"
+    },
+    {
+     "if": "gold loses US$3,694.50",
+     "then": "the gold short works; nothing new"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "MGC"
+     },
+     "note": "Gold short stopped: no revenge trade",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4%: no new futures; stops stay",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 4% on the day: no new futures; stops stay.",
+   "lessons_applied": [
+    "After a big win, risk small: no second crude position.",
+    "Breaks need a 5-minute close, not a touch."
+   ]
+  },
+  "options_aggr": {
+   "view": "Vega: NVDA never got to 163 yesterday, so no trade, which was right with the fade. Today's gap is broad tech on Anthropic. My one idea: QQQ calls if QQQ trades above 678 after 9:45, meaning the gap extends, not fades. 2 contracts about 3% out, 10-21 days.",
+   "playbook": [
+    {
+     "if": "QQQ trades above 678 after 9:45",
+     "then": "2 calls about 3% out, -50% stop, +100% target"
+    },
+    {
+     "if": "QQQ fades under 665",
+     "then": "no option today"
+    },
+    {
+     "if": "VIX jumps over 27",
+     "then": "no new options"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "QQQ",
+      "level": 678
+     },
+     "note": "Tech gap extends: the one trade today",
+     "orders": [
+      {
+       "symbol": "QQQ",
+       "kind": "option",
+       "right": "C",
+       "action": "BUY_TO_OPEN",
+       "dte": [
+        10,
+        21
+       ],
+       "otm_pct": 0.03,
+       "contracts": 2,
+       "why": "QQQ extending above 678 on the Anthropic IPO day: 2 calls about 3% out; -50% stop, +100% target"
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No QQQ trigger by 2:00: no option today",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 12% on the day or VIX over 30: no new options.",
+   "lessons_applied": [
+    "Bought nothing into yesterday's fade; only a gap that extends gets the trade.",
+    "Two contracts so a risk-off cut doesn't round to zero."
+   ]
+  },
+  "options_safe": {
+   "view": "Theo: RKT US$13.57, above my 12.50 strike with 22 days left. One put at a time: no new put, the cash stays parked.",
+   "playbook": [
+    {
+     "if": "RKT falls toward US$12.50",
+     "then": "hold, assignment at a price I chose is acceptable"
+    },
+    {
+     "if": "RKT rises above US$14.50",
+     "then": "the put decays faster, keep holding"
+    },
+    {
+     "if": "No put across an earnings date, nothing under its 200-day",
+     "then": "follow the rules"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No second put: the cash stays parked",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 27
+     },
+     "note": "Fear spike: keep the cash",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 27: keep the cash, no new puts.",
+   "lessons_applied": [
+    "One put at a time: RKT uses most of the buying power, so no new put."
+   ]
+  },
+  "crypto": {
+   "view": "Kai: BTC US$63,922 and Fear & Greed 10 while stocks rally: crypto isn't joining in. Under US$65,000 I'm in crash mode with no buys, and the 7-day fear-add gap holds.",
+   "playbook": [
+    {
+     "if": "BTC reclaims US$68,000 and holds a day",
+     "then": "still no buy, a bounce isn't a signal"
+    },
+    {
+     "if": "BTC loses US$60,000",
+     "then": "no buys; stops handle exits"
+    },
+    {
+     "if": "Fear & Greed rises above 25 with BTC over US$65,000",
+     "then": "crash mode ends next meeting"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "BTC-USD",
+      "level": 68000
+     },
+     "note": "A bounce is not a buy signal: hold and keep the cash",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "BTC-USD",
+      "level": 60000
+     },
+     "note": "Deeper flush: still no buys; stops handle exits",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 8% on the day: no buys; stops stay.",
+   "lessons_applied": [
+    "One extreme-fear add every 7 days: no add today."
+   ]
+  }
+ }
+}

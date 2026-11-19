@@ -435,3 +435,5 @@
 {"ts": "2026-11-19T20:17:42Z", "event": "skip", "trader": "day", "symbol": "PCT", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-19T20:17:42Z", "event": "skip", "trader": "day", "symbol": "DDD", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-19T20:22:43Z", "event": "close", "trader": "day", "symbol": "NCPL", "kind": "stock", "price": 5.12, "pnl": -0.97, "why": "stop hit"}
+{"ts": "2026-11-19T20:52:52Z", "event": "close", "trader": "day", "symbol": "MAGN", "kind": "stock", "price": 18.281937849275778, "pnl": -32.41, "why": "flat by 15:50 (day trade closed before the bell)"}
+{"ts": "2026-11-19T20:52:52Z", "event": "close", "trader": "day", "symbol": "YMAT", "kind": "stock", "price": 1.463989425551162, "pnl": -18.54, "why": "flat by 15:50 (day trade closed before the bell)"}

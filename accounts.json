@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 4.49,
-    "last": 5.346379324448662,
+    "last": 5.249842928044131,
     "scaled": true
    },
    {
@@ -52,7 +52,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 16.8,
-    "last": 18.308732835712817
+    "last": 18.29273567587279
    },
    {
     "id": "o63",
@@ -76,57 +76,10 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.33,
-    "last": 1.462404578996086
+    "last": 1.489510396108244
    }
   ],
-  "pending": [
-   {
-    "id": "o53",
-    "kind": "stock",
-    "symbol": "PCT",
-    "qty": 429,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 3.08,
-    "stop": 2.8,
-    "target": 3.5,
-    "why": "[Squeeze ORB] PCT gapped +15% on 7x normal volume and is above VWAP (C$2.93); buy a break above the 15-min high C$3.07, stop under the range low C$2.80, half off at 1R, target 1.5157R. Float 162M, short interest 47%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-19T14:48:20",
-    "valid_until": "2026-11-19T20:48:20",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1321.32
-   },
-   {
-    "id": "o68",
-    "kind": "stock",
-    "symbol": "DDD",
-    "qty": 46,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 2.23,
-    "stop": 2.11,
-    "target": 2.41,
-    "why": "[Squeeze ORB] DDD gapped +9% on 4x normal volume and is above VWAP (C$2.13); buy a break above the 15-min high C$2.22, stop under the range low C$2.11, half off at 1R, target 1.5157R. Float 161M, short interest 26%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-19T18:31:29",
-    "valid_until": "2026-11-20T00:31:29",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 102.58
-   }
-  ],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -156,7 +109,7 @@
    "FF": "2026-11-16T19:36:00",
    "TU": "2026-11-16T20:17:00",
    "GTN-A": "2026-11-16T19:52:00",
-   "PCT": "2026-11-19T20:11:00",
+   "PCT": "2026-11-19T20:16:00",
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
@@ -166,10 +119,10 @@
    "ANGX": "2026-11-18T20:17:00",
    "AZI": "2026-11-18T20:07:00",
    "ICCM": "2026-11-18T20:51:00",
-   "NCPL": "2026-11-19T20:11:00",
-   "MAGN": "2026-11-19T20:11:00",
-   "YMAT": "2026-11-19T20:11:00",
-   "DDD": "2026-11-19T20:11:00"
+   "NCPL": "2026-11-19T20:16:00",
+   "MAGN": "2026-11-19T20:13:00",
+   "YMAT": "2026-11-19T20:16:00",
+   "DDD": "2026-11-19T20:15:00"
   },
   "day": {
    "date": "2026-11-19",
@@ -184,7 +137,7 @@
   "seq": 68,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3203.157603221366,
+  "equity_last": 3200.542241013465,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

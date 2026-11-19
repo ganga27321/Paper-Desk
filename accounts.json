@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 4.49,
-    "last": 5.3535787877634675,
+    "last": 5.538008566645431,
     "scaled": true
    },
    {
@@ -52,7 +52,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 16.8,
-    "last": 18.987520714692096
+    "last": 18.960882604122162
    }
   ],
   "pending": [
@@ -78,6 +78,29 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 1321.32
+   },
+   {
+    "id": "o63",
+    "kind": "stock",
+    "symbol": "YMAT",
+    "qty": 269,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 1.53,
+    "stop": 1.33,
+    "target": 1.83,
+    "why": "[Squeeze ORB] YMAT gapped +21% on 4x normal volume and is above VWAP (C$1.47); buy a break above the 15-min high C$1.52, stop under the range low C$1.33, half off at 1R, target 1.5157R. Float 1M, short interest 7%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-19T16:04:21",
+    "valid_until": "2026-11-19T22:04:21",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 411.57
    }
   ],
   "last_bar": {
@@ -109,7 +132,7 @@
    "FF": "2026-11-16T19:36:00",
    "TU": "2026-11-16T20:17:00",
    "GTN-A": "2026-11-16T19:52:00",
-   "PCT": "2026-11-19T15:58:00",
+   "PCT": "2026-11-19T16:03:00",
    "SPAI": "2026-11-17T20:16:00",
    "TRIB": "2026-11-17T18:36:00",
    "CVM": "2026-11-17T20:51:00",
@@ -119,8 +142,8 @@
    "ANGX": "2026-11-18T20:17:00",
    "AZI": "2026-11-18T20:07:00",
    "ICCM": "2026-11-18T20:51:00",
-   "NCPL": "2026-11-19T15:58:00",
-   "MAGN": "2026-11-19T15:58:00"
+   "NCPL": "2026-11-19T16:03:00",
+   "MAGN": "2026-11-19T16:03:00"
   },
   "day": {
    "date": "2026-11-19",
@@ -132,10 +155,10 @@
    "trades": 9
   },
   "realized": 285.21403631321175,
-  "seq": 61,
+  "seq": 63,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3254.072102919372,
+  "equity_last": 3270.3675788269416,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

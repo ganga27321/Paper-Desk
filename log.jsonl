@@ -434,3 +434,4 @@
 {"ts": "2026-11-19T20:12:37Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "No buy today: this week's buy (KLAC) is done"}
 {"ts": "2026-11-19T20:17:42Z", "event": "skip", "trader": "day", "symbol": "PCT", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-19T20:17:42Z", "event": "skip", "trader": "day", "symbol": "DDD", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-19T20:22:43Z", "event": "close", "trader": "day", "symbol": "NCPL", "kind": "stock", "price": 5.12, "pnl": -0.97, "why": "stop hit"}

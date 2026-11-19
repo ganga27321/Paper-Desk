@@ -133,3 +133,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-19T17:10:22Z,swing,SELL,stock,ABNB,5,252.507202,0.63,1262.54,-88.79,43.5,stop hit,meeting,yes
 2026-11-19T17:25:35Z,swing,SELL,stock,CVBF,5,30.70258,0.08,153.51,-6.49,5.3,stop hit,autopilot,yes
 2026-11-19T18:26:20Z,swing,BUY,stock,NVDA,1,212.656993,0.11,212.66,,7.3,"[Tabled at the meeting] Tabled at the meeting: NVDA at C$216.35, -13.1% in 5 days, RSI 21, volume 1.5x. Stop 1.98 ATR, half off at 1R, target 3 ATR, out after 13 trading days if neither. 10-yr yield -0.04 pts in 5 days Sized x0.6 for a risk-off market.",meeting,yes
+2026-11-19T20:22:43Z,day,SELL,stock,NCPL,95,5.12,0.97,486.4,-0.97,15.3,stop hit,autopilot,yes

@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 1459.6630252060063,
+  "cash": 1945.0902252060064,
   "positions": [
-   {
-    "id": "o52",
-    "kind": "stock",
-    "symbol": "NCPL",
-    "side": "long",
-    "qty": 95,
-    "entry": 5.12,
-    "entry_ts": "2026-11-19T14:49:00",
-    "stop": 5.12,
-    "target": 6.07,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] NCPL gapped +22% on 4x normal volume and is above VWAP (C$4.77); buy a break above the 15-min high C$5.11, stop under the range low C$4.49, half off at 1R, target 1.5157R. Float 4M, short interest 16%: squeeze candidate.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 6.012425721830368,
-    "low": 5.12,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "init_stop": 4.49,
-    "last": 5.249842928044131,
-    "scaled": true
-   },
    {
     "id": "o54",
     "kind": "stock",
@@ -52,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 16.8,
-    "last": 18.29273567587279
+    "last": 18.296819857731634
    },
    {
     "id": "o63",
@@ -76,7 +51,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.33,
-    "last": 1.489510396108244
+    "last": 1.4697679922838205
    }
   ],
   "pending": [],
@@ -119,9 +94,9 @@
    "ANGX": "2026-11-18T20:17:00",
    "AZI": "2026-11-18T20:07:00",
    "ICCM": "2026-11-18T20:51:00",
-   "NCPL": "2026-11-19T20:16:00",
-   "MAGN": "2026-11-19T20:13:00",
-   "YMAT": "2026-11-19T20:16:00",
+   "NCPL": "2026-11-19T20:21:00",
+   "MAGN": "2026-11-19T20:21:00",
+   "YMAT": "2026-11-19T20:21:00",
    "DDD": "2026-11-19T20:15:00"
   },
   "day": {
@@ -133,11 +108,11 @@
    "key": "2026-W47",
    "trades": 10
   },
-  "realized": 285.21403631321175,
+  "realized": 284.24123631321174,
   "seq": 68,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3200.542241013465,
+  "equity_last": 3182.111528586009,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -138,3 +138,5 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-19T20:52:52Z,day,SELL,stock,YMAT,269,1.463989,0.79,393.81,-18.54,12.3,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-20T14:35:35Z,swing,SELL,stock,NVDA,1,205.600865,0.1,205.6,-7.16,7.2,stop hit,meeting,yes
 2026-11-20T15:01:10Z,day,BUY,stock,CRVO,564,2.24108,2.53,1263.97,,39.8,"[Squeeze ORB] CRVO gapped +15% on 4x normal volume and is above VWAP (C$2.17); buy a break above the 15-min high C$2.23, stop under the range low C$2.08, half off at 1R, target 1.5157R. Float 10M, short interest 10%: squeeze candidate. Sized x0.75 for a risk-off market.",autopilot,yes
+2026-11-20T15:51:25Z,crypto,SELL,crypto,ETH-USD,0.04718964,2376.629692,0.67,112.15,-37.99,4.6,stop hit,autopilot,no (sandbox)
+2026-11-20T15:51:25Z,crypto,SELL,crypto,ETH-USD,0.04740677,2371.946343,0.67,112.45,-38.23,4.6,stop hit,autopilot,no (sandbox)

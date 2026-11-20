@@ -469,5 +469,13 @@
     "One extreme-fear add every 7 days: no add today."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "QQQ opened at 638.81 and is already 635.87, well under my 650 reclaim level. No bounce yet, so the plan stays: 2 calls only above 650, nothing after 2:00. With VIX near 30 I won't buy expensive puts after the flush.",
+  "theo": "RKT is 13.45, above my 12.50 strike, with 21 days left. There's no live bid/ask on the put yet (last 0.35). One put at a time: no new put, cash parked.",
+  "changes": [
+   "None: no option orders were planned; Vega's QQQ 650 reclaim trigger and Theo's stand-aside plans are kept"
+  ]
  }
 }

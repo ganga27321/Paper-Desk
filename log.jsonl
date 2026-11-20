@@ -458,3 +458,4 @@
 {"ts": "2026-11-20T15:51:25Z", "event": "plan_activated", "trader": "crypto", "plan": "plan_c", "index": 0, "when": {"type": "price_below", "symbol": "BTC-USD", "level": 60000}, "note": "Deeper flush: still no buys; stops handle exits"}
 {"ts": "2026-11-20T16:06:33Z", "event": "close", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "price": 2350.66654513, "pnl": -122.31, "why": "stop hit"}
 {"ts": "2026-11-20T16:32:13Z", "event": "plan_activated", "trader": "day", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "11:30"}, "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)"}
+{"ts": "2026-11-20T16:36:47Z", "event": "close", "trader": "day", "symbol": "CRVO", "kind": "stock", "price": 2.08, "pnl": -93.2, "why": "stop hit"}

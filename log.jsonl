@@ -466,3 +466,4 @@
 {"ts": "2026-11-20T19:08:19Z", "event": "plan_activated", "trader": "options_aggr", "plan": "plan_c", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No reclaim by 2:00: no option today"}
 {"ts": "2026-11-20T19:08:19Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
 {"ts": "2026-11-20T20:09:00Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "15:00"}, "note": "No buy today: this week's buy (KLAC) is done"}
+{"ts": "2026-11-20T20:19:03Z", "event": "skip", "trader": "day", "symbol": "CAPR", "reason": "order cancelled: unfilled by 15:15 ET"}

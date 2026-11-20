@@ -136,3 +136,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-19T20:22:43Z,day,SELL,stock,NCPL,95,5.12,0.97,486.4,-0.97,15.3,stop hit,autopilot,yes
 2026-11-19T20:52:52Z,day,SELL,stock,MAGN,46,18.281938,1.68,840.97,-32.41,26.4,flat by 15:50 (day trade closed before the bell),autopilot,yes
 2026-11-19T20:52:52Z,day,SELL,stock,YMAT,269,1.463989,0.79,393.81,-18.54,12.3,flat by 15:50 (day trade closed before the bell),autopilot,yes
+2026-11-20T14:35:35Z,swing,SELL,stock,NVDA,1,205.600865,0.1,205.6,-7.16,7.2,stop hit,meeting,yes

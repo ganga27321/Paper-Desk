@@ -444,3 +444,5 @@
 {"ts": "2026-11-20T12:54:54Z", "event": "plan_activated", "trader": "swing", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 26}, "note": "Fear is up: no new buys"}
 {"ts": "2026-11-20T12:54:54Z", "event": "plan_activated", "trader": "long", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 28}, "note": "Fear spike: no buys this week"}
 {"ts": "2026-11-20T12:54:54Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}
+{"ts": "2026-11-20T14:35:35Z", "event": "close", "trader": "swing", "symbol": "NVDA", "kind": "stock", "price": 205.60086515972216, "pnl": -7.16, "why": "stop hit"}
+{"ts": "2026-11-20T14:35:35Z", "event": "plan_activated", "trader": "swing", "plan": "plan_b", "index": 0, "when": {"type": "stopped_out", "symbol": "NVDA"}, "note": "NVDA stopped: no replacement today, cash waits"}

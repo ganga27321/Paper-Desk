@@ -456,3 +456,4 @@
 {"ts": "2026-11-20T15:51:25Z", "event": "close", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "price": 2376.62969158, "pnl": -37.99, "why": "stop hit"}
 {"ts": "2026-11-20T15:51:25Z", "event": "close", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "price": 2371.94634251, "pnl": -38.23, "why": "stop hit"}
 {"ts": "2026-11-20T15:51:25Z", "event": "plan_activated", "trader": "crypto", "plan": "plan_c", "index": 0, "when": {"type": "price_below", "symbol": "BTC-USD", "level": 60000}, "note": "Deeper flush: still no buys; stops handle exits"}
+{"ts": "2026-11-20T16:06:33Z", "event": "close", "trader": "crypto", "symbol": "ETH-USD", "kind": "crypto", "price": 2350.66654513, "pnl": -122.31, "why": "stop hit"}

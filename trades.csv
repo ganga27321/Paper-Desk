@@ -140,3 +140,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-20T15:01:10Z,day,BUY,stock,CRVO,564,2.24108,2.53,1263.97,,39.8,"[Squeeze ORB] CRVO gapped +15% on 4x normal volume and is above VWAP (C$2.17); buy a break above the 15-min high C$2.23, stop under the range low C$2.08, half off at 1R, target 1.5157R. Float 10M, short interest 10%: squeeze candidate. Sized x0.75 for a risk-off market.",autopilot,yes
 2026-11-20T15:51:25Z,crypto,SELL,crypto,ETH-USD,0.04718964,2376.629692,0.67,112.15,-37.99,4.6,stop hit,autopilot,no (sandbox)
 2026-11-20T15:51:25Z,crypto,SELL,crypto,ETH-USD,0.04740677,2371.946343,0.67,112.45,-38.23,4.6,stop hit,autopilot,no (sandbox)
+2026-11-20T16:06:33Z,crypto,SELL,crypto,ETH-USD,0.15333272,2350.666545,2.16,360.43,-122.31,14.8,stop hit,autopilot,no (sandbox)

@@ -437,3 +437,7 @@
 {"ts": "2026-11-19T20:22:43Z", "event": "close", "trader": "day", "symbol": "NCPL", "kind": "stock", "price": 5.12, "pnl": -0.97, "why": "stop hit"}
 {"ts": "2026-11-19T20:52:52Z", "event": "close", "trader": "day", "symbol": "MAGN", "kind": "stock", "price": 18.281937849275778, "pnl": -32.41, "why": "flat by 15:50 (day trade closed before the bell)"}
 {"ts": "2026-11-19T20:52:52Z", "event": "close", "trader": "day", "symbol": "YMAT", "kind": "stock", "price": 1.463989425551162, "pnl": -18.54, "why": "flat by 15:50 (day trade closed before the bell)"}
+{"ts": "2026-11-20T06:37:54Z", "event": "skip", "trader": "futures", "symbol": "SIL", "reason": "margin $2,855 per contract is more than free equity"}
+{"ts": "2026-11-20T06:37:54Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,397 per contract is more than free equity"}
+{"ts": "2026-11-20T06:37:54Z", "event": "rejected", "trader": "futures", "symbol": "MGC", "reason": "market mood sized it to zero", "why": "[Pyramid add] Pyramid: Micro gold is 2.9 ATR in profit; add 1 contract with its stop at the first entry (C$5,531.03). Sized x0.8 for a risk-off market."}
+{"ts": "2026-11-20T06:37:55Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}

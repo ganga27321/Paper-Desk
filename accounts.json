@@ -5,7 +5,31 @@
  "day": {
   "cash": 3177.402957152875,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o69",
+    "kind": "stock",
+    "symbol": "CRVO",
+    "qty": 564,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 2.24,
+    "stop": 2.08,
+    "target": 2.48,
+    "why": "[Squeeze ORB] CRVO gapped +15% on 4x normal volume and is above VWAP (C$2.17); buy a break above the 15-min high C$2.23, stop under the range low C$2.08, half off at 1R, target 1.5157R. Float 10M, short interest 10%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-20T14:55:57",
+    "valid_until": "2026-11-20T20:55:57",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1263.3600000000001
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -60,7 +84,7 @@
    "trades": 10
   },
   "realized": 233.28330050802487,
-  "seq": 68,
+  "seq": 69,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3177.402957152875,

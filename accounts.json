@@ -27,10 +27,34 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 2.08,
-    "last": 2.2619280213565816
+    "last": 2.3043930914111144
    }
   ],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o70",
+    "kind": "stock",
+    "symbol": "CAPR",
+    "qty": 84,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 11.95,
+    "stop": 10.88,
+    "target": 13.57,
+    "why": "[Squeeze ORB] CAPR gapped +8% on 4x normal volume and is above VWAP (C$11.29); buy a break above the 15-min high C$11.94, stop under the range low C$10.88, half off at 1R, target 1.5157R. Float 50M, short interest 36%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-20T15:41:27",
+    "valid_until": "2026-11-20T21:41:27",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 1003.8
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -74,7 +98,7 @@
    "MAGN": "2026-11-19T20:51:00",
    "YMAT": "2026-11-19T20:51:00",
    "DDD": "2026-11-19T20:15:00",
-   "CRVO": "2026-11-20T15:35:00"
+   "CRVO": "2026-11-20T15:40:00"
   },
   "day": {
    "date": "2026-11-20",
@@ -86,10 +110,10 @@
    "trades": 11
   },
   "realized": 233.28330050802487,
-  "seq": 69,
+  "seq": 70,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3186.633220383059,
+  "equity_last": 3210.5835198938153,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

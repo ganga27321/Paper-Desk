@@ -441,3 +441,6 @@
 {"ts": "2026-11-20T06:37:54Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,397 per contract is more than free equity"}
 {"ts": "2026-11-20T06:37:54Z", "event": "rejected", "trader": "futures", "symbol": "MGC", "reason": "market mood sized it to zero", "why": "[Pyramid add] Pyramid: Micro gold is 2.9 ATR in profit; add 1 contract with its stop at the first entry (C$5,531.03). Sized x0.8 for a risk-off market."}
 {"ts": "2026-11-20T06:37:55Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}
+{"ts": "2026-11-20T12:54:54Z", "event": "plan_activated", "trader": "swing", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 26}, "note": "Fear is up: no new buys"}
+{"ts": "2026-11-20T12:54:54Z", "event": "plan_activated", "trader": "long", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 28}, "note": "Fear spike: no buys this week"}
+{"ts": "2026-11-20T12:54:54Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}

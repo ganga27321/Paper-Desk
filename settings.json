@@ -9,7 +9,8 @@
  "swing": {
   "scales": {
    "holding": 5.0,
-   "stop_width": 6.0
+   "stop_width": 6.0,
+   "frequency": 7.0
   }
  },
  "long": {
@@ -20,7 +21,8 @@
  "futures": {
   "scales": {
    "target": 5.0,
-   "stop_width": 4.0
+   "stop_width": 4.0,
+   "aggression": 8.0
   }
  },
  "options_aggr": {
@@ -37,7 +39,7 @@
  },
  "crypto": {
   "scales": {
-   "stop_width": 6.0,
+   "stop_width": 7.0,
    "deployment": 8.0
   }
  }

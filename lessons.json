@@ -7,6 +7,10 @@
   {
    "week": "2026-W46",
    "lesson": "Squeeze ORB (small float or heavy short interest) is the edge; a plain ORB+VWAP setup has lost: take it only when it ranks first."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "In a VIX-25+ afternoon, take the 1R half and move the stop to breakeven at once: Thursday's open winners all came back to flat by 15:50."
   }
  ],
  "swing": [
@@ -21,6 +25,14 @@
   {
    "week": "2026-W46",
    "lesson": "Biggest earnings beats hold best: keep them at breakeven stops and sell the smaller beats first when cash is needed."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "Don't open a new play in a falling market (S&P under its 20-day): 'Rate rotation' bought Tuesday and two of three names hit stops within days."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "A dip buy outside the scan (NVDA, Thursday) still needs a planned sale and a market that isn't breaking down."
   }
  ],
  "long": [
@@ -31,6 +43,10 @@
   {
    "week": "2026-W46",
    "lesson": "Stops about 18% under the buy ride out a hot CPI week: check them weekly, never tighten them on one day's news."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "A paper drawdown with every stop intact is not a reason to sell: hold to the rules."
   }
  ],
  "futures": [
@@ -41,6 +57,10 @@
   {
    "week": "2026-W46",
    "lesson": "After a big win, risk the next trade small: one micro crude contract lost 15% of the book in two days."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "One micro gold contract is about 16x the book: after a big open win, the trailing stop must protect at least half of it, and no adds."
   }
  ],
  "options_aggr": [
@@ -55,6 +75,10 @@
   {
    "week": "2026-W46",
    "lesson": "Earnings-call plays lost all three times this week: wait for the report and buy the gap that holds."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "Triggers that wait for a gap to extend (above the after-hours high) kept him out of two fades: keep using 'extends', not 'gaps'."
   }
  ],
  "options_safe": [
@@ -65,12 +89,20 @@
   {
    "week": "2026-W46",
    "lesson": "One put at a time with C$3,000: the RKT put uses most of the buying power, so the next put waits for it to close."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "With VIX near 30, put premiums are rich, but one put at a time still binds: a second put waits for RKT's to close."
   }
  ],
  "crypto": [
   {
    "week": "2026-W46",
    "lesson": "One extreme-fear add every 7 days (now enforced): a slow slide is many fear days, and daily adds only average down."
+  },
+  {
+   "week": "2026-W47",
+   "lesson": "Fear adds bought in a slide get stopped together: in crash mode the 7-day gap is a ceiling, not a target."
   }
  ]
 }

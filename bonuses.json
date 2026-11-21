@@ -1,1 +1,38 @@
-{}
+{
+ "2026-W47": {
+  "winner": "futures",
+  "name": "Fox",
+  "week_pnl": 4997.24,
+  "bonus": 200.0,
+  "board": [
+   {
+    "trader": "futures",
+    "week_pnl": 4997.24
+   },
+   {
+    "trader": "options_aggr",
+    "week_pnl": 289.57
+   },
+   {
+    "trader": "options_safe",
+    "week_pnl": -4.25
+   },
+   {
+    "trader": "day",
+    "week_pnl": -31.44
+   },
+   {
+    "trader": "crypto",
+    "week_pnl": -162.7
+   },
+   {
+    "trader": "long",
+    "week_pnl": -195.02
+   },
+   {
+    "trader": "swing",
+    "week_pnl": -229.64
+   }
+  ]
+ }
+}

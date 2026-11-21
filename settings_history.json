@@ -138,5 +138,35 @@
   "new": 4.0,
   "why": "The crude short gave back C$539 of the C$984 gold win: a tighter stop (about 1.5 ATR instead of 2) cuts the loss on a failed trade.",
   "by": "Saturday review 2026-W46"
+ },
+ {
+  "ts": "2026-11-21T14:43:31Z",
+  "week": "2026-W47",
+  "trader": "futures",
+  "knob": "aggression",
+  "old": 9,
+  "new": 8.0,
+  "why": "A 16x-notional gold short made C$4,900 open; one step less aggression trims the next position's size while keeping Fox aggressive.",
+  "by": "Saturday review 2026-W47"
+ },
+ {
+  "ts": "2026-11-21T14:43:31Z",
+  "week": "2026-W47",
+  "trader": "swing",
+  "knob": "frequency",
+  "old": 8,
+  "new": 7.0,
+  "why": "Seven closes, four stops: fewer new plays in a falling market, so cash waits for better setups.",
+  "by": "Saturday review 2026-W47"
+ },
+ {
+  "ts": "2026-11-21T14:43:31Z",
+  "week": "2026-W47",
+  "trader": "crypto",
+  "knob": "stop_width",
+  "old": 6.0,
+  "new": 7.0,
+  "why": "Five stops in two days on 4-5% crypto swings: a slightly wider stop, with deployment already cut to 8 last week.",
+  "by": "Saturday review 2026-W47"
  }
 ]

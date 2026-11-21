@@ -142,3 +142,5 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-20T15:51:25Z,crypto,SELL,crypto,ETH-USD,0.04740677,2371.946343,0.67,112.45,-38.23,4.6,stop hit,autopilot,no (sandbox)
 2026-11-20T16:06:33Z,crypto,SELL,crypto,ETH-USD,0.15333272,2350.666545,2.16,360.43,-122.31,14.8,stop hit,autopilot,no (sandbox)
 2026-11-20T16:36:47Z,day,SELL,stock,CRVO,564,2.08,2.35,1173.12,-93.2,38.1,stop hit,autopilot,yes
+2026-11-21T04:51:15Z,crypto,SELL,crypto,BTC-USD,0.00139919,80365.251791,0.67,112.45,-38.17,4.7,stop hit,autopilot,no (sandbox)
+2026-11-21T04:51:15Z,crypto,SELL,crypto,BTC-USD,0.00139588,80345.39257,0.67,112.15,-38.04,4.7,stop hit,autopilot,no (sandbox)

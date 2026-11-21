@@ -737,7 +737,7 @@
   }
  },
  "crypto": {
-  "cash": 1027.4020139422175,
+  "cash": 1250.6532044773744,
   "positions": [
    {
     "id": "o4",
@@ -759,7 +759,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 12.11358712308197,
+    "last": 11.739339682901573,
     "init_stop": 10.65203463
    },
    {
@@ -782,7 +782,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 97.76330234656143,
+    "last": 94.89550234923172,
     "init_stop": 88.10529987
    },
    {
@@ -805,56 +805,8 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.287785615329895,
+    "last": 1.2634092873193836,
     "init_stop": 1.1843018
-   },
-   {
-    "id": "o6",
-    "kind": "crypto",
-    "symbol": "BTC-USD",
-    "side": "long",
-    "qty": 0.00139919,
-    "entry": 107162.98470476177,
-    "entry_ts": "2026-11-07T00:15:00",
-    "stop": 80365.2517913,
-    "target": null,
-    "flat_by": null,
-    "time_stop": null,
-    "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.",
-    "source": "autopilot",
-    "meta": {
-     "bucket": "core",
-     "yahoo": "BTC-USD"
-    },
-    "high": 107567.67462920398,
-    "low": 107162.98470476177,
-    "play": "Extreme-fear buy",
-    "init_stop": 80365.2517913,
-    "last": 83704.64617557591
-   },
-   {
-    "id": "o8",
-    "kind": "crypto",
-    "symbol": "BTC-USD",
-    "side": "long",
-    "qty": 0.00139588,
-    "entry": 107115.02676880918,
-    "entry_ts": "2026-11-07T05:15:00",
-    "stop": 80345.39257006,
-    "target": null,
-    "flat_by": null,
-    "time_stop": null,
-    "why": "[Extreme-fear buy] Crypto Fear & Greed at 25 (extreme fear): add 5% to BTC. ETH/BTC above its 20-day: alt season on.",
-    "source": "autopilot",
-    "meta": {
-     "bucket": "core",
-     "yahoo": "BTC-USD"
-    },
-    "high": 107567.67462920398,
-    "low": 107115.02676880918,
-    "play": "Extreme-fear buy",
-    "init_stop": 80345.39257006,
-    "last": 83704.64617557591
    },
    {
     "id": "o11",
@@ -878,7 +830,7 @@
     "low": 2876.266671180114,
     "play": "Extreme-fear buy",
     "init_stop": 1928.35806325,
-    "last": 2312.9094038522453
+    "last": 2243.9532019267062
    },
    {
     "id": "o13",
@@ -902,7 +854,7 @@
     "low": 2726.8593090004288,
     "play": "Extreme-fear buy",
     "init_stop": 1827.81905457,
-    "last": 2312.9094038522453
+    "last": 2243.9532019267062
    },
    {
     "id": "o15",
@@ -926,7 +878,7 @@
     "low": 2708.2761101944197,
     "play": "Extreme-fear buy",
     "init_stop": 1814.93541497,
-    "last": 2312.9094038522453
+    "last": 2243.9532019267062
    },
    {
     "id": "o16",
@@ -950,7 +902,7 @@
     "low": 91984.49823706783,
     "play": "Extreme-fear buy",
     "init_stop": 61442.63042864,
-    "last": 83704.64617557591
+    "last": 80867.47338603018
    },
    {
     "id": "o17",
@@ -974,16 +926,16 @@
     "low": 2559.713832645197,
     "play": "Extreme-fear buy",
     "init_stop": 1709.2329866,
-    "last": 2312.9094038522453
+    "last": 2243.9532019267062
    }
   ],
   "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-21T03:05:00",
-   "ETH-USD": "2026-11-21T03:05:00",
-   "LINK-USD": "2026-11-21T03:05:00",
-   "SOL-USD": "2026-11-21T03:05:00",
-   "XRP-USD": "2026-11-21T03:05:00"
+   "BTC-USD": "2026-11-21T04:45:00",
+   "ETH-USD": "2026-11-21T04:45:00",
+   "LINK-USD": "2026-11-21T04:45:00",
+   "SOL-USD": "2026-11-21T04:45:00",
+   "XRP-USD": "2026-11-21T04:45:00"
   },
   "day": {
    "date": "2026-11-20",
@@ -994,11 +946,11 @@
    "key": "2026-W47",
    "trades": 0
   },
-  "realized": -231.13475808697746,
+  "realized": -307.34466768692147,
   "seq": 17,
   "deposits": [],
   "deploy_frac": 0.8400000000000001,
-  "equity_last": 2425.1182322196605,
+  "equity_last": 2381.1844697105257,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -1,0 +1,82 @@
+{
+ "week": "2026-W47",
+ "summary": "A one-trader week: Fox made about +C$5,000, nearly all open profit on a micro gold short that rode gold from about US$3,868 to US$3,525, plus a crude short. Vega added +C$290 with one IWM put. Everyone else lost: Sam -C$230, Lena -C$195 (open, no stops hit), Kai -C$162 after five crypto stops, Dax -C$31, Theo -C$4. The market turned risk-off after NVDA's beat faded and Anthropic's debut didn't lift AI stocks (S&P 500 -2.0% Thursday, VIX near 30).",
+ "weekly_review": {
+  "day": [
+   "Squeeze ORB was the only play he opened (10 of 11 trades). It finished about flat: targets and half-at-1R exits made C$278, stops and the 15:50 flat-outs lost C$290, for -C$12 realized.",
+   "The one plain ORB+VWAP trade (QSI) lost again, confirming last week's lesson.",
+   "Thursday and Friday's VIX-25+ tape turned winners into flat-by-close scratches: positions held into the afternoon gave back their gains."
+  ],
+  "swing": [
+   "The time stop closed last week's winners (XERS +C$70, MGNI, U) for +C$86, then the replacements struggled: ABNB (-C$89), TRMK and CVBF stopped out within two days.",
+   "The 'Rate rotation' play (COIN, CVBF, RKT) bought into a falling market; COIN is near its stop and CVBF stopped out.",
+   "Buying one NVDA share on Thursday's dip broke his own 'needs a planned sale' discipline and hit the stop a day later."
+  ],
+  "long": [
+   "One buy (a fourth KLAC share at US$150, filled with the chip gap); no stops hit.",
+   "The book is down about C$195 on paper as chips and banks fell; every stop is still far below the price, which is exactly what the 18% rule is for."
+  ],
+  "futures": [
+   "The micro gold short (opened Nov 12, then added to) is up about C$4,900 open: gold fell about 9%. The trailing stop has moved to about US$3,758, so most of it is now protected.",
+   "One micro gold contract is about C$55,000 of gold on a C$3,400 book (16x). It worked this week; the same size against him would erase the account.",
+   "The crude short opened Wednesday on the 20-day-low break and is slightly positive."
+  ],
+  "options_aggr": [
+   "One trade, one win: the IWM 266 put bought on Monday's break of Friday's low closed at +150% (C$291) on Tuesday.",
+   "The NVDA-call and QQQ-call triggers never fired, and the gaps they waited for faded both days. Standing aside was right."
+  ],
+  "options_safe": [
+   "No new trades; the RKT 12.50 put has 20 days left with RKT around US$13.30, above the strike.",
+   "Cash stayed parked as planned; one put at a time is still the binding limit."
+  ],
+  "crypto": [
+   "Five stops hit (-C$275): the extreme-fear adds bought on Nov 14-15 near ETH US$1,790-1,890 were stopped as ETH slid to about US$1,750 and BTC to US$61,700.",
+   "Crash mode (no buys under BTC US$65,000) worked: he bought nothing new into the slide after the 7-day add gap kicked in."
+  ]
+ },
+ "lessons": {
+  "day": [
+   "In a VIX-25+ afternoon, take the 1R half and move the stop to breakeven at once: Thursday's open winners all came back to flat by 15:50."
+  ],
+  "swing": [
+   "Don't open a new play in a falling market (S&P under its 20-day): 'Rate rotation' bought Tuesday and two of three names hit stops within days.",
+   "A dip buy outside the scan (NVDA, Thursday) still needs a planned sale and a market that isn't breaking down."
+  ],
+  "long": [
+   "A paper drawdown with every stop intact is not a reason to sell: hold to the rules."
+  ],
+  "futures": [
+   "One micro gold contract is about 16x the book: after a big open win, the trailing stop must protect at least half of it, and no adds."
+  ],
+  "options_aggr": [
+   "Triggers that wait for a gap to extend (above the after-hours high) kept him out of two fades: keep using 'extends', not 'gaps'."
+  ],
+  "options_safe": [
+   "With VIX near 30, put premiums are rich, but one put at a time still binds: a second put waits for RKT's to close."
+  ],
+  "crypto": [
+   "Fear adds bought in a slide get stopped together: in crash mode the 7-day gap is a ceiling, not a target."
+  ]
+ },
+ "retire_lessons": {},
+ "adjustments": {
+  "futures": {
+   "scales": {
+    "aggression": 8
+   },
+   "why": "A 16x-notional gold short made C$4,900 open; one step less aggression trims the next position's size while keeping Fox aggressive."
+  },
+  "swing": {
+   "scales": {
+    "frequency": 7
+   },
+   "why": "Seven closes, four stops: fewer new plays in a falling market, so cash waits for better setups."
+  },
+  "crypto": {
+   "scales": {
+    "stop_width": 7
+   },
+   "why": "Five stops in two days on 4-5% crypto swings: a slightly wider stop, with deployment already cut to 8 last week."
+  }
+ }
+}

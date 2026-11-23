@@ -145,3 +145,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-21T04:51:15Z,crypto,SELL,crypto,BTC-USD,0.00139919,80365.251791,0.67,112.45,-38.17,4.7,stop hit,autopilot,no (sandbox)
 2026-11-21T04:51:15Z,crypto,SELL,crypto,BTC-USD,0.00139588,80345.39257,0.67,112.15,-38.04,4.7,stop hit,autopilot,no (sandbox)
 2026-11-21T14:43:31Z,futures,BONUS,cash,BONUS,1,200.0,0,200.0,,,"Weekly bonus: biggest earner of 2026-W47 (+4,997.24 C$ this week). C$200 added to the account.",desk,no (sandbox)
+2026-11-23T07:45:07Z,crypto,BUY,crypto,ETH-USD,0.05020032,2472.50788,0.74,124.12,,5.0,[Extreme-fear buy] Crypto Fear & Greed at 11 (extreme fear): add 5% to ETH. ETH/BTC below its 20-day: alt season off.,autopilot,no (sandbox)

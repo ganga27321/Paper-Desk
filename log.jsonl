@@ -495,3 +495,4 @@
 {"ts": "2026-11-23T12:56:02Z", "event": "plan_activated", "trader": "long", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 28}, "note": "Fear spike: no buys this week"}
 {"ts": "2026-11-23T12:56:02Z", "event": "rejected", "trader": "long", "symbol": "SHEL", "reason": "market mood sized it to zero", "why": "Meeting: Weekly long-term buy: one SHEL share (energy, outside the AI trade) at US$95 or better; stop US$77, about 18% under. Sized x0.75 for a risk-off market."}
 {"ts": "2026-11-23T12:56:02Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}
+{"ts": "2026-11-23T14:31:39Z", "event": "plan_activated", "trader": "futures", "plan": "plan_c", "index": 0, "when": {"type": "day_loss_over", "pct": 4}, "note": "Down 4%: no new futures; stops stay"}

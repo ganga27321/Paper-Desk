@@ -3,8 +3,32 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 3081.679576337947,
-  "positions": [],
+  "cash": 1669.581016337947,
+  "positions": [
+   {
+    "id": "o72",
+    "kind": "stock",
+    "symbol": "NVTS",
+    "side": "long",
+    "qty": 128,
+    "entry": 11.01,
+    "entry_ts": "2026-11-23T15:21:00",
+    "stop": 10.33,
+    "target": 12.04,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] NVTS gapped +21% on 5x normal volume and is above VWAP (C$10.67); buy a break above the 15-min high C$11.00, stop under the range low C$10.33, half off at 1R, target 1.5157R. Float 251M, short interest 21%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 11.01,
+    "low": 11.01,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "last": 10.945191425126268
+   }
+  ],
   "pending": [
    {
     "id": "o71",
@@ -28,29 +52,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 988.13
-   },
-   {
-    "id": "o72",
-    "kind": "stock",
-    "symbol": "NVTS",
-    "qty": 128,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 11.01,
-    "stop": 10.33,
-    "target": 12.04,
-    "why": "[Squeeze ORB] NVTS gapped +21% on 5x normal volume and is above VWAP (C$10.67); buy a break above the 15-min high C$11.00, stop under the range low C$10.33, half off at 1R, target 1.5157R. Float 251M, short interest 21%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-23T14:47:10",
-    "valid_until": "2026-11-23T20:47:10",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1409.28
    },
    {
     "id": "o73",
@@ -120,24 +121,24 @@
    "YMAT": "2026-11-19T20:51:00",
    "DDD": "2026-11-19T20:15:00",
    "CRVO": "2026-11-20T16:35:00",
-   "BRUN": "2026-11-23T15:16:00",
-   "NVTS": "2026-11-23T15:16:00",
-   "POET": "2026-11-23T15:16:00"
+   "BRUN": "2026-11-23T15:21:00",
+   "NVTS": "2026-11-23T15:21:00",
+   "POET": "2026-11-23T15:21:00"
   },
   "day": {
    "date": "2026-11-23",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 3081.679576337947
   },
   "week": {
    "key": "2026-W48",
-   "trades": 0
+   "trades": 1
   },
   "realized": 140.08785809791692,
   "seq": 74,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3081.679576337947,
+  "equity_last": 3070.5655187541092,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

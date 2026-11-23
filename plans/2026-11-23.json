@@ -123,9 +123,6 @@
   },
   "QQQ": {
    "stop": 640
-  },
-  "SHEL": {
-   "stop": 114.8
   }
  },
  "avoid": {
@@ -250,10 +247,10 @@
    ]
   },
   "long": {
-   "view": "Lena: Monday is my buying day. After last week's drop, every stop is still intact. One SHEL share (about US$137, energy, outside the AI trade) only if the rally holds: limit US$140, stop US$114.80 (about 18% under), cut-off 11:00. If it doesn't fill, I skip the week.",
+   "view": "Lena: Monday is my buying day. After last week's drop, every stop is still intact. One SHEL share (US$93.58 at Friday's close; energy, outside the AI trade) only if the rally holds: limit US$95, stop US$77 (about 18% under), cut-off 11:00. If it doesn't fill, I skip the week.",
    "playbook": [
     {
-     "if": "SHEL holds under US$140 at 10:00",
+     "if": "SHEL holds under US$95 at 10:00",
      "then": "the limit fills; stop about 18% under"
     },
     {
@@ -270,12 +267,12 @@
      "symbol": "SHEL",
      "kind": "stock",
      "entry_type": "limit",
-     "price": 140,
-     "stop": 114.8,
-     "target": 170,
+     "price": 95,
+     "stop": 77,
+     "target": 115,
      "qty": 1,
      "no_entry_after": "11:00",
-     "why": "Weekly long-term buy: one SHEL share (energy, outside the AI trade) at US$140 or better; stop US$114.80, about 18% under."
+     "why": "Weekly long-term buy: one SHEL share (energy, outside the AI trade) at US$95 or better; stop US$77, about 18% under."
     }
    ],
    "plan_b": [

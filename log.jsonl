@@ -514,3 +514,4 @@
 {"ts": "2026-11-23T15:22:28Z", "event": "open", "trader": "day", "symbol": "NVTS", "kind": "stock", "qty": 128, "price": 11.01, "at": "2026-11-23T15:21:00"}
 {"ts": "2026-11-23T15:32:30Z", "event": "skip", "trader": "day", "symbol": "BTGO", "reason": "already 0.26 past the breakout level C$5.51 (more than 0.5R): no chase"}
 {"ts": "2026-11-23T16:03:18Z", "event": "skip", "trader": "day", "symbol": "BRAI", "reason": "already 0.35 past the breakout level C$2.77 (more than 0.5R): no chase"}
+{"ts": "2026-11-23T16:33:27Z", "event": "plan_activated", "trader": "day", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "11:30"}, "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)"}

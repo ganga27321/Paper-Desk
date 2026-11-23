@@ -512,3 +512,4 @@
 {"ts": "2026-11-23T15:17:46Z", "event": "open", "trader": "long", "symbol": "PBA", "kind": "stock", "qty": 1, "price": 69.45166049036743, "at": "2026-11-23T15:05:00"}
 {"ts": "2026-11-23T15:17:46Z", "event": "open", "trader": "options_aggr", "symbol": "U 2026-12-04 45P", "kind": "option", "qty": 1, "price": 2.800199979543686, "at": "2026-11-23T15:17:46"}
 {"ts": "2026-11-23T15:22:28Z", "event": "open", "trader": "day", "symbol": "NVTS", "kind": "stock", "qty": 128, "price": 11.01, "at": "2026-11-23T15:21:00"}
+{"ts": "2026-11-23T15:32:30Z", "event": "skip", "trader": "day", "symbol": "BTGO", "reason": "already 0.26 past the breakout level C$5.51 (more than 0.5R): no chase"}

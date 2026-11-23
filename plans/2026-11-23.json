@@ -367,9 +367,9 @@
      "when": {
       "type": "price_above",
       "symbol": "QQQ",
-      "level": 640
+      "level": 660
      },
-     "note": "The relief rally extends: the one trade today",
+     "note": "The rally extends past today's 655.98 open: the one trade today",
      "orders": [
       {
        "symbol": "QQQ",
@@ -382,7 +382,7 @@
        ],
        "otm_pct": 0.03,
        "contracts": 2,
-       "why": "QQQ extending above 640 on the relief rally: 2 calls about 3% out; -50% stop, +100% target"
+       "why": "QQQ extending above 660 (past the open) after the Huang-news gap: 2 calls about 3% out; -50% stop, +100% target"
       }
      ]
     }
@@ -490,5 +490,13 @@
     "Wider stops (stop_width 7) after five stops in two days."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "The plan was written with QQQ at 631; Huang's reported reinstatement gapped it to a 655.98 open, already far past my 640 trigger, and it is fading (650.85). Buying calls into a +7% gap with VIX near 30 is chasing. I move the trigger to 660: it fires only if the rally extends past today's open. Nothing after 2:00.",
+  "theo": "RKT is 13.86, above my 12.50 strike, with 18 days left. There's no live bid/ask on the put yet (last 0.35). One put at a time: no new put, cash parked.",
+  "changes": [
+   "Vega: QQQ call trigger raised from 640 to 660 (the gap already passed 640 at the open)"
+  ]
  }
 }

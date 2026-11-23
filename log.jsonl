@@ -509,3 +509,5 @@
 {"ts": "2026-11-23T15:03:28Z", "event": "skip", "trader": "options_aggr", "symbol": "CRWV 2026-12-04 46P", "reason": "implied volatility 129% > 120%: too expensive"}
 {"ts": "2026-11-23T15:03:28Z", "event": "skip", "trader": "options_aggr", "symbol": "CRWV 2026-12-04 43.5P", "reason": "implied volatility 129% > 120%: too expensive"}
 {"ts": "2026-11-23T15:03:32Z", "event": "order", "trader": "options_aggr", "symbol": "U 2026-12-04 45P", "kind": "option", "qty": 1, "type": "market", "price": null, "why": "[Momentum put] U breaking down: -15.3% in 5 days on 0.8x volume. Buy the 2026-12-04 $45 put at $1.66 (stock $46.65). Half off at +100%, the rest rides to +300% or back to breakeven; cut at -50%. Max loss = premium paid. Sized x0.7 for a risk-off market.", "source": "meeting"}
+{"ts": "2026-11-23T15:17:46Z", "event": "open", "trader": "long", "symbol": "PBA", "kind": "stock", "qty": 1, "price": 69.45166049036743, "at": "2026-11-23T15:05:00"}
+{"ts": "2026-11-23T15:17:46Z", "event": "open", "trader": "options_aggr", "symbol": "U 2026-12-04 45P", "kind": "option", "qty": 1, "price": 2.800199979543686, "at": "2026-11-23T15:17:46"}

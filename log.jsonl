@@ -520,3 +520,6 @@
 {"ts": "2026-11-23T18:39:43Z", "event": "skip", "trader": "day", "symbol": "BAK", "reason": "already 0.05 past the breakout level C$1.29 (more than 0.5R): no chase"}
 {"ts": "2026-11-23T18:59:22Z", "event": "scan", "warning": "screener page 0 failed: HTTPError('HTTP Error 401: ')"}
 {"ts": "2026-11-23T19:05:23Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
+{"ts": "2026-11-23T20:15:39Z", "event": "close", "trader": "day", "symbol": "NVTS", "kind": "stock", "price": 10.33, "pnl": -89.68, "why": "stop hit"}
+{"ts": "2026-11-23T20:15:39Z", "event": "skip", "trader": "day", "symbol": "BRUN", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-23T20:15:39Z", "event": "skip", "trader": "day", "symbol": "POET", "reason": "order cancelled: unfilled by 15:15 ET"}

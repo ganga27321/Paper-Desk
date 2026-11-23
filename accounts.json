@@ -3,81 +3,9 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 1669.581016337947,
-  "positions": [
-   {
-    "id": "o72",
-    "kind": "stock",
-    "symbol": "NVTS",
-    "side": "long",
-    "qty": 128,
-    "entry": 11.01,
-    "entry_ts": "2026-11-23T15:21:00",
-    "stop": 10.33,
-    "target": 12.04,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] NVTS gapped +21% on 5x normal volume and is above VWAP (C$10.67); buy a break above the 15-min high C$11.00, stop under the range low C$10.33, half off at 1R, target 1.5157R. Float 251M, short interest 21%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 11.069170304467775,
-    "low": 11.01,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "last": 10.341086174804502,
-    "init_stop": 10.33
-   }
-  ],
-  "pending": [
-   {
-    "id": "o71",
-    "kind": "stock",
-    "symbol": "BRUN",
-    "qty": 143,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 6.91,
-    "stop": 6.3,
-    "target": 7.83,
-    "why": "[Squeeze ORB] BRUN gapped +28% on 6x normal volume and is above VWAP (C$6.57); buy a break above the 15-min high C$6.90, stop under the range low C$6.30, half off at 1R, target 1.5157R. Float 33M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-23T14:47:10",
-    "valid_until": "2026-11-23T20:47:10",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 988.13
-   },
-   {
-    "id": "o73",
-    "kind": "stock",
-    "symbol": "POET",
-    "qty": 114,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 5.99,
-    "stop": 5.61,
-    "target": 6.57,
-    "why": "[ORB+VWAP] POET gapped +18% on 5x normal volume and is above VWAP (C$5.77); buy a break above the 15-min high C$5.98, stop under the range low C$5.61, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-23T14:47:10",
-    "valid_until": "2026-11-23T20:47:10",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "ORB+VWAP",
-    "scale_out_r": 1,
-    "reserve": 682.86
-   }
-  ],
+  "cash": 2989.1765363379473,
+  "positions": [],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -122,9 +50,9 @@
    "YMAT": "2026-11-19T20:51:00",
    "DDD": "2026-11-19T20:15:00",
    "CRVO": "2026-11-20T16:35:00",
-   "BRUN": "2026-11-23T20:09:00",
-   "NVTS": "2026-11-23T20:09:00",
-   "POET": "2026-11-23T20:09:00"
+   "BRUN": "2026-11-23T20:14:00",
+   "NVTS": "2026-11-23T20:14:00",
+   "POET": "2026-11-23T20:14:00"
   },
   "day": {
    "date": "2026-11-23",
@@ -135,11 +63,11 @@
    "key": "2026-W48",
    "trades": 1
   },
-  "realized": 140.08785809791692,
+  "realized": 50.403378097916956,
   "seq": 74,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2993.2400467129232,
+  "equity_last": 2989.1765363379473,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

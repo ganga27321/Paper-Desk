@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 9.4,
-    "last": 10.573410327991553
+    "last": 10.38063559707706
    }
   ],
   "pending": [
@@ -99,6 +99,29 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 337.12
+   },
+   {
+    "id": "o79",
+    "kind": "stock",
+    "symbol": "APUS",
+    "qty": 28,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 3.0,
+    "stop": 2.66,
+    "target": 3.52,
+    "why": "[ORB+VWAP] APUS gapped +30% on 592x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.99, stop under the range low C$2.66, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-24T15:07:09",
+    "valid_until": "2026-11-24T21:07:09",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 84.0
    }
   ],
   "last_bar": {
@@ -148,10 +171,10 @@
    "BRUN": "2026-11-23T20:14:00",
    "NVTS": "2026-11-23T20:14:00",
    "POET": "2026-11-23T20:14:00",
-   "EMBC": "2026-11-24T15:00:00",
-   "MEDS": "2026-11-24T15:00:00",
+   "EMBC": "2026-11-24T15:06:00",
+   "MEDS": "2026-11-24T15:06:00",
    "MOLN": "2026-11-24T14:49:00",
-   "BDRX": "2026-11-24T15:00:00"
+   "BDRX": "2026-11-24T15:06:00"
   },
   "day": {
    "date": "2026-11-24",
@@ -163,10 +186,10 @@
    "trades": 2
   },
   "realized": 50.403378097916956,
-  "seq": 78,
+  "seq": 79,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2970.4606050334655,
+  "equity_last": 2959.4724453713397,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

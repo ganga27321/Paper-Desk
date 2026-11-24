@@ -560,3 +560,4 @@
 {"ts": "2026-11-24T20:16:17Z", "event": "skip", "trader": "day", "symbol": "MOLN", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-24T20:36:25Z", "event": "close", "trader": "swing", "symbol": "COIN", "kind": "stock", "price": 145.9600454568863, "pnl": -53.2, "why": "stop hit"}
 {"ts": "2026-11-24T20:36:25Z", "event": "plan_activated", "trader": "swing", "plan": "plan_b", "index": 0, "when": {"type": "stopped_out", "symbol": "COIN"}, "note": "COIN stopped: cash waits for the scan"}
+{"ts": "2026-11-24T20:51:05Z", "event": "close", "trader": "day", "symbol": "EMBC", "kind": "stock", "price": 11.486061851137151, "pnl": 33.24, "why": "flat by 15:50 (day trade closed before the bell)"}

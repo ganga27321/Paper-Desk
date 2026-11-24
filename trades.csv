@@ -158,3 +158,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-24T16:38:53Z,day,BUY,stock,APUS,28,3.0,0.17,84.0,,2.8,"[ORB+VWAP] APUS gapped +30% on 592x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.99, stop under the range low C$2.66, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",autopilot,yes
 2026-11-24T17:23:47Z,day,SELL,stock,BDRX,49,3.78,0.37,185.22,16.29,6.0,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-24T17:44:06Z,day,SELL,stock,APUS,14,3.34,0.09,46.76,4.67,1.5,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
+2026-11-24T17:54:35Z,day,SELL,stock,APUS,14,3.52,0.1,49.28,7.18,1.6,target hit,autopilot,yes

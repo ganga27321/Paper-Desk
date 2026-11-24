@@ -551,3 +551,4 @@
 {"ts": "2026-11-24T16:38:53Z", "event": "open", "trader": "day", "symbol": "APUS", "kind": "stock", "qty": 28, "price": 3.0, "at": "2026-11-24T16:34:00"}
 {"ts": "2026-11-24T17:23:47Z", "event": "close", "trader": "day", "symbol": "BDRX", "kind": "stock", "price": 3.78, "pnl": 16.29, "why": "took half at 1R; rest rides with the stop at breakeven"}
 {"ts": "2026-11-24T17:44:06Z", "event": "close", "trader": "day", "symbol": "APUS", "kind": "stock", "price": 3.34, "pnl": 4.67, "why": "took half at 1R; rest rides with the stop at breakeven"}
+{"ts": "2026-11-24T17:54:35Z", "event": "close", "trader": "day", "symbol": "APUS", "kind": "stock", "price": 3.52, "pnl": 7.18, "why": "target hit"}

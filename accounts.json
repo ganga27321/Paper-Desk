@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 9.4,
-    "last": 11.308183003430372
+    "last": 11.377454132877347
    },
    {
     "id": "o80",
@@ -51,57 +51,10 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 3.27,
-    "last": 3.624326019691466
+    "last": 3.623665631231688
    }
   ],
-  "pending": [
-   {
-    "id": "o75",
-    "kind": "stock",
-    "symbol": "MEDS",
-    "qty": 201,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 2.87,
-    "stop": 2.45,
-    "target": 3.51,
-    "why": "[Squeeze ORB] MEDS gapped +9% on 11x normal volume and is above VWAP (C$2.63); buy a break above the 15-min high C$2.86, stop under the range low C$2.45, half off at 1R, target 1.5157R. Float 4M, short interest 9%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-24T14:46:40",
-    "valid_until": "2026-11-24T20:46:40",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 576.87
-   },
-   {
-    "id": "o77",
-    "kind": "stock",
-    "symbol": "MOLN",
-    "qty": 322,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 4.16,
-    "stop": 4.05,
-    "target": 4.33,
-    "why": "[Squeeze ORB] MOLN gapped +11% on 12x normal volume and is above VWAP (C$4.05); buy a break above the 15-min high C$4.15, stop under the range low C$4.05, half off at 1R, target 1.5157R. Float 21M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-24T14:51:52",
-    "valid_until": "2026-11-24T20:51:52",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1339.52
-   }
-  ],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -149,8 +102,8 @@
    "BRUN": "2026-11-23T20:14:00",
    "NVTS": "2026-11-23T20:14:00",
    "POET": "2026-11-23T20:14:00",
-   "EMBC": "2026-11-24T20:09:00",
-   "MEDS": "2026-11-24T20:09:00",
+   "EMBC": "2026-11-24T20:15:00",
+   "MEDS": "2026-11-24T20:15:00",
    "MOLN": "2026-11-24T14:49:00",
    "BDRX": "2026-11-24T18:33:00",
    "APUS": "2026-11-24T17:53:00",
@@ -169,7 +122,7 @@
   "seq": 80,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3037.7918947960443,
+  "equity_last": 3041.7370472322227,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

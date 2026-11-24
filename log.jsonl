@@ -556,3 +556,5 @@
 {"ts": "2026-11-24T18:34:59Z", "event": "close", "trader": "day", "symbol": "BDRX", "kind": "stock", "price": 3.4254161480029666, "pnl": -1.05, "why": "stop hit"}
 {"ts": "2026-11-24T19:05:06Z", "event": "plan_activated", "trader": "options_aggr", "plan": "plan_c", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No extension by 2:00: no option today"}
 {"ts": "2026-11-24T19:05:07Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
+{"ts": "2026-11-24T20:16:17Z", "event": "skip", "trader": "day", "symbol": "MEDS", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-24T20:16:17Z", "event": "skip", "trader": "day", "symbol": "MOLN", "reason": "order cancelled: unfilled by 15:15 ET"}

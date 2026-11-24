@@ -3,8 +3,33 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2989.1765363379473,
-  "positions": [],
+  "cash": 2367.776216337947,
+  "positions": [
+   {
+    "id": "o76",
+    "kind": "stock",
+    "symbol": "EMBC",
+    "side": "long",
+    "qty": 57,
+    "entry": 10.88,
+    "entry_ts": "2026-11-24T14:49:00",
+    "stop": 9.4,
+    "target": 13.12,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[ORB+VWAP] EMBC gapped +20% on 19x normal volume and is above VWAP (C$10.36); buy a break above the 15-min high C$10.87, stop under the range low C$9.40, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 11.037206526249122,
+    "low": 10.88,
+    "scale_out_r": 1,
+    "play": "ORB+VWAP",
+    "init_stop": 9.4,
+    "last": 11.245083520370315
+   }
+  ],
   "pending": [
    {
     "id": "o75",
@@ -30,27 +55,27 @@
     "reserve": 576.87
    },
    {
-    "id": "o76",
+    "id": "o77",
     "kind": "stock",
-    "symbol": "EMBC",
-    "qty": 57,
+    "symbol": "MOLN",
+    "qty": 322,
     "side": "long",
     "entry_type": "stop",
-    "price": 10.88,
-    "stop": 9.4,
-    "target": 13.12,
-    "why": "[ORB+VWAP] EMBC gapped +20% on 19x normal volume and is above VWAP (C$10.36); buy a break above the 15-min high C$10.87, stop under the range low C$9.40, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
+    "price": 4.16,
+    "stop": 4.05,
+    "target": 4.33,
+    "why": "[Squeeze ORB] MOLN gapped +11% on 12x normal volume and is above VWAP (C$4.05); buy a break above the 15-min high C$4.15, stop under the range low C$4.05, half off at 1R, target 1.5157R. Float 21M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-24T14:46:40",
-    "valid_until": "2026-11-24T20:46:40",
+    "created": "2026-11-24T14:51:52",
+    "valid_until": "2026-11-24T20:51:52",
     "flat_by": "15:50",
     "no_entry_after": "15:15",
-    "play": "ORB+VWAP",
+    "play": "Squeeze ORB",
     "scale_out_r": 1,
-    "reserve": 620.1600000000001
+    "reserve": 1339.52
    }
   ],
   "last_bar": {
@@ -99,22 +124,24 @@
    "CRVO": "2026-11-20T16:35:00",
    "BRUN": "2026-11-23T20:14:00",
    "NVTS": "2026-11-23T20:14:00",
-   "POET": "2026-11-23T20:14:00"
+   "POET": "2026-11-23T20:14:00",
+   "EMBC": "2026-11-24T14:50:00",
+   "MEDS": "2026-11-24T14:50:00"
   },
   "day": {
    "date": "2026-11-24",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 2989.1765363379473
   },
   "week": {
    "key": "2026-W48",
-   "trades": 1
+   "trades": 2
   },
   "realized": 50.403378097916956,
-  "seq": 76,
+  "seq": 77,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2989.1765363379473,
+  "equity_last": 3008.745976999055,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

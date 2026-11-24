@@ -524,3 +524,6 @@
 {"ts": "2026-11-23T20:15:39Z", "event": "skip", "trader": "day", "symbol": "BRUN", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-23T20:15:39Z", "event": "skip", "trader": "day", "symbol": "POET", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-24T03:12:18Z", "event": "plan_activated", "trader": "crypto", "plan": "plan_c", "index": 0, "when": {"type": "price_below", "symbol": "BTC-USD", "level": 60000}, "note": "Deeper flush: still no buys; stops handle exits"}
+{"ts": "2026-11-24T05:16:07Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,229 per contract is more than free equity"}
+{"ts": "2026-11-24T05:16:07Z", "event": "rejected", "trader": "futures", "symbol": "SIL", "reason": "market mood sized it to zero", "why": "[Metal trend + dollar] Micro silver trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$40.93; stop 1.52 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar firm (+0.62% on its 20-day trend) agrees. Notional C$58,787 on C$8,430 equity. Sized x0.8 for a risk-off market."}
+{"ts": "2026-11-24T05:16:07Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}

@@ -558,3 +558,5 @@
 {"ts": "2026-11-24T19:05:07Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
 {"ts": "2026-11-24T20:16:17Z", "event": "skip", "trader": "day", "symbol": "MEDS", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-24T20:16:17Z", "event": "skip", "trader": "day", "symbol": "MOLN", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-24T20:36:25Z", "event": "close", "trader": "swing", "symbol": "COIN", "kind": "stock", "price": 145.9600454568863, "pnl": -53.2, "why": "stop hit"}
+{"ts": "2026-11-24T20:36:25Z", "event": "plan_activated", "trader": "swing", "plan": "plan_b", "index": 0, "when": {"type": "stopped_out", "symbol": "COIN"}, "note": "COIN stopped: cash waits for the scan"}

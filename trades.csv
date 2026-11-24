@@ -160,3 +160,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-24T17:44:06Z,day,SELL,stock,APUS,14,3.34,0.09,46.76,4.67,1.5,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-24T17:54:35Z,day,SELL,stock,APUS,14,3.52,0.1,49.28,7.18,1.6,target hit,autopilot,yes
 2026-11-24T18:34:59Z,day,SELL,stock,BDRX,49,3.425416,0.34,167.85,-1.05,5.5,stop hit,autopilot,yes
+2026-11-24T20:36:25Z,swing,SELL,stock,COIN,2,145.960045,0.15,291.92,-53.2,10.1,stop hit,autopilot,yes

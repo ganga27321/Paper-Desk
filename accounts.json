@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2011.064653032415,
+  "cash": 1926.896653032415,
   "positions": [
    {
     "id": "o76",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 9.4,
-    "last": 11.426242588650894
+    "last": 11.227742241990654
    },
    {
     "id": "o78",
@@ -50,7 +50,7 @@
     "low": 3.44,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
-    "last": 3.508056995003699,
+    "last": 3.5802748799324036,
     "init_stop": 3.1
    },
    {
@@ -75,7 +75,31 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 3.27,
-    "last": 3.3791893792108567
+    "last": 3.3797793364218762
+   },
+   {
+    "id": "o79",
+    "kind": "stock",
+    "symbol": "APUS",
+    "side": "long",
+    "qty": 28,
+    "entry": 3.0,
+    "entry_ts": "2026-11-24T16:34:00",
+    "stop": 2.66,
+    "target": 3.52,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[ORB+VWAP] APUS gapped +30% on 592x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.99, stop under the range low C$2.66, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 3.0503943615943854,
+    "low": 3.0,
+    "scale_out_r": 1,
+    "play": "ORB+VWAP",
+    "init_stop": 2.66,
+    "last": 3.0503943615943854
    }
   ],
   "pending": [
@@ -124,29 +148,6 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 1339.52
-   },
-   {
-    "id": "o79",
-    "kind": "stock",
-    "symbol": "APUS",
-    "qty": 28,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 3.0,
-    "stop": 2.66,
-    "target": 3.52,
-    "why": "[ORB+VWAP] APUS gapped +30% on 592x normal volume and is above VWAP (C$2.77); buy a break above the 15-min high C$2.99, stop under the range low C$2.66, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-24T15:07:09",
-    "valid_until": "2026-11-24T21:07:09",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "ORB+VWAP",
-    "scale_out_r": 1,
-    "reserve": 84.0
    }
   ],
   "last_bar": {
@@ -196,27 +197,27 @@
    "BRUN": "2026-11-23T20:14:00",
    "NVTS": "2026-11-23T20:14:00",
    "POET": "2026-11-23T20:14:00",
-   "EMBC": "2026-11-24T16:32:00",
-   "MEDS": "2026-11-24T16:32:00",
+   "EMBC": "2026-11-24T16:37:00",
+   "MEDS": "2026-11-24T16:37:00",
    "MOLN": "2026-11-24T14:49:00",
-   "BDRX": "2026-11-24T16:32:00",
-   "APUS": "2026-11-24T16:32:00",
+   "BDRX": "2026-11-24T16:37:00",
+   "APUS": "2026-11-24T16:37:00",
    "AHT-PF": "2026-11-24T16:30:00"
   },
   "day": {
    "date": "2026-11-24",
-   "trades": 3,
+   "trades": 4,
    "start_eq": 2989.1765363379473
   },
   "week": {
    "key": "2026-W48",
-   "trades": 4
+   "trades": 5
   },
   "realized": 50.403378097916956,
   "seq": 80,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3023.046012991933,
+  "equity_last": 3020.05483786601,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

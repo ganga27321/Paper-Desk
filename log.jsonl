@@ -523,3 +523,4 @@
 {"ts": "2026-11-23T20:15:39Z", "event": "close", "trader": "day", "symbol": "NVTS", "kind": "stock", "price": 10.33, "pnl": -89.68, "why": "stop hit"}
 {"ts": "2026-11-23T20:15:39Z", "event": "skip", "trader": "day", "symbol": "BRUN", "reason": "order cancelled: unfilled by 15:15 ET"}
 {"ts": "2026-11-23T20:15:39Z", "event": "skip", "trader": "day", "symbol": "POET", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-24T03:12:18Z", "event": "plan_activated", "trader": "crypto", "plan": "plan_c", "index": 0, "when": {"type": "price_below", "symbol": "BTC-USD", "level": 60000}, "note": "Deeper flush: still no buys; stops handle exits"}

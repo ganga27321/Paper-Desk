@@ -22,12 +22,12 @@
     "meta": {
      "small_cap": true
     },
-    "high": 11.037206526249122,
+    "high": 11.378580801180647,
     "low": 10.88,
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 9.4,
-    "last": 11.245083520370315
+    "last": 11.099833916901787
    }
   ],
   "pending": [
@@ -76,6 +76,29 @@
     "play": "Squeeze ORB",
     "scale_out_r": 1,
     "reserve": 1339.52
+   },
+   {
+    "id": "o78",
+    "kind": "stock",
+    "symbol": "BDRX",
+    "qty": 98,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 3.44,
+    "stop": 3.1,
+    "target": 3.96,
+    "why": "[Squeeze ORB] BDRX gapped +13% on 1415x normal volume and is above VWAP (C$3.20); buy a break above the 15-min high C$3.43, stop under the range low C$3.10, half off at 1R, target 1.5157R. Float 0M, short interest 1%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-24T14:56:42",
+    "valid_until": "2026-11-24T20:56:42",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "Squeeze ORB",
+    "scale_out_r": 1,
+    "reserve": 337.12
    }
   ],
   "last_bar": {
@@ -125,8 +148,9 @@
    "BRUN": "2026-11-23T20:14:00",
    "NVTS": "2026-11-23T20:14:00",
    "POET": "2026-11-23T20:14:00",
-   "EMBC": "2026-11-24T14:50:00",
-   "MEDS": "2026-11-24T14:50:00"
+   "EMBC": "2026-11-24T14:55:00",
+   "MEDS": "2026-11-24T14:55:00",
+   "MOLN": "2026-11-24T14:49:00"
   },
   "day": {
    "date": "2026-11-24",
@@ -138,10 +162,10 @@
    "trades": 2
   },
   "realized": 50.403378097916956,
-  "seq": 77,
+  "seq": 78,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3008.745976999055,
+  "equity_last": 3000.466749601349,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

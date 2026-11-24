@@ -363,7 +363,7 @@
       "symbol": "QQQ",
       "level": 660
      },
-     "note": "The rally extends past today's 655.98 open: the one trade today",
+     "note": "QQQ extends past 660, above Monday's 657.53 high: the one trade today",
      "orders": [
       {
        "symbol": "QQQ",
@@ -376,7 +376,7 @@
        ],
        "otm_pct": 0.03,
        "contracts": 2,
-       "why": "QQQ extending above 660 (past the open) after the Huang-news gap: 2 calls about 3% out; -50% stop, +100% target"
+       "why": "QQQ extending above 660 (past Monday's high) after the Huang-news gap: 2 calls about 3% out; -50% stop, +100% target"
       }
      ]
     }
@@ -484,5 +484,14 @@
     "Wider stops (stop_width 7) after five stops in two days."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "QQQ opened at 638, 22 points under my 660 trigger and fading with VIX 29.2. The trigger stays at 660: only a move past Monday's 657.53 high gets the calls. My U put is -37% (U 47.78, no live bid/ask yet); the engine's -50% cut stays. Nothing after 2:00.",
+  "theo": "RKT 13.83, above my 12.50 strike with 17 days left; no live bid/ask on the put (last 0.35). One put at a time, and VIX over 27 keeps the cash parked: no new put.",
+  "changes": [
+   "Vega: QQQ call trigger kept at 660; note and reason updated to Monday's 657.53 high (the old note named Monday's open).",
+   "Theo: no change."
+  ]
  }
 }

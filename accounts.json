@@ -3,7 +3,7 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2029.9819763379471,
+  "cash": 2011.064653032415,
   "positions": [
    {
     "id": "o76",
@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "ORB+VWAP",
     "init_stop": 9.4,
-    "last": 10.670491451431076
+    "last": 10.671816299922057
    },
    {
     "id": "o78",
@@ -50,8 +50,32 @@
     "low": 3.44,
     "scale_out_r": 1,
     "play": "Squeeze ORB",
-    "last": 3.403209663954158,
+    "last": 3.433505995588007,
     "init_stop": 3.1
+   },
+   {
+    "id": "o80",
+    "kind": "stock",
+    "symbol": "AHT-PF",
+    "side": "long",
+    "qty": 5,
+    "entry": 3.7759128354355767,
+    "entry_ts": "2026-11-24T15:20:00",
+    "stop": 3.27,
+    "target": 4.53,
+    "flat_by": "15:50",
+    "time_stop": null,
+    "why": "[Squeeze ORB] AHT-PF gapped +9% on 5x normal volume and is above VWAP (C$3.72); buy a break above the 15-min high C$3.76, stop under the range low C$3.27, half off at 1R, target 1.5157R. Float 6M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "high": 3.7759128354355767,
+    "low": 3.7759128354355767,
+    "scale_out_r": 1,
+    "play": "Squeeze ORB",
+    "init_stop": 3.27,
+    "last": 3.5470695196203224
    }
   ],
   "pending": [
@@ -123,29 +147,6 @@
     "play": "ORB+VWAP",
     "scale_out_r": 1,
     "reserve": 84.0
-   },
-   {
-    "id": "o80",
-    "kind": "stock",
-    "symbol": "AHT-PF",
-    "qty": 5,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 3.77,
-    "stop": 3.27,
-    "target": 4.53,
-    "why": "[Squeeze ORB] AHT-PF gapped +9% on 5x normal volume and is above VWAP (C$3.72); buy a break above the 15-min high C$3.76, stop under the range low C$3.27, half off at 1R, target 1.5157R. Float 6M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-24T15:17:41",
-    "valid_until": "2026-11-24T21:17:41",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 18.85
    }
   ],
   "last_bar": {
@@ -195,26 +196,27 @@
    "BRUN": "2026-11-23T20:14:00",
    "NVTS": "2026-11-23T20:14:00",
    "POET": "2026-11-23T20:14:00",
-   "EMBC": "2026-11-24T15:16:00",
-   "MEDS": "2026-11-24T15:16:00",
+   "EMBC": "2026-11-24T15:21:00",
+   "MEDS": "2026-11-24T15:21:00",
    "MOLN": "2026-11-24T14:49:00",
-   "BDRX": "2026-11-24T15:16:00",
-   "APUS": "2026-11-24T15:16:00"
+   "BDRX": "2026-11-24T15:21:00",
+   "APUS": "2026-11-24T15:21:00",
+   "AHT-PF": "2026-11-24T15:21:00"
   },
   "day": {
    "date": "2026-11-24",
-   "trades": 2,
+   "trades": 3,
    "start_eq": 2989.1765363379473
   },
   "week": {
    "key": "2026-W48",
-   "trades": 3
+   "trades": 4
   },
   "realized": 50.403378097916956,
   "seq": 80,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 2971.714536137026,
+  "equity_last": 2973.5771172936984,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

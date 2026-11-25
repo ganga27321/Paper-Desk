@@ -564,3 +564,7 @@
 {"ts": "2026-11-25T05:49:11Z", "event": "skip", "trader": "futures", "symbol": "MNQ", "reason": "margin $3,209 per contract is more than free equity"}
 {"ts": "2026-11-25T05:49:11Z", "event": "rejected", "trader": "futures", "symbol": "SIL", "reason": "market mood sized it to zero", "why": "[Metal trend + dollar] Micro silver trend is down (20-day EMA below the 50-day). Sell short 1 on a break of the 20-day low US$40.67; stop 1.52 ATR, then a 2.27 ATR chandelier trail (no fixed target: let the trend run). US dollar firm (+0.54% on its 20-day trend) agrees. Notional C$58,058 on C$9,985 equity. Sized x0.8 for a risk-off market."}
 {"ts": "2026-11-25T05:49:12Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}
+{"ts": "2026-11-25T12:51:39Z", "event": "plan_activated", "trader": "swing", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 26}, "note": "Fear is up: no new buys"}
+{"ts": "2026-11-25T12:51:39Z", "event": "plan_activated", "trader": "long", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 28}, "note": "Fear spike: no buys this week"}
+{"ts": "2026-11-25T12:51:39Z", "event": "halt", "trader": "futures", "reason": "day loss -6.2% hit the 5% limit"}
+{"ts": "2026-11-25T12:51:39Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}

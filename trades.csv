@@ -171,3 +171,5 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-25T17:14:31Z,day,SELL,stock,BHR,332,2.370832,1.57,787.12,41.86,25.6,took half at 1R; rest rides with the stop at breakeven,autopilot,yes
 2026-11-25T17:54:46Z,day,SELL,stock,BHR,333,2.44,1.63,812.52,64.97,25.9,target hit,autopilot,yes
 2026-11-25T18:05:16Z,swing,SELL,stock,RKT,20,21.330617,0.21,426.61,34.41,14.7,took half at 1R; rest rides with the stop at breakeven,meeting,yes
+2026-11-25T18:35:11Z,options_aggr,SELL_TO_CLOSE,option,RKT 2026-12-04 14.5C,2,1.238167,1.98,247.63,117.57,9.9,took half at +106%; rest is a runner,meeting,yes
+2026-11-25T18:35:11Z,options_safe,BUY_TO_CLOSE,option,RKT 2026-12-11 12.5P,1,0.212464,0.99,21.25,1.84,0.7,bought back after keeping 53% of the premium,autopilot,yes

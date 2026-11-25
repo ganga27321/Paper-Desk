@@ -489,5 +489,14 @@
     "Wider stops (stop_width 7) after five stops in two days."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "QQQ opened at 614.9, 25 points under my 640 reclaim trigger, with VIX at 31.7, a hair under my 32 stand-down line. The trigger stays at 640: only a real reversal gets the calls. No puts into a gap down. One trade max, nothing after 2:00.",
+  "theo": "RKT 14.50, well above my 12.50 strike with 16 days left; the put marks about 0.16 (no live bid/ask yet). One put at a time and VIX over 27 keeps the cash parked: no new put.",
+  "changes": [
+   "Vega: no change (QQQ 640 trigger kept; VIX 31.7 noted against the 32 stand-down).",
+   "Theo: no change."
+  ]
  }
 }

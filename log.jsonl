@@ -608,3 +608,4 @@
 {"ts": "2026-11-25T19:00:48Z", "event": "skip", "trader": "day", "symbol": "*", "reason": "2 losing trades today: Dax stops for the day"}
 {"ts": "2026-11-25T19:05:51Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}
 {"ts": "2026-11-25T20:17:14Z", "event": "skip", "trader": "day", "symbol": "LOCL", "reason": "order cancelled: unfilled by 15:15 ET"}
+{"ts": "2026-11-25T20:41:03Z", "event": "scan", "warning": "screener page 0 failed: HTTPError('HTTP Error 401: ')"}

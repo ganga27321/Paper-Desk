@@ -165,3 +165,4 @@ ts,trader,action,kind,symbol,qty,price,fee,value,pnl,pct_of_equity,why,source,tf
 2026-11-25T14:42:09Z,day,SELL,stock,AHT-PF,5,3.188416,0.03,15.94,-2.97,0.5,stop hit,autopilot,yes
 2026-11-25T14:47:18Z,swing,SELL,stock,CRWV,4,54.64514,0.11,218.58,-107.06,7.7,stop hit,meeting,yes
 2026-11-25T14:47:18Z,swing,SELL,stock,KLAC,1,174.61,0.09,174.61,-19.23,6.1,stop hit,meeting,yes
+2026-11-25T15:17:43Z,options_aggr,BUY_TO_OPEN,option,RKT 2026-12-04 14.5C,4,0.640431,3.96,256.17,,11.3,"[Momentum call] RKT ripping: +7.5% in 5 days on 0.9x volume. Buy the 2026-12-04 $14.5 call at $0.49 (stock $14.32). Half off at +100%, the rest rides to +300% or back to breakeven; cut at -50%. Max loss = premium paid. Sized x0.7 for a risk-off market.",meeting,yes

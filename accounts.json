@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2856.4153368481097,
-  "positions": [
-   {
-    "id": "o91",
-    "kind": "stock",
-    "symbol": "SVRE",
-    "side": "long",
-    "qty": 133,
-    "entry": 2.19,
-    "entry_ts": "2026-11-25T16:43:00",
-    "stop": 1.89,
-    "target": 2.64,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] SVRE gapped +25% on 5x normal volume and is above VWAP (C$2.05); buy a break above the 15-min high C$2.18, stop under the range low C$1.89, half off at 1R, target 1.5157R. Float 2M, short interest 1%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 2.2290546995047578,
-    "low": 2.19,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "init_stop": 1.89,
-    "last": 1.9731188892911433
-   }
-  ],
+  "cash": 3107.2825968481097,
+  "positions": [],
   "pending": [
    {
     "id": "o83",
@@ -110,7 +85,7 @@
    "AHT-PF": "2026-11-25T14:41:00",
    "BHR": "2026-11-25T17:53:00",
    "LOCL": "2026-11-25T18:38:00",
-   "SVRE": "2026-11-25T18:54:00"
+   "SVRE": "2026-11-25T18:59:00"
   },
   "day": {
    "date": "2026-11-25",
@@ -121,11 +96,11 @@
    "key": "2026-W48",
    "trades": 7
   },
-  "realized": 214.59423773643408,
+  "realized": 174.1914977364341,
   "seq": 95,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3118.840149123832,
+  "equity_last": 3107.2825968481097,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],
@@ -182,7 +157,8 @@
    "dax_chase_BTGO": "2026-11-23",
    "dax_chase_BRAI": "2026-11-23",
    "dax_chase_BAK": "2026-11-23",
-   "dax_chase_APUS": "2026-11-25"
+   "dax_chase_APUS": "2026-11-25",
+   "dax_done": "2026-11-25"
   }
  },
  "swing": {

@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 3028.4999479658436,
-  "positions": [
-   {
-    "id": "o80",
-    "kind": "stock",
-    "symbol": "AHT-PF",
-    "side": "long",
-    "qty": 5,
-    "entry": 3.7759128354355767,
-    "entry_ts": "2026-11-24T15:20:00",
-    "stop": 3.27,
-    "target": 4.53,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[Squeeze ORB] AHT-PF gapped +9% on 5x normal volume and is above VWAP (C$3.72); buy a break above the 15-min high C$3.76, stop under the range low C$3.27, half off at 1R, target 1.5157R. Float 6M, short interest 0%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 3.8183670133666965,
-    "low": 3.7759128354355767,
-    "scale_out_r": 1,
-    "play": "Squeeze ORB",
-    "init_stop": 3.27,
-    "last": 3.444652449009709
-   }
-  ],
+  "cash": 3044.410144370327,
+  "positions": [],
   "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
@@ -83,7 +58,7 @@
    "MOLN": "2026-11-24T14:49:00",
    "BDRX": "2026-11-24T18:33:00",
    "APUS": "2026-11-24T17:53:00",
-   "AHT-PF": "2026-11-24T20:26:00"
+   "AHT-PF": "2026-11-25T14:41:00"
   },
   "day": {
    "date": "2026-11-25",
@@ -94,11 +69,11 @@
    "key": "2026-W48",
    "trades": 5
   },
-  "realized": 110.72667303134595,
+  "realized": 107.75730525865154,
   "seq": 80,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3045.723210210892,
+  "equity_last": 3044.410144370327,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

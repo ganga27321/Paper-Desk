@@ -568,3 +568,4 @@
 {"ts": "2026-11-25T12:51:39Z", "event": "plan_activated", "trader": "long", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 28}, "note": "Fear spike: no buys this week"}
 {"ts": "2026-11-25T12:51:39Z", "event": "halt", "trader": "futures", "reason": "day loss -6.2% hit the 5% limit"}
 {"ts": "2026-11-25T12:51:39Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}
+{"ts": "2026-11-25T14:42:09Z", "event": "close", "trader": "day", "symbol": "AHT-PF", "kind": "stock", "price": 3.1884161131229405, "pnl": -2.97, "why": "stop hit"}

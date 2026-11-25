@@ -5,7 +5,31 @@
  "day": {
   "cash": 3044.410144370327,
   "positions": [],
-  "pending": [],
+  "pending": [
+   {
+    "id": "o82",
+    "kind": "stock",
+    "symbol": "BHR",
+    "qty": 665,
+    "side": "long",
+    "entry_type": "stop",
+    "price": 2.24,
+    "stop": 2.11,
+    "target": 2.44,
+    "why": "[ORB+VWAP] BHR gapped +9% on 3x normal volume and is above VWAP (C$2.18); buy a break above the 15-min high C$2.23, stop under the range low C$2.11, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
+    "source": "autopilot",
+    "meta": {
+     "small_cap": true
+    },
+    "created": "2026-11-25T14:52:29",
+    "valid_until": "2026-11-25T20:52:29",
+    "flat_by": "15:50",
+    "no_entry_after": "15:15",
+    "play": "ORB+VWAP",
+    "scale_out_r": 1,
+    "reserve": 1489.6000000000001
+   }
+  ],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -70,7 +94,7 @@
    "trades": 5
   },
   "realized": 107.75730525865154,
-  "seq": 80,
+  "seq": 82,
   "deposits": [],
   "deploy_frac": 1.0,
   "equity_last": 3044.410144370327,

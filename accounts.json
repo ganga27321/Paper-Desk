@@ -3,33 +3,8 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 2045.5203768481097,
+  "cash": 2856.4153368481097,
   "positions": [
-   {
-    "id": "o82",
-    "kind": "stock",
-    "symbol": "BHR",
-    "side": "long",
-    "qty": 333,
-    "entry": 2.24,
-    "entry_ts": "2026-11-25T16:41:00",
-    "stop": 2.24,
-    "target": 2.44,
-    "flat_by": "15:50",
-    "time_stop": null,
-    "why": "[ORB+VWAP] BHR gapped +9% on 3x normal volume and is above VWAP (C$2.18); buy a break above the 15-min high C$2.23, stop under the range low C$2.11, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "high": 2.4142210922303207,
-    "low": 2.24,
-    "scale_out_r": 1,
-    "play": "ORB+VWAP",
-    "init_stop": 2.11,
-    "last": 2.4071204489299305,
-    "scaled": true
-   },
    {
     "id": "o91",
     "kind": "stock",
@@ -52,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 1.89,
-    "last": 2.0753780485786137
+    "last": 2.094721345189811
    }
   ],
   "pending": [
@@ -133,9 +108,9 @@
    "BDRX": "2026-11-24T18:33:00",
    "APUS": "2026-11-24T17:53:00",
    "AHT-PF": "2026-11-25T14:41:00",
-   "BHR": "2026-11-25T17:48:00",
+   "BHR": "2026-11-25T17:53:00",
    "LOCL": "2026-11-25T17:33:00",
-   "SVRE": "2026-11-25T17:48:00"
+   "SVRE": "2026-11-25T17:53:00"
   },
   "day": {
    "date": "2026-11-25",
@@ -146,11 +121,11 @@
    "key": "2026-W48",
    "trades": 7
   },
-  "realized": 149.61927773643419,
+  "realized": 214.59423773643408,
   "seq": 94,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3123.116766802732,
+  "equity_last": 3135.0132757583547,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

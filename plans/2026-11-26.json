@@ -1,0 +1,451 @@
+{
+ "date": "2026-11-26",
+ "market_view": "Thanksgiving: no US stock or options session today (the TSX is open); only crypto and futures trade, on thin holiday volume. Wednesday reversed hard: S&P from -3.2% at 9:45 to -0.3%, Nasdaq 100 -4.8% to -0.7%, Dow from -1,100 points to +0.3%, after hot PCE (3.8%, core 3.3% vs 3.2%), proposed new tariffs pushed to January at the earliest, falling yields (10-year 4.85%) and Michael Burry saying he is 'almost entirely long'. VIX still closed up at 28.3. Futures +0.5% this morning; WTI US$84.4 after a Houthi strike on a Saudi refinery, gold US$3,620, BTC US$60,600 with Fear & Greed 11.",
+ "tabled": [
+  "CL=F",
+  "GC=F",
+  "BTC-USD",
+  "ETH-USD",
+  "RKT",
+  "NVDA",
+  "ANT"
+ ],
+ "events": [
+  {
+   "name": "Wed Nov 25: hot PCE, then a full-day reversal",
+   "status": "released",
+   "actual": "PCE 3.8% y/y, core 3.3% vs 3.2%; Q3 GDP revised to 4.3%. SPY closed 716.76 (-0.3%) from a -3.2% low; QQQ 633.81 (-0.7%) from -4.8%; IWM +0.6%; VIX 28.3",
+   "reaction": "Dip buyers won the day; tech still lagged"
+  },
+  {
+   "name": "Desk Wednesday",
+   "status": "released",
+   "actual": "Vega's RKT call +C$118 and Theo's RKT put closed (+C$2); Sam's RKT +C$34; Dax BHR +C$107, SVRE -C$40",
+   "reaction": "RKT paid three traders"
+  },
+  {
+   "time_et": "06:40",
+   "name": "Holiday tape",
+   "status": "released",
+   "actual": "S&P and Nasdaq futures +0.5%, WTI US$84.42, gold US$3,620, BTC US$60,616; US stocks closed",
+   "reaction": "Quiet holiday trade"
+  },
+  {
+   "name": "Fri Nov 27: US stocks close 1:00 PM ET",
+   "status": "upcoming"
+  }
+ ],
+ "scenarios": [
+  {
+   "if": "WTI goes over US$86 on more Gulf headlines",
+   "then": "Fox's crude short is under pressure: the stop decides, no re-short"
+  },
+  {
+   "if": "BTC loses US$58,000 on thin volume",
+   "then": "Kai holds; no add before Nov 30"
+  },
+  {
+   "if": "Gold breaks back over US$3,700",
+   "then": "Fox's gold short trail decides; no add"
+  }
+ ],
+ "news_tickers": [
+  "CL=F",
+  "GC=F",
+  "BTC-USD",
+  "NVDA",
+  "ANT",
+  "RKT"
+ ],
+ "levels": {
+  "NVDA": {
+   "stop": 135,
+   "target": 170,
+   "no_buy_above": 160
+  },
+  "CRWV": {
+   "stop": 34.0
+  },
+  "KLAC": {
+   "stop": 115,
+   "target": 170
+  },
+  "RKT": {
+   "stop": 12.5
+  },
+  "IWM": {
+   "stop": 256
+  },
+  "GC=F": {
+   "stop": 3990
+  },
+  "CL=F": {
+   "stop": 77
+  },
+  "BTC-USD": {
+   "stop": 48000,
+   "no_buy_above": 65000
+  },
+  "ETH-USD": {
+   "stop": 1350,
+   "no_buy_above": 1850
+  },
+  "QQQ": {
+   "stop": 605
+  }
+ },
+ "avoid": {
+  "ANT": "recent IPO, no price history for stops"
+ },
+ "limits": {
+  "day": {
+   "max_day_loss_pct": 3,
+   "max_trades_day": 3
+  },
+  "swing": {
+   "max_day_loss_pct": 4
+  },
+  "options_aggr": {
+   "max_day_loss_pct": 8,
+   "max_trades_day": 1
+  },
+  "options_safe": {
+   "max_trades_day": 1
+  },
+  "futures": {
+   "max_day_loss_pct": 5,
+   "max_trades_day": 1
+  },
+  "crypto": {
+   "max_day_loss_pct": 6
+  }
+ },
+ "shared_notes": [
+  "Thanksgiving: no stock or option trading today; crypto and futures only.",
+  "Friday is a 1:00 PM ET close."
+ ],
+ "traders": {
+  "day": {
+   "view": "Dax: US stocks are closed. Wednesday finished +C$67 net: BHR paid twice, SVRE took C$40 back. No session today, so no trades; Friday's half day gets the squeeze list with tight rules.",
+   "playbook": [
+    {
+     "if": "QQQ holds 615 at 10:00",
+     "then": "run the squeeze list, three trades max"
+    },
+    {
+     "if": "QQQ loses 610",
+     "then": "one setup at most"
+    },
+    {
+     "if": "a trade reaches 1R",
+     "then": "sell half and move the stop to breakeven at once"
+    },
+    {
+     "if": "two losers",
+     "then": "done for the day"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "11:30"
+     },
+     "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4% on the day: stand aside",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 3% on the day or VIX over 32: stand aside.",
+   "lessons_applied": [
+    "VIX near 30: take the 1R half and go to breakeven immediately.",
+    "Squeeze ORB only; plain ORB+VWAP skipped."
+   ]
+  },
+  "swing": {
+   "view": "Sam: Wednesday's reversal took RKT to a +C$34 partial. No stock session today, and SPY 716.76 is still under its 20-day, so nothing new on Friday either.",
+   "playbook": [
+    {
+     "if": "SPY closes back above its 20-day average",
+     "then": "the scan gets a look next week"
+    },
+    {
+     "if": "KLAC loses US$115",
+     "then": "the stop sells it; no re-buy this week"
+    },
+    {
+     "if": "CRWV loses US$34",
+     "then": "the stop decides"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "KLAC"
+     },
+     "note": "KLAC stopped: cash waits for next week's scan",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 26
+     },
+     "note": "Fear is up: no new buys",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 26 or a 5% day loss: no new buys, stops stay.",
+   "lessons_applied": [
+    "No new play in a falling market (S&P under its 20-day).",
+    "A dip buy outside the scan needs a planned sale: none today."
+   ]
+  },
+  "long": {
+   "view": "Lena: Market closed. Every stop holds after Wednesday's comeback; KLAC recovered most of its morning drop. No buys until Monday.",
+   "playbook": [
+    {
+     "if": "any stop is hit",
+     "then": "no replacement the same day"
+    },
+    {
+     "if": "KLAC gives back Monday's gap",
+     "then": "hold, the stop is US$121"
+    },
+    {
+     "if": "VIX over 32",
+     "then": "nothing changes: no buys this week anyway"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "10:00"
+     },
+     "note": "Week's buy done (PBA): no new orders",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Fear spike: no buys this week",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 28: no buys this week.",
+   "lessons_applied": [
+    "Stops about 18% under the buy, checked weekly, not tightened on one day's news.",
+    "Paper drawdown with every stop intact: no sales."
+   ]
+  },
+  "futures": {
+   "view": "Fox: Futures trade today on holiday volume. Crude US$84.42 is up on the Houthi refinery strike, which works against my crude short; gold US$3,620 is up too. The trailing stops decide; no adds, no third position, no trades on a thin holiday tape.",
+   "playbook": [
+    {
+     "if": "gold breaks US$3,500",
+     "then": "the trail tightens; hold"
+    },
+    {
+     "if": "WTI goes over US$84",
+     "then": "the crude stop is close; no re-short"
+    },
+    {
+     "if": "either stop is hit",
+     "then": "no revenge trade"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "MGC"
+     },
+     "note": "Gold short stopped: no revenge trade",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4%: no new futures; stops stay",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 4% on the day: no new futures; stops stay.",
+   "lessons_applied": [
+    "After a big open win: the trailing stop protects it, no adds.",
+    "After a big win, risk small: no third position."
+   ]
+  },
+  "options_aggr": {
+   "view": "Vega: My RKT 14.5 call paid +C$118 Wednesday after RKT ran. No options trade today (market closed); the QQQ 640 trigger stands for Friday.",
+   "playbook": [
+    {
+     "if": "QQQ reclaims 640 after 9:45",
+     "then": "2 calls about 3% out, -50% stop"
+    },
+    {
+     "if": "QQQ stays under 630",
+     "then": "no option today"
+    },
+    {
+     "if": "VIX goes over 32",
+     "then": "no new options"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "QQQ",
+      "level": 640
+     },
+     "note": "QQQ reclaims 640 (Tuesday's close area): the one trade today",
+     "orders": [
+      {
+       "symbol": "QQQ",
+       "kind": "option",
+       "right": "C",
+       "action": "BUY_TO_OPEN",
+       "dte": [
+        10,
+        21
+       ],
+       "otm_pct": 0.03,
+       "contracts": 2,
+       "why": "QQQ reclaiming 640 after the pre-holiday gap down: 2 calls about 3% out; -50% stop, +100% target"
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No extension by 2:00: no option today",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 12% on the day or VIX over 30: no new options.",
+   "lessons_applied": [
+    "Triggers wait for a real reclaim, not a gap.",
+    "After an option stop, no new option on that underlying for 3 days (U).",
+    "Two contracts so a risk-off cut doesn't round to zero."
+   ]
+  },
+  "options_safe": {
+   "view": "Theo: The RKT put closed Wednesday (+C$2), so my cash is free again. Market closed today; Friday's half day is too thin for a new put, so I start looking Monday.",
+   "playbook": [
+    {
+     "if": "RKT falls toward US$12.50",
+     "then": "hold, assignment at a price I chose is acceptable"
+    },
+    {
+     "if": "RKT rises above US$14.50",
+     "then": "the put decays faster, keep holding"
+    },
+    {
+     "if": "No put across an earnings date, nothing under its 200-day",
+     "then": "follow the rules"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No second put: the cash stays parked",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 27
+     },
+     "note": "Fear spike: keep the cash",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 27: keep the cash, no new puts.",
+   "lessons_applied": [
+    "One put at a time: RKT uses most of the buying power, so no new put."
+   ]
+  },
+  "crypto": {
+   "view": "Kai: BTC US$60,616 and Fear & Greed 11. The 7-day gap runs to Nov 30: no buys on a thin holiday tape. Stops one step wider after the review.",
+   "playbook": [
+    {
+     "if": "BTC reclaims US$65,000 and holds a day",
+     "then": "still no buy, a bounce isn't a signal"
+    },
+    {
+     "if": "BTC loses US$56,000",
+     "then": "no buys; stops handle exits"
+    },
+    {
+     "if": "Fear & Greed rises above 25 with BTC over US$65,000",
+     "then": "crash mode ends next meeting"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "BTC-USD",
+      "level": 68000
+     },
+     "note": "A bounce is not a buy signal: hold and keep the cash",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "BTC-USD",
+      "level": 56000
+     },
+     "note": "Deeper flush: still no buys; stops handle exits",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 8% on the day: no buys; stops stay.",
+   "lessons_applied": [
+    "The 7-day gap is a ceiling, not a target: one add today, no more.",
+    "Wider stops (stop_width 7) after five stops in two days."
+   ]
+  }
+ }
+}

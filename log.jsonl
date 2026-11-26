@@ -614,3 +614,4 @@
 {"ts": "2026-11-26T06:38:39Z", "event": "skip", "trader": "crypto", "symbol": "alts", "reason": "ETH/BTC below its 20-day: no new growth, news or meme coins"}
 {"ts": "2026-11-26T12:55:37Z", "event": "plan_activated", "trader": "swing", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 26}, "note": "Fear is up: no new buys"}
 {"ts": "2026-11-26T14:32:04Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}
+{"ts": "2026-11-26T15:01:44Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "10:00"}, "note": "Week's buy done (PBA): no new orders"}

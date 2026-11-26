@@ -616,3 +616,5 @@
 {"ts": "2026-11-26T14:32:04Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_c", "index": 0, "when": {"type": "vix_above", "level": 27}, "note": "Fear spike: keep the cash"}
 {"ts": "2026-11-26T15:01:44Z", "event": "plan_activated", "trader": "long", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "10:00"}, "note": "Week's buy done (PBA): no new orders"}
 {"ts": "2026-11-26T16:32:43Z", "event": "plan_activated", "trader": "day", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "11:30"}, "note": "Lunch lull, no new entries 11:30-1:30 (rule 3b)"}
+{"ts": "2026-11-26T19:04:37Z", "event": "plan_activated", "trader": "options_aggr", "plan": "plan_c", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No extension by 2:00: no option today"}
+{"ts": "2026-11-26T19:04:37Z", "event": "plan_activated", "trader": "options_safe", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "14:00"}, "note": "No second put: the cash stays parked"}

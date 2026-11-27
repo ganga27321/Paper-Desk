@@ -477,5 +477,14 @@
     "The 7-day gap is a ceiling, not a target."
    ]
   }
+ },
+ "options_convene": {
+  "time_et": "09:32",
+  "vega": "QQQ is 643.25, already over my 640 reclaim line after Wednesday's comeback, and VIX has eased to 25.7. The trigger stays at 640: it fires at go-live and that's my one trade on the half day. RKT 14.5C is up about 144% on the last print with no live bid/ask yet; the +100% target handles it. Nothing new after 11:30.",
+  "theo": "No put open, and VIX at 25.7 is under my 27 fear line. But it's a 1:00 PM close and nothing under US$20 is tabled above its 200-day, so the cash stays parked. No new put.",
+  "changes": [
+   "Vega: no change (QQQ 643 already over the 640 trigger; it fires at 9:45).",
+   "Theo: no change."
+  ]
  }
 }

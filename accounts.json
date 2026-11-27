@@ -3,32 +3,34 @@
   "currency": "CAD"
  },
  "day": {
-  "cash": 3107.2825968481097,
-  "positions": [],
-  "pending": [
+  "cash": 1335.3022975061403,
+  "positions": [
    {
     "id": "o96",
     "kind": "stock",
     "symbol": "AFYA",
-    "qty": 105,
     "side": "long",
-    "entry_type": "stop",
-    "price": 16.82,
+    "qty": 105,
+    "entry": 16.842318214447005,
+    "entry_ts": "2026-11-27T15:24:00",
     "stop": 16.32,
     "target": 17.58,
+    "flat_by": "15:50",
+    "time_stop": null,
     "why": "[Squeeze ORB] AFYA gapped +15% on 11x normal volume and is above VWAP (C$16.52); buy a break above the 15-min high C$16.81, stop under the range low C$16.32, half off at 1R, target 1.5157R. Sized x0.75 for a risk-off market.",
     "source": "autopilot",
     "meta": {
      "small_cap": true
     },
-    "created": "2026-11-27T14:45:40",
-    "valid_until": "2026-11-27T20:45:40",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
+    "high": 16.940636666113278,
+    "low": 16.842318214447005,
     "scale_out_r": 1,
-    "reserve": 1766.1000000000001
-   },
+    "play": "Squeeze ORB",
+    "init_stop": 16.32,
+    "last": 16.940636666113278
+   }
+  ],
+  "pending": [
    {
     "id": "o97",
     "kind": "stock",
@@ -109,23 +111,23 @@
    "BHR": "2026-11-25T17:53:00",
    "LOCL": "2026-11-25T19:53:00",
    "SVRE": "2026-11-25T18:59:00",
-   "AFYA": "2026-11-27T15:19:00",
-   "VIOT": "2026-11-27T15:03:00"
+   "AFYA": "2026-11-27T15:25:00",
+   "VIOT": "2026-11-27T15:24:00"
   },
   "day": {
    "date": "2026-11-27",
-   "trades": 0,
+   "trades": 1,
    "start_eq": 3107.2825968481097
   },
   "week": {
    "key": "2026-W48",
-   "trades": 7
+   "trades": 8
   },
   "realized": 174.1914977364341,
   "seq": 98,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3107.2825968481097,
+  "equity_last": 3114.0691474480345,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

@@ -27,7 +27,7 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 16.32,
-    "last": 16.8702240638504
+    "last": 16.870461185435488
    }
   ],
   "pending": [
@@ -127,7 +127,7 @@
   "seq": 98,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3106.6758242104324,
+  "equity_last": 3106.7007219768666,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

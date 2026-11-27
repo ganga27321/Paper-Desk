@@ -1,0 +1,481 @@
+{
+ "date": "2026-11-27",
+ "market_view": "Pre-market 6:40 ET Friday, the Black Friday half day (US stocks close 1:00 PM ET). Futures extend Wednesday's comeback: SPY ~720.4 (+0.5%), QQQ ~636.6 (+0.4%), IWM 270.3; NVDA ~151.2 (+1.3%), SMH +1.3%, ORCL +1.9%, COIN +2.8%, CRWV +2.3%. Anthropic 84.25 (+1.8%), back above its US$83 IPO price after an after-close filing of a US$26B share sale to Nvidia, Microsoft, Google, AMD, Broadcom, Micron and TSMC. VIX 25.0 (-6.8%), 10-year 4.85%, WTI US$84.4, BTC US$61,660 with Fear & Greed 12. No US data today; thin volume makes every move bigger than it looks.",
+ "tabled": [
+  "NVDA",
+  "ANT",
+  "RKT",
+  "COIN",
+  "CRWV",
+  "KLAC",
+  "QQQ",
+  "IWM",
+  "CAR",
+  "CL=F",
+  "GC=F",
+  "BTC-USD",
+  "ETH-USD",
+  "LINK-USD"
+ ],
+ "events": [
+  {
+   "name": "Wed Nov 25: full-day reversal after hot PCE",
+   "status": "released",
+   "actual": "SPY 716.70 (-0.3%) from a -3.2% low; QQQ 633.93 (-0.7%) from -4.8%; IWM +0.6%; VIX then fell to 24.97",
+   "reaction": "Futures higher into the half day"
+  },
+  {
+   "name": "Anthropic 8-K after Wednesday's close",
+   "status": "released",
+   "actual": "US$26.0B concurrent private placement at the US$83 IPO price to AMD, Broadcom, Google, Micron, Microsoft, NVIDIA and TSMC",
+   "reaction": "ANT 84.25 pre-market (+1.8%)"
+  },
+  {
+   "name": "Kai's autopilot overnight",
+   "status": "released",
+   "actual": "Alt season switched on (ETH/BTC above its 20-day): bought LINK (news bucket) and PEPE (meme bucket) at 05:57 UTC",
+   "reaction": "Crypto cash now about C$396"
+  },
+  {
+   "time_et": "06:40",
+   "name": "Pre-market tape",
+   "status": "released",
+   "actual": "SPY 720.43, QQQ 636.62, NVDA 151.22, ANT 84.25, VIX 24.97, WTI US$84.42, BTC US$61,657",
+   "reaction": "Quiet green holiday open expected"
+  },
+  {
+   "time_et": "13:00",
+   "name": "US stocks close early (half day)",
+   "status": "upcoming"
+  }
+ ],
+ "scenarios": [
+  {
+   "if": "QQQ holds 633 (Wednesday's close) through 10:30",
+   "then": "Dax may run two squeeze setups; nobody else adds into a half day"
+  },
+  {
+   "if": "QQQ loses 625",
+   "then": "Wednesday's comeback is fading: no new longs"
+  },
+  {
+   "if": "ANT holds above US$83 (its IPO price) into noon",
+   "then": "Noted for Monday only; ANT stays on the avoid list (under two weeks of history)"
+  },
+  {
+   "if": "VIX goes back over 28",
+   "then": "No new options or swing buys"
+  },
+  {
+   "if": "BTC loses US$58,000",
+   "then": "Kai's new alt buys lean on their stops; no more adds"
+  }
+ ],
+ "news_tickers": [
+  "ANT",
+  "NVDA",
+  "MSFT",
+  "GOOGL",
+  "CAR",
+  "RKT",
+  "COIN",
+  "ORCL"
+ ],
+ "levels": {
+  "NVDA": {
+   "stop": 135,
+   "target": 170,
+   "no_buy_above": 160
+  },
+  "CRWV": {
+   "stop": 34.0
+  },
+  "KLAC": {
+   "stop": 115,
+   "target": 170
+  },
+  "RKT": {
+   "stop": 13.0
+  },
+  "IWM": {
+   "stop": 258
+  },
+  "GC=F": {
+   "stop": 3990
+  },
+  "CL=F": {
+   "stop": 77
+  },
+  "BTC-USD": {
+   "stop": 48000,
+   "no_buy_above": 65000
+  },
+  "ETH-USD": {
+   "stop": 1350,
+   "no_buy_above": 1900
+  },
+  "QQQ": {
+   "stop": 615
+  },
+  "COIN": {
+   "stop": 95
+  }
+ },
+ "avoid": {
+  "ANT": "under two weeks of trading history, no levels for stops",
+  "CAR": "short-squeeze tape (44% of float short), no clean levels on a half day",
+  "ZS": "pinned to the CrowdStrike all-stock deal: a merger spread, not a trade"
+ },
+ "limits": {
+  "day": {
+   "max_day_loss_pct": 3,
+   "max_trades_day": 2
+  },
+  "swing": {
+   "max_day_loss_pct": 4
+  },
+  "options_aggr": {
+   "max_day_loss_pct": 8,
+   "max_trades_day": 1
+  },
+  "options_safe": {
+   "max_trades_day": 1
+  },
+  "futures": {
+   "max_day_loss_pct": 5,
+   "max_trades_day": 1
+  },
+  "crypto": {
+   "max_day_loss_pct": 6
+  }
+ },
+ "shared_notes": [
+  "Black Friday: US stocks close 1:00 PM ET; no new entries after 12:00.",
+  "Option orders go live at 9:45 ET; Vega and Theo meet at 9:31 first.",
+  "Weekly review and bonus tomorrow (Saturday)."
+ ],
+ "traders": {
+  "day": {
+   "view": "Dax: Wednesday netted +C$67 and Thursday was closed. A half day means a shortened range: the 15-minute range still sets up at 9:45, but I stop taking entries at 12:00 and I'm flat by 12:50. Two trades max, the 1R half banked at once.",
+   "playbook": [
+    {
+     "if": "QQQ holds 633 at 9:45",
+     "then": "run the squeeze list, two trades max"
+    },
+    {
+     "if": "QQQ loses 625",
+     "then": "one setup at most"
+    },
+    {
+     "if": "a trade reaches 1R",
+     "then": "sell half and move the stop to breakeven at once"
+    },
+    {
+     "if": "12:00 ET",
+     "then": "no new entries; flat by 12:50"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "12:00"
+     },
+     "note": "Half day: no new entries after noon",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4% on the day: stand aside",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 3% on the day, one loser after 11:00, or VIX over 28: stand aside.",
+   "lessons_applied": [
+    "VIX near 30: take the 1R half and go to breakeven immediately.",
+    "Squeeze ORB only; plain ORB+VWAP skipped."
+   ]
+  },
+  "swing": {
+   "view": "Sam: RKT is my last position after Wednesday's +C$34 partial; it's 15.38 pre. SPY ~720 is still under its 20-day (~742), so my rule says no new play, and a half day before the weekend is the worst time to start one.",
+   "playbook": [
+    {
+     "if": "SPY closes back above its 20-day average",
+     "then": "the scan gets a look Monday"
+    },
+    {
+     "if": "RKT loses US$13",
+     "then": "the stop sells it"
+    },
+    {
+     "if": "RKT runs to its target",
+     "then": "the engine takes it; no re-buy"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "RKT"
+     },
+     "note": "RKT stopped: cash waits for Monday's scan",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 26
+     },
+     "note": "Fear is up: no new buys",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 26 or a 5% day loss: no new buys, stops stay.",
+   "lessons_applied": [
+    "No new play in a falling market (S&P under its 20-day).",
+    "A dip buy outside the scan needs a planned sale: none today."
+   ]
+  },
+  "long": {
+   "view": "Lena: No buys until Monday. KLAC 135.7 pre, AAPL 355, and every stop is still about 18% under its buy after Wednesday's comeback.",
+   "playbook": [
+    {
+     "if": "any stop is hit",
+     "then": "no replacement the same day"
+    },
+    {
+     "if": "KLAC gives back Monday's gap",
+     "then": "hold, the stop is US$121"
+    },
+    {
+     "if": "VIX over 32",
+     "then": "nothing changes: no buys this week anyway"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "10:00"
+     },
+     "note": "Week's buy done (PBA): no new orders",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 28
+     },
+     "note": "Fear spike: no buys this week",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 28: no buys this week.",
+   "lessons_applied": [
+    "Stops about 18% under the buy, checked weekly, not tightened on one day's news.",
+    "Paper drawdown with every stop intact: no sales."
+   ]
+  },
+  "futures": {
+   "view": "Fox: Crude US$84.42 is off Thursday's high after the Saudi refinery strike; gold is about US$3,620. The trailing stops decide, no adds, no third position, and no new futures trade on a holiday-thin tape.",
+   "playbook": [
+    {
+     "if": "gold breaks US$3,500",
+     "then": "the trail tightens; hold"
+    },
+    {
+     "if": "WTI goes over US$84",
+     "then": "the crude stop is close; no re-short"
+    },
+    {
+     "if": "either stop is hit",
+     "then": "no revenge trade"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "stopped_out",
+      "symbol": "MGC"
+     },
+     "note": "Gold short stopped: no revenge trade",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "day_loss_over",
+      "pct": 4
+     },
+     "note": "Down 4%: no new futures; stops stay",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 4% on the day: no new futures; stops stay.",
+   "lessons_applied": [
+    "After a big open win: the trailing stop protects it, no adds.",
+    "After a big win, risk small: no third position."
+   ]
+  },
+  "options_aggr": {
+   "view": "Vega: My RKT 14.5 call is left after Wednesday's +C$118 partial; RKT is 15.38 pre. QQQ ~636.6 is under my 640 trigger: if it reclaims 640 after 9:45, 2 calls about 3% out, with a hard cut-off at 11:30 on a half day.",
+   "playbook": [
+    {
+     "if": "QQQ reclaims 640 after 9:45",
+     "then": "2 calls about 3% out, -50% stop"
+    },
+    {
+     "if": "QQQ stays under 630",
+     "then": "no option today"
+    },
+    {
+     "if": "VIX goes over 32",
+     "then": "no new options"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "QQQ",
+      "level": 640
+     },
+     "note": "QQQ reclaims 640 on the half day: the one trade",
+     "orders": [
+      {
+       "symbol": "QQQ",
+       "kind": "option",
+       "right": "C",
+       "action": "BUY_TO_OPEN",
+       "dte": [
+        10,
+        21
+       ],
+       "otm_pct": 0.03,
+       "contracts": 2,
+       "why": "QQQ reclaiming 640 after Wednesday's comeback: 2 calls about 3% out; -50% stop, +100% target"
+      }
+     ]
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "11:30"
+     },
+     "note": "Half day: no option after 11:30",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 12% on the day or VIX over 30: no new options.",
+   "lessons_applied": [
+    "Triggers wait for a real reclaim, not a gap.",
+    "After an option stop, no new option on that underlying for 3 days (U).",
+    "Two contracts so a risk-off cut doesn't round to zero."
+   ]
+  },
+  "options_safe": {
+   "view": "Theo: My cash is free after the RKT put closed Wednesday. A half day before the weekend is too thin to sell a new put; I start looking Monday.",
+   "playbook": [
+    {
+     "if": "RKT falls toward US$12.50",
+     "then": "hold, assignment at a price I chose is acceptable"
+    },
+    {
+     "if": "RKT rises above US$14.50",
+     "then": "the put decays faster, keep holding"
+    },
+    {
+     "if": "No put across an earnings date, nothing under its 200-day",
+     "then": "follow the rules"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "time_after",
+      "time_et": "14:00"
+     },
+     "note": "No second put: the cash stays parked",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "vix_above",
+      "level": 27
+     },
+     "note": "Fear spike: keep the cash",
+     "orders": []
+    }
+   ],
+   "failsafe": "VIX over 27: keep the cash, no new puts.",
+   "lessons_applied": [
+    "One put at a time: RKT uses most of the buying power, so no new put."
+   ]
+  },
+  "crypto": {
+   "view": "Kai: ETH/BTC went back above its 20-day overnight, which switches alt season on, so my autopilot bought LINK (news bucket, +8% in 3 days) and a PEPE meme ticket (+20% in 3 days). Cash is down to about C$396. Fear & Greed 12, BTC US$61,660. No more buys today; the new stops are -17% (LINK) and -35% (PEPE), trailing.",
+   "playbook": [
+    {
+     "if": "BTC loses US$58,000",
+     "then": "the new alt buys lean on their stops; no more adds"
+    },
+    {
+     "if": "ETH/BTC slips back under its 20-day",
+     "then": "alt season off: no new alt buys"
+    },
+    {
+     "if": "PEPE hits +40%",
+     "then": "the take-profit sells it"
+    }
+   ],
+   "orders": [],
+   "plan_b": [
+    {
+     "when": {
+      "type": "price_above",
+      "symbol": "BTC-USD",
+      "level": 68000
+     },
+     "note": "A bounce is not a buy signal: hold and keep the cash",
+     "orders": []
+    }
+   ],
+   "plan_c": [
+    {
+     "when": {
+      "type": "price_below",
+      "symbol": "BTC-USD",
+      "level": 56000
+     },
+     "note": "Deeper flush: still no buys; stops handle exits",
+     "orders": []
+    }
+   ],
+   "failsafe": "Down 8% on the day: no buys; stops stay.",
+   "lessons_applied": [
+    "Fear adds bought in a slide get stopped together: no fear adds before Nov 30.",
+    "The 7-day gap is a ceiling, not a target."
+   ]
+  }
+ }
+}

@@ -645,3 +645,4 @@
 {"ts": "2026-11-27T15:36:35Z", "event": "open", "trader": "options_aggr", "symbol": "QQQ 2026-12-07 659C", "kind": "option", "qty": 1, "price": 8.707544358968736, "at": "2026-11-27T15:36:35"}
 {"ts": "2026-11-27T15:51:00Z", "event": "scan", "warning": "screener page 0 failed: HTTPError('HTTP Error 401: ')"}
 {"ts": "2026-11-27T16:01:46Z", "event": "skip", "trader": "day", "symbol": "HMR", "reason": "already 0.09 past the breakout level C$2.06 (more than 0.5R): no chase"}
+{"ts": "2026-11-27T16:22:19Z", "event": "skip", "trader": "day", "symbol": "RETO", "reason": "already 1.13 past the breakout level C$7.63 (more than 0.5R): no chase"}

@@ -3,7 +3,7 @@
   "winner": "futures",
   "name": "Fox",
   "week_pnl": 4997.24,
-  "bonus": 200.0,
+  "bonus": 0,
   "board": [
    {
     "trader": "futures",
@@ -33,6 +33,11 @@
     "trader": "swing",
     "week_pnl": -229.64
    }
-  ]
+  ],
+  "revoked": {
+   "date": "2026-11-27",
+   "amount": 200.0,
+   "why": "Bonus program ended; the owner removed W47's C$200 and its full impact from Fox's books"
+  }
  }
 }

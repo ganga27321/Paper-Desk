@@ -559,7 +559,7 @@
     "low": 5531.028648257197,
     "play": "Metal trend + dollar",
     "margin": 2488.962891715739,
-    "unrealized": 3773.1709155405406,
+    "unrealized": 3761.945381881087,
     "pyramided": true
    },
    {
@@ -585,7 +585,7 @@
     "low": 119.99872802245318,
     "play": "Trend breakout",
     "margin": 1619.982828303118,
-    "unrealized": -52.44754585355622
+    "unrealized": -60.300210392324516
    }
   ],
   "pending": [],
@@ -612,7 +612,7 @@
    }
   ],
   "deploy_frac": 1.0,
-  "equity_last": 7350.488005249881,
+  "equity_last": 7331.409807051659,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [
@@ -829,7 +829,7 @@
   }
  },
  "crypto": {
-  "cash": 1125.7877935982397,
+  "cash": 396.4599862005664,
   "positions": [
    {
     "id": "o4",
@@ -851,7 +851,7 @@
     },
     "high": 15.543137070998455,
     "low": 15.217192329986574,
-    "last": 13.78109647221936,
+    "last": 13.591880815296463,
     "init_stop": 10.65203463
    },
    {
@@ -874,7 +874,7 @@
     },
     "high": 128.9737636799582,
     "low": 125.8647140985413,
-    "last": 103.94542335673304,
+    "last": 103.78297018885496,
     "init_stop": 88.10529987
    },
    {
@@ -897,7 +897,7 @@
     },
     "high": 1.6918597123606105,
     "low": 1.6918597123606105,
-    "last": 1.3793908241540151,
+    "last": 1.3873799605725026,
     "init_stop": 1.1843018
    },
    {
@@ -922,7 +922,7 @@
     "low": 2876.266671180114,
     "play": "Extreme-fear buy",
     "init_stop": 1928.35806325,
-    "last": 2474.931783326043
+    "last": 2456.163814621046
    },
    {
     "id": "o13",
@@ -946,7 +946,7 @@
     "low": 2726.8593090004288,
     "play": "Extreme-fear buy",
     "init_stop": 1827.81905457,
-    "last": 2474.931783326043
+    "last": 2456.163814621046
    },
    {
     "id": "o15",
@@ -970,7 +970,7 @@
     "low": 2708.2761101944197,
     "play": "Extreme-fear buy",
     "init_stop": 1814.93541497,
-    "last": 2474.931783326043
+    "last": 2456.163814621046
    },
    {
     "id": "o16",
@@ -994,7 +994,7 @@
     "low": 91984.49823706783,
     "play": "Extreme-fear buy",
     "init_stop": 61442.63042864,
-    "last": 87734.75529044354
+    "last": 87565.54698944092
    },
    {
     "id": "o17",
@@ -1018,7 +1018,7 @@
     "low": 2559.713832645197,
     "play": "Extreme-fear buy",
     "init_stop": 1709.2329866,
-    "last": 2474.931783326043
+    "last": 2456.163814621046
    },
    {
     "id": "o21",
@@ -1042,76 +1042,82 @@
     "low": 2472.5078796028247,
     "play": "Extreme-fear buy",
     "init_stop": 1396.30847482,
-    "last": 2474.931783326043
-   }
-  ],
-  "pending": [
+    "last": 2456.163814621046
+   },
    {
     "id": "o22",
     "kind": "crypto",
     "symbol": "LINK-USD",
-    "qty": 36.35528108,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 11.38166977,
+    "qty": 36.35528108,
+    "entry": 13.779827693984771,
+    "entry_ts": "2026-11-27T06:00:00",
+    "stop": 12.15631868,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[News bucket] News bucket (autopilot): LINK is moving +8% in 3 days, the strongest of the news list. Stop -17.411%, take profit +20.0%. Stop trails 12% under the high. ETH/BTC above its 20-day: alt season on.",
     "source": "autopilot",
     "meta": {
      "bucket": "news",
      "yahoo": "LINK-USD"
     },
-    "created": "2026-11-27T05:57:36",
-    "valid_until": "2026-11-28T05:57:36",
+    "high": 13.813998495876149,
+    "low": 13.779827693984771,
     "trail_pct": 12,
     "play": "News bucket",
-    "reserve": 501.01563583813123
+    "init_stop": 11.38166977,
+    "last": 13.591880815296463
    },
    {
     "id": "o23",
     "kind": "crypto",
     "symbol": "PEPE24478-USD",
-    "qty": 43823974.80442312,
     "side": "long",
-    "entry_type": "market",
-    "price": null,
-    "stop": 3.33e-06,
+    "qty": 43823974.80442312,
+    "entry": 5.1115498242693645e-06,
+    "entry_ts": "2026-11-27T06:00:00",
+    "stop": 4.24e-06,
     "target": null,
+    "flat_by": null,
+    "time_stop": null,
     "why": "[Meme bucket] Meme bucket: PEPE24478 has the hottest 3-day run (+20%). Lottery ticket: stop -34.822%, take +40.0%. Stop trails 18% under the high. ETH/BTC above its 20-day: alt season on.",
     "source": "autopilot",
     "meta": {
      "bucket": "meme",
      "yahoo": "PEPE24478-USD"
     },
-    "created": "2026-11-27T05:57:36",
-    "valid_until": "2026-11-28T05:57:36",
+    "high": 5.168503070743322e-06,
+    "low": 5.1115498242693645e-06,
     "trail_pct": 18,
     "play": "Meme bucket",
-    "reserve": 223.9596490400563
+    "init_stop": 3.33e-06,
+    "last": 5.1115498242693645e-06
    }
   ],
+  "pending": [],
   "last_bar": {
-   "BTC-USD": "2026-11-27T05:50:00",
-   "ETH-USD": "2026-11-27T05:50:00",
-   "LINK-USD": "2026-11-27T05:50:00",
-   "SOL-USD": "2026-11-27T05:50:00",
-   "XRP-USD": "2026-11-27T05:50:00"
+   "BTC-USD": "2026-11-27T07:30:00",
+   "ETH-USD": "2026-11-27T07:30:00",
+   "LINK-USD": "2026-11-27T07:30:00",
+   "SOL-USD": "2026-11-27T07:30:00",
+   "XRP-USD": "2026-11-27T07:30:00",
+   "PEPE24478-USD": "2026-11-27T07:30:00"
   },
   "day": {
    "date": "2026-11-27",
-   "trades": 0,
+   "trades": 2,
    "start_eq": 2496.4895316922407
   },
   "week": {
    "key": "2026-W48",
-   "trades": 1
+   "trades": 3
   },
   "realized": -307.34466768692147,
   "seq": 23,
   "deposits": [],
   "deploy_frac": 0.8400000000000001,
-  "equity_last": 2505.0781795003277,
+  "equity_last": 2486.7189572731822,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

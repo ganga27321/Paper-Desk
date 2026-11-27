@@ -27,34 +27,10 @@
     "scale_out_r": 1,
     "play": "Squeeze ORB",
     "init_stop": 16.32,
-    "last": 16.86963267132569
+    "last": 16.86986838147277
    }
   ],
-  "pending": [
-   {
-    "id": "o97",
-    "kind": "stock",
-    "symbol": "VIOT",
-    "qty": 924,
-    "side": "long",
-    "entry_type": "stop",
-    "price": 1.45,
-    "stop": 1.37,
-    "target": 1.57,
-    "why": "[Squeeze ORB] VIOT gapped +9% on 18x normal volume and is above VWAP (C$1.37); buy a break above the 15-min high C$1.44, stop under the range low C$1.37, half off at 1R, target 1.5157R. Float 28M, short interest 1%: squeeze candidate. Sized x0.75 for a risk-off market.",
-    "source": "autopilot",
-    "meta": {
-     "small_cap": true
-    },
-    "created": "2026-11-27T14:45:40",
-    "valid_until": "2026-11-27T20:45:40",
-    "flat_by": "15:50",
-    "no_entry_after": "15:15",
-    "play": "Squeeze ORB",
-    "scale_out_r": 1,
-    "reserve": 1339.8
-   }
-  ],
+  "pending": [],
   "last_bar": {
    "BESS": "2026-11-09T19:29:00",
    "TLS": "2026-11-09T19:35:00",
@@ -127,7 +103,7 @@
   "seq": 98,
   "deposits": [],
   "deploy_frac": 1.0,
-  "equity_last": 3106.6137279953377,
+  "equity_last": 3106.638477560781,
   "plan_used": {
    "2026-11-05": [],
    "2026-11-06": [],

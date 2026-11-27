@@ -647,3 +647,4 @@
 {"ts": "2026-11-27T16:01:46Z", "event": "skip", "trader": "day", "symbol": "HMR", "reason": "already 0.09 past the breakout level C$2.06 (more than 0.5R): no chase"}
 {"ts": "2026-11-27T16:22:19Z", "event": "skip", "trader": "day", "symbol": "RETO", "reason": "already 1.13 past the breakout level C$7.63 (more than 0.5R): no chase"}
 {"ts": "2026-11-27T17:02:48Z", "event": "plan_activated", "trader": "day", "plan": "plan_b", "index": 0, "when": {"type": "time_after", "time_et": "12:00"}, "note": "Half day: no new entries after noon"}
+{"ts": "2026-11-27T20:15:03Z", "event": "skip", "trader": "day", "symbol": "VIOT", "reason": "order cancelled: unfilled by 15:15 ET"}

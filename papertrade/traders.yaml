@@ -29,7 +29,7 @@ guards:
   options_aggr: {max_day_loss_pct: 25}
   options_safe: {max_day_loss_pct: 3}
   crypto: {max_day_loss_pct: 12}
-weekly_bonus: 200          # C$ added to the biggest earner of the week, after Friday's close
+weekly_bonus: 0            # ended 2026-11-27 (owner's call: the traders are bots, a reward can't change how they trade). Was C$200 to the week's biggest earner; the top earner is still named, no cash is added
 bonus_hold: ["2026-W45", "2026-W46"]   # weeks whose bonus is forfeited (W45: too few trades; W46: owner's call after the losses): nobody is paid, nothing carries over
 # Option orders from the morning plan go live at this time (ET) and pick their contract on live quotes; the 9:31 ET
 # options convene can change them first. Option fills and exits happen only in the regular session.

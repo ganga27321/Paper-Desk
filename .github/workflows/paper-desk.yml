@@ -5,9 +5,9 @@
 #  - every 2 hours, any day -> futures + crypto cycle (they trade outside stock hours)
 #  - 7:50 AM ET weekdays -> premarket scan even if the meeting didn't happen (autopilot)
 #  - Saturday review pushes reviews/<week>.json -> the next run of any kind (crypto runs every 2 hours) becomes the weekly
-#    run: scale changes, lessons, the C$200 bonus (none for a week in bonus_hold), weekly PDF. A push to paper-data can't
+#    run: scale changes, lessons, the week's top earner (the C$200 bonus ended 2026-11-27), weekly PDF. A push to paper-data can't
 #    start a run itself: that branch holds no workflow files, and GitHub reads push workflows from the pushed branch.
-#  - Sunday fallback -> bonus + PDF if the Saturday session was skipped
+#  - Sunday fallback -> top earner + PDF if the Saturday session was skipped
 # Every run rebuilds the dashboard and deploys it to GitHub Pages.
 name: Paper desk
 

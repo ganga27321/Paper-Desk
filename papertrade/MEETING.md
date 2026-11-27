@@ -87,7 +87,7 @@ trades sends one phone note (fills, exits with P/L, halts). 4:05 PM ET: the clos
   the 18:00 UTC reset): the Paper Desk weekly review. All 7 get insights on their week, their style scales are adjusted, and the
   week's biggest dollar earner gets C$200. Steps are below ("Weekly review"). If that
   session is skipped, a Sunday GitHub job still pays the bonus and builds the PDF, with no scale changes.
-- **Monday's meeting** names last week's winner (`bonuses` in the context) and reads the review (`reviews/`). If last
+- **Monday's meeting** names last week's top earner (`bonuses` in the context; `bonus` is 0 since 2026-11-27) and reads the review (`reviews/`). If last
   week is in `bonus_hold` (traders.yaml) there is no winner: say the bonus was forfeited, nothing carried over.
 - The user can move any scale from the dashboard (`by: you` in the history). Never undo a user change without saying why.
 
@@ -155,7 +155,7 @@ Orders are optional: with none, a trader runs on its own rules (autopilot) using
 scanned first and every trader sees them.
 
 ## Weekly review (Saturday, first thing in the 14:40 UTC session)
-A week listed in `bonus_hold` (traders.yaml) pays no bonus and the C$ is forfeited (nothing carries over). The review and scale adjustments still happen.
+The weekly C$200 bonus ended on 2026-11-27 (owner's call: the traders are bots and a reward can't change how they trade). With `weekly_bonus: 0` in traders.yaml the review still names the week's top earner, but no cash is added. (Before that, a week in `bonus_hold` paid nothing.)
 Keep it to one pass; it is the last session of the user's usage week.
 1. Clone/pull `papertrade/state` as in step 1, then `python -m papertrade context > /tmp/desk.json`
    and read each trader's `week` block, scales, positions and trades.
@@ -172,6 +172,6 @@ Keep it to one pass; it is the last session of the user's usage week.
    trader fails validation. At most 3 scales per trader, usually 1-2 steps. Theo (options_safe) stays the safe player: aggression 4 or below. The other six stay aggressive. Don't undo a
    change the user made this week (history entries `by: you`) without saying why.
 3. `python -m papertrade.meeting validate <file>`, then commit that file on paper-data and push. The next desk run
-   (crypto runs every 2 hours, any day) sees the waiting review and applies the adjustments and lessons, pays the
-   C$200 bonus to the week's biggest earner (none for a week in `bonus_hold`), builds the weekly PDF and sends it to
+   (crypto runs every 2 hours, any day) sees the waiting review and applies the adjustments and lessons, names the
+   week's top earner (no bonus since 2026-11-27), builds the weekly PDF and sends it to
    the user's phone. To apply it at once, start paper-desk.yml with mode `weekly` (workflow_dispatch).

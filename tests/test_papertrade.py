@@ -98,6 +98,7 @@ def test_weekly_bonus_goes_to_biggest_earner_once(monkeypatch):
     import datetime as dt
     from papertrade import weekly
     monkeypatch.setitem(core.CFG, "bonus_hold", [])
+    monkeypatch.setitem(core.CFG, "weekly_bonus", 200)
     core.append_equity("2026-11-02T15:00:00Z", [("day", 3000, 0, 3000), ("swing", 3000, 0, 3000)])
     core.append_equity("2026-11-06T21:00:00Z", [("day", 3000, 0, 3150), ("swing", 3000, 0, 3400)])
     core.save_accounts(core.load_accounts())
@@ -215,6 +216,7 @@ def test_forfeited_week_pays_nothing_and_does_not_carry_over(monkeypatch):
     import datetime as dt
     from papertrade import weekly
     monkeypatch.setitem(core.CFG, "bonus_hold", ["2026-W45"])
+    monkeypatch.setitem(core.CFG, "weekly_bonus", 200)
     core.append_equity("2026-11-02T15:00:00Z", [("day", 3000, 0, 3000), ("swing", 3000, 0, 3000)])
     core.append_equity("2026-11-06T21:00:00Z", [("day", 3000, 0, 3150), ("swing", 3000, 0, 3400)])
     core.save_accounts(core.load_accounts())
@@ -603,3 +605,17 @@ def test_kai_adds_once_per_fear_episode_not_once_a_day():
                        "qty": 0.05, "price": 2700, "fee": 0, "value": 135, "pnl": "", "why": "[Extreme-fear buy] add 5%",
                        "source": "autopilot", "tfsa_legal": "no (sandbox)"})
     assert not strategies._fear_add_ok("2026-11-12", 7) and strategies._fear_add_ok("2026-11-17", 7)
+
+
+def test_bonus_switched_off_names_top_earner_and_adds_no_cash(monkeypatch):
+    import datetime as dt
+    from papertrade import weekly
+    monkeypatch.setitem(core.CFG, "bonus_hold", [])
+    monkeypatch.setitem(core.CFG, "weekly_bonus", 0)
+    core.append_equity("2026-11-23T15:00:00Z", [("day", 3000, 0, 3000), ("swing", 3000, 0, 3000)])
+    core.append_equity("2026-11-27T18:00:00Z", [("day", 3000, 0, 3150), ("swing", 3000, 0, 3050)])
+    core.save_accounts(core.load_accounts())
+    w = weekly.award(dt.date(2026, 11, 27))
+    assert w["winner"] == "day" and w["bonus"] == 0
+    a = core.load_accounts()["day"]
+    assert a["cash"] == 3000 and not a["deposits"]

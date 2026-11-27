@@ -65,10 +65,16 @@ def award(week_end=None):
     board.sort(reverse=True)
     pnl, win = board[0]
     amt = float(core.CFG.get("weekly_bonus", 200))
+    name = core.CFG["traders"][win]["name"]
+    if amt <= 0:  # the bonus is switched off (owner's call, 2026-11-27): name the week's top earner, add no cash
+        paid[tag] = {"winner": win, "name": name, "week_pnl": round(pnl, 2), "bonus": 0,
+                     "board": [{"trader": t, "week_pnl": round(v, 2)} for v, t in board]}
+        bp.write_text(json.dumps(paid, indent=1))
+        core.log("top_earner", trader=win, week=tag, week_pnl=round(pnl, 2))
+        return paid[tag]
     a = acc[win]
     a["cash"] += amt
     a["deposits"].append({"date": week_end.isoformat(), "amount": amt, "why": f"Winner of {tag}"})
-    name = core.CFG["traders"][win]["name"]
     core.append_trade({"ts": core.utcnow().isoformat() + "Z", "trader": win, "action": "BONUS", "kind": "cash", "symbol": "BONUS",
                        "qty": 1, "price": amt, "fee": 0, "value": amt, "pnl": "",
                        "why": f"Weekly bonus: biggest earner of {tag} ({pnl:+,.2f} C$ this week). C${amt:.0f} added to the account.",
@@ -110,7 +116,8 @@ def build(week_end=None):
         fig.text(0.07, 0.86, f"C${total:,.0f}", fontsize=34, weight="bold", color=INK)
         fig.text(0.07, 0.835, f"{total / start - 1:+.1%} on C${start:,.0f} put in · {len(wk)} trades this week", fontsize=11, color=INK2)
         if bonus:
-            fig.text(0.07, 0.812, f"Winner of the week: {bonus['name']} ({bonus['week_pnl']:+,.2f} C$) - C${bonus['bonus']:.0f} bonus added",
+            fig.text(0.07, 0.812, f"Top earner of the week: {bonus['name']} ({bonus['week_pnl']:+,.2f} C$)"
+                     + (f" - C${bonus['bonus']:.0f} bonus added" if bonus['bonus'] else " (no bonus: ended Nov 27, 2026)"),
                      fontsize=11, color="#067806", weight="bold")
         ax = fig.add_axes([0.07, 0.50, 0.86, 0.29])
         for tid, s in eq.items():
